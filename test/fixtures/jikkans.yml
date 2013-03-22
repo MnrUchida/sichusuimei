@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  jikkan_code: 
+  jikkan_name: 
+  inyou: 1
+  ,: MyString
+  point: 
+  point_day: 1.5
+
+two:
+  jikkan_code: 
+  jikkan_name: 
+  inyou: 1
+  ,: MyString
+  point: 
+  point_day: 1.5

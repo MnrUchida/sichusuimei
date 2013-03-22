@@ -1,0 +1,64 @@
+# coding : utf-8
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Junishi.create(:shi_name=>'子', :shi_code => 0)
+Junishi.create(:shi_name=>'丑', :shi_code => 1)
+Junishi.create(:shi_name=>'寅', :shi_code => 2)
+Junishi.create(:shi_name=>'卯', :shi_code => 3)
+Junishi.create(:shi_name=>'辰', :shi_code => 4)
+Junishi.create(:shi_name=>'巳', :shi_code => 5)
+Junishi.create(:shi_name=>'午', :shi_code => 6)
+Junishi.create(:shi_name=>'未', :shi_code => 7)
+Junishi.create(:shi_name=>'申', :shi_code => 8)
+Junishi.create(:shi_name=>'酉', :shi_code => 9)
+Junishi.create(:shi_name=>'戌', :shi_code => 10)
+Junishi.create(:shi_name=>'亥', :shi_code => 11)
+
+Jikkan.create(:jikkan_name=>'甲', :jikkan_code => 0, :shi_teiou=>3, :inyou=>1, :point=>1, :point_day=>1, :gogyo_id=>0)
+Jikkan.create(:jikkan_name=>'乙', :jikkan_code => 1, :shi_teiou=>2, :inyou=>-1, :point=>0.5, :point_day=>1, :gogyo_id=>0)
+Jikkan.create(:jikkan_name=>'丙', :jikkan_code => 2, :shi_teiou=>6, :inyou=>1, :point=>1, :point_day=>1, :gogyo_id=>1)
+Jikkan.create(:jikkan_name=>'丁', :jikkan_code => 3, :shi_teiou=>5, :inyou=>-1, :point=>0.5, :point_day=>1, :gogyo_id=>1)
+Jikkan.create(:jikkan_name=>'戊', :jikkan_code => 4, :shi_teiou=>6, :inyou=>1, :point=>1, :point_day=>1, :gogyo_id=>2)
+Jikkan.create(:jikkan_name=>'己', :jikkan_code => 5, :shi_teiou=>5, :inyou=>-1, :point=>0.5, :point_day=>1, :gogyo_id=>2)
+Jikkan.create(:jikkan_name=>'庚', :jikkan_code => 6, :shi_teiou=>9, :inyou=>1, :point=>1, :point_day=>1, :gogyo_id=>3)
+Jikkan.create(:jikkan_name=>'辛', :jikkan_code => 7, :shi_teiou=>8, :inyou=>-1, :point=>0.5, :point_day=>1, :gogyo_id=>3)
+Jikkan.create(:jikkan_name=>'壬', :jikkan_code => 8, :shi_teiou=>0, :inyou=>1, :point=>1, :point_day=>1, :gogyo_id=>4)
+Jikkan.create(:jikkan_name=>'癸', :jikkan_code => 9, :shi_teiou=>11, :inyou=>-1, :point=>0.5, :point_day=>1, :gogyo_id=>4)
+
+Gogyo.create(:gogyo_name=>'木', :gogyo_code => 0)
+Gogyo.create(:gogyo_name=>'火', :gogyo_code => 1)
+Gogyo.create(:gogyo_name=>'土', :gogyo_code => 2)
+Gogyo.create(:gogyo_name=>'金', :gogyo_code => 3)
+Gogyo.create(:gogyo_name=>'水', :gogyo_code => 4)
+
+Hentsusei.create(:hentsusei_code=>0, :hentsusei_name=>'比肩', :category => 0, :inyou => 1, :point => 1)
+Hentsusei.create(:hentsusei_code=>1,:hentsusei_name=>'劫財', :category => 0, :inyou => -1, :point => 1)
+Hentsusei.create(:hentsusei_code=>2,:hentsusei_name=>'食神', :category => 1, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>3,:hentsusei_name=>'傷官', :category => 1, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>4,:hentsusei_name=>'偏財', :category => 2, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>5,:hentsusei_name=>'正財', :category => 2, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>6,:hentsusei_name=>'偏官', :category => 3, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>7,:hentsusei_name=>'正官', :category => 3, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>8,:hentsusei_name=>'偏印', :category => 4, :inyou => 1, :point => 1)
+Hentsusei.create(:hentsusei_code=>9,:hentsusei_name=>'印綬', :category => 4, :inyou => -1, :point => 1)
+
+Houn.create(:houn_name=>'胎', :houn_code => 0, :point => 0)
+Houn.create(:houn_name=>'養', :houn_code => 1, :point => 0)
+Houn.create(:houn_name=>'長生', :houn_code => 2, :point => 0)
+Houn.create(:houn_name=>'沐浴', :houn_code => 3, :point => 0)
+Houn.create(:houn_name=>'冠帯', :houn_code => 4, :point => 1)
+Houn.create(:houn_name=>'建禄', :houn_code => 5, :point => 1)
+Houn.create(:houn_name=>'帝旺', :houn_code => 6, :point => 1)
+Houn.create(:houn_name=>'衰', :houn_code => 7, :point => 0)
+Houn.create(:houn_name=>'病', :houn_code => 8, :point => -1)
+Houn.create(:houn_name=>'死', :houn_code => 9, :point => -1)
+Houn.create(:houn_name=>'墓', :houn_code => 10, :point => -1)
+Houn.create(:houn_name=>'絶', :houn_code => 11, :point => -1)
+

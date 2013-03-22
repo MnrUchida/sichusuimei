@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  sex: 
+  year: 
+  month: 
+  day: 
+  time: MyString
+
+two:
+  name: 
+  sex: 
+  year: 
+  month: 
+  day: 
+  time: MyString

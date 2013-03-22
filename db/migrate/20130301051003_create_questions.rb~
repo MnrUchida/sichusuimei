@@ -1,0 +1,23 @@
+class CreateQuestions < ActiveRecord::Migration
+  def change
+    create_table :questions do |t|
+      t.references :user
+      t.string :companyName
+      t.string :ancestry
+      t.integer :kind
+      t.string :post
+      t.string :name
+      t.integer :product
+      t.string :content
+      t.integer :needForReply
+      t.date :limitForReply
+      t.string :note
+      t.integer :state, :default => 0
+
+      t.timestamps
+    end
+
+    add_index :questions, :user_id
+    add_index :questions, :ancestry
+  end
+end

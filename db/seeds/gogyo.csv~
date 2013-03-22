@@ -1,0 +1,30 @@
+木,0
+火,1
+土,2
+金,3
+水,4
+
+Hentsusei.create(:hentsusei_code=>0, :hentsusei_name=>'比肩', :category => 0, :inyou => 1, :point => 1)
+Hentsusei.create(:hentsusei_code=>1,:hentsusei_name=>'劫財', :category => 0, :inyou => -1, :point => 1)
+Hentsusei.create(:hentsusei_code=>2,:hentsusei_name=>'食神', :category => 1, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>3,:hentsusei_name=>'傷官', :category => 1, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>4,:hentsusei_name=>'偏財', :category => 2, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>5,:hentsusei_name=>'正財', :category => 2, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>6,:hentsusei_name=>'偏官', :category => 3, :inyou => 1, :point => -1)
+Hentsusei.create(:hentsusei_code=>7,:hentsusei_name=>'正官', :category => 3, :inyou => -1, :point => -1)
+Hentsusei.create(:hentsusei_code=>8,:hentsusei_name=>'偏印', :category => 4, :inyou => 1, :point => 1)
+Hentsusei.create(:hentsusei_code=>9,:hentsusei_name=>'印綬', :category => 4, :inyou => -1, :point => 1)
+
+Houn.create(:houn_name=>'胎', :houn_code => 0, :point => 0)
+Houn.create(:houn_name=>'養', :houn_code => 1, :point => 0)
+Houn.create(:houn_name=>'長生', :houn_code => 2, :point => 0)
+Houn.create(:houn_name=>'沐浴', :houn_code => 3, :point => 0)
+Houn.create(:houn_name=>'冠帯', :houn_code => 4, :point => 1)
+Houn.create(:houn_name=>'建禄', :houn_code => 5, :point => 1)
+Houn.create(:houn_name=>'帝旺', :houn_code => 6, :point => 1)
+Houn.create(:houn_name=>'衰', :houn_code => 7, :point => 0)
+Houn.create(:houn_name=>'病', :houn_code => 8, :point => -1)
+Houn.create(:houn_name=>'死', :houn_code => 9, :point => -1)
+Houn.create(:houn_name=>'墓', :houn_code => 10, :point => -1)
+Houn.create(:houn_name=>'絶', :houn_code => 11, :point => -1)
+

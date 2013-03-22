@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @meishiki.name %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @meishiki.sex %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @meishiki.year %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%= @meishiki.month %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%= @meishiki.day %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @meishiki.time %>
+</p>
+
+
+<%= link_to 'Edit', edit_meishiki_path(@meishiki) %> |
+<%= link_to 'Back', meishikis_path %>

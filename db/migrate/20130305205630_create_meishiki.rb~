@@ -1,0 +1,17 @@
+class CreateUsers < ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :code
+      t.string :name
+      t.string :password_digest
+      t.string :mail
+      t.date :limit_date
+      t.integer :type
+      t.string :role
+      t.integer :display_order, :default => 999999999
+      t.datetime :deleted_at, :default => nil
+
+      t.timestamps
+    end
+  end
+end

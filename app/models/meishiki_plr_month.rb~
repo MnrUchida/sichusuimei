@@ -1,0 +1,27 @@
+# coding : utf-8
+
+require 'date'
+
+class MeishikiPlrMonth < MeishikiPlr
+
+  def setData(_meishiki)
+    super
+    self.piller = 'month'
+  end
+  
+  # 天干、地支の取得
+  def getTenkanChishi
+    month = @meishikiData.month
+    year = @meishikiData.year - 1
+
+    if beforeSekki?() == true then
+      month = month - 1
+    end
+
+    tenkan = ((year * Chishi::CHISHI_COUNT + month - 6) % Jikkan::JIKKAN_COUNT) + 1
+    chishi = (month % Chishi::CHISHI_COUNT) + 1
+
+    return tenkan,chishi
+  end
+end
+

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shi_code: 
+  shi_name: MyString
+
+two:
+  shi_code: 
+  shi_name: MyString

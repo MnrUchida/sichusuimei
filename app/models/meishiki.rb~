@@ -1,0 +1,24 @@
+class Meishiki < ActiveRecord::Base
+  attr_accessible :day, :month, :name, :sex, :time, :year
+
+  has_many :meishiki_plr
+
+  # 節気を取得する
+  def getSekki
+    if @sekki == nil then
+      @sekki = Sekki.find(:first, :conditions => ["date < ?",  getMeishikiDate()] ,:order => " date DESC")
+    end 
+    
+    return @sekki
+  end 
+
+  def getMeishikiDate()
+    time = 0
+    if self.time != nil then
+      time = self.time
+    end 
+    return DateTime.new(self.year,self.month,self.day,time.to_i,0,0)
+  end
+
+
+end

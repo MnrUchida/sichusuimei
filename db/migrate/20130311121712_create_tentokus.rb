@@ -1,0 +1,11 @@
+class CreateTentokus < ActiveRecord::Migration
+  def change
+    create_table :tentokus do |t|
+      t.integer :shi_id
+      t.string :type
+      t.integer :tentoku
+
+      t.timestamps
+    end
+  end
+end

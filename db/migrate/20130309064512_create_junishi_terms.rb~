@@ -1,0 +1,11 @@
+class CreateJunishiTerms < ActiveRecord::Migration
+  def change
+    create_table :junishi_terms do |t|
+      t.integer, :shi_id
+      t.integer, :term_start
+      t.integer,zoukan_id :term_end
+
+      t.timestamps
+    end
+  end
+end

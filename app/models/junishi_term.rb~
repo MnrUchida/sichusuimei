@@ -1,0 +1,6 @@
+class JunishiTerm < ActiveRecord::Base
+  attr_accessible :shi_id, :term_end, :term_start, :zoukan_id
+
+  belongs_to :junishi, :foreign_key => "shi_id",:class_name => 'Junishi'
+  has_one :jikkan, :foreign_key => "zoukan_id"
+end

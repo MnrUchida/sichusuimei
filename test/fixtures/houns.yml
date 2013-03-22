@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  houn_name: 
+  houn_code: 
+  point: 1
+
+two:
+  houn_name: 
+  houn_code: 
+  point: 1

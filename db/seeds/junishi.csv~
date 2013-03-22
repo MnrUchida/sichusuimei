@@ -1,0 +1,13 @@
+子', :shi_code => 0)
+Junishi.create(:shi_name=>'丑', :shi_code => 1)
+Junishi.create(:shi_name=>'寅', :shi_code => 2)
+Junishi.create(:shi_name=>'卯', :shi_code => 3)
+Junishi.create(:shi_name=>'辰', :shi_code => 4)
+Junishi.create(:shi_name=>'巳', :shi_code => 5)
+Junishi.create(:shi_name=>'午', :shi_code => 6)
+Junishi.create(:shi_name=>'未', :shi_code => 7)
+Junishi.create(:shi_name=>'申', :shi_code => 8)
+Junishi.create(:shi_name=>'酉', :shi_code => 9)
+Junishi.create(:shi_name=>'戌', :shi_code => 10)
+Junishi.create(:shi_name=>'亥', :shi_code => 11)
+
