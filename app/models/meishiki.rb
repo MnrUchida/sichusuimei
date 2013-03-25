@@ -4,7 +4,8 @@ class Meishiki < ActiveRecord::Base
   attr_accessible :id, :name, :sex, :birthday
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
 
-  attr_accessor :birthtime
+  attr_accessor :time_of_birth
+  attr_accessor :day_of_birth
 
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil

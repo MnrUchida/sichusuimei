@@ -3373,3 +3373,670 @@ Served asset /meishikis.js - 304 Not Modified (2ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 22:46:23 +0900
 Served asset /application.js - 304 Not Modified (31ms)
+
+
+Started GET "/meishikis" for 127.0.0.1 at 2013-03-25 22:13:21 +0900
+Connecting to database specified by database.yml
+Processing by MeishikisController#index as HTML
+  [1m[36mMeishiki Load (0.2ms)[0m  [1mSELECT "meishikis".* FROM "meishikis" [0m
+  Rendered meishikis/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 1069ms (Views: 982.7ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:23 +0900
+Served asset /application.css - 200 OK (74ms)
+
+
+Started GET "/assets/meishikis.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /meishikis.css - 200 OK (5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /bootstrap_and_overrides.css - 200 OK (49ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.core.css - 200 OK (13ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /scaffolds.css - 200 OK (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.theme.css - 200 OK (10ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.menu.css - 200 OK (16ms)
+
+
+Started GET "/assets/jquery.ui.accordion.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.accordion.css - 200 OK (14ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.autocomplete.css - 200 OK (12ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.button.css - 200 OK (26ms)
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.datepicker.css - 200 OK (13ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.resizable.css - 200 OK (8ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.dialog.css - 200 OK (37ms)
+
+
+Started GET "/assets/jquery.ui.progressbar.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.progressbar.css - 200 OK (15ms)
+
+
+Started GET "/assets/jquery.ui.selectable.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.selectable.css - 200 OK (10ms)
+
+
+Started GET "/assets/jquery.ui.slider.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.slider.css - 200 OK (12ms)
+
+
+Started GET "/assets/jquery.ui.spinner.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.spinner.css - 200 OK (24ms)
+
+
+Started GET "/assets/jquery.ui.tabs.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.tabs.css - 200 OK (11ms)
+
+
+Started GET "/assets/jquery.ui.tooltip.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.tooltip.css - 200 OK (19ms)
+
+
+Started GET "/assets/jquery.ui.base.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.base.css - 200 OK (47ms)
+
+
+Started GET "/assets/jquery.ui.all.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.ui.all.css - 200 OK (89ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery.js - 200 OK (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /jquery_ujs.js - 200 OK (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-transition.js - 200 OK (8ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-alert.js - 200 OK (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-modal.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 200 OK (7ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 200 OK (7ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-tab.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 200 OK (9ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-popover.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-button.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 200 OK (8ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 200 OK (7ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap/bootstrap-affix.js - 200 OK (4ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /twitter/bootstrap.js - 200 OK (35ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /bootstrap.js - 200 OK (2ms)
+
+
+Started GET "/assets/meishikis.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /meishikis.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:24 +0900
+Served asset /application.js - 200 OK (31ms)
+
+
+Started GET "/meishikis/new" for 127.0.0.1 at 2013-03-25 22:13:41 +0900
+Processing by MeishikisController#new as HTML
+  Rendered meishikis/_form.html.erb (361.3ms)
+  Rendered meishikis/new.html.erb within layouts/application (376.0ms)
+Completed 200 OK in 2924ms (Views: 2909.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/meishikis.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /meishikis.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.accordion.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.accordion.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.menu.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.button.css - 304 Not Modified (41ms)
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.datepicker.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.resizable.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.dialog.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.progressbar.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.progressbar.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.selectable.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.selectable.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.ui.slider.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.slider.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.spinner.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.spinner.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.ui.tabs.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.tabs.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.tooltip.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.tooltip.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.base.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.base.css - 304 Not Modified (22ms)
+
+
+Started GET "/assets/jquery.ui.all.css?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.ui.all.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /twitter/bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/meishikis.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /meishikis.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-25 22:13:44 +0900
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/meishikis/new" for 127.0.0.1 at 2013-03-25 22:23:13 +0900
+Processing by MeishikisController#new as HTML
+  Rendered meishikis/_form.html.erb (20.3ms)
+  Rendered meishikis/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 114ms (Views: 113.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /application.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/meishikis.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /meishikis.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.accordion.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.accordion.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.menu.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.button.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.datepicker.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.resizable.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.dialog.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.progressbar.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.progressbar.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.selectable.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.selectable.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.ui.slider.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.slider.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.spinner.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.spinner.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.tabs.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.tabs.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.base.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.base.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.ui.tooltip.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.tooltip.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.all.css?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.ui.all.css - 304 Not Modified (22ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /twitter/bootstrap.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/meishikis.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /meishikis.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-25 22:23:14 +0900
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:23:49 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: day_of_birth(1i), day_of_birth(2i), day_of_birth(3i), time_of_birth(1i), time_of_birth(2i), time_of_birth(3i), time_of_birth(4i), time_of_birth(5i)):
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.2ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:29:21 +0900
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  app/models/meishiki.rb:7:in `[]'
+  app/models/meishiki.rb:7:in `<class:Meishiki>'
+  app/models/meishiki.rb:3:in `<top (required)>'
+  app/controllers/meishikis_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:32:16 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/models/meishiki.rb:7:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:34:43 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/models/meishiki.rb:7:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:36:08 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: day_of_birth(1i), day_of_birth(2i), day_of_birth(3i), time_of_birth(1i), time_of_birth(2i), time_of_birth(3i), time_of_birth(4i), time_of_birth(5i)):
+  app/models/meishiki.rb:8:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:36:51 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: day_of_birth(1i), day_of_birth(2i), day_of_birth(3i), time_of_birth(1i), time_of_birth(2i), time_of_birth(3i), time_of_birth(4i), time_of_birth(5i)):
+  app/models/meishiki.rb:8:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:37:09 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 3ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: day_of_birth(1i), day_of_birth(2i), day_of_birth(3i), time_of_birth(1i), time_of_birth(2i), time_of_birth(3i), time_of_birth(4i), time_of_birth(5i)):
+  app/models/meishiki.rb:8:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started POST "/meishikis" for 127.0.0.1 at 2013-03-25 22:53:56 +0900
+Processing by MeishikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"La+fiNaB5NHRE1Xz1J1b8PKPKIpZQZHUDes6qm8G0QU=", "meishiki"=>{"name"=>"自分", "sex"=>"男性", "day_of_birth(1i)"=>"1982", "day_of_birth(2i)"=>"3", "day_of_birth(3i)"=>"29", "time_of_birth(1i)"=>"2013", "time_of_birth(2i)"=>"3", "time_of_birth(3i)"=>"25", "time_of_birth(4i)"=>"15", "time_of_birth(5i)"=>"00"}, "commit"=>"Create Meishiki"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: day_of_birth(1i), day_of_birth(2i), day_of_birth(3i), time_of_birth(1i), time_of_birth(2i), time_of_birth(3i), time_of_birth(4i), time_of_birth(5i)):
+  app/models/meishiki.rb:8:in `initialize'
+  app/controllers/meishikis_controller.rb:43:in `new'
+  app/controllers/meishikis_controller.rb:43:in `create'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/meishikis/new" for 127.0.0.1 at 2013-03-25 22:54:00 +0900
+Processing by MeishikisController#new as HTML
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/meishiki.rb:7:in `initialize'
+  app/controllers/meishikis_controller.rb:27:in `new'
+  app/controllers/meishikis_controller.rb:27:in `new'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/meishikis/new" for 127.0.0.1 at 2013-03-25 22:54:34 +0900
+Processing by MeishikisController#new as HTML
+  Rendered meishikis/_form.html.erb (1639.5ms)
+  Rendered meishikis/new.html.erb within layouts/application (1640.3ms)
+Completed 500 Internal Server Error in 1654ms
+
+ActionView::Template::Error (No input found for ui_date_picker):
+    1: <%= simple_form_for @meishiki, :html => {:class => 'form-horizontal'} do |f| %>
+    2:   <%= f.input :name %>
+    3:   <%= f.input :sex, :collection => SelectParameters.get_value("sex") %>
+    4:   <%= f.input :day_of_birth, :as => :ui_date_picker, :start_year => Date.today.year - 90, :input_html => {:class => "input-small"} %>
+    5:   <%= f.input :time_of_birth, :as => :time, :input_html => {:class => "input-small"} %>
+    6: 
+    7:   <div class="form-actions">
+  app/views/meishikis/_form.html.erb:4:in `block in _app_views_meishikis__form_html_erb___720019753_92608650'
+  app/views/meishikis/_form.html.erb:1:in `_app_views_meishikis__form_html_erb___720019753_92608650'
+  app/views/meishikis/new.html.erb:3:in `_app_views_meishikis_new_html_erb__1012911024__619349678'
+  app/controllers/meishikis_controller.rb:29:in `new'
+
+
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/minoru/.rbenv/versions/1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.4ms)

@@ -4,6 +4,16 @@ class Meishiki < ActiveRecord::Base
   attr_accessible :id, :name, :sex, :birthday
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
 
+  def initialize(value)
+    super(value)
+    @time_of_birth = Array.new(5)
+  end
+
+  def time_of_birth(index)
+    @time_of_birth[index]
+  end
+  attr_accessor :day_of_birth
+
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil
     @sekki

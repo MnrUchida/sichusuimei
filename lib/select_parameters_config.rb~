@@ -16,4 +16,12 @@ class SelectParametersConfig
     ret_data
   end
 
+  def get_key(param_key,value)
+    ret_data = @yaml_data
+    param_key.split(".").each do |key|
+      ret_data = ret_data[key]
+    end
+    ret_data
+  end
+
 end
