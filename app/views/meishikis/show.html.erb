@@ -7,7 +7,7 @@
   <dt><%= model_class.human_attribute_name(:name) %>:</dt>
   <dd><%= @meishiki.name %></dd>
   <dt><%= model_class.human_attribute_name(:sex) %>:</dt>
-  <dd><%= SelectParameters.get_key("sex").key(@meishiki.sex) %></dd>
+  <dd><%= SelectParameters.get_value("sex").key(@meishiki.sex) %></dd>
   <dt><%= model_class.human_attribute_name(:birthday) %>:</dt>
   <dd><%= l @meishiki.birthday %></dd>
 </dl>
@@ -22,24 +22,24 @@
 </tr>
 <tr>
  <th>天干</th>
- <td><%=@meishiki.year_piller.tenkan.name%></td>
- <td><%=@meishiki.month_piller.tenkan.name%></td>
- <td><%=@meishiki.day_piller.tenkan.name%></td>
- <td><%=@meishiki.time_piller.tenkan.name%></td>
+ <td><%=@meishiki.piller(YearPiller).tenkan.name%></td>
+ <td><%=@meishiki.piller(MonthPiller).tenkan.name%></td>
+ <td><%=@meishiki.piller(DayPiller).tenkan.name%></td>
+ <td><%=@meishiki.piller(TimePiller).tenkan.name%></td>
 </tr>
 <tr>
  <th>地支</th>
- <td><%=@meishiki.year_piller.chishi.name%></td>
- <td><%=@meishiki.month_piller.chishi.name%></td>
- <td><%=@meishiki.day_piller.chishi.name%></td>
- <td><%=@meishiki.time_piller.chishi.name%></td>
+ <td><%=@meishiki.piller(YearPiller).chishi.name%></td>
+ <td><%=@meishiki.piller(MonthPiller).chishi.name%></td>
+ <td><%=@meishiki.piller(DayPiller).chishi.name%></td>
+ <td><%=@meishiki.piller(TimePiller).chishi.name%></td>
 </tr>
 <tr>
  <th>蔵干</th>
- <td><%=@meishiki.year_piller.zoukan.name%></td>
- <td><%=@meishiki.month_piller.zoukan.name%></td>
- <td><%=@meishiki.day_piller.zoukan.name%></td>
- <td><%=@meishiki.time_piller.zoukan.name%></td>
+ <td><%=@meishiki.piller(YearPiller).zoukan.name%></td>
+ <td><%=@meishiki.piller(MonthPiller).zoukan.name%></td>
+ <td><%=@meishiki.piller(DayPiller).zoukan.name%></td>
+ <td><%=@meishiki.piller(TimePiller).zoukan.name%></td>
 </tr>
 
 <%= link_to 'Edit', edit_meishiki_path(@meishiki) %> |

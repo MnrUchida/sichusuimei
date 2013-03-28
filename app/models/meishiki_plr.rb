@@ -1,4 +1,6 @@
 class MeishikiPlr < ActiveRecord::Base
+  after_create :set_initial_value
+
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
   
   belongs_to :meishiki, :foreign_key => "meishiki_id", class_name: 'Meishiki'
@@ -7,12 +9,9 @@ class MeishikiPlr < ActiveRecord::Base
   belongs_to :zoukan, :foreign_key => "zoukan_id", class_name: 'Jikkan'
 
   def set_initial_value()
-    logger.debug self.meishiki.birthday.to_time.getlocal
     self.tenkan_id = self.new_tenkan
     self.chishi_id = self.new_chishi
     self.zoukan_id = self.new_zoukan.id
-    logger.debug self.meishiki.birthday.to_time.getlocal
-
   end
 
   protected

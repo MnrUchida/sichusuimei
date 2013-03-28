@@ -42,6 +42,8 @@ class MeishikisController < ApplicationController
   def create
     @meishiki = Meishiki.new(params[:meishiki])
 
+    if @meishiki.is_sekki_defined?
+
     respond_to do |format|
       if @meishiki.save
         format.html { redirect_to @meishiki, notice: 'Meishiki was successfully created.' }

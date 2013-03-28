@@ -1,11 +1,10 @@
 require 'active_support'
 
 class Meishiki < ActiveRecord::Base
+  after_create :create_piller
+
   attr_accessible :id, :name, :sex, :birthday
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
-
-  attr_accessor :time_of_birth
-  attr_accessor :day_of_birth
 
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil
@@ -19,6 +18,17 @@ class Meishiki < ActiveRecord::Base
   def is_sekki_defined?()
     Sekki.is_defined_in_day?(self.birthday) &&
       Sekki.is_defined_in_day?(self.birthday - 1.month)
+  end
+
+  def piller(piller_type)
+    piller_type.where(:meishiki_id => self.id).first
+  end
+
+  def create_piller()
+    YearPiller.create(:meishiki_id => self.id)
+    MonthPiller.create(:meishiki_id => self.id)
+    DayPiller.create(:meishiki_id => self.id)
+    TimePiller.create(:meishiki_id => self.id)
   end
 
 end
