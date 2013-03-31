@@ -11,11 +11,32 @@ class Meishiki < ActiveRecord::Base
     @sekki
   end
 
+  def cur_sekki=(value)
+    @cur_sekki = Sekki.new(value)
+  end
+  def cur_sekki()
+    self.where(:year => current_day.year, :month => current_day.month).first
+  end
+
+  def bef_sekki()
+    self.where(:year => (current_day - 1.month).year, :month => (current_day - 1.month).month).first
+  end
+  def bef_sekki=(value)
+    @bef_sekki = Sekki.new(value)
+  end
+
+  def aft_sekki()
+    self.where(:year => (current_day + 1.month).year, :month => (current_day + 1.month).month).first
+  end
+  def aft_sekki=(value)
+    @aft_sekki = Sekki.new(value)
+  end
+
   def day_from_sekki()
     self.birthday.to_datetime - self.sekki.date.to_datetime
   end
 
-  def is_sekki_defined?()
+  def sekki_defined?()
     Sekki.is_defined_in_day?(self.birthday) &&
       Sekki.is_defined_in_day?(self.birthday - 1.month)
   end

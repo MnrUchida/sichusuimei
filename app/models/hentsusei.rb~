@@ -1,3 +1,0 @@
-class Hentsusei < ActiveRecord::Base
-  attr_accessible :hentsusei_name, :point, :category, :inyou
-end

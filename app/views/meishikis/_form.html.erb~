@@ -1,9 +1,11 @@
 <%= simple_form_for @meishiki, :html => {:class => 'form-horizontal'} do |f| %>
   <%= f.input :name %>
   <%= f.input :sex, :collection => SelectParameters.get_value("sex") %>
-  <%= f.input :day_of_birth, :as => :ui_date_picker, :start_year => Date.today.year - 90, :input_html => {:class => "input-small"} %>
-  <%= f.input :limit_date,as: :ui_date_picker %>
-  <%= f.input :time_of_birth, :as => :time, :input_html => {:class => "input-small"} %>
+  <%= f.input :birthday, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+
+  <%= f.input :sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+  <%= f.input :bef_sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+  <%= f.input :aft_sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

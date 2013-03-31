@@ -1,5 +1,0 @@
-class YearPiller < MeishikiPlr
-  def initialize(current_day)
-    super(current_day)
-  end
-end

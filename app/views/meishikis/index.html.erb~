@@ -4,7 +4,10 @@
   <tr>
     <th>Name</th>
     <th>Sex</th>
-    <th>Birthday</th>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Day</th>
+    <th>Time</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +17,10 @@
   <tr>
     <td><%= meishiki.name %></td>
     <td><%= meishiki.sex %></td>
-    <td><%= meishiki.birthday %></td>
+    <td><%= meishiki.year %></td>
+    <td><%= meishiki.month %></td>
+    <td><%= meishiki.day %></td>
+    <td><%= meishiki.time %></td>
     <td><%= link_to 'Show', meishiki %></td>
     <td><%= link_to 'Edit', edit_meishiki_path(meishiki) %></td>
     <td><%= link_to 'Destroy', meishiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
