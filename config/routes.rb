@@ -1,6 +1,11 @@
 Sichusuimei::Application.routes.draw do
-  resources :meishikis
+  resources :meishikis do
+    collection do
+      get 'sekki'
+    end
+  end
 
+  match "ext_meishikis", :to => 'meishikis#create_sekki', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -14,4 +14,3 @@ $ ->
       changeYear: true
       inline: true
       showOn: 'button'
-

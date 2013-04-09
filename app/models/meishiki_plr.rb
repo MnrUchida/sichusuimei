@@ -17,6 +17,7 @@ class MeishikiPlr < ActiveRecord::Base
   protected
 
   def new_zoukan()
+    logger.debug "Watch!!!" + self.chishi.id.to_s
     self.chishi.getZoukan(self.meishiki.day_from_sekki)
   end
 

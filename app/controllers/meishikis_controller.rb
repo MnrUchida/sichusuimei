@@ -43,7 +43,11 @@ class MeishikisController < ApplicationController
     @meishiki = Meishiki.new(params[:meishiki])
 
     unless @meishiki.sekki_defined?
-      format.html { render action: "sekki" }
+      @ext_meishiki = ExtMeishiki.new(:meishiki => @meishiki)
+      respond_to do |format|
+        format.html { render action: "sekki" }
+      end
+      return
     end
 
     respond_to do |format|
@@ -85,4 +89,17 @@ class MeishikisController < ApplicationController
     end
   end
 
+  def create_sekki
+    @ext_meishiki = ExtMeishiki.new(params[:ext_meishiki])
+
+    respond_to do |format|
+      if @ext_meishiki.save
+        format.html { redirect_to @ext_meishiki.meishiki, notice: 'Meishiki was successfully created.' }
+        format.json { render json: @ext_meishiki.meishiki, status: :created, location: @ext_meishiki.meishiki }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @ext_meishiki.meishiki.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

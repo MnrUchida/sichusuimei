@@ -1,29 +1,31 @@
-<%= simple_form_for @meishiki, :html => {:class => 'form-horizontal'} do |f| %>
+<%- model_class = ExtMeishiki -%>
 
-  <% if @meishiki.sekki.nil? %>
-    <%= f.input :sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+<%= simple_form_for @ext_meishiki, :html => {:class => 'form-horizontal'} do |f| %>
+
+  <% if @ext_meishiki.cur_sekki_exists? %>
+    <dt><%= model_class.human_attribute_name(:cur_sekki_date) %>:</dt>
+    <dd><%= @ext_meishiki.cur_sekki_date %></dd>
   <% else %>
-    <dt><%= model_class.human_attribute_name(:cur_sekki) %>:</dt>
-    <dd><%= @meishiki.cur_sekki.date %></dd>
+    <%= f.input :cur_sekki_date, :as => :datetimepicker %>
   <% end %>
 
-  <% if @meishiki.bef_sekki.nil? %>
-    <%= f.input :bef_sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+  <% if @ext_meishiki.bef_sekki_exists? %>
+    <dt><%= model_class.human_attribute_name(:bef_sekki_date) %>:</dt>
+    <dd><%= @ext_meishiki.bef_sekki_date %></dd>
   <% else %>
-    <dt><%= model_class.human_attribute_name(:bef_sekki) %>:</dt>
-    <dd><%= @meishiki.bef_sekki.date %></dd>
+    <%= f.input :bef_sekki_date, :as => :datetimepicker %>
   <% end %>
 
-  <% if @meishiki.aft_sekki.nil? %>
-    <%= f.input :aft_sekki, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+  <% if @ext_meishiki.aft_sekki_exists? %>
+    <dt><%= model_class.human_attribute_name(:aft_sekki_date) %>:</dt>
+    <dd><%= @ext_meishiki.aft_sekki_date %></dd>
   <% else %>
-    <dt><%= model_class.human_attribute_name(:aft_sekki) %>:</dt>
-    <dd><%= @meishiki.aft_sekki.date %></dd>
+    <%= f.input :aft_sekki_date, :as => :datetimepicker %>
   <% end %>
 
   <%= f.input :name, :as => :hidden %>
-  <%= f.input :sex, , :as => :hidden %>
-  <%= f.input :birthday, , :as => :hidden %>
+  <%= f.input :sex, :as => :hidden %>
+  <%= f.input :birthday, :as => :hidden %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

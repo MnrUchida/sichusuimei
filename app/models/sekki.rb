@@ -1,3 +1,5 @@
+require 'chronic'
+
 class Sekki < ActiveRecord::Base
   attr_accessible :day, :hour, :month, :year
 
@@ -5,9 +7,17 @@ class Sekki < ActiveRecord::Base
     DateTime.new(self.year, self.month, self.day, self.hour)
   end
 
+  def date=(value)
+    datestr = Chronic.parse(value)
+    self.year = datestr.year
+    self.month = datestr.month
+    self.day = datestr.day
+    self.hour = datestr.hour
+  end
+
   def self.include_day(day)
     sekki = self.of_year_and_month(day)
-    if (sekki.date <=> day) > 0
+    if !sekki.nil? && (sekki.date <=> day) > 0
       sekki = self.of_year_and_month(day - 1.month)
     end
     sekki
