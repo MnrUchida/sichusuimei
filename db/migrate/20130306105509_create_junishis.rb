@@ -1,8 +1,8 @@
 class CreateJunishis < ActiveRecord::Migration
   def change
     create_table :junishis do |t|
-      t.integer :shi_code
-      t.string :shi_name
+      t.integer :code
+      t.string :name
 
       t.timestamps
     end

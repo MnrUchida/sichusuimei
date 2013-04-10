@@ -27,13 +27,13 @@ describe MeishikiPlr, "四柱" do
   end
   it "天干" do
     year_piller.tenkan_id.to_s.should == "9"
-    year_piller.tenkan.jikkan_name.should == "壬"
+    year_piller.tenkan.name.should == "壬"
   end
   it "地支" do
-    year_piller.chishi.shi_name.should == "戌"
+    year_piller.chishi.name.should == "戌"
   end
   it "蔵干" do
-    year_piller.zoukan.jikkan_name.should == "戊"
+    year_piller.zoukan.name.should == "戊"
   end
  end
 
@@ -45,13 +45,13 @@ describe MeishikiPlr, "四柱" do
    end
 
   it "天干" do
-    month_piller.tenkan.jikkan_name.should == "癸"
+    month_piller.tenkan.name.should == "癸"
   end
   it "地支" do
-    month_piller.chishi.shi_name.should == "卯"
+    month_piller.chishi.name.should == "卯"
   end
   it "蔵干" do
-    month_piller.zoukan.jikkan_name.should == "乙"
+    month_piller.zoukan.name.should == "乙"
   end
  end
 
@@ -63,13 +63,13 @@ describe MeishikiPlr, "四柱" do
    end
 
   it "天干" do
-    day_piller.tenkan.jikkan_name.should == "辛"
+    day_piller.tenkan.name.should == "辛"
   end
   it "地支" do
-    day_piller.chishi.shi_name.should == "亥"
+    day_piller.chishi.name.should == "亥"
   end
   it "蔵干" do
-    day_piller.zoukan.jikkan_name.should == "壬"
+    day_piller.zoukan.name.should == "壬"
   end
  end
 
@@ -81,13 +81,13 @@ describe MeishikiPlr, "四柱" do
    end
 
   it "天干" do
-    time_piller.tenkan.jikkan_name.should == "丙"
+    time_piller.tenkan.name.should == "丙"
   end
   it "地支" do
-    time_piller.chishi.shi_name.should == "申"
+    time_piller.chishi.name.should == "申"
   end
   it "蔵干" do
-    time_piller.zoukan.jikkan_name.should == "庚"
+    time_piller.zoukan.name.should == "庚"
   end
  end
 

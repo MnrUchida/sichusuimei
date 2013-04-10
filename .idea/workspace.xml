@@ -2,30 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ext_meishiki.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/simple_model.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/meishikis/_sekki_input.html.erb" afterPath="$PROJECT_DIR$/app/views/meishikis/_sekki_input.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/date.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/date.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/meishiki.rb" afterPath="$PROJECT_DIR$/app/models/meishiki.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/test.sqlite3" afterPath="$PROJECT_DIR$/db/test.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130306105509_create_junishis.rb" afterPath="$PROJECT_DIR$/db/migrate/20130306105509_create_junishis.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130306105805_create_jikkans.rb" afterPath="$PROJECT_DIR$/db/migrate/20130306105805_create_jikkans.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/jikkan.rb" afterPath="$PROJECT_DIR$/app/models/jikkan.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/jikkan_spec.rb" afterPath="$PROJECT_DIR$/spec/models/jikkan_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/junishi.rb" afterPath="$PROJECT_DIR$/app/models/junishi.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/junishi_spec.rb" afterPath="$PROJECT_DIR$/spec/models/junishi_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/meishiki_plr.rb" afterPath="$PROJECT_DIR$/app/models/meishiki_plr.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/meishikis_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/meishikis_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/meishiki_plr_spec.rb" afterPath="$PROJECT_DIR$/spec/models/meishiki_plr_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/meishiki_spec.rb" afterPath="$PROJECT_DIR$/spec/models/meishiki_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/seeds_from_csv.rb" afterPath="$PROJECT_DIR$/lib/seeds_from_csv.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/meishikis/sekki.html.erb" afterPath="$PROJECT_DIR$/app/views/meishikis/sekki.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/sekki.rb" afterPath="$PROJECT_DIR$/app/models/sekki.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/select_parameters.yml" afterPath="$PROJECT_DIR$/config/select_parameters.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/tentoku_kan.rb" afterPath="$PROJECT_DIR$/app/models/tentoku_kan.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/tentoku_shi.rb" afterPath="$PROJECT_DIR$/app/models/tentoku_shi.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sichusuimei.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365491392155" ignored="false" />
+    <file path="/Dummy.txt" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365586878302" ignored="false" />
     <file path="$PROJECT_DIR$/../drypotato/lib/simple_form/datepicker_input.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364282251653" ignored="false" />
-    <file path="/a.dummy" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365516370514" ignored="false" />
+    <file path="/a.dummy" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365594447390" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/app/models/user.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364356823330" ignored="false" />
     <file path="$PROJECT_DIR$/../drypotato/app/views/questions/_form.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364290127252" ignored="false" />
     <file path="$PROJECT_DIR$/../refactor/rental.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364292461361" ignored="false" />
@@ -43,7 +44,7 @@
     <file path="$PROJECT_DIR$/../bondgate/spec/files/hibetudata.csv" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364366264695" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/spec/files/hibetudata_err.csv" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364356823330" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/spec/lib/tasks/analyses_rake_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364362930888" ignored="false" />
-    <file path="/_form.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364373505728" ignored="false" />
+    <file path="/_form.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580633731" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_develop/app/controllers/workflow_authorizes_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364351022399" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/app/controllers/workflow_authorizes_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364366264695" ignored="false" />
     <file path="/date.js.coffee" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365466818782" ignored="false" />
@@ -61,12 +62,12 @@
     <file path="$PROJECT_DIR$/../bondgate_hotfix/features/workflow_authorizes.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364366470780" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_hotfix/config/const.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364367278077" ignored="false" />
     <file path="/meishiki.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364739993588" ignored="false" />
-    <file path="/show.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365406742416" ignored="false" />
-    <file path="/meishiki_plr.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365515144015" ignored="false" />
+    <file path="/show.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365576048754" ignored="false" />
+    <file path="/meishiki_plr.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365593038551" ignored="false" />
     <file path="/meishikis_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365423063540" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_develop/app/models/event.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364776000490" ignored="false" />
-    <file path="/event.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364520001748" ignored="false" />
-    <file path="/temp.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364446864803" ignored="false" />
+    <file path="/event.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365584682432" ignored="false" />
+    <file path="/temp.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365594194845" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_hotfix/app/models/workflow_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364453167969" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_hotfix/lib/convert_util.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364453363571" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate_develop/log/development.log" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1364520018870" ignored="false" />
@@ -188,7 +189,7 @@
     <file path="/system.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365386432361" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/spec/views/shop_support/show_customer_info.html.erb_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365389411991" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/app/views/legacy/home/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365388433250" ignored="false" />
-    <file path="/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365498562065" ignored="false" />
+    <file path="/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365589799432" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/config/initializers/const.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365389411991" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/app/models/date_situation.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365389411991" ignored="false" />
     <file path="$PROJECT_DIR$/../bondgate/app/controllers/legacy/attendances_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365471888834" ignored="false" />
@@ -210,25 +211,65 @@
     <file path="$PROJECT_DIR$/../hotfix-1.5.x/config/database.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365469086315" ignored="false" />
     <file path="$PROJECT_DIR$/../hotfix-1.5.x/app/controllers/legacy/attendances_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365471403528" ignored="false" />
     <file path="$PROJECT_DIR$/../hotfix-1.5.x/features/legacy/attendance.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365471482637" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/db/migrate/20130409071508_add_read_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497423584" ignored="false" />
-    <file path="/20130409071508_add_read_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497422862" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/spec/models/request_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497907293" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/db/migrate/20130409071508_add_read_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365560385638" ignored="false" />
+    <file path="/20130409071508_add_read_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365560382781" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/spec/models/request_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365574471570" ignored="false" />
     <file path="/request_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497900253" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/db/schema.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497612368" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/app/models/request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365499282090" ignored="false" />
-    <file path="/request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365499278604" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/db/schema.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580118292" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/models/request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365589856586" ignored="false" />
+    <file path="/request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365589853951" ignored="false" />
     <file path="$PROJECT_DIR$/../drypotato/config/const.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365497318502" ignored="false" />
     <file path="/const.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365495746841" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365498599996" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/config/locales/attributes.ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365496982471" ignored="false" />
-    <file path="/attributes.ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365496899252" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/app/controllers/requests_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365501207774" ignored="false" />
-    <file path="/requests_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365501146664" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/config/locales/ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365498519208" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/log/development.log" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365501716772" ignored="false" />
-    <file path="$PROJECT_DIR$/../drypotato/features/requests.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365509471820" ignored="false" />
-    <file path="/requests.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365509471820" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365589892580" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/config/locales/attributes.ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580802506" ignored="false" />
+    <file path="/attributes.ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580802506" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/controllers/requests_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581484842" ignored="false" />
+    <file path="/requests_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581460665" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/config/locales/ja.yml" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365574471570" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/log/development.log" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581827193" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/features/requests.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365589057998" ignored="false" />
+    <file path="/requests.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365588952613" ignored="false" />
     <file path="/Gemfile" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365510745548" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/show.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365554165267" ignored="false" />
+    <file path="$PROJECT_DIR$/../hotfix-1.5.x/app/views/attendances/_attend_form.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365571461517" ignored="false" />
+    <file path="$PROJECT_DIR$/../hotfix-1.5.x/app/views/legacy/attendances/_attend_form.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365572190996" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/Gemfile" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575278507" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/Gemfile.lock" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575365336" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/config/routes.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575455912" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/controllers/dev_versions_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579176770" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/dev_versions/_form.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579205730" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/dev_versions/edit.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575862753" ignored="false" />
+    <file path="/edit.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575861062" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/dev_versions/new.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365575892631" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/dev_versions/show.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579477222" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/dev_versions/index.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365578870049" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/models/dev_version.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580620823" ignored="false" />
+    <file path="/dev_version.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580544715" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/spec/models/dev_version_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365577685669" ignored="false" />
+    <file path="/dev_version_spec.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365577340042" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/spec/factories/dev_version.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365577290336" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/features/dev_versions.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365577607019" ignored="false" />
+    <file path="/dev_versions.feature" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365577568853" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/features/support/paths.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365578693765" ignored="false" />
+    <file path="/paths.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365578693765" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/features/step_definitions/dev_version_steps.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365587868856" ignored="false" />
+    <file path="/dev_version_steps.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365587711804" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/log/test.log" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579309320" ignored="false" />
+    <file path="/dev_versions_controller.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579174297" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/layouts/_menu.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579558355" ignored="false" />
+    <file path="/_menu.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579554045" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/db/migrate/20130410074443_add_dev_version_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579961215" ignored="false" />
+    <file path="/20130410074443_add_dev_version_to_request.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365579961215" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/_form.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365580634838" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/_detail.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581212380" ignored="false" />
+    <file path="/_detail.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581105259" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/models/answer.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365585447954" ignored="false" />
+    <file path="/answer.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365581411127" ignored="false" />
+    <file path="$PROJECT_DIR$/../drypotato/app/views/requests/edit_answer.html.erb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365585581929" ignored="false" />
+    <file path="$PROJECT_DIR$/../bondgate/app/models/event.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365587041194" ignored="false" />
+    <file path="$PROJECT_DIR$/../bondgate/log/development.log" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365585273341" ignored="false" />
+    <file path="/tentoku_kan.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365593430777" ignored="false" />
+    <file path="/tentoku_shi.rb" changelist="8cbd59e6-bea0-4e03-a9e7-4d1a59bfe838" time="1365594242113" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,31 +286,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="jikkan.csv" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds/jikkan.csv">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="junishi_term_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/junishi_term_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="15" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.5925926">
+            <state line="5" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seeds_from_csv.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/seeds_from_csv.rb">
+      <file leaf-file-name="sekki_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/sekki_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1816" selection-end="1816" vertical-scroll-proportion="-3.6153846">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="meishiki.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/meishiki.rb">
+      <file leaf-file-name="tentoku_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/models/tentoku_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="14" selection-start="627" selection-end="637" vertical-scroll-proportion="0.7777778">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -293,22 +331,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/meishikis_controller.rb" />
-        <option value="$PROJECT_DIR$/lib/simple_form/datepicker_input.rb" />
-        <option value="$PROJECT_DIR$/lib/simple_form/datetimepicker_input.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/date.js.coffee" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/views/meishikis/_sekki_input.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/meishikis/sekki.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/sekki.rb" />
         <option value="$PROJECT_DIR$/app/models/ext_meishiki.rb" />
-        <option value="$PROJECT_DIR$/log/development.log" />
-        <option value="$PROJECT_DIR$/app/models/meishiki_plr.rb" />
         <option value="$PROJECT_DIR$/db/seeds/jikkan.csv" />
         <option value="$PROJECT_DIR$/db/seeds/tentoku.csv" />
         <option value="$PROJECT_DIR$/lib/seeds_from_csv.rb" />
+        <option value="$PROJECT_DIR$/log/development.log" />
+        <option value="$PROJECT_DIR$/app/models/meishiki_plr.rb" />
+        <option value="$PROJECT_DIR$/app/views/meishikis/sekki.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/tentoku_kan.rb" />
+        <option value="$PROJECT_DIR$/app/models/junishi.rb" />
+        <option value="$PROJECT_DIR$/app/models/jikkan.rb" />
+        <option value="$PROJECT_DIR$/app/models/tentoku_shi.rb" />
+        <option value="$PROJECT_DIR$/spec/models/jikkan_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/junishi_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/meishiki_plr_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/meishiki_spec.rb" />
       </list>
     </option>
   </component>
@@ -343,6 +381,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -372,7 +411,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fixtures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,19 +489,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sichusuimei" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../drypotato" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hotfix-1.5.x" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -667,14 +823,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1366" height="673" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32871974" sideWeight="0.9727273" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25378788" sideWeight="0.67128026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2621212" sideWeight="0.67128026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -746,126 +902,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/meishikis/_sekki_input.html.erb">
+    <entry file="file://$PROJECT_DIR$/test/fixtures/meishikis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="743" selection-end="755" vertical-scroll-proportion="0.04">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/sekki.rb">
+    <entry file="file://$PROJECT_DIR$/test/fixtures/gogyos.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+        <state line="6" column="4" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/select_parameters.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/tentoku_kan.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="11" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/development.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="7468" selection-end="7468" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/select_parameters_config.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+        <state line="3" column="11" selection-start="106" selection-end="106" vertical-scroll-proportion="0.13333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/meishiki_plr.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="61" selection-start="280" selection-end="290" vertical-scroll-proportion="0.26666668">
+        <state line="3" column="48" selection-start="123" selection-end="123" vertical-scroll-proportion="0.13333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/year_piller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/tentoku_shi.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="30" selection-start="19" selection-end="30" vertical-scroll-proportion="0.0">
+        <state line="3" column="12" selection-start="109" selection-end="109" vertical-scroll-proportion="0.13333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/jikkan.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="34" selection-start="772" selection-end="776" vertical-scroll-proportion="0.6557377">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/junishi.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="252" selection-end="252" vertical-scroll-proportion="0.31111112">
+        <state line="2" column="30" selection-start="82" selection-end="82" vertical-scroll-proportion="0.08888889">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ext_meishiki.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130306105805_create_jikkans.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="16" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.23353294">
+        <state line="5" column="22" selection-start="157" selection-end="157" vertical-scroll-proportion="0.22222222">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/gogyo.csv">
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="16" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/junishi_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="186" selection-end="190" vertical-scroll-proportion="-1.8363637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/jikkan_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="22" selection-start="4030" selection-end="4030" vertical-scroll-proportion="-1.8363637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/meishiki_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="12" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.43606558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/meishiki_plr_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="31" selection-start="1738" selection-end="1738" vertical-scroll-proportion="2.2196722">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/junishi_term_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/sekki_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/hentsusei.csv">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/spec/models/tentoku_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/jikkan.csv">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="15" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.5925926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/tentoku.csv">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="14" selection-start="225" selection-end="225" vertical-scroll-proportion="0.6726727">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/junishi_term.csv">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/seeds_from_csv.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1816" selection-end="1816" vertical-scroll-proportion="-3.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/meishiki.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="14" selection-start="627" selection-end="637" vertical-scroll-proportion="0.7777778">
           <folding />
         </state>
       </provider>

@@ -8,7 +8,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/junishi.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Junishi.create(:shi_name => row[0], :shi_code => row[1])
+      Junishi.create(:name => row[0], :code => row[1])
     end
   end
 
@@ -17,7 +17,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/jikkan.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Jikkan.create(:jikkan_name => row[0], :jikkan_code => row[1], :shi_teiou => row[2], :inyou => row[3],
+      Jikkan.create(:name => row[0], :code => row[1], :shi_teiou => row[2], :inyou => row[3],
                     :point => row[4], :point_day => row[5], :gogyo_id => row[6])
     end
   end

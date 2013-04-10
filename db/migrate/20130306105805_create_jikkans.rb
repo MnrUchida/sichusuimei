@@ -1,8 +1,8 @@
 class CreateJikkans < ActiveRecord::Migration
   def change
     create_table :jikkans do |t|
-      t.integer :jikkan_code
-      t.string :jikkan_name
+      t.integer :code
+      t.string :name
       t.integer :inyou
       t.float :point
       t.float :point_day

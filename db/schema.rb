@@ -39,15 +39,15 @@ ActiveRecord::Schema.define(:version => 20130317021839) do
   end
 
   create_table "jikkans", :force => true do |t|
-    t.integer  "jikkan_code"
-    t.string   "jikkan_name"
+    t.integer  "code"
+    t.string   "name"
     t.integer  "inyou"
     t.float    "point"
     t.float    "point_day"
     t.integer  "gogyo_id"
     t.integer  "shi_teiou"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "junishi_terms", :force => true do |t|
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20130317021839) do
   end
 
   create_table "junishis", :force => true do |t|
-    t.integer  "shi_code"
-    t.string   "shi_name"
+    t.integer  "code"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

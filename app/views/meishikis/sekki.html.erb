@@ -9,7 +9,7 @@
   <dt><%= model_class.human_attribute_name(:sex) %>:</dt>
   <dd><%= SelectParameters.get_value("sex").key(@ext_meishiki.meishiki.sex.to_i) %></dd>
   <dt><%= model_class.human_attribute_name(:birthday) %>:</dt>
-  <dd><%= l @ext_meishiki.meishiki.birthday.strftime("%Y/%m/%d %H:%M") %></dd>
+  <dd><%= @ext_meishiki.meishiki.birthday.strftime("%Y/%m/%d %H:%M") %></dd>
 </dl>
 
 <%= render 'sekki_input' %>

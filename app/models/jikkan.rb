@@ -1,7 +1,7 @@
 class Jikkan < ActiveRecord::Base
   JIKKAN_COUNT = 10
 
-  attr_accessible :type, :inyou, :jikkan_code, :jikkan_name, :point, :point_day, :gogyo_id, :shi_teiou
+  attr_accessible :type, :inyou, :code, :name, :point, :point_day, :gogyo_id, :shi_teiou
 
   has_many :meishiki_olr, :foreign_key => "tenkan_id"
   has_many :meishiki_olr, :foreign_key => "zoukan_id"
@@ -18,7 +18,7 @@ class Jikkan < ActiveRecord::Base
   end
 
   def getHoun(_target_shi)
-    _houn =(_target_shi.shi_code - self.shi_teiou) * self.inyou 
+    _houn =(_target_shi.code - self.shi_teiou) * self.inyou 
     _houn = (_houn + Junishi::SHI_COUNT / 2) % Junishi::SHI_COUNT
     Houn.find_by_houn_code(_houn).houn_code
   end

@@ -1,5 +1,5 @@
 class MeishikiPlr < ActiveRecord::Base
-  after_create :set_initial_value
+  before_create :set_initial_value
 
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
   

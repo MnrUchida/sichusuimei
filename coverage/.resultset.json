@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/minoru/work/sichusuimei/lib/seeds_from_csv.rb": [
+      "/Users/uchida/source/sichusuimei/lib/seeds_from_csv.rb": [
         null,
         null,
         1,
@@ -9,19 +9,19 @@
         1,
         null,
         1,
-        66,
+        79,
         null,
-        66,
-        792,
+        79,
+        948,
         null,
         null,
         null,
         null,
         1,
-        94,
+        107,
         null,
-        94,
-        940,
+        107,
+        1070,
         null,
         null,
         null,
@@ -56,10 +56,10 @@
         null,
         null,
         1,
-        46,
+        59,
         null,
-        46,
-        1518,
+        59,
+        1947,
         null,
         null,
         null,
@@ -76,11 +76,9 @@
         null,
         null,
         null,
-        null,
-        null,
         null
       ]
     },
-    "timestamp": 1363756339
+    "timestamp": 1365594674
   }
 }
