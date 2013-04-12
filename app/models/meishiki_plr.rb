@@ -18,6 +18,14 @@ class MeishikiPlr < ActiveRecord::Base
     meishiki.nisshu.getHentsusei(self.tenkan)
   end
 
+  def zoukan_hentsusei()
+    meishiki.nisshu.getHentsusei(self.zoukan)
+  end
+
+  def houn()
+    meishiki.nisshu.getHoun(self.chishi)
+  end
+
   protected
 
   def new_zoukan()
