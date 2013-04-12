@@ -41,9 +41,11 @@
  <td><%=@meishiki.piller(DayPiller).zoukan.name%></td>
  <td><%=@meishiki.piller(TimePiller).zoukan.name%></td>
 </tr>
+</table>
 
-<%= link_to 'Edit', edit_meishiki_path(@meishiki) %> |
 <div class="form-actions">
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_meishiki_path(@meishiki), :class => 'btn' %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
               meishikis_path, :class => 'btn' %>
 </div>
