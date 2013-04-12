@@ -10,6 +10,10 @@ class Junishi < ActiveRecord::Base
     term(day).zoukan if term(day).present?
   end
 
+  def gogyo(day)
+    term(day).junishi_gogyo if term(day).present?
+  end
+
   private
 
   def term(day)

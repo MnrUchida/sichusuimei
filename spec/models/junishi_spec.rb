@@ -323,3 +323,27 @@ describe Junishi, "天徳取得" do
   end
  end
 end
+
+describe Junishi, "五行取得" do
+
+  before do
+    read_gogyo()
+    read_junishi()
+    read_jikkan()
+    read_junishi_term()
+    read_junishi_gogyo()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "余気 壬" do
+      subject.gogyo(0).first.code.should == 4
+      subject.gogyo(9).first.code.should == 4
+    end
+    it "正気 癸" do
+      subject.gogyo(10).first.code.should == 4
+      subject.gogyo(30).first.code.should == 4
+    end
+  end
+end

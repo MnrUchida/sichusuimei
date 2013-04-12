@@ -14,3 +14,5 @@ include SeedsFromCsv
   read_houn()
 
   read_hentsusei()
+
+  read_junishi_gogyo

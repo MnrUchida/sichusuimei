@@ -27,7 +27,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/gogyo.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Gogyo.create(:gogyo_name => row[0], :gogyo_code => row[1])
+      Gogyo.create(:name => row[0], :code => row[1])
     end
   end
 
@@ -56,6 +56,15 @@ module SeedsFromCsv
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
       JunishiTerm.create(:shi_id => row[0], :term_start => row[1], :term_end => row[2], :zoukan_id => row[3])
+    end
+  end
+
+  # 十二支　五行データ取り込み
+  def read_junishi_gogyo
+    _file_path = File.expand_path('db/seeds/junishi_gogyo.csv', ENV['RAILS_ROOT'])
+
+    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
+      JunishiGogyo.create(:junishi_term_id => row[0], :gogyo_id => row[1], :point => row[2], :point_month => row[3])
     end
   end
 

@@ -38,4 +38,11 @@ class Meishiki < ActiveRecord::Base
   def teikou
     piller(MonthPiller).zoukan
   end
+
+  def gogyo()
+    meishiki_plr.inject(Hash.new) do |meishiki_gogyo, piller|
+      meishiki_gogyo.merge(piller.gogyo){|key, oldval, newval| oldval + newval}
+    end
+  end
+
 end

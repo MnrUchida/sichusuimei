@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317021839) do
+ActiveRecord::Schema.define(:version => 20130412025925) do
 
   create_table "gogyos", :force => true do |t|
-    t.integer  "gogyo_code"
-    t.string   "gogyo_name"
+    t.integer  "code"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20130317021839) do
     t.integer  "shi_teiou"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "junishi_gogyos", :force => true do |t|
+    t.integer  "junishi_term_id"
+    t.integer  "gogyo_id"
+    t.float    "point"
+    t.float    "point_month"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "junishi_terms", :force => true do |t|

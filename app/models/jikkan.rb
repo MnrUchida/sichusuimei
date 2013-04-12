@@ -9,8 +9,8 @@ class Jikkan < ActiveRecord::Base
   belongs_to :gogyo, :foreign_key => "gogyo_id",:class_name => 'Gogyo'
 
   def getHentsusei(_target_jikkan)
-    _target_gogyo = _target_jikkan.gogyo.gogyo_code
-    _self_gogyo = self.gogyo.gogyo_code
+    _target_gogyo = _target_jikkan.gogyo.code
+    _self_gogyo = self.gogyo.code
     _category = (_target_gogyo - _self_gogyo) % Gogyo::GOGYO_COUNT
     _inyou = _target_jikkan.inyou * self.inyou
     

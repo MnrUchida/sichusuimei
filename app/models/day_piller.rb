@@ -12,4 +12,8 @@ class DayPiller < MeishikiPlr
     meishiki.nisshu.getHentsusei(meishiki.teikou)
   end
 
+  def gogyo_by_tenkan()
+    {tenkan.gogyo.code => tenkan.point_day}
+  end
+
 end

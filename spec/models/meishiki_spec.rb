@@ -9,10 +9,12 @@ describe MeishikiPlr, "四柱" do
  let(:meishiki){Meishiki.create(:birthday=>current_day)}
  
  before do
-       read_junishi()
-       read_jikkan()
-       read_junishi_term()
-       Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
+   read_gogyo()
+   read_junishi()
+   read_jikkan()
+   read_junishi_term()
+   read_junishi_gogyo()
+   Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
  end
 
  describe "年柱" do
@@ -89,6 +91,10 @@ describe MeishikiPlr, "四柱" do
   it "蔵干" do
     time_piller.zoukan.name.should == "庚"
   end
+ end
+
+ it "五行" do
+   meishiki.gogyo[2].should == 1
  end
 
 end

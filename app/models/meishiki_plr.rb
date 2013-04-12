@@ -26,10 +26,13 @@ class MeishikiPlr < ActiveRecord::Base
     meishiki.nisshu.getHoun(self.chishi)
   end
 
+  def gogyo()
+    gogyo_by_chishi.merge(gogyo_by_tenkan){|key, oldval, newval| oldval + newval}
+  end
+
   protected
 
   def new_zoukan()
-    logger.debug "Watch!!!" + self.chishi.id.to_s
     self.chishi.zoukan(self.meishiki.day_from_sekki)
   end
 
@@ -48,4 +51,16 @@ class MeishikiPlr < ActiveRecord::Base
   def days_of_current_year(year)
     year*365 + (year/4).truncate - (year/100).truncate + (year/ 400).truncate
   end
+
+  def gogyo_by_chishi()
+    chishi.gogyo(self.meishiki.day_from_sekki).inject(Hash.new) do |gogyos, chishi_gogyo|
+      gogyos[chishi_gogyo.code] = chishi_gogyo.point
+      gogyos
+    end
+  end
+
+  def gogyo_by_tenkan()
+    {tenkan.gogyo.code => tenkan.point}
+  end
+
 end
