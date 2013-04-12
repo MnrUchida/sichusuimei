@@ -8,4 +8,8 @@ class DayPiller < MeishikiPlr
     (day_for_tenkan % Jikkan::JIKKAN_COUNT) + 1
   end
 
+  def tenkan_hentsusei()
+    meishiki.nisshu.getHentsusei(meishiki.teikou)
+  end
+
 end

@@ -34,4 +34,8 @@ class Meishiki < ActiveRecord::Base
   def nisshu
     piller(DayPiller).tenkan
   end
+
+  def teikou
+    piller(MonthPiller).zoukan
+  end
 end
