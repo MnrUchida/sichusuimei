@@ -30,7 +30,7 @@ class MeishikiPlr < ActiveRecord::Base
 
   def new_zoukan()
     logger.debug "Watch!!!" + self.chishi.id.to_s
-    self.chishi.getZoukan(self.meishiki.day_from_sekki)
+    self.chishi.zoukan(self.meishiki.day_from_sekki)
   end
 
   def day_for_tenkan()

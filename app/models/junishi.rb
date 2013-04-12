@@ -6,14 +6,15 @@ class Junishi < ActiveRecord::Base
   has_many :tentoku, :foreign_key => "shi_id"
   has_many :meishiki_plr, :foreign_key => "chishi_id"
 
-  def getZoukan(day)
-    zoukan = nil
-    
-    self.junishi_term.each do |_junishi_term|
-      zoukan = _junishi_term.zoukan if _junishi_term.term_start <= day and _junishi_term.term_end >= day
-      next
+  def zoukan(day)
+    term(day).zoukan if term(day).present?
+  end
+
+  private
+
+  def term(day)
+    self.junishi_term.find(nil) do |a_junishi_term|
+      a_junishi_term.term_start <= day && a_junishi_term.term_end >= day
     end
-    
-    zoukan
-  end 
+  end
 end
