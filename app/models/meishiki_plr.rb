@@ -14,6 +14,10 @@ class MeishikiPlr < ActiveRecord::Base
     self.zoukan_id = self.new_zoukan.id
   end
 
+  def tenkan_hentsusei()
+    meishiki.nisshu.getHentsusei(self.tenkan)
+  end
+
   protected
 
   def new_zoukan()
@@ -36,5 +40,4 @@ class MeishikiPlr < ActiveRecord::Base
   def days_of_current_year(year)
     year*365 + (year/4).truncate - (year/100).truncate + (year/ 400).truncate
   end
-
 end

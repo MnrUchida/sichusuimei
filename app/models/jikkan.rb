@@ -14,13 +14,13 @@ class Jikkan < ActiveRecord::Base
     _category = (_target_gogyo - _self_gogyo) % Gogyo::GOGYO_COUNT
     _inyou = _target_jikkan.inyou * self.inyou
     
-    Hentsusei.find_by_category_and_inyou(_category, _inyou).hentsusei_code
+    Hentsusei.find_by_category_and_inyou(_category, _inyou)
   end
 
   def getHoun(_target_shi)
     _houn =(_target_shi.code - self.shi_teiou) * self.inyou 
     _houn = (_houn + Junishi::SHI_COUNT / 2) % Junishi::SHI_COUNT
-    Houn.find_by_houn_code(_houn).houn_code
+    Houn.find_by_code(_houn)
   end
 
 end

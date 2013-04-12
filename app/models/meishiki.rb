@@ -31,4 +31,7 @@ class Meishiki < ActiveRecord::Base
     TimePiller.create(:meishiki_id => self.id)
   end
 
+  def nisshu
+    piller(DayPiller).tenkan
+  end
 end

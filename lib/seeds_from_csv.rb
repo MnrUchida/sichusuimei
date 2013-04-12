@@ -36,7 +36,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/hentsusei.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Hentsusei.create(:hentsusei_name => row[0], :hentsusei_code => row[1], :category => row[2], :inyou => row[3],
+      Hentsusei.create(:name => row[0], :code => row[1], :category => row[2], :inyou => row[3],
                        :point => row[4])
     end
   end
@@ -46,7 +46,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/houn.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Houn.create(:houn_name => row[0], :houn_code => row[1], :point => row[2])
+      Houn.create(:name => row[0], :code => row[1], :point => row[2])
     end
   end
 

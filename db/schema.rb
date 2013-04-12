@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(:version => 20130317021839) do
   end
 
   create_table "hentsuseis", :force => true do |t|
-    t.integer  "hentsusei_code"
-    t.string   "hentsusei_name"
+    t.integer  "code"
+    t.string   "name"
     t.integer  "category"
     t.integer  "inyou"
     t.integer  "point"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "houns", :force => true do |t|
-    t.string   "houn_name"
-    t.integer  "houn_code"
+    t.string   "name"
+    t.integer  "code"
     t.integer  "point"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

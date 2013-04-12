@@ -1,8 +1,8 @@
 class CreateHouns < ActiveRecord::Migration
   def change
     create_table :houns do |t|
-      t.string :houn_name
-      t.integer :houn_code
+      t.string :name
+      t.integer :code
       t.integer :point
 
       t.timestamps

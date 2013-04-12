@@ -1,3 +1,3 @@
 class Houn < ActiveRecord::Base
-  attr_accessible :houn_code, :houn_name, :point
+  attr_accessible :code, :name, :point
 end
