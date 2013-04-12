@@ -7,41 +7,44 @@
   <dt><%= model_class.human_attribute_name(:name) %>:</dt>
   <dd><%= @meishiki.name %></dd>
   <dt><%= model_class.human_attribute_name(:sex) %>:</dt>
-  <dd><%= SelectParameters.get_value("sex").key(@meishiki.sex) %></dd>
+  <dd><%= SelectParameters.get_value("sex").key(@meishiki.sex.to_i) %></dd>
   <dt><%= model_class.human_attribute_name(:birthday) %>:</dt>
   <dd><%= l @meishiki.birthday %></dd>
-</dl>
 
-<table>
-<tr>
- <th/>
- <th>年柱</th>
- <th>月柱</th>
- <th>日柱</th>
- <th>時柱</th>
-</tr>
-<tr>
- <th>天干</th>
- <td><%=@meishiki.piller(YearPiller).tenkan.name%></td>
- <td><%=@meishiki.piller(MonthPiller).tenkan.name%></td>
- <td><%=@meishiki.piller(DayPiller).tenkan.name%></td>
- <td><%=@meishiki.piller(TimePiller).tenkan.name%></td>
-</tr>
-<tr>
- <th>地支</th>
- <td><%=@meishiki.piller(YearPiller).chishi.name%></td>
- <td><%=@meishiki.piller(MonthPiller).chishi.name%></td>
- <td><%=@meishiki.piller(DayPiller).chishi.name%></td>
- <td><%=@meishiki.piller(TimePiller).chishi.name%></td>
-</tr>
-<tr>
- <th>蔵干</th>
- <td><%=@meishiki.piller(YearPiller).zoukan.name%></td>
- <td><%=@meishiki.piller(MonthPiller).zoukan.name%></td>
- <td><%=@meishiki.piller(DayPiller).zoukan.name%></td>
- <td><%=@meishiki.piller(TimePiller).zoukan.name%></td>
-</tr>
-</table>
+  <dt><%= model_class.human_attribute_name(:meishiki) %>:</dt>
+  <dd>
+  <table>
+    <tr>
+      <th/>
+      <th>年柱</th>
+      <th>月柱</th>
+      <th>日柱</th>
+      <th>時柱</th>
+    </tr>
+    <tr>
+      <th>天干</th>
+      <td><%=@meishiki.piller(YearPiller).tenkan.name%></td>
+      <td><%=@meishiki.piller(MonthPiller).tenkan.name%></td>
+      <td><%=@meishiki.piller(DayPiller).tenkan.name%></td>
+      <td><%=@meishiki.piller(TimePiller).tenkan.name%></td>
+    </tr>
+    <tr>
+      <th>地支</th>
+      <td><%=@meishiki.piller(YearPiller).chishi.name%></td>
+      <td><%=@meishiki.piller(MonthPiller).chishi.name%></td>
+      <td><%=@meishiki.piller(DayPiller).chishi.name%></td>
+      <td><%=@meishiki.piller(TimePiller).chishi.name%></td>
+    </tr>
+    <tr>
+      <th>蔵干</th>
+      <td><%=@meishiki.piller(YearPiller).zoukan.name%></td>
+      <td><%=@meishiki.piller(MonthPiller).zoukan.name%></td>
+      <td><%=@meishiki.piller(DayPiller).zoukan.name%></td>
+      <td><%=@meishiki.piller(TimePiller).zoukan.name%></td>
+    </tr>
+  </table>
+  </dd>
+</dl>
 
 <div class="form-actions">
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
