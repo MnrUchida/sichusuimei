@@ -3,6 +3,10 @@ Sichusuimei::Application.routes.draw do
     collection do
       get 'sekki'
     end
+
+    member do
+      get 'image'
+    end
   end
 
   match "ext_meishikis", :to => 'meishikis#create_sekki', :via => :post

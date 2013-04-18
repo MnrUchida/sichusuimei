@@ -45,4 +45,16 @@ class Meishiki < ActiveRecord::Base
     end
   end
 
+  def gogyo_with_array()
+    gogyo_array = Array.new(Gogyo::GOGYO_COUNT, 0)
+
+    gogyo.each do |gogyo_key, gogyo_value|
+      index = gogyo_key
+
+      gogyo_array[index] = {:gogyo => Gogyo.find_by_code(gogyo_key), :point => gogyo_value}
+    end
+
+    gogyo_array
+  end
+
 end

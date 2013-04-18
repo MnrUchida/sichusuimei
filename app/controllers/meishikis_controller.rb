@@ -1,4 +1,25 @@
+# coding : utf-8
+
 class MeishikisController < ApplicationController
+  require 'gruff'
+
+  def image
+    @meishiki = Meishiki.find(params[:id])
+
+    gogyo = @meishiki.gogyo_with_array
+
+    g = Gruff::Spider.new 10,300
+    g.base_angle = -Math::PI * @meishiki.nisshu.gogyo.code / Gogyo::GOGYO_COUNT * 2
+
+    g.theme_37signals
+    g.font = "/Library/Fonts/Apple LiGothic Medium.ttf"
+    gogyo.each do |data|
+      g.data data[:gogyo].name + " " + data[:point].to_s, [data[:point]]
+    end
+
+    send_data(g.to_blob, :type => 'image/png', :disposition=>'inline')
+  end
+
   # GET /meishikis
   # GET /meishikis.json
   def index
