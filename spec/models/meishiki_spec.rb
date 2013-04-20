@@ -18,78 +18,55 @@ describe MeishikiPlr, "四柱" do
  end
 
  describe "年柱" do
-   let(:year_piller){YearPiller.new(:meishiki_id => meishiki.id)}
-
-   before do
-     year_piller.set_initial_value
-   end
-
   it "命式" do
-    year_piller.meishiki.id.to_s.should == meishiki.id.to_s
+    meishiki.year_pillar.meishiki.id.to_s.should == meishiki.id.to_s
   end
   it "天干" do
-    year_piller.tenkan_id.to_s.should == "9"
-    year_piller.tenkan.name.should == "壬"
+    meishiki.year_pillar.tenkan_id.to_s.should == "9"
+    meishiki.year_pillar.tenkan.name.should == "壬"
   end
   it "地支" do
-    year_piller.chishi.name.should == "戌"
+    meishiki.year_pillar.chishi.name.should == "戌"
   end
   it "蔵干" do
-    year_piller.zoukan.name.should == "戊"
+    meishiki.year_pillar.zoukan.name.should == "戊"
   end
  end
 
  describe "月柱" do
-   let(:month_piller){MonthPiller.new(:meishiki_id => meishiki.id)}
-
-   before do
-     month_piller.set_initial_value
-   end
 
   it "天干" do
-    month_piller.tenkan.name.should == "癸"
+    meishiki.month_pillar.tenkan.name.should == "癸"
   end
   it "地支" do
-    month_piller.chishi.name.should == "卯"
+    meishiki.month_pillar.chishi.name.should == "卯"
   end
   it "蔵干" do
-    month_piller.zoukan.name.should == "乙"
+    meishiki.month_pillar.zoukan.name.should == "乙"
   end
  end
 
  describe "日柱" do
-   let(:day_piller){DayPiller.new(:meishiki_id => meishiki.id)}
-
-   before do
-     day_piller.set_initial_value
-   end
-
   it "天干" do
-    day_piller.tenkan.name.should == "辛"
+    meishiki.day_pillar.tenkan.name.should == "辛"
   end
   it "地支" do
-    day_piller.chishi.name.should == "亥"
+    meishiki.day_pillar.chishi.name.should == "亥"
   end
   it "蔵干" do
-    day_piller.zoukan.name.should == "壬"
+    meishiki.day_pillar.zoukan.name.should == "壬"
   end
  end
 
  describe "時柱" do
-   let(:time_piller){TimePiller.new(:meishiki_id => meishiki.id)}
-
-   before do
-     time_piller.set_initial_value
-   end
-
   it "天干" do
-    time_piller.tenkan.name.should == "丙"
+    meishiki.time_pillar.tenkan.name.should == "丙"
   end
   it "地支" do
-    time_piller.chishi.name.should == "申"
+    meishiki.time_pillar.chishi.name.should == "申"
   end
   it "蔵干" do
-    time_piller.zoukan.name.should == "庚"
+    meishiki.time_pillar.zoukan.name.should == "庚"
   end
  end
 

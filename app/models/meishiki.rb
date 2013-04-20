@@ -5,6 +5,10 @@ class Meishiki < ActiveRecord::Base
 
   attr_accessible :id, :name, :sex, :birthday, :meikyu
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
+  has_one  :year_pillar, :foreign_key => "meishiki_id", :class_name => "YearPiller"
+  has_one  :month_pillar, :foreign_key => "meishiki_id", :class_name => "MonthPiller"
+  has_one  :day_pillar, :foreign_key => "meishiki_id", :class_name => "DayPiller"
+  has_one  :time_pillar, :foreign_key => "meishiki_id", :class_name => "TimePiller"
 
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil
@@ -20,16 +24,12 @@ class Meishiki < ActiveRecord::Base
       Sekki.is_defined_in_day?(self.birthday - 1.month)
   end
 
-  def piller(piller_type)
-    piller_type.where(:meishiki_id => self.id).first
-  end
-
   def nisshu
-    piller(DayPiller).tenkan
+    self.day_pillar.tenkan
   end
 
   def teikou
-    piller(MonthPiller).zoukan
+    self.month_pillar.zoukan
   end
 
   def gogyo()
@@ -71,8 +71,10 @@ class Meishiki < ActiveRecord::Base
   end
 
   def time_of_birth_by_meikyu
-    meikyu = (piller(MonthPiller).chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day))
+    shi_of_time_by_meikyu.to_hour == 0 ? 12 : shi_of_time_by_meikyu.to_hour
+  end
 
-    meikyu.to_hour == 0 ? 12 : meikyu.to_hour
+  def shi_of_time_by_meikyu
+    self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day)
   end
 end
