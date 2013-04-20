@@ -54,13 +54,12 @@ class Meishiki < ActiveRecord::Base
   end
 
   def create_piller()
-    YearPiller.create(:meishiki_id => self.id)
-    MonthPiller.create(:meishiki_id => self.id)
-    DayPiller.create(:meishiki_id => self.id)
+    self.create_year_pillar
+    self.create_month_pillar
+    self.create_day_pillar
 
     update_birth_day_by_meikyu
-
-    TimePiller.create(:meishiki_id => self.id)
+    self.create_time_pillar
   end
 
   def update_birth_day_by_meikyu
