@@ -3,7 +3,7 @@ require 'active_support'
 class Meishiki < ActiveRecord::Base
   after_create :create_piller
 
-  attr_accessible :id, :name, :sex, :birthday
+  attr_accessible :id, :name, :sex, :birthday, :meikyu
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
 
   def sekki()
@@ -24,13 +24,6 @@ class Meishiki < ActiveRecord::Base
     piller_type.where(:meishiki_id => self.id).first
   end
 
-  def create_piller()
-    YearPiller.create(:meishiki_id => self.id)
-    MonthPiller.create(:meishiki_id => self.id)
-    DayPiller.create(:meishiki_id => self.id)
-    TimePiller.create(:meishiki_id => self.id)
-  end
-
   def nisshu
     piller(DayPiller).tenkan
   end
@@ -46,7 +39,10 @@ class Meishiki < ActiveRecord::Base
   end
 
   def gogyo_with_array()
-    gogyo_array = Array.new(Gogyo::GOGYO_COUNT, 0)
+    gogyo_array = []
+    Gogyo::GOGYO_COUNT.times do |index|
+      gogyo_array[index] = {:gogyo => Gogyo.find_by_code(index), :point => 0}
+    end
 
     gogyo.each do |gogyo_key, gogyo_value|
       index = gogyo_key
@@ -57,4 +53,26 @@ class Meishiki < ActiveRecord::Base
     gogyo_array
   end
 
+  def create_piller()
+    YearPiller.create(:meishiki_id => self.id)
+    MonthPiller.create(:meishiki_id => self.id)
+    DayPiller.create(:meishiki_id => self.id)
+
+    update_birth_day_by_meikyu
+
+    TimePiller.create(:meishiki_id => self.id)
+  end
+
+  def update_birth_day_by_meikyu
+    return unless self.meikyu
+
+    self.birthday = self.birthday.beginning_of_day + time_of_birth_by_meikyu.hour
+    self.save
+  end
+
+  def time_of_birth_by_meikyu
+    meikyu = (piller(MonthPiller).chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day))
+
+    meikyu.to_hour == 0 ? 12 : meikyu.to_hour
+  end
 end

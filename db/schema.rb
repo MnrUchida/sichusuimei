@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412025925) do
+ActiveRecord::Schema.define(:version => 20130418140745) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -89,8 +89,9 @@ ActiveRecord::Schema.define(:version => 20130412025925) do
     t.string   "name"
     t.string   "sex"
     t.datetime "birthday"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "meikyu",     :default => false
   end
 
   create_table "sekkis", :force => true do |t|

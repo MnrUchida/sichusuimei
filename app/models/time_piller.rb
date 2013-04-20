@@ -1,6 +1,6 @@
 class TimePiller < MeishikiPlr
 
-  def getTimeInMeikyu
+  def get_time_with_meikyu
     month = @meishikiData.month
 
     if is_before_sekki?() == true then
@@ -28,7 +28,6 @@ protected
   end
 
   def hours_of_current_hour
-    logger.debug self.meishiki.birthday.to_time.getlocal
     (self.meishiki.birthday.to_time.getlocal.hour + 1) % 24
   end
 

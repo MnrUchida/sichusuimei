@@ -2,6 +2,7 @@
   <%= f.input :name %>
   <%= f.input :sex, :collection => SelectParameters.get_value("sex"), :include_blank => false %>
   <%= f.input :birthday, :as => :datetimepicker, :start_year => Date.today.year - 90 %>
+  <%= f.input :meikyu, :as => :select %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

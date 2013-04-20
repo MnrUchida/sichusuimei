@@ -14,6 +14,18 @@ class Junishi < ActiveRecord::Base
     term(day).junishi_gogyo if term(day).present?
   end
 
+  def +(value)
+    Junishi.find_by_code((self.code + value) % SHI_COUNT)
+  end
+
+  def -(value)
+    self.+(-value)
+  end
+
+  def to_hour
+    self.code * 2
+  end
+
   private
 
   def term(day)

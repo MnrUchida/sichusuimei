@@ -61,6 +61,14 @@ class ExtMeishiki < SimpleModel
     meishiki.birthday = value
   end
 
+  def meikyu()
+    meishiki.meikyu
+  end
+  def meikyu(value)
+    meishiki.meikyu = value
+  end
+
+
   def ext_meishikis_path
     meishiki.meishikis_path
   end
