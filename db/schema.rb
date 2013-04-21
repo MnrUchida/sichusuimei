@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418140745) do
+ActiveRecord::Schema.define(:version => 20130420155616) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "angle"
   end
 
   create_table "hentsuseis", :force => true do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130418140745) do
     t.integer  "point"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "angle"
   end
 
   create_table "jikkans", :force => true do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130418140745) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "angle"
   end
 
   create_table "meishiki_plrs", :force => true do |t|

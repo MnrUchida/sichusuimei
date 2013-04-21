@@ -1,6 +1,6 @@
 class Junishi < ActiveRecord::Base
   SHI_COUNT = 12
-  attr_accessible :code, :name
+  attr_accessible :code, :name, :angle
   
   has_many :junishi_term, :foreign_key => "shi_id"
   has_many :tentoku, :foreign_key => "shi_id"

@@ -89,6 +89,7 @@ class MeishikisController < ApplicationController
 
     respond_to do |format|
       if @meishiki.update_attributes(params[:meishiki])
+        @meishiki.update_piller
         format.html { redirect_to @meishiki, notice: 'Meishiki was successfully updated.' }
         format.json { head :no_content }
       else

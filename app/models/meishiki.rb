@@ -62,6 +62,15 @@ class Meishiki < ActiveRecord::Base
     self.create_time_pillar
   end
 
+  def update_piller()
+    self.year_pillar.reset_data
+    self.month_pillar.reset_data
+    self.day_pillar.reset_data
+
+    update_birth_day_by_meikyu
+    self.time_pillar.reset_data
+  end
+
   def update_birth_day_by_meikyu
     return unless self.meikyu
 
@@ -74,6 +83,6 @@ class Meishiki < ActiveRecord::Base
   end
 
   def shi_of_time_by_meikyu
-    self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day)
+    self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day + 1)
   end
 end

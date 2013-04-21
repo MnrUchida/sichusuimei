@@ -8,22 +8,21 @@ class MeishikiPlr < ActiveRecord::Base
   belongs_to :tenkan, :foreign_key => "tenkan_id", class_name: 'Jikkan'
   belongs_to :zoukan, :foreign_key => "zoukan_id", class_name: 'Jikkan'
 
-  def set_initial_value()
-    self.tenkan_id = self.new_tenkan
-    self.chishi_id = self.new_chishi
-    self.zoukan_id = self.new_zoukan.id
+  def reset_data
+    self.set_initial_value
+    self.save
   end
 
   def tenkan_hentsusei()
-    meishiki.nisshu.getHentsusei(self.tenkan)
+    meishiki.nisshu.hentsusei(self.tenkan)
   end
 
   def zoukan_hentsusei()
-    meishiki.nisshu.getHentsusei(self.zoukan)
+    meishiki.nisshu.hentsusei(self.zoukan)
   end
 
   def houn()
-    meishiki.nisshu.getHoun(self.chishi)
+    meishiki.nisshu.houn(self.chishi)
   end
 
   def gogyo()
@@ -61,6 +60,12 @@ class MeishikiPlr < ActiveRecord::Base
 
   def gogyo_by_tenkan()
     {tenkan.gogyo.code => tenkan.point}
+  end
+
+  def set_initial_value()
+    self.tenkan_id = self.new_tenkan
+    self.chishi_id = self.new_chishi
+    self.zoukan_id = self.new_zoukan.id
   end
 
 end

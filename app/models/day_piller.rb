@@ -9,7 +9,7 @@ class DayPiller < MeishikiPlr
   end
 
   def tenkan_hentsusei()
-    meishiki.nisshu.getHentsusei(meishiki.teikou)
+    meishiki.nisshu.hentsusei(meishiki.teikou)
   end
 
   def gogyo_by_tenkan()
