@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      meishiki: 命式
+
+    attributes:
+      meishiki:
+        name: 氏名
+        sex: 性別
+        tentoku: 天徳
+        kubou: 空亡
+        birthday: 誕生日
+        year_pillar: 年柱
+        month_pillar: 月柱
+        day_pillar: 日柱
+        time_pillar: 時柱
+      meishiki_pillar:
+        tenkan: 天干
+        chishi: 地支
+        zoukan: 蔵干
+        hentsusei: 変通星
+        houn: 十二運気星

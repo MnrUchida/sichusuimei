@@ -1,0 +1,51 @@
+  <table>
+    <tr>
+      <th/>
+      <th><%= I18n.t("activerecord.attributes.meishiki.year_pillar") %></th>
+      <th><%= I18n.t("activerecord.attributes.meishiki.month_pillar") %></th>
+      <th><%= I18n.t("activerecord.attributes.meishiki.day_pillar") %></th>
+      <th><%= I18n.t("activerecord.attributes.meishiki.time_pillar") %></th>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.tenkan") %></th>
+      <td <%= display_class_kan(meishiki.year_pillar) %> ><%=meishiki.year_pillar.tenkan.name%></td>
+      <td <%= display_class_kan(meishiki.month_pillar) %> ><%=meishiki.month_pillar.tenkan.name%></td>
+      <td <%= display_class_kan(meishiki.day_pillar) %> ><%=meishiki.day_pillar.tenkan.name%></td>
+      <td <%= display_class_kan(meishiki.time_pillar) %> ><%=meishiki.time_pillar.tenkan.name%></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.chishi") %></th>
+      <td <%= display_class_shi(meishiki.year_pillar) %> ><%=meishiki.year_pillar.chishi.name%></td>
+      <td <%= display_class_shi(meishiki.month_pillar) %> ><%=meishiki.month_pillar.chishi.name%></td>
+      <td <%= display_class_shi(meishiki.day_pillar) %> ><%=meishiki.day_pillar.chishi.name%></td>
+      <td <%= display_class_shi(meishiki.time_pillar) %> ><%=meishiki.time_pillar.chishi.name%></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.zoukan") %></th>
+      <td><%=meishiki.year_pillar.zoukan.name%></td>
+      <td><%=meishiki.month_pillar.zoukan.name%></td>
+      <td><%=meishiki.day_pillar.zoukan.name%></td>
+      <td><%=meishiki.time_pillar.zoukan.name%></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.tenkan") %><%= I18n.t("activerecord.attributes.meishiki_pillar.hentsusei") %></th>
+      <td><%=meishiki.year_pillar.tenkan_hentsusei.name%></td>
+      <td><%=meishiki.month_pillar.tenkan_hentsusei.name%></td>
+      <td><%=meishiki.day_pillar.tenkan_hentsusei.name%></td>
+      <td><%=meishiki.time_pillar.tenkan_hentsusei.name%></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.zoukan") %><%= I18n.t("activerecord.attributes.meishiki_pillar.hentsusei") %></th>
+      <td><%=meishiki.year_pillar.zoukan_hentsusei.name%></td>
+      <td><%=meishiki.month_pillar.zoukan_hentsusei.name%></td>
+      <td><%=meishiki.day_pillar.zoukan_hentsusei.name%></td>
+      <td><%=meishiki.time_pillar.zoukan_hentsusei.name%></td>
+    </tr>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.houn") %></th>
+      <td><%=meishiki.year_pillar.houn.name%></td>
+      <td><%=meishiki.month_pillar.houn.name%></td>
+      <td><%=meishiki.day_pillar.houn.name%></td>
+      <td><%=meishiki.time_pillar.houn.name%></td>
+    </tr>
+  </table>

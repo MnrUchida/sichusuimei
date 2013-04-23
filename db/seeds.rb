@@ -16,3 +16,5 @@ include SeedsFromCsv
   read_hentsusei()
 
   read_junishi_gogyo
+
+  read_tentoku()

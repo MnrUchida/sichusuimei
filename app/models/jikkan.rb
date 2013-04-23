@@ -5,6 +5,14 @@ class Jikkan < ActiveRecord::Base
 
   belongs_to :gogyo, :foreign_key => "gogyo_id",:class_name => 'Gogyo'
 
+  def gou
+    Jikkan.where(:code => self.gou_code).first
+  end
+
+  def gou?(relate_jikkan)
+    relate_jikkan.code == self.gou_code
+  end
+
   def hentsusei(relate_jikkan)
     Hentsusei.where(:category => self.gogyo.relation_with_gogyo(relate_jikkan.gogyo),
                     :inyou => relate_jikkan.inyou * self.inyou).first
@@ -17,4 +25,10 @@ class Jikkan < ActiveRecord::Base
   def houn_angle(relate_junishi)
     ((relate_junishi.angle - self.gogyo.angle) * self.inyou) % 360
   end
+
+  protected
+  def gou_code
+    (self.code + JIKKAN_COUNT / 2) % JIKKAN_COUNT
+  end
+
 end

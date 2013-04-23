@@ -1,23 +1,21 @@
-<h1>Listing meishikis</h1>
+<h1>一覧</h1>
 
-<table>
+<table border=1>
   <tr>
-    <th>Name</th>
-    <th>Sex</th>
-    <th>Birthday</th>
-    <th></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki.name") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki.sex") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki.birthday") %></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @meishikis.each do |meishiki| %>
   <tr>
-    <td><%= meishiki.name %></td>
-    <td><%= meishiki.sex %></td>
-    <td><%= meishiki.birthday %></td>
-    <td><%= link_to 'Show', meishiki %></td>
-    <td><%= link_to 'Edit', edit_meishiki_path(meishiki) %></td>
-    <td><%= link_to 'Destroy', meishiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="mr10"><%= link_to meishiki.name, meishiki  %></td>
+    <td class="mr10"><%= meishiki.sex %></td>
+    <td class="mr10"><%= l meishiki.birthday %></td>
+    <td class="mr10"><%= link_to 'Edit', edit_meishiki_path(meishiki) %></td>
+    <td class="mr10"><%= link_to 'Destroy', meishiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,4 @@
-class DayPiller < MeishikiPlr
+class DayPillar < MeishikiPlr
 
   def new_chishi
     (day_for_chishi % Junishi::SHI_COUNT) + 1

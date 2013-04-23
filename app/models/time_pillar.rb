@@ -1,4 +1,4 @@
-class TimePiller < MeishikiPlr
+class TimePillar < MeishikiPlr
 
   def get_time_with_meikyu
     month = @meishikiData.month

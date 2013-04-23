@@ -1,4 +1,4 @@
-class YearPiller < MeishikiPlr
+class YearPillar < MeishikiPlr
 
   def new_chishi
     (year % Junishi::SHI_COUNT) + 1

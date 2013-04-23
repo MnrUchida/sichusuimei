@@ -5,10 +5,10 @@ class Meishiki < ActiveRecord::Base
 
   attr_accessible :id, :name, :sex, :birthday, :meikyu
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
-  has_one  :year_pillar, :foreign_key => "meishiki_id", :class_name => "YearPiller"
-  has_one  :month_pillar, :foreign_key => "meishiki_id", :class_name => "MonthPiller"
-  has_one  :day_pillar, :foreign_key => "meishiki_id", :class_name => "DayPiller"
-  has_one  :time_pillar, :foreign_key => "meishiki_id", :class_name => "TimePiller"
+  has_one  :year_pillar, :foreign_key => "meishiki_id", :class_name => "YearPillar"
+  has_one  :month_pillar, :foreign_key => "meishiki_id", :class_name => "MonthPillar"
+  has_one  :day_pillar, :foreign_key => "meishiki_id", :class_name => "DayPillar"
+  has_one  :time_pillar, :foreign_key => "meishiki_id", :class_name => "TimePillar"
 
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil
@@ -30,6 +30,26 @@ class Meishiki < ActiveRecord::Base
 
   def teikou
     self.month_pillar.zoukan
+  end
+
+  def tentoku
+    self.month_pillar.chishi.tentoku
+  end
+
+  def tentoku_kan?(jikkan)
+    self.month_pillar.chishi.tentoku_kan.any?{|tentoku| jikkan.code == tentoku.tentoku}
+  end
+
+  def tentoku_shi?(junishi)
+    self.month_pillar.chishi.tentoku_shi.any?{|tentoku| junishi.code == tentoku.tentoku}
+  end
+
+  def kubou
+    self.day_pillar.kubou
+  end
+
+  def kubou?(junishi)
+    self.kubou.any?{|kubou| kubou.code == junishi.code}
   end
 
   def gogyo()
@@ -71,6 +91,8 @@ class Meishiki < ActiveRecord::Base
     self.time_pillar.reset_data
   end
 
+  protected
+
   def update_birth_day_by_meikyu
     return unless self.meikyu
 
@@ -85,4 +107,5 @@ class Meishiki < ActiveRecord::Base
   def shi_of_time_by_meikyu
     self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day + 1)
   end
+
 end

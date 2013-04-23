@@ -13,6 +13,18 @@ class MeishikiPlr < ActiveRecord::Base
     self.save
   end
 
+  def tentoku_kan?()
+    self.meishiki.tentoku_kan?(self.tenkan)
+  end
+
+  def tentoku_shi?()
+    self.meishiki.tentoku_shi?(self.chishi)
+  end
+
+  def kubou?()
+    self.meishiki.kubou?(self.chishi)
+  end
+
   def tenkan_hentsusei()
     meishiki.nisshu.hentsusei(self.tenkan)
   end
@@ -27,6 +39,16 @@ class MeishikiPlr < ActiveRecord::Base
 
   def gogyo()
     gogyo_by_chishi.merge(gogyo_by_tenkan){|key, oldval, newval| oldval + newval}
+  end
+
+  def set_initial_value()
+    self.tenkan_id = self.new_tenkan
+    self.chishi_id = self.new_chishi
+    self.zoukan_id = self.new_zoukan.id
+  end
+
+  def kubou
+    return self.kubou_first, self.kubou_first + 1
   end
 
   protected
@@ -62,10 +84,8 @@ class MeishikiPlr < ActiveRecord::Base
     {tenkan.gogyo.code => tenkan.point}
   end
 
-  def set_initial_value()
-    self.tenkan_id = self.new_tenkan
-    self.chishi_id = self.new_chishi
-    self.zoukan_id = self.new_zoukan.id
+  def kubou_first
+    self.chishi + (Jikkan::JIKKAN_COUNT - self.tenkan.code)
   end
 
 end

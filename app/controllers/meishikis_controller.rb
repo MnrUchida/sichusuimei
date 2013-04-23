@@ -8,7 +8,7 @@ class MeishikisController < ApplicationController
 
     gogyo = @meishiki.gogyo_with_array
 
-    g = Gruff::Spider.new 10,300
+    g = Gruff::Spider.new 10,400
     g.base_angle = -Math::PI * @meishiki.nisshu.gogyo.code / Gogyo::GOGYO_COUNT * 2
 
     g.theme_37signals

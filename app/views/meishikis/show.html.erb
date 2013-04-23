@@ -3,70 +3,26 @@
   <h1><%= t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><%= model_class.human_attribute_name(:name) %>:</dt>
-  <dd><%= @meishiki.name %></dd>
-  <dt><%= model_class.human_attribute_name(:sex) %>:</dt>
-  <dd><%= SelectParameters.get_value("sex").key(@meishiki.sex.to_i) %></dd>
-  <dt><%= model_class.human_attribute_name(:birthday) %>:</dt>
-  <dd><%= l @meishiki.birthday %></dd>
-
-  <dt><%= model_class.human_attribute_name(:meishiki) %>:</dt>
-  <dd>
-  <table>
-    <tr>
-      <th/>
-      <th>年柱</th>
-      <th>月柱</th>
-      <th>日柱</th>
-      <th>時柱</th>
-    </tr>
-    <tr>
-      <th>天干</th>
-      <td><%=@meishiki.year_pillar.tenkan.name%></td>
-      <td><%=@meishiki.month_pillar.tenkan.name%></td>
-      <td><%=@meishiki.day_pillar.tenkan.name%></td>
-      <td><%=@meishiki.time_pillar.tenkan.name%></td>
-    </tr>
-    <tr>
-      <th>地支</th>
-      <td><%=@meishiki.year_pillar.chishi.name%></td>
-      <td><%=@meishiki.month_pillar.chishi.name%></td>
-      <td><%=@meishiki.day_pillar.chishi.name%></td>
-      <td><%=@meishiki.time_pillar.chishi.name%></td>
-    </tr>
-    <tr>
-      <th>蔵干</th>
-      <td><%=@meishiki.year_pillar.zoukan.name%></td>
-      <td><%=@meishiki.month_pillar.zoukan.name%></td>
-      <td><%=@meishiki.day_pillar.zoukan.name%></td>
-      <td><%=@meishiki.time_pillar.zoukan.name%></td>
-    </tr>
-    <tr>
-      <th>天干変通星</th>
-      <td><%=@meishiki.year_pillar.tenkan_hentsusei.name%></td>
-      <td><%=@meishiki.month_pillar.tenkan_hentsusei.name%></td>
-      <td><%=@meishiki.day_pillar.tenkan_hentsusei.name%></td>
-      <td><%=@meishiki.time_pillar.tenkan_hentsusei.name%></td>
-    </tr>
-    <tr>
-      <th>蔵干変通星</th>
-      <td><%=@meishiki.year_pillar.zoukan_hentsusei.name%></td>
-      <td><%=@meishiki.month_pillar.zoukan_hentsusei.name%></td>
-      <td><%=@meishiki.day_pillar.zoukan_hentsusei.name%></td>
-      <td><%=@meishiki.time_pillar.zoukan_hentsusei.name%></td>
-    </tr>
-    <tr>
-      <th>十二運</th>
-      <td><%=@meishiki.year_pillar.houn.name%></td>
-      <td><%=@meishiki.month_pillar.houn.name%></td>
-      <td><%=@meishiki.day_pillar.houn.name%></td>
-      <td><%=@meishiki.time_pillar.houn.name%></td>
-    </tr>
-  </table>
-  </dd>
-</dl>
-<%= image_tag url_for(:action => 'image', :id => @meishiki.id) %>
+<table>
+  <tr>
+    <td>
+      <%= render :partial => 'base_param', :locals => { :meishiki => @meishiki} %>
+    </td>
+    <td rowspan=3>
+      <%= image_tag url_for(:action => 'image', :id => @meishiki.id) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= render :partial => 'assist_param', :locals => { :meishiki => @meishiki} %>
+    </td>
+  </tr>
+  <tr valign="center">
+    <td align="right">
+        <%= render :partial => 'meishiki', :locals => { :meishiki => @meishiki} %>
+    </td>
+  </tr>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
