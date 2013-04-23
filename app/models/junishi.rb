@@ -39,6 +39,6 @@ class Junishi < ActiveRecord::Base
   end
 
   def gou_angle
-    (self.angle - (ANGLE_CIRCLE * (2 + SHI_COUNT)  / (2 * SHI_COUNT))) % ANGLE_CIRCLE - ANGLE_CIRCLE
+    (self.angle - ANGLE_CIRCLE / 2) % ANGLE_CIRCLE
   end
 end
