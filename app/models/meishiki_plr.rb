@@ -51,6 +51,22 @@ class MeishikiPlr < ActiveRecord::Base
     return self.kubou_first, self.kubou_first + 1
   end
 
+  def kangou?(pillar)
+    self.tenkan.gou?(pillar.tenkan)
+  end
+
+  def shigou?(pillar)
+    logger.debug "Watch!!!"
+    logger.debug self.chishi.name
+    logger.debug pillar.chishi.name
+    logger.debug self.chishi.gou?(pillar.chishi)
+    self.chishi.gou?(pillar.chishi)
+  end
+
+  def sangou?(pillar, pillar2)
+    self.chishi.sangou?(pillar.chishi) && self.chishi.sangou?(pillar2.chishi)
+  end
+
   protected
 
   def new_zoukan()

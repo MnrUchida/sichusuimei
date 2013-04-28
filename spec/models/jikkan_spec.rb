@@ -260,3 +260,103 @@ describe Jikkan, "補運取得" do
  end
 
 end
+
+describe Jikkan, "干合" do
+  before do
+    read_jikkan()
+
+    read_gogyo()
+
+    read_hentsusei()
+  end
+
+  describe "甲" do
+    subject{Jikkan.find_by_code(0)}
+    it "己" do
+      jikkan = Jikkan.find_by_code(5)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "己"
+    end
+  end
+
+  describe "乙" do
+    subject{Jikkan.find_by_code(1)}
+    it "庚" do
+      jikkan = Jikkan.find_by_code(6)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "庚"
+    end
+  end
+
+  describe "丙" do
+    subject{Jikkan.find_by_code(2)}
+    it "辛" do
+      jikkan = Jikkan.find_by_code(7)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "辛"
+    end
+  end
+
+  describe "丁" do
+    subject{Jikkan.find_by_code(3)}
+    it "壬" do
+      jikkan = Jikkan.find_by_code(8)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "壬"
+    end
+  end
+
+  describe "戊" do
+    subject{Jikkan.find_by_code(4)}
+    it "癸" do
+      jikkan = Jikkan.find_by_code(9)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "癸"
+    end
+  end
+
+  describe "己" do
+    subject{Jikkan.find_by_code(5)}
+    it "甲" do
+      jikkan = Jikkan.find_by_code(0)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "甲"
+    end
+  end
+
+  describe "庚" do
+    subject{Jikkan.find_by_code(6)}
+    it "乙" do
+      jikkan = Jikkan.find_by_code(1)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "乙"
+    end
+  end
+
+  describe "辛" do
+    subject{Jikkan.find_by_code(7)}
+    it "丙" do
+      jikkan = Jikkan.find_by_code(2)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "丙"
+    end
+  end
+
+  describe "壬" do
+    subject{Jikkan.find_by_code(8)}
+    it "丁" do
+      jikkan = Jikkan.find_by_code(3)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "丁"
+    end
+  end
+
+  describe "癸" do
+    subject{Jikkan.find_by_code(9)}
+    it "戊" do
+      jikkan = Jikkan.find_by_code(4)
+      subject.gou?(jikkan).should == true
+      subject.gou.name.should == "戊"
+    end
+  end
+end

@@ -5,7 +5,7 @@
 
 <table>
   <tr>
-    <td>
+    <td colspan=2>
       <%= render :partial => 'base_param', :locals => { :meishiki => @meishiki} %>
     </td>
     <td rowspan=3>
@@ -13,13 +13,22 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td colspan=2>
       <%= render :partial => 'assist_param', :locals => { :meishiki => @meishiki} %>
     </td>
   </tr>
-  <tr valign="center">
-    <td align="right">
+  <tr>
+    <td>
         <%= render :partial => 'meishiki', :locals => { :meishiki => @meishiki} %>
+    </td>
+    <td valign="top">
+      <%= render :partial => 'kangou', :locals => { :meishiki => @meishiki} %>
+    </td>
+  <tr>
+  </tr>
+    <td/>
+    <td valign="top">
+      <%= render :partial => 'shigou', :locals => { :meishiki => @meishiki} %>
     </td>
   </tr>
 </table>

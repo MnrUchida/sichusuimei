@@ -1,6 +1,9 @@
 require 'active_support'
+require 'forwardable'
 
 class Meishiki < ActiveRecord::Base
+  extend Forwardable
+
   after_create :create_piller
 
   attr_accessible :id, :name, :sex, :birthday, :meikyu
@@ -9,6 +12,10 @@ class Meishiki < ActiveRecord::Base
   has_one  :month_pillar, :foreign_key => "meishiki_id", :class_name => "MonthPillar"
   has_one  :day_pillar, :foreign_key => "meishiki_id", :class_name => "DayPillar"
   has_one  :time_pillar, :foreign_key => "meishiki_id", :class_name => "TimePillar"
+
+  def_delegator :day_pillar, :tenkan, :nisshu
+  def_delegator :day_pillars, :kubou
+  def_delegator :month_pillar, :zoukan, :teikou
 
   def sekki()
     @sekki = Sekki.include_day(self.birthday) if @sekki == nil
@@ -24,14 +31,6 @@ class Meishiki < ActiveRecord::Base
       Sekki.is_defined_in_day?(self.birthday - 1.month)
   end
 
-  def nisshu
-    self.day_pillar.tenkan
-  end
-
-  def teikou
-    self.month_pillar.zoukan
-  end
-
   def tentoku
     self.month_pillar.chishi.tentoku
   end
@@ -42,10 +41,6 @@ class Meishiki < ActiveRecord::Base
 
   def tentoku_shi?(junishi)
     self.month_pillar.chishi.tentoku_shi.any?{|tentoku| junishi.code == tentoku.tentoku}
-  end
-
-  def kubou
-    self.day_pillar.kubou
   end
 
   def kubou?(junishi)

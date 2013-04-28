@@ -1,0 +1,35 @@
+  <table>
+    <tr>
+      <th><%= I18n.t("activerecord.attributes.meishiki_pillar.kangou") %></th>
+    </tr>
+  <% if meishiki.year_pillar.kangou?(meishiki.month_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.year_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.month_pillar") %></td>
+    </tr>
+  <% end %>
+  <% if meishiki.year_pillar.kangou?(meishiki.day_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.year_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.day_pillar") %></td>
+    </tr>
+  <% end %>
+  <% if meishiki.year_pillar.kangou?(meishiki.time_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.year_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.time_pillar") %></td>
+    </tr>
+  <% end %>
+  <% if meishiki.month_pillar.kangou?(meishiki.day_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.month_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.day_pillar") %></td>
+    </tr>
+  <% end %>
+  <% if meishiki.month_pillar.kangou?(meishiki.time_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.month_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.time_pillar") %></td>
+    </tr>
+  <% end %>
+  <% if meishiki.day_pillar.kangou?(meishiki.time_pillar) %>
+    <tr>
+      <td><%= I18n.t("activerecord.attributes.meishiki.day_pillar") %> - <%= I18n.t("activerecord.attributes.meishiki.time_pillar") %></td>
+    </tr>
+  <% end %>
+  </table>
