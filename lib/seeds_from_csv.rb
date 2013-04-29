@@ -104,5 +104,29 @@ module SeedsFromCsv
       end
     end
   end
+
+  # 十二支　関連データ取り込み
+  def read_junishi_relation
+    JunishiRelation.destroy_all
+    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'junishi_relations'")
+
+    _file_path = File.expand_path('db/seeds/junishi_relation.csv', ENV['RAILS_ROOT'])
+
+    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
+      JunishiRelation.create(:relation_code => row[0], :junishi_code => row[1])
+    end
+  end
+
+  # 関連データ取り込み
+  def read_relation
+    Relation.destroy_all
+    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'relations'")
+
+    _file_path = File.expand_path('db/seeds/relation.csv', ENV['RAILS_ROOT'])
+
+    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
+      Relation.create(:code => row[0], :name => row[1], :description => row[2], :function => row[3] )
+    end
+  end
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420155616) do
+ActiveRecord::Schema.define(:version => 20130429023600) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(:version => 20130420155616) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "junishi_relations", :force => true do |t|
+    t.integer  "junishi_code"
+    t.integer  "relation_code"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "junishi_terms", :force => true do |t|
     t.integer  "shi_id"
     t.integer  "term_start"
@@ -95,6 +102,16 @@ ActiveRecord::Schema.define(:version => 20130420155616) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "meikyu",     :default => false
+  end
+
+  create_table "relations", :force => true do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.string   "function"
+    t.string   "except"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   create_table "sekkis", :force => true do |t|

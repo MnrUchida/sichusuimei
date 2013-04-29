@@ -1,0 +1,8 @@
+1,gou,"支合", -angle
+2,gou,"支合しない", nil
+3,kei,"自刑",angle
+4,kei,"勢刑",angle + ANGLE_HALF_CIRCLE / 2
+5,kei,"無恩の刑",angle - ANGLE_HALF_CIRCLE / 2
+6,kei,"勢刑",angle + ANGLE_HALF_CIRCLE
+7,kei,"無礼の刑",(ANGLE_CIRCLE / 12 - angle) * 2 + angle
+8,kei,"無恩の刑",angle - ANGLE_HALF_CIRCLE

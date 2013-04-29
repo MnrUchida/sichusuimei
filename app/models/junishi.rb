@@ -1,4 +1,6 @@
 class Junishi < ActiveRecord::Base
+  after_initialize :def_relation
+
   SHI_COUNT = 12
   ANGLE_CIRCLE = 360
   ANGLE_HALF_CIRCLE = ANGLE_CIRCLE / 2
@@ -12,6 +14,8 @@ class Junishi < ActiveRecord::Base
   has_many :tentoku_kan, :foreign_key => "shi_id"
   has_many :tentoku_shi, :foreign_key => "shi_id"
   has_many :meishiki_plr, :foreign_key => "chishi_id"
+  has_many :junishi_relation, :primary_key => :id, :foreign_key => "junishi_code"
+  has_many :relation, :through => :junishi_relation
 
   def +(value)
     Junishi.find_by_code((self.code + value) % SHI_COUNT)
@@ -33,13 +37,14 @@ class Junishi < ActiveRecord::Base
     term(day).junishi_gogyo if term(day).present?
   end
 
-  def gou
-    Junishi.where(:angle => self.gou_angle).first
-  end
-
-  def gou?(relate_junishi)
-    relate_junishi.angle == self.gou_angle
-  end
+  #def gou
+  #  def_relation
+  #  Junishi.where(:angle => self.gou_angle).first
+  #end
+  #
+  #def gou?(relate_junishi)
+  #  relate_junishi.angle == self.gou_angle
+  #end
 
   def sangou
     Junishi.where(:angle => self.sangou_angle).scoped
@@ -57,6 +62,25 @@ class Junishi < ActiveRecord::Base
     self.tentoku_shi.any?{|tentoku| tentoku.target?(junishi)}
   end
 
+  def def_relation
+    self.relation.each do |relation_define|
+      self.instance_eval <<-EOS
+        def #{relation_define.name}_angle
+          return if (#{relation_define.function}).nil?
+          (#{relation_define.function}) % ANGLE_CIRCLE
+        end
+
+        def #{relation_define.name}
+          Junishi.where(:angle => #{relation_define.name}_angle).first
+        end
+
+        def #{relation_define.name}?(relate_junishi)
+          relate_junishi.angle == #{relation_define.name}_angle
+        end
+      EOS
+    end
+  end
+
   protected
 
   def term(day)
@@ -65,14 +89,14 @@ class Junishi < ActiveRecord::Base
     end
   end
 
-  def gou_angle
-    return if except_gou?
-    -self.angle % ANGLE_CIRCLE
-  end
-
-  def except_gou?
-    true if ((self.angle + ANGLE_SHI) % ANGLE_HALF_CIRCLE) < ANGLE_SHI * 2 + ANGLE_HALF_SHI
-  end
+  #def gou_angle
+  #  return if except_gou?
+  #  -self.angle % ANGLE_CIRCLE
+  #end
+  #
+  #def except_gou?
+  #  true if ((self.angle + ANGLE_SHI) % ANGLE_HALF_CIRCLE) < ANGLE_SHI * 2 + ANGLE_HALF_SHI
+  #end
 
   def sangou_angle
     return (self.angle + ANGLE_CIRCLE / 3) % ANGLE_CIRCLE,

@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       meishiki: 命式
+      relation: 相関
 
     attributes:
       meishiki:
@@ -23,3 +24,8 @@ ja:
         kangou: 干合
         shigou: 支合
         sangou: 三合
+      relation:
+        name: 関連名
+        function: 関数
+        description: 説明
+        junishis: 十二支

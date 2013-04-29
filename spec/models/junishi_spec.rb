@@ -351,13 +351,9 @@ end
 describe Junishi, "支合" do
   before do
     read_junishi()
+    read_junishi_relation()
+    read_relation()
   end
-
-  describe Junishi, "蔵干取得" do
-
-    before do
-      read_junishi()
-    end
 
     describe "子" do
 
@@ -488,6 +484,5 @@ describe Junishi, "支合" do
         subject.gou?(junishi).should == true
         subject.gou.name.should == "寅"
       end
-    end
   end
 end

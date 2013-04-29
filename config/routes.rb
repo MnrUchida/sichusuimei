@@ -8,6 +8,8 @@ Sichusuimei::Application.routes.draw do
       get 'image'
     end
   end
+  resources :relations
+  resources :junishi_relations, :only => [:index, :destroy]
 
   match "ext_meishikis", :to => 'meishikis#create_sekki', :via => :post
 

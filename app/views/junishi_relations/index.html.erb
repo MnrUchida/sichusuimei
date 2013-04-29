@@ -1,0 +1,35 @@
+<h1>一覧</h1>
+
+<table border=1>
+  <tr>
+    <th><%= I18n.t("activerecord.attributes.relation.description") %></th>
+    <th><%= I18n.t("activerecord.attributes.relation.junishis") %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @junishi_relations.each do |junishi_relation| %>
+  <tr>
+    <% if junishi_relation.relation.present? %>
+       <td class="mr10"><%= junishi_relation.relation.description %></td>
+    <% else %>
+        <td class="mr10"><%= junishi_relation.relation_code %></td>
+    <% end %>
+    <% if junishi_relation.junishi.present? %>
+        <td class="mr10"><%= junishi_relation.junishi.name %></td>
+    <% else %>
+        <td class="mr10"><%= junishi_relation.junishi_code %></td>
+    <% end %>
+    <td class="mr10"><%= link_to 'Destroy', junishi_relation, method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<br>
+<% @junishi_relations.each do |junishi_relation| %>
+    <%= junishi_relation.relation_code  %>,<%= junishi_relation.junishi_code  %><br>
+<% end %>
+
+<br />

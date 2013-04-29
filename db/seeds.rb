@@ -3,6 +3,10 @@
 require 'seeds_from_csv'
 include SeedsFromCsv
 
+  read_relation()
+
+  read_junishi_relation()
+
   read_jikkan()
   
   read_junishi()
