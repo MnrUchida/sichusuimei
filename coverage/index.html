@@ -14,7 +14,7 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-04-29T17:50:56+09:00">2013-04-29T17:50:56+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-05-04T07:34:30+09:00">2013-05-04T07:34:30+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         22.9
+         92.2
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>64</td>
         <td>27</td>
         <td>37</td>
-        <td>22.9</td>
+        <td>92.2</td>
       </tr>
       
     </tbody>
@@ -221,7 +221,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         22.9
+         92.2
        </span>
     </span> hits/line)
   </h2>
@@ -253,7 +253,7 @@
         <td>64</td>
         <td>27</td>
         <td>37</td>
-        <td>22.9</td>
+        <td>92.2</td>
       </tr>
       
     </tbody>
@@ -364,14 +364,14 @@
           <code class="ruby">  def read_junishi</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="8">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="8">
+          <span class="hits">62</span>
           
           <code class="ruby">    Junishi.destroy_all</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="9">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="9">
+          <span class="hits">62</span>
           
           <code class="ruby">    ActiveRecord::Base.connection.execute(&quot;delete from sqlite_sequence where name = 'junishis'&quot;)</code>
         </li>
@@ -382,8 +382,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="11">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="11">
+          <span class="hits">62</span>
           
           <code class="ruby">    _file_path = File.expand_path('db/seeds/junishi.csv', ENV['RAILS_ROOT'])</code>
         </li>
@@ -394,14 +394,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="13">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="13">
+          <span class="hits">62</span>
           
           <code class="ruby">    CSV.foreach(_file_path, encoding: &quot;UTF-8&quot;) do |row|</code>
         </li>
       
-        <li class="covered" data-hits="312" data-linenumber="14">
-          <span class="hits">312</span>
+        <li class="covered" data-hits="744" data-linenumber="14">
+          <span class="hits">744</span>
           
           <code class="ruby">      Junishi.create(:name =&gt; row[0], :code =&gt; row[1], :angle =&gt; row[2])</code>
         </li>
@@ -976,14 +976,14 @@
           <code class="ruby">  def read_junishi_relation</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="110">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="110">
+          <span class="hits">62</span>
           
           <code class="ruby">    JunishiRelation.destroy_all</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="111">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="111">
+          <span class="hits">62</span>
           
           <code class="ruby">    ActiveRecord::Base.connection.execute(&quot;delete from sqlite_sequence where name = 'junishi_relations'&quot;)</code>
         </li>
@@ -994,8 +994,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="113">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="113">
+          <span class="hits">62</span>
           
           <code class="ruby">    _file_path = File.expand_path('db/seeds/junishi_relation.csv', ENV['RAILS_ROOT'])</code>
         </li>
@@ -1006,14 +1006,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="115">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="115">
+          <span class="hits">62</span>
           
           <code class="ruby">    CSV.foreach(_file_path, encoding: &quot;UTF-8&quot;) do |row|</code>
         </li>
       
-        <li class="covered" data-hits="624" data-linenumber="116">
-          <span class="hits">624</span>
+        <li class="covered" data-hits="3720" data-linenumber="116">
+          <span class="hits">3720</span>
           
           <code class="ruby">      JunishiRelation.create(:relation_code =&gt; row[0], :junishi_code =&gt; row[1])</code>
         </li>
@@ -1048,14 +1048,14 @@
           <code class="ruby">  def read_relation</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="122">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="122">
+          <span class="hits">62</span>
           
           <code class="ruby">    Relation.destroy_all</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="123">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="123">
+          <span class="hits">62</span>
           
           <code class="ruby">    ActiveRecord::Base.connection.execute(&quot;delete from sqlite_sequence where name = 'relations'&quot;)</code>
         </li>
@@ -1066,8 +1066,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="125">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="125">
+          <span class="hits">62</span>
           
           <code class="ruby">    _file_path = File.expand_path('db/seeds/relation.csv', ENV['RAILS_ROOT'])</code>
         </li>
@@ -1078,14 +1078,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="127">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="62" data-linenumber="127">
+          <span class="hits">62</span>
           
           <code class="ruby">    CSV.foreach(_file_path, encoding: &quot;UTF-8&quot;) do |row|</code>
         </li>
       
-        <li class="covered" data-hits="208" data-linenumber="128">
-          <span class="hits">208</span>
+        <li class="covered" data-hits="682" data-linenumber="128">
+          <span class="hits">682</span>
           
           <code class="ruby">      Relation.create(:code =&gt; row[0], :name =&gt; row[1], :description =&gt; row[2], :function =&gt; row[3] )</code>
         </li>

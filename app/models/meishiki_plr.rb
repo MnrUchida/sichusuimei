@@ -56,11 +56,7 @@ class MeishikiPlr < ActiveRecord::Base
   end
 
   def shigou?(pillar)
-    logger.debug "Watch!!!"
-    logger.debug self.chishi.name
-    logger.debug pillar.chishi.name
-    logger.debug self.chishi.gou?(pillar.chishi)
-    self.chishi.gou?(pillar.chishi)
+     self.chishi.gou?(pillar.chishi)
   end
 
   def sangou?(pillar, pillar2)
