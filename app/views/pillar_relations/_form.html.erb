@@ -1,0 +1,19 @@
+<%= simple_form_for @pillar_relation, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= f.input :name %>
+  <%= f.input :subject %>
+  <%= f.input :method %>
+  <%= f.input :arg %>
+  <%= f.fields_for :pillar_relation_pillars do |relation_pillar| %>
+    <p>
+      <%= relation_pillar.input :base_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => false %>
+      <%= relation_pillar.input :target_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => false %>
+      <%= relation_pillar.input :target2_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => true %>
+    </p>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                relations_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429023600) do
+ActiveRecord::Schema.define(:version => 20130504033554) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -102,6 +102,24 @@ ActiveRecord::Schema.define(:version => 20130429023600) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "meikyu",     :default => false
+  end
+
+  create_table "pillar_relation_pillars", :force => true do |t|
+    t.integer  "pillar_relation_id"
+    t.string   "base_pillar"
+    t.string   "target_pillar"
+    t.string   "target2_pillar"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "pillar_relations", :force => true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.string   "method"
+    t.string   "arg"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "relations", :force => true do |t|

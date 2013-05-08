@@ -4,7 +4,9 @@ module MeishikisHelper
   end
 
   def display_class_shi(pillar)
-    "class = kubou" if pillar.kubou?
-    "class = tentoku" if pillar.tentoku_shi?
+    ret_value = nil
+    ret_value = "class = kubou" if pillar.kubou?
+    ret_value = "class = tentoku" if pillar.tentoku_shi?
+    ret_value
   end
 end

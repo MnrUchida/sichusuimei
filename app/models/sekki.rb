@@ -4,7 +4,7 @@ class Sekki < ActiveRecord::Base
   attr_accessible :day, :hour, :month, :year
 
   def date()
-    DateTime.new(self.year, self.month, self.day, self.hour)
+    Time.zone.local(self.year, self.month, self.day, self.hour).to_datetime
   end
 
   def date=(value)
@@ -30,6 +30,5 @@ class Sekki < ActiveRecord::Base
   def self.is_defined_in_day?(day)
     self.exists?(:year => day.year, :month => day.month)
   end
-
 
 end

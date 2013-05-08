@@ -6,15 +6,16 @@ class MeishikisController < ApplicationController
   def image
     @meishiki = Meishiki.find(params[:id])
 
-    gogyo = @meishiki.gogyo_with_array
+    gogyo = @meishiki.gogyo_
+    with_array
 
     g = Gruff::Spider.new 10,400
     g.base_angle = -Math::PI * @meishiki.nisshu.gogyo.code / Gogyo::GOGYO_COUNT * 2
 
     g.theme_37signals
-    g.font = "/Library/Fonts/Apple LiGothic Medium.ttf"
+    g.font = "config/TakaoPGothic.ttf"
     gogyo.each do |data|
-      g.data data[:gogyo].name + " " + data[:point].to_s, [data[:point]]
+      g.data data[:gogyo].name + " " + data[:point].to_s, [data[:point]] ,data[:gogyo].color
     end
 
     send_data(g.to_blob, :type => 'image/png', :disposition=>'inline')

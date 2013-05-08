@@ -9,6 +9,8 @@ class YearPillar < MeishikiPlr
   end
 
   def year()
-    self.meishiki.sekki.year - 4
+    year = self.meishiki.sekki.year - 4
+    year -= 1 if self.meishiki.sekki.month == 1
+    year
   end
 end

@@ -29,3 +29,11 @@ ja:
         function: 関数
         description: 説明
         junishis: 十二支
+      pillar_relation:
+        name: 関連名
+        base_pillar: 柱
+        target_pillar: 関連柱
+        target_pillar2: 関連柱
+        subject: 関連対象
+        method: 関連メソッド
+        arg: 引数

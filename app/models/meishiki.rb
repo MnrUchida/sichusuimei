@@ -14,7 +14,7 @@ class Meishiki < ActiveRecord::Base
   has_one  :time_pillar, :foreign_key => "meishiki_id", :class_name => "TimePillar"
 
   def_delegator :day_pillar, :tenkan, :nisshu
-  def_delegator :day_pillars, :kubou
+  def_delegator :day_pillar, :kubou
   def_delegator :month_pillar, :zoukan, :teikou
 
   def sekki()
@@ -23,7 +23,7 @@ class Meishiki < ActiveRecord::Base
   end
 
   def day_from_sekki()
-    self.birthday.to_datetime - self.sekki.date.to_datetime
+    (self.birthday.to_datetime - self.sekki.date.to_datetime).to_i
   end
 
   def sekki_defined?()
@@ -44,6 +44,13 @@ class Meishiki < ActiveRecord::Base
   end
 
   def kubou?(junishi)
+    logger.debug "Watch!!"
+    logger.debug junishi.code
+    self.kubou.each do |kubou|
+      logger.debug kubou.code
+    end
+    logger.debug self.kubou.any?{|kubou| kubou.code == junishi.code}
+
     self.kubou.any?{|kubou| kubou.code == junishi.code}
   end
 
