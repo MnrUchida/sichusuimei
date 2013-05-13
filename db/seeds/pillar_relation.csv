@@ -1,0 +1,7 @@
+kei?,"self.chishi.kei?(target_pillar.chishi)"
+chu?,"self.chishi.chu?(target_pillar.chishi)"
+ha?,"self.chishi.ha?(target_pillar.chishi)"
+gai?,"self.chishi.gai?(target_pillar.chishi)"
+shigou?,"self.chishi.gou?(target_pillar.chishi)"
+kangou?,"self.tenkan.gou?(target_pillar.tenkan)"
+sangou?,"(self.chishi.sangou?(target_pillar.chishi) && target_pillar.chishi.sangou?(target2_pillar.chishi)) || (self.chishi.sangou?(target2_pillar.chishi) && target2_pillar.chishi.sangou?(target_pillar.chishi))"

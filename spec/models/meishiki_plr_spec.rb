@@ -14,6 +14,10 @@ describe MeishikiPlr, "四柱" do
    read_jikkan()
    read_junishi_term()
    read_junishi_gogyo()
+   read_pillar_relation()
+   read_pillar_relation_pillar()
+   read_junishi_relation()
+   read_relation()
    Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
  end
 
@@ -115,6 +119,139 @@ describe MeishikiPlr, "四柱" do
      time_pillar.kubou[0].name.should == "辰"
      time_pillar.kubou[1].name.should == "巳"
    end
+ end
+
+ describe "関連" do
+  describe "刑" do
+    let(:year_pillar){YearPillar.new(:chishi_id => 1)}
+    let(:month_pillar){MonthPillar.new(:chishi_id => 4)}
+    let(:day_pillar){DayPillar.new(:chishi_id => 4)}
+    let(:time_pillar){TimePillar.new(:chishi_id => 4)}
+
+    it "年柱" do
+      year_pillar.kei?(:target_pillar => month_pillar).should == true
+    end
+
+    it "月柱" do
+      month_pillar.kei?(:target_pillar => year_pillar).should == true
+    end
+
+    it "日柱" do
+      day_pillar.kei?(:target_pillar => year_pillar).should == true
+    end
+
+    it "時柱" do
+      time_pillar.respond_to?(:kei?).should == false
+    end
+  end
+
+   describe "冲" do
+     let(:year_pillar){YearPillar.new(:chishi_id => 1)}
+     let(:month_pillar){MonthPillar.new(:chishi_id => 7)}
+     let(:day_pillar){DayPillar.new(:chishi_id => 7)}
+     let(:time_pillar){TimePillar.new(:chishi_id => 7)}
+
+     it "年柱" do
+       year_pillar.chu?(:target_pillar => month_pillar).should == true
+     end
+
+     it "月柱" do
+       month_pillar.chu?(:target_pillar => year_pillar).should == true
+     end
+
+     it "日柱" do
+       day_pillar.chu?(:target_pillar => year_pillar).should == true
+     end
+
+     it "時柱" do
+       time_pillar.respond_to?(:chu?).should == false
+     end
+   end
+
+  describe "破" do
+    let(:year_pillar){YearPillar.new(:chishi_id => 1)}
+    let(:month_pillar){MonthPillar.new(:chishi_id => 10)}
+    let(:day_pillar){DayPillar.new(:chishi_id => 10)}
+    let(:time_pillar){TimePillar.new(:chishi_id => 10)}
+
+    it "年柱" do
+      year_pillar.ha?(:target_pillar => month_pillar).should == true
+    end
+
+    it "月柱" do
+      month_pillar.ha?(:target_pillar => year_pillar).should == true
+    end
+
+    it "日柱" do
+      day_pillar.ha?(:target_pillar => year_pillar).should == true
+    end
+
+    it "時柱" do
+      time_pillar.respond_to?(:ha?).should == false
+    end
+  end
+
+  describe "害" do
+    let(:year_pillar){YearPillar.new(:chishi_id => 1)}
+    let(:month_pillar){MonthPillar.new(:chishi_id => 8)}
+    let(:day_pillar){DayPillar.new(:chishi_id => 8)}
+    let(:time_pillar){TimePillar.new(:chishi_id => 8)}
+
+    it "年柱" do
+      year_pillar.gai?(:target_pillar => month_pillar).should == true
+    end
+
+    it "月柱" do
+      month_pillar.gai?(:target_pillar => year_pillar).should == true
+    end
+
+    it "日柱" do
+      day_pillar.gai?(:target_pillar => year_pillar).should == true
+    end
+
+    it "時柱" do
+      time_pillar.respond_to?(:gai?).should == false
+    end
+  end
+
+  describe "支合" do
+    let(:year_pillar){YearPillar.new(:chishi_id => 3)}
+    let(:month_pillar){MonthPillar.new(:chishi_id => 12)}
+    let(:day_pillar){DayPillar.new(:chishi_id => 12)}
+    let(:time_pillar){TimePillar.new(:chishi_id => 12)}
+
+    it "年柱" do
+      year_pillar.shigou?(:target_pillar => month_pillar).should == true
+    end
+
+    it "月柱" do
+      month_pillar.shigou?(:target_pillar => year_pillar).should == true
+    end
+
+    it "日柱" do
+      day_pillar.shigou?(:target_pillar => year_pillar).should == true
+    end
+
+    it "時柱" do
+      time_pillar.respond_to?(:shigou?).should == false
+    end
+  end
+
+  describe "三合" do
+    let(:year_pillar){YearPillar.new(:chishi_id => 1)}
+    let(:month_pillar){MonthPillar.new(:chishi_id => 5)}
+    let(:day_pillar){DayPillar.new(:chishi_id => 9)}
+    let(:time_pillar){TimePillar.new(:chishi_id => 1)}
+
+    it "年柱" do
+      year_pillar.sangou?(:target_pillar => month_pillar, :target2_pillar => day_pillar).should == true
+    end
+
+    it "月柱" do
+      month_pillar.sangou?(:target_pillar => day_pillar, :target2_pillar => time_pillar).should == true
+    end
+  end
+
  end
 
 end

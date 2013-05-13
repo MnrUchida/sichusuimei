@@ -3,7 +3,7 @@ sex:
   man: 1
   woman: -1
 pillar:
-  year: year_pillar
-  month: month_pillar
-  day: day_pillar
-  time: time_pillar
+  year: YearPillar
+  month: MonthPillar
+  day: DayPillar
+  time: TimePillar

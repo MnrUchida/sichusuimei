@@ -20,7 +20,6 @@ class PillarRelationsController < ApplicationController
 
   def new
     @pillar_relation = PillarRelation.new
-    5.times {@pillar_relation.pillar_relation_pillars.build}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,11 +38,10 @@ class PillarRelationsController < ApplicationController
 
     respond_to do |format|
       if @pillar_relation.save
-        format.html { redirect_to @pillar_relation, notice: 'Meishiki was successfully created.' }
-        format.json { render json: @pillar_relation, status: :created, location: @pillar_relation }
+        @pillar_relation.save_pillar(params[:pillars])
+        redirect_to pillar_relations_url, notice: 'Meishiki was successfully created.'
       else
-        format.html { render action: "new" }
-        format.json { render json: @pillar_relation.errors, status: :unprocessable_entity }
+        render action: "new"
       end
     end
   end
@@ -51,15 +49,14 @@ class PillarRelationsController < ApplicationController
   # PUT /meishikis/1
   # PUT /meishikis/1.json
   def update
-    @pillar_relation = PillarRelation.find(params[:id])
+    @pillar_relation = PillarRelation.find(params[:pillar_relation][:id])
 
     respond_to do |format|
-      if @pillar_relation.update_attributes(params[:pillar_relation])
-        format.html { redirect_to @pillar_relation, notice: 'Meishiki was successfully updated.' }
-        format.json { head :no_content }
+      if @pillar_relation.save
+        @pillar_relation.save_pillar(params[:pillars])
+        redirect_to pillar_relations_url, notice: 'Meishiki was successfully created.'
       else
-        format.html { render action: "edit" }
-        format.json { render json: @pillar_relation.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
     end
   end
@@ -71,7 +68,7 @@ class PillarRelationsController < ApplicationController
     @pillar_relation.destroy
 
     respond_to do |format|
-      format.html { redirect_to relations_url }
+      format.html { redirect_to pillar_relations_url }
       format.json { head :no_content }
     end
   end

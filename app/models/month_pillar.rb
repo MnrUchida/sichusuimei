@@ -1,6 +1,6 @@
 
 class MonthPillar < MeishikiPlr
-protected
+  protected
   def new_chishi
     (month_for_chishi % Junishi::SHI_COUNT) + 1
   end

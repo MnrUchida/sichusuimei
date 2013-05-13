@@ -15,6 +15,10 @@ ja:
         month_pillar: 月柱
         day_pillar: 日柱
         time_pillar: 時柱
+        YearPillar: 年柱
+        MonthPillar: 月柱
+        DayPillar: 日柱
+        TimePillar: 時柱
       meishiki_pillar:
         tenkan: 天干
         chishi: 地支
@@ -24,6 +28,10 @@ ja:
         kangou: 干合
         shigou: 支合
         sangou: 三合
+        kei: 刑
+        chu: 冲
+        ha: 破
+        gai: 害
       relation:
         name: 関連名
         function: 関数

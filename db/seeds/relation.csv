@@ -9,3 +9,4 @@
 9,chu,"冲",angle + ANGLE_HALF_CIRCLE
 10,ha,"破",angle - ((angle % (ANGLE_SHI * 2)) - ANGLE_SHI) * SHI_COUNT / 2
 11,gai,"害",-(angle + 180)
+12,sangou,"三合",angle + ANGLE_CIRCLE / 3
