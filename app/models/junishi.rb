@@ -37,14 +37,14 @@ class Junishi < ActiveRecord::Base
     term(day).junishi_gogyo if term(day).present?
   end
 
-  def sangou
-    Junishi.where(:angle => self.sangou_angle).scoped
-  end
-
-  def sangou?(relate_junishi)
-    self.sangou_angle.any?{|angle| angle == relate_junishi.angle}
-  end
-
+  #def sangou
+  #  Junishi.where(:angle => self.sangou_angle).scoped
+  #end
+  #
+  #def sangou?(relate_junishi)
+  #  self.sangou_angle.any?{|angle| angle == relate_junishi.angle}
+  #end
+  #
   def tentoku_kan?(jikkan)
     self.tentoku_kan.any?{|tentoku| tentoku.target?(jikkan)}
   end
@@ -80,8 +80,8 @@ class Junishi < ActiveRecord::Base
     end
   end
 
-  def sangou_angle
-    return (self.angle + ANGLE_CIRCLE / 3) % ANGLE_CIRCLE,
-        (self.angle + ANGLE_CIRCLE / 3 * 2) % ANGLE_CIRCLE
-  end
+  #def sangou_angle
+  #  return (self.angle + ANGLE_CIRCLE / 3) % ANGLE_CIRCLE,
+  #      (self.angle + ANGLE_CIRCLE / 3 * 2) % ANGLE_CIRCLE
+  #end
 end

@@ -1,19 +1,24 @@
-<%= simple_form_for @pillar_relation, :html => {:class => 'form-horizontal'} do |f| %>
-  <%= f.input :name %>
-  <%= f.input :subject %>
-  <%= f.input :method %>
-  <%= f.input :arg %>
-  <%= f.fields_for :pillar_relation_pillars do |relation_pillar| %>
-    <p>
-      <%= relation_pillar.input :base_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => false %>
-      <%= relation_pillar.input :target_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => false %>
-      <%= relation_pillar.input :target2_pillar, :collection => SelectParameters.get_value("pillar"), :include_blank => true %>
-    </p>
-  <% end %>
+<%= form_tag url_for( :controller => :pillar_relations, :action => @pillar_relation.id.nil? ? :create : :update), :method => @pillar_relation.id.nil? ? :post : :put do %>
 
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%- model_class = PillarRelation -%>
+
+    <%= hidden_field_tag 'pillar_relation[id]', @pillar_relation.id %>
+    <dl class="dl-horizontal">
+      <dt><%= model_class.human_attribute_name(:name) %>:</dt>
+      <dd><%= text_field_tag 'pillar_relation[name]', @pillar_relation.name %></dd>
+      <dt><%= model_class.human_attribute_name(:method_define) %>:</dt>
+      <dd><%= text_area_tag 'pillar_relation[method_define]', @pillar_relation.method_define, :class=>"input-large" %></dd>
+
+      <% pillar_groups = @pillar_relation.pillar_relation_pillars.by_group %>
+      <table border=1>
+        <%= raw display_pillar_table_header %>
+        <%= raw display_pillar_table(pillar_groups){ |pillar, group| "<td>#{ check_box_tag "pillars#{pillar}",true, group[:value] }</td>"} %>
+      </table>
+    </dl>
+
+    <div class="form-actions">
+    <%= submit_tag '.submit', :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                relations_path, :class => 'btn' %>
+                pillar_relations_path, :class => 'btn' %>
   </div>
 <% end %>

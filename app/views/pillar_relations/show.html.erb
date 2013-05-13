@@ -6,19 +6,15 @@
 <dl class="dl-horizontal">
   <dt><%= model_class.human_attribute_name(:name) %>:</dt>
   <dd><%= @pillar_relation.name %></dd>
-  <dt><%= model_class.human_attribute_name(:base_pillar) %>:</dt>
-  <dd><%= @pillar_relation.base_pillar %></dd>
-  <dt><%= model_class.human_attribute_name(:target_pillar) %>:</dt>
-  <dd><%= @pillar_relation.target_pillar %></dd>
-  <dt><%= model_class.human_attribute_name(:target2_pillar) %>:</dt>
-  <dd><%= @pillar_relation.target2_pillar %></dd>
-  <dt><%= model_class.human_attribute_name(:subject) %>:</dt>
-  <dd><%= @pillar_relation.subject %></dd>
-  <dt><%= model_class.human_attribute_name(:method) %>:</dt>
-  <dd><%= @pillar_relation.method %></dd>
-  <dt><%= model_class.human_attribute_name(:arg) %>:</dt>
-  <dd><%= @pillar_relation.arg %></dd>
+  <dt><%= model_class.human_attribute_name(:method_define) %>:</dt>
+  <dd><%= @pillar_relation.method_define %></dd>
 </dl>
+
+<% pillar_groups = @pillar_relation.pillar_relation_pillars.by_group %>
+<table border=1>
+  <%= raw display_pillar_table_header %>
+  <%= raw display_pillar_table(pillar_groups){ |pillar, group| "<td>#{ "○" if group[:value] }</td>"} %>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

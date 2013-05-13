@@ -22,3 +22,7 @@ include SeedsFromCsv
   read_junishi_gogyo
 
   read_tentoku()
+
+  read_pillar_relation()
+
+  read_pillar_relation_pillar()

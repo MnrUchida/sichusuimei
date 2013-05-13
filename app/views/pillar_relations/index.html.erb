@@ -3,11 +3,6 @@
 <table border=1>
   <tr>
     <th><%= I18n.t("activerecord.attributes.pillar_relation.name") %></th>
-    <th><%= I18n.t("activerecord.attributes.pillar_relation.base_pillar") %></th>
-    <th colspan=2><%= I18n.t("activerecord.attributes.pillar_relation.target_pillar") %></th>
-    <th><%= I18n.t("activerecord.attributes.pillar_relation.subject") %></th>
-    <th><%= I18n.t("activerecord.attributes.pillar_relation.method") %></th>
-    <th><%= I18n.t("activerecord.attributes.pillar_relation.arg") %></th>
     <th></th>
     <th></th>
   </tr>
@@ -15,16 +10,6 @@
 <% @pillar_relations.each do |pillar_relation| %>
   <tr>
     <td class="mr10"><%= link_to pillar_relation.name, pillar_relation  %></td>
-    <td class="mr10"><%= I18n.t("activerecord.attributes.meishiki." + pillar_relation.base_pillar) %></td>
-    <td class="mr10"><%= I18n.t("activerecord.attributes.meishiki." + pillar_relation.target_pillar) %></td>
-    <% if pillar_relation.target2_pillar.present? %>
-      <td class="mr10"><%= I18n.t("activerecord.attributes.meishiki." + pillar_relation.target2_pillar) %></td>
-    <% else %>
-      <td class="mr10"><%= pillar_relation.target2_pillar %></td>
-    <% end %>
-    <td class="mr10"><%= pillar_relation.subject %></td>
-    <td class="mr10"><%= pillar_relation.method %></td>
-    <td class="mr10"><%= pillar_relation.arg %></td>
     <td class="mr10"><%= link_to 'Edit', edit_pillar_relation_path(pillar_relation) %></td>
     <td class="mr10"><%= link_to 'Destroy', pillar_relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -32,3 +17,17 @@
 </table>
 
 <%= link_to 'New PiilarRelation', new_pillar_relation_path %>
+
+<br>
+<br>
+<% @pillar_relations.each do |pillar_relation| %>
+    <%= pillar_relation.name  %>,<%= pillar_relation.method_define  %><br>
+<% end %>
+
+<br>
+<br>
+<% @pillar_relations.each do |pillar_relation| %>
+    <% pillar_relation.pillar_relation_pillars.each do |relation| %>
+        <%= relation.pillar_relation_id  %>,<%= relation.base_pillar  %>,<%= relation.target_pillar  %>,<%= relation.target2_pillar  %><br>
+    <% end %>
+<% end %>

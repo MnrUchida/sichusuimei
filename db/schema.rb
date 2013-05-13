@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504033554) do
+ActiveRecord::Schema.define(:version => 20130509082204) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -115,11 +115,9 @@ ActiveRecord::Schema.define(:version => 20130504033554) do
 
   create_table "pillar_relations", :force => true do |t|
     t.string   "name"
-    t.string   "subject"
-    t.string   "method"
-    t.string   "arg"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "method_define"
   end
 
   create_table "relations", :force => true do |t|

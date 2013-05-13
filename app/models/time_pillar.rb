@@ -1,15 +1,4 @@
 class TimePillar < MeishikiPlr
-
-  def get_time_with_meikyu
-    month = @meishikiData.month
-
-    if is_before_sekki?() == true then
-      month = month - 1
-    end
-
-    return ((month + 6 - @meishikiData.day) % Chishi::CHISHI_COUNT) * 2
-  end
-
 protected
   def new_chishi
     ((time_for_chishi / 2) % Junishi::SHI_COUNT) + 1

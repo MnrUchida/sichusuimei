@@ -1,5 +1,6 @@
 class MeishikiPlr < ActiveRecord::Base
   before_create :set_initial_value
+  after_initialize :def_relation
 
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
   
@@ -51,17 +52,17 @@ class MeishikiPlr < ActiveRecord::Base
     return self.kubou_first, self.kubou_first + 1
   end
 
-  def kangou?(pillar)
-    self.tenkan.gou?(pillar.tenkan)
-  end
-
-  def shigou?(pillar)
-     self.chishi.gou?(pillar.chishi)
-  end
-
-  def sangou?(pillar, pillar2)
-    self.chishi.sangou?(pillar.chishi) && self.chishi.sangou?(pillar2.chishi)
-  end
+  #def kangou?(pillar)
+  #  self.tenkan.gou?(pillar.tenkan)
+  #end
+  #
+  #def shigou?(pillar)
+  #   self.chishi.gou?(pillar.chishi)
+  #end
+  #
+  #def sangou?(pillar, pillar2)
+  #  self.chishi.sangou?(pillar.chishi) && self.chishi.sangou?(pillar2.chishi)
+  #end
 
   protected
 
@@ -100,4 +101,16 @@ class MeishikiPlr < ActiveRecord::Base
     self.chishi + (Jikkan::JIKKAN_COUNT - self.tenkan.code)
   end
 
+  def def_relation
+    PillarRelationPillar.where(:base_pillar => self.type).group(:pillar_relation_id).each {|pillar|
+      self.instance_eval <<-EOS
+        def #{pillar.pillar_relation.name}(pillar)
+          target_pillar = pillar[:target_pillar]
+          target2_pillar = pillar[:target2_pillar]
+
+          #{pillar.pillar_relation.method_define}
+        end
+      EOS
+    }
+  end
 end
