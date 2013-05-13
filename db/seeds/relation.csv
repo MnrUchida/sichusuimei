@@ -10,3 +10,6 @@
 10,ha,"破",angle - ((angle % (ANGLE_SHI * 2)) - ANGLE_SHI) * SHI_COUNT / 2
 11,gai,"害",-(angle + 180)
 12,sangou,"三合",angle + ANGLE_CIRCLE / 3
+13,kagai,"華蓋",(angle - ANGLE_HALF_SHI) * -ANGLE_SHI
+14,tenmou,"天耗",(angle + ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE / 2) * (ANGLE_CIRCLE / 6)
+15,chimou,"地耗",(angle + ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE) * (ANGLE_CIRCLE / 6)
