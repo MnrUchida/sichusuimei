@@ -23,7 +23,7 @@ class Meishiki < ActiveRecord::Base
   end
 
   def day_from_sekki()
-    (self.birthday.to_datetime - self.sekki.date.to_datetime).to_i
+    (self.birthday.to_date - self.sekki.date.to_date).to_i
   end
 
   def sekki_defined?()

@@ -6,8 +6,7 @@ class MeishikisController < ApplicationController
   def image
     @meishiki = Meishiki.find(params[:id])
 
-    gogyo = @meishiki.gogyo_
-    with_array
+    gogyo = @meishiki.gogyo_with_array
 
     g = Gruff::Spider.new 10,400
     g.base_angle = -Math::PI * @meishiki.nisshu.gogyo.code / Gogyo::GOGYO_COUNT * 2
