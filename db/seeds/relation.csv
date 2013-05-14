@@ -13,3 +13,6 @@
 13,kagai,"華蓋", angle * -3 + ANGLE_DOUBLE_SHI
 14,tenmou,"天耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
 15,chimou,"地耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE)
+16,byakui,"白衣",angle + ANGLE_RIGHT
+17,byakui,"白衣",angle - ANGLE_RIGHT
+18,byakui,"白衣",angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2

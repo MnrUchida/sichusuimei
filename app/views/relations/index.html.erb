@@ -29,4 +29,9 @@
 
 <br />
 
+<br>
+<% @junishi_relations.each do |junishi_relation| %>
+    <%= junishi_relation.relation_code  %>,<%= junishi_relation.junishi_code  %><br>
+<% end %>
+
 <%= link_to 'New Relation', new_relation_path %>

@@ -4,6 +4,7 @@ class RelationsController < ApplicationController
 
   def index
     @relations = Relation.all
+    @junishi_relations = JunishiRelation.scoped.order(:relation_code)
 
     respond_to do |format|
       format.html # index.html.erb
