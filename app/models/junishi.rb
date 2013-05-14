@@ -4,8 +4,10 @@ class Junishi < ActiveRecord::Base
   SHI_COUNT = 12
   ANGLE_CIRCLE = 360
   ANGLE_HALF_CIRCLE = ANGLE_CIRCLE / 2
+  ANGLE_RIGHT = ANGLE_CIRCLE / 4
   ANGLE_SHI = ANGLE_CIRCLE / SHI_COUNT
   ANGLE_HALF_SHI = ANGLE_SHI / 2
+  ANGLE_DOUBLE_SHI = ANGLE_SHI * 2
 
   attr_accessible :code, :name, :angle
   

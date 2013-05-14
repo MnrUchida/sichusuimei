@@ -659,3 +659,391 @@ describe Junishi, "害" do
     end
   end
 end
+
+describe Junishi, "華蓋" do
+  before do
+    read_junishi()
+    read_junishi_relation()
+    read_relation()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "辰" do
+      subject.kagai.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "丑" do
+      subject.kagai.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "戌" do
+      subject.kagai.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "未" do
+      subject.kagai.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "辰" do
+      subject.kagai.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "丑" do
+      subject.kagai.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "戌" do
+      subject.kagai.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "未" do
+      subject.kagai.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "辰" do
+      subject.kagai.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "丑" do
+      subject.kagai.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "戌" do
+      subject.kagai.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.kagai?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "未" do
+      subject.kagai.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.kagai?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "天耗" do
+  before do
+    read_junishi()
+    read_junishi_relation()
+    read_relation()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "申" do
+      puts subject.tenmou_angle
+      subject.tenmou.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "戌" do
+      subject.tenmou.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "子" do
+      subject.tenmou.name.should == "子"
+      junishi = Junishi.find_by_code(0)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "寅" do
+      subject.tenmou.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "辰" do
+      subject.tenmou.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "午" do
+      subject.tenmou.name.should == "午"
+      junishi = Junishi.find_by_code(6)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "申" do
+      subject.tenmou.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "戌" do
+      subject.tenmou.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "子" do
+      subject.tenmou.name.should == "子"
+      junishi = Junishi.find_by_code(0)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "寅" do
+      subject.tenmou.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "辰" do
+      subject.tenmou.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "午" do
+      subject.tenmou.name.should == "午"
+      junishi = Junishi.find_by_code(6)
+      subject.tenmou?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "地耗" do
+  before do
+    read_junishi()
+    read_junishi_relation()
+    read_relation()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "巳" do
+      subject.chimou.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "未" do
+      subject.chimou.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "酉" do
+      subject.chimou.name.should == "酉"
+      junishi = Junishi.find_by_code(9)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "亥" do
+      subject.chimou.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "丑" do
+      subject.chimou.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "卯" do
+      subject.chimou.name.should == "卯"
+      junishi = Junishi.find_by_code(3)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "巳" do
+      subject.chimou.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "未" do
+      subject.chimou.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "酉" do
+      subject.chimou.name.should == "酉"
+      junishi = Junishi.find_by_code(9)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "亥" do
+      subject.chimou.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "丑" do
+      subject.chimou.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.chimou?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "卯" do
+      subject.chimou.name.should == "卯"
+      junishi = Junishi.find_by_code(3)
+      subject.chimou?(junishi).should == true
+    end
+  end
+end
