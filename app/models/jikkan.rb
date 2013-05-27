@@ -1,7 +1,7 @@
 class Jikkan < ActiveRecord::Base
   JIKKAN_COUNT = 10
 
-  attr_accessible :type, :inyou, :code, :name, :point, :point_day, :gogyo_id, :shi_teiou
+  attr_accessible :type, :inyou, :code, :name, :point, :point_day, :gogyo_id
 
   belongs_to :gogyo, :foreign_key => "gogyo_id",:class_name => 'Gogyo'
 

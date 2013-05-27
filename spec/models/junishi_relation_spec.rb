@@ -6,9 +6,7 @@ include SeedsFromCsv
 
 describe Junishi, "支合" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -145,9 +143,7 @@ end
 
 describe Junishi, "刑" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -274,9 +270,7 @@ end
 
 describe Junishi, "冲" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -403,9 +397,7 @@ end
 
 describe Junishi, "破" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -533,9 +525,7 @@ end
 
 describe Junishi, "害" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -662,9 +652,7 @@ end
 
 describe Junishi, "華蓋" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -791,9 +779,7 @@ end
 
 describe Junishi, "天耗" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -921,9 +907,7 @@ end
 
 describe Junishi, "地耗" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -1050,9 +1034,7 @@ end
 
 describe Junishi, "白衣" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -1173,6 +1155,260 @@ describe Junishi, "白衣" do
       subject.byakui.name.should == "寅"
       junishi = Junishi.find_by_code(2)
       subject.byakui?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "断橋" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "子" do
+      subject.dankyo.name.should == "子"
+      junishi = Junishi.find_by_code(0)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "亥" do
+      subject.dankyo.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "寅" do
+      subject.dankyo.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "卯" do
+      subject.dankyo.name.should == "卯"
+      junishi = Junishi.find_by_code(3)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "申" do
+      subject.dankyo.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "丑" do
+      subject.dankyo.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "戌" do
+      subject.dankyo.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "酉" do
+      subject.dankyo.name.should == "酉"
+      junishi = Junishi.find_by_code(9)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "辰" do
+      subject.dankyo.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "巳" do
+      subject.dankyo.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "午" do
+      subject.dankyo.name.should == "午"
+      junishi = Junishi.find_by_code(6)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "未" do
+      subject.dankyo.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.dankyo?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "血支" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "申" do
+      subject.kessi.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "酉" do
+      subject.kessi.name.should == "酉"
+      junishi = Junishi.find_by_code(9)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "戌" do
+      subject.kessi.name.should == "戌"
+      junishi = Junishi.find_by_code(10)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "亥" do
+      subject.kessi.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "子" do
+      subject.kessi.name.should == "子"
+      junishi = Junishi.find_by_code(0)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "丑" do
+      subject.kessi.name.should == "丑"
+      junishi = Junishi.find_by_code(1)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "寅" do
+      subject.kessi.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "卯" do
+      subject.kessi.name.should == "卯"
+      junishi = Junishi.find_by_code(3)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "辰" do
+      subject.kessi.name.should == "辰"
+      junishi = Junishi.find_by_code(4)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "巳" do
+      subject.kessi.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "午" do
+      subject.kessi.name.should == "午"
+      junishi = Junishi.find_by_code(6)
+      subject.kessi?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "未" do
+      subject.kessi.name.should == "未"
+      junishi = Junishi.find_by_code(7)
+      subject.kessi?(junishi).should == true
     end
   end
 end

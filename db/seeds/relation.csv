@@ -9,10 +9,16 @@
 9,chu,"冲",angle + ANGLE_HALF_CIRCLE
 10,ha,"破",angle - ((angle % ANGLE_DOUBLE_SHI) - ANGLE_SHI) * SHI_COUNT / 2
 11,gai,"害",-(angle + ANGLE_HALF_CIRCLE)
-12,sangou,"三合",angle + ANGLE_DOUBLE_SHI
+12,sangou,"三合",angle + ANGLE_CIRCLE / 3
 13,kagai,"華蓋", angle * -3 + ANGLE_DOUBLE_SHI
 14,tenmou,"天耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
 15,chimou,"地耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE)
 16,byakui,"白衣",angle + ANGLE_RIGHT
 17,byakui,"白衣",angle - ANGLE_RIGHT
 18,byakui,"白衣",angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2
+19,kessi,"血支",angle - ANGLE_CIRCLE / 3
+20,dankyo,"断橋",angle
+21,dankyo,"断橋",angle - ANGLE_CIRCLE / 6
+22,dankyo,"断橋",angle + ANGLE_CIRCLE / 3
+23,dankyo,"断橋",angle - ANGLE_CIRCLE / 3
+24,dankyo,"断橋",angle + ANGLE_CIRCLE / 6

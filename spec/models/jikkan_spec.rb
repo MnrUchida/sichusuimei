@@ -7,11 +7,7 @@ include SeedsFromCsv
 describe Jikkan, "変通星取得" do
 
   before do
-    read_jikkan()
-
-    read_gogyo()
-
-    read_hentsusei()
+    read_all_seeds()
   end
 
   describe "甲" do
@@ -193,13 +189,7 @@ end
 describe Jikkan, "補運取得" do
 
  before do
-       read_jikkan()
-
-       read_junishi()
-              
-       read_gogyo()
-
-       read_houn()
+   read_all_seeds()
  end
 
  describe "甲" do
@@ -263,11 +253,7 @@ end
 
 describe Jikkan, "干合" do
   before do
-    read_jikkan()
-
-    read_gogyo()
-
-    read_hentsusei()
+    read_all_seeds()
   end
 
   describe "甲" do

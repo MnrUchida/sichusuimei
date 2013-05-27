@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509082204) do
+ActiveRecord::Schema.define(:version => 20130527054047) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -53,12 +53,13 @@ ActiveRecord::Schema.define(:version => 20130509082204) do
   end
 
   create_table "junishi_gogyos", :force => true do |t|
-    t.integer  "junishi_term_id"
     t.integer  "gogyo_id"
     t.float    "point"
     t.float    "point_month"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "junishi_code"
+    t.integer  "doseishi"
   end
 
   create_table "junishi_relations", :force => true do |t|
@@ -145,6 +146,14 @@ ActiveRecord::Schema.define(:version => 20130509082204) do
     t.integer  "tentoku"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "zoukans", :force => true do |t|
+    t.integer  "jikkan_code"
+    t.integer  "start_angle"
+    t.integer  "span_angle"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

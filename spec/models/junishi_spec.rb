@@ -7,9 +7,7 @@ include SeedsFromCsv
 describe Junishi, "蔵干取得" do
 
  before do
-       read_junishi()
-       read_jikkan()
-       read_junishi_term()
+   read_all_seeds()
  end
 
  describe "子" do
@@ -210,9 +208,7 @@ end
 describe Junishi, "天徳取得" do
 
  before do
-       read_jikkan()
-       read_junishi()
-       read_tentoku()
+   read_all_seeds()
  end
  describe "子" do
 
@@ -327,11 +323,7 @@ end
 describe Junishi, "五行取得" do
 
   before do
-    read_gogyo()
-    read_junishi()
-    read_jikkan()
-    read_junishi_term()
-    read_junishi_gogyo()
+    read_all_seeds()
   end
 
   describe "子" do
@@ -350,9 +342,7 @@ end
 
 describe Junishi, "支合" do
   before do
-    read_junishi()
-    read_junishi_relation()
-    read_relation()
+    read_all_seeds()
   end
 
     describe "子" do

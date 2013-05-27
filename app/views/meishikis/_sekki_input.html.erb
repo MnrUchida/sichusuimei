@@ -5,6 +5,7 @@
   <% if @ext_meishiki.cur_sekki_exists? %>
     <dt><%= model_class.human_attribute_name(:cur_sekki_date) %>:</dt>
     <dd><%= @ext_meishiki.cur_sekki_date %></dd>
+    <%= f.input :cur_sekki_date, :as => :hidden %>
   <% else %>
     <%= f.input :cur_sekki_date, :as => :datetimepicker %>
   <% end %>
@@ -12,6 +13,7 @@
   <% if @ext_meishiki.bef_sekki_exists? %>
     <dt><%= model_class.human_attribute_name(:bef_sekki_date) %>:</dt>
     <dd><%= @ext_meishiki.bef_sekki_date %></dd>
+    <%= f.input :bef_sekki_date, :as => :hidden %>
   <% else %>
     <%= f.input :bef_sekki_date, :as => :datetimepicker %>
   <% end %>
@@ -19,6 +21,7 @@
   <% if @ext_meishiki.aft_sekki_exists? %>
     <dt><%= model_class.human_attribute_name(:aft_sekki_date) %>:</dt>
     <dd><%= @ext_meishiki.aft_sekki_date %></dd>
+    <%= f.input :aft_sekki_date, :as => :hidden %>
   <% else %>
     <%= f.input :aft_sekki_date, :as => :datetimepicker %>
   <% end %>

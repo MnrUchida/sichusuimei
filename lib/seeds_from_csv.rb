@@ -3,6 +3,33 @@
 require 'csv'
 
 module SeedsFromCsv
+
+  def read_all_seeds
+    read_relation()
+
+    read_junishi_relation()
+
+    read_jikkan()
+
+    read_junishi()
+
+    read_gogyo()
+
+    read_houn()
+
+    read_hentsusei()
+
+    read_junishi_gogyo
+
+    read_tentoku()
+
+    read_pillar_relation()
+
+    read_pillar_relation_pillar()
+
+    read_zoukan()
+  end
+
   # 十二支データ取り込み
   def read_junishi
     Junishi.destroy_all
@@ -23,8 +50,8 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/jikkan.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Jikkan.create(:name => row[0], :code => row[1], :shi_teiou => row[2], :inyou => row[3],
-                    :point => row[4], :point_day => row[5], :gogyo_id => row[6])
+      Jikkan.create(:name => row[0], :code => row[1], :inyou => row[2],
+                    :point => row[3], :point_day => row[4], :gogyo_id => row[5])
     end
   end
 
@@ -65,18 +92,6 @@ module SeedsFromCsv
     end
   end
 
-  # 十二支 期間データ取り込み
-  def read_junishi_term
-    JunishiTerm.destroy_all
-    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'junishi_terms'")
-
-    _file_path = File.expand_path('db/seeds/junishi_term.csv', ENV['RAILS_ROOT'])
-
-    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      JunishiTerm.create(:shi_id => row[0], :term_start => row[1], :term_end => row[2], :zoukan_id => row[3])
-    end
-  end
-
   # 十二支　五行データ取り込み
   def read_junishi_gogyo
     JunishiGogyo.destroy_all
@@ -85,7 +100,7 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/junishi_gogyo.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      JunishiGogyo.create(:junishi_term_id => row[0], :gogyo_id => row[1], :point => row[2], :point_month => row[3])
+      JunishiGogyo.create(:junishi_code => row[0], :gogyo_id => row[1], :point => row[2], :point_month => row[3], :doseishi => row[4])
     end
   end
 
@@ -152,5 +167,18 @@ module SeedsFromCsv
       PillarRelationPillar.create(:pillar_relation_id => row[0] ,:base_pillar => row[1] ,:target_pillar => row[2] ,:target2_pillar => row[3])
     end
   end
+
+  # 蔵干データ取り込み
+  def read_zoukan
+    Zoukan.destroy_all
+    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'zoukans'")
+
+    _file_path = File.expand_path('db/seeds/zoukan.csv', ENV['RAILS_ROOT'])
+
+    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
+      Zoukan.create(:jikkan_code => row[0], :start_angle => row[1], :span_angle => row[2])
+    end
+  end
+
 end
 

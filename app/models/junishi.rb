@@ -8,10 +8,11 @@ class Junishi < ActiveRecord::Base
   ANGLE_SHI = ANGLE_CIRCLE / SHI_COUNT
   ANGLE_HALF_SHI = ANGLE_SHI / 2
   ANGLE_DOUBLE_SHI = ANGLE_SHI * 2
+  GOGYO_DO = 3
 
   attr_accessible :code, :name, :angle
   
-  has_many :junishi_term, :foreign_key => "shi_id"
+  has_many :junishi_gogyo, :primary_key => :code, :foreign_key => "junishi_code"
   has_many :tentoku, :foreign_key => "shi_id"
   has_many :tentoku_kan, :foreign_key => "shi_id"
   has_many :tentoku_shi, :foreign_key => "shi_id"
@@ -32,21 +33,18 @@ class Junishi < ActiveRecord::Base
   end
 
   def zoukan(day)
-    term(day).zoukan if term(day).present?
+    Zoukan.by_angle(angle + day_angle(day)).jikkan
+  end
+
+  def day_angle(day)
+    return ANGLE_SHI - 1 if day >= ANGLE_SHI
+    day
   end
 
   def gogyo(day)
-    term(day).junishi_gogyo if term(day).present?
+    self.junishi_gogyo.where(:doseishi => doou(day))
   end
 
-  #def sangou
-  #  Junishi.where(:angle => self.sangou_angle).scoped
-  #end
-  #
-  #def sangou?(relate_junishi)
-  #  self.sangou_angle.any?{|angle| angle == relate_junishi.angle}
-  #end
-  #
   def tentoku_kan?(jikkan)
     self.tentoku_kan.any?{|tentoku| tentoku.target?(jikkan)}
   end
@@ -76,14 +74,9 @@ class Junishi < ActiveRecord::Base
 
   protected
 
-  def term(day)
-    self.junishi_term.find(nil) do |a_junishi_term|
-      a_junishi_term.term_start <= day && a_junishi_term.term_end >= day
-    end
-  end
+  def doou(day)
+    return false if (self.angle - ANGLE_HALF_SHI) % ANGLE_RIGHT
 
-  #def sangou_angle
-  #  return (self.angle + ANGLE_CIRCLE / 3) % ANGLE_CIRCLE,
-  #      (self.angle + ANGLE_CIRCLE / 3 * 2) % ANGLE_CIRCLE
-  #end
+    zoukan(day).gogyo_id == GOGYO_DO
+  end
 end

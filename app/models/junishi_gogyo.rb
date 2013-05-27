@@ -1,5 +1,5 @@
 class JunishiGogyo < ActiveRecord::Base
-  attr_accessible :gogyo_id, :junishi_term_id, :point, :point_month
+  attr_accessible :gogyo_id, :junishi_code, :point, :point_month, :doseishi
 
   belongs_to :gogyo, :foreign_key => "gogyo_id",:class_name => 'Gogyo'
 

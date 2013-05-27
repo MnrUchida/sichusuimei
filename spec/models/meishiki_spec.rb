@@ -9,11 +9,7 @@ describe MeishikiPlr, "四柱" do
  let(:meishiki){Meishiki.create(:birthday=>current_day)}
  
  before do
-   read_gogyo()
-   read_junishi()
-   read_jikkan()
-   read_junishi_term()
-   read_junishi_gogyo()
+   read_all_seeds()
    Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
  end
 
