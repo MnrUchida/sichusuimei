@@ -14,12 +14,8 @@ class MeishikiPlr < ActiveRecord::Base
     self.save
   end
 
-  def tentoku_kan?()
-    self.meishiki.tentoku_kan?(self.tenkan)
-  end
-
-  def tentoku_shi?()
-    self.meishiki.tentoku_shi?(self.chishi)
+  def tentoku?(target)
+    self.meishiki.tentoku?(target)
   end
 
   def kubou?()

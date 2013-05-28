@@ -26,7 +26,7 @@ RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Junishi.by_angle((angle + 
 RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 13 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
 RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
 RelationByJunishi,METHOD,tentoku_gou,"天徳合",tentoku_kijin.gou
-RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.tenkan.code == self.tentoku_kijin.code"
-RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.tenkan.code == self.tentoku_gou.code"
-RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.chishi.code == self.tentoku_gou.code"
-RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.chishi.code == self.tentoku_kijin.code"
+RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.tenkan.name == self.tentoku_kijin.name"
+RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.tenkan.name == self.tentoku_gou.name"
+RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.chishi.name == self.tentoku_gou.name"
+RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.chishi.name == self.tentoku_kijin.name"

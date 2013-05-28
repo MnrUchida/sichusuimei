@@ -21,8 +21,6 @@ module SeedsFromCsv
 
     read_junishi_gogyo
 
-    read_tentoku()
-
     read_pillar_relation()
 
     read_pillar_relation_pillar()
@@ -101,22 +99,6 @@ module SeedsFromCsv
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
       JunishiGogyo.create(:junishi_code => row[0], :gogyo_id => row[1], :point => row[2], :point_month => row[3], :doseishi => row[4])
-    end
-  end
-
-  # 天徳データ取り込み
-  def read_tentoku
-    Tentoku.destroy_all
-    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'junishi_tentokus'")
-
-    _file_path = File.expand_path('db/seeds/tentoku.csv', ENV['RAILS_ROOT'])
-
-    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      if row[2] == "TentokuKan"
-        TentokuKan.create(:shi_id => row[0], :tentoku => row[1])
-      else
-        TentokuShi.create(:shi_id => row[0], :tentoku => row[1])
-      end
     end
   end
 

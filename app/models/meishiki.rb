@@ -32,25 +32,15 @@ class Meishiki < ActiveRecord::Base
   end
 
   def tentoku
-    self.month_pillar.chishi.tentoku
+    return self.month_pillar.chishi.tentoku_kijin,
+        self.month_pillar.chishi.tentoku_gou
   end
 
-  def tentoku_kan?(jikkan)
-    self.month_pillar.chishi.tentoku_kan.any?{|tentoku| jikkan.code == tentoku.tentoku}
-  end
-
-  def tentoku_shi?(junishi)
-    self.month_pillar.chishi.tentoku_shi.any?{|tentoku| junishi.code == tentoku.tentoku}
+  def tentoku?(target)
+    self.tentoku.any?{|tentoku| target.name == tentoku.name}
   end
 
   def kubou?(junishi)
-    logger.debug "Watch!!"
-    logger.debug junishi.code
-    self.kubou.each do |kubou|
-      logger.debug kubou.code
-    end
-    logger.debug self.kubou.any?{|kubou| kubou.code == junishi.code}
-
     self.kubou.any?{|kubou| kubou.code == junishi.code}
   end
 

@@ -14,9 +14,6 @@ class Junishi < ActiveRecord::Base
   attr_accessible :code, :name, :angle
   
   has_many :junishi_gogyo, :primary_key => :code, :foreign_key => "junishi_code"
-  has_many :tentoku, :foreign_key => "shi_id"
-  has_many :tentoku_kan, :foreign_key => "shi_id"
-  has_many :tentoku_shi, :foreign_key => "shi_id"
   has_many :meishiki_plr, :foreign_key => "chishi_id"
   has_many :junishi_relation, :primary_key => :id, :foreign_key => "junishi_code"
   has_many :relation_by_junishis, :through => :junishi_relation
@@ -44,14 +41,6 @@ class Junishi < ActiveRecord::Base
 
   def gogyo(day)
     self.junishi_gogyo.where(:doseishi => doou(day))
-  end
-
-  def tentoku_kan?(jikkan)
-    self.tentoku_kan.any?{|tentoku| tentoku.target?(jikkan)}
-  end
-
-  def tentoku_shi?(junishi)
-    self.tentoku_shi.any?{|tentoku| tentoku.target?(junishi)}
   end
 
   def def_angle_relation

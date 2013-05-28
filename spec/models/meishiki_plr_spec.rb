@@ -246,4 +246,96 @@ describe MeishikiPlr, "四柱" do
 
  end
 
+ describe "天徳貴人" do
+   let(:year_pillar){YearPillar.new(:chishi_id => 6)}
+   let(:month_pillar){MonthPillar.new(:chishi_id => 1)}
+   let(:day_pillar){DayPillar.new(:chishi_id => 6)}
+   let(:time_pillar){TimePillar.new(:chishi_id => 6)}
+
+   it "年柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => year_pillar).should == true
+   end
+
+   it "月柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => month_pillar).should == false
+   end
+
+   it "日柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => day_pillar).should == true
+   end
+
+   it "時柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => time_pillar).should == true
+   end
+ end
+
+ describe "天徳貴人" do
+   let(:year_pillar){YearPillar.new(:tenkan_id => 7)}
+   let(:month_pillar){MonthPillar.new(:tenkan_id => 7, :chishi_id => 2)}
+   let(:day_pillar){DayPillar.new(:tenkan_id => 7)}
+   let(:time_pillar){TimePillar.new(:tenkan_id => 7)}
+
+   it "年柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => year_pillar).should == true
+   end
+
+   it "月柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => month_pillar).should == true
+   end
+
+   it "日柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => day_pillar).should == true
+   end
+
+   it "時柱" do
+     month_pillar.tentoku_kijin?(:target_pillar => time_pillar).should == true
+   end
+ end
+
+ describe "天徳合" do
+   let(:year_pillar){YearPillar.new(:chishi_id => 9)}
+   let(:month_pillar){MonthPillar.new(:chishi_id => 1)}
+   let(:day_pillar){DayPillar.new(:chishi_id => 9)}
+   let(:time_pillar){TimePillar.new(:chishi_id => 9)}
+
+   it "年柱" do
+     month_pillar.tentoku_gou?(:target_pillar => year_pillar).should == true
+   end
+
+   it "月柱" do
+     month_pillar.tentoku_gou?(:target_pillar => month_pillar).should == false
+   end
+
+   it "日柱" do
+     month_pillar.tentoku_gou?(:target_pillar => day_pillar).should == true
+   end
+
+   it "時柱" do
+     month_pillar.tentoku_gou?(:target_pillar => time_pillar).should == true
+   end
+ end
+
+ describe "天徳合" do
+   let(:year_pillar){YearPillar.new(:tenkan_id => 2)}
+   let(:month_pillar){MonthPillar.new(:tenkan_id => 2, :chishi_id => 2)}
+   let(:day_pillar){DayPillar.new(:tenkan_id => 2)}
+   let(:time_pillar){TimePillar.new(:tenkan_id => 2)}
+
+   it "年柱" do
+     month_pillar.tentoku_gou?(:target_pillar => year_pillar).should == true
+   end
+
+   it "月柱" do
+     month_pillar.tentoku_gou?(:target_pillar => month_pillar).should == true
+   end
+
+   it "日柱" do
+     month_pillar.tentoku_gou?(:target_pillar => day_pillar).should == true
+   end
+
+   it "時柱" do
+     month_pillar.tentoku_gou?(:target_pillar => time_pillar).should == true
+   end
+ end
+
 end
