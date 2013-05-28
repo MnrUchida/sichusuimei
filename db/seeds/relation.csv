@@ -22,7 +22,11 @@ RelationByJunishi,ANGLE,dankyo,"断橋",angle - ANGLE_CIRCLE / 6
 RelationByJunishi,ANGLE,dankyo,"断橋",angle + ANGLE_CIRCLE / 3
 RelationByJunishi,ANGLE,dankyo,"断橋",angle - ANGLE_CIRCLE / 3
 RelationByJunishi,ANGLE,dankyo,"断橋",angle + ANGLE_CIRCLE / 6
-RelationByJunishi,ANGLE,tentoku_kijin,"天徳貴人",(angle + ANGLE_SHI * 5) % ANGLE_CIRCLE
+RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Junishi.by_angle((angle + ANGLE_SHI * 5) % ANGLE_CIRCLE)
 RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 13 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
 RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
-RelationByJunishi,METHOD,tentoku_gou,"天徳貴人",tentoku_kijin.gou
+RelationByJunishi,METHOD,tentoku_gou,"天徳合",tentoku_kijin.gou
+RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.tenkan.code == self.tentoku_kijin.code"
+RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.tenkan.code == self.tentoku_gou.code"
+RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.chishi.code == self.tentoku_gou.code"
+RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.chishi.code == self.tentoku_kijin.code"

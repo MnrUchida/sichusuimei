@@ -63,7 +63,7 @@ class Junishi < ActiveRecord::Base
         end
 
         def #{relation_define.name}
-          Junishi.where(:angle => #{relation_define.name}_angle).first
+          Junishi.by_angle(#{relation_define.name}_angle)
         end
 
         def #{relation_define.name}?(relate_junishi)
@@ -76,17 +76,16 @@ class Junishi < ActiveRecord::Base
   def def_method_relation
     self.relation_by_junishis.where(:relation_type => "METHOD").each do |relation_define|
       self.instance_eval <<-EOS
-        def #{relation_define.name}
+        def #{relation_define.name}(target = nil)
           return if (#{relation_define.function}).nil?
           #{relation_define.function}
         end
-
-        def #{relation_define.name}?(target)
-          return if (#{relation_define.function}).nil?
-          target.code == #{relation_define.name}.code
-        end
       EOS
     end
+  end
+
+  def self.by_angle(angle)
+    self.where(:angle => angle).first
   end
 
   protected
