@@ -140,7 +140,8 @@ module SeedsFromCsv
     _file_path = File.expand_path('db/seeds/relation.csv', ENV['RAILS_ROOT'])
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Relation.create(:code => row[0], :name => row[1], :description => row[2], :function => row[3] )
+      Relation.create(:type => row[0], :relation_type => row[1],
+                      :name => row[2], :description => row[3], :function => row[4] )
     end
   end
 

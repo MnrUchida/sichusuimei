@@ -1,24 +1,28 @@
-1,gou,"支合", -angle
-2,gou,"支合しない", nil
-3,kei,"自刑",angle
-4,kei,"勢刑",angle + ANGLE_RIGHT
-5,kei,"無恩の刑",angle - ANGLE_RIGHT
-6,kei,"勢刑",angle + ANGLE_HALF_CIRCLE
-7,kei,"無礼の刑",ANGLE_DOUBLE_SHI - angle
-8,kei,"無恩の刑",angle - ANGLE_HALF_CIRCLE
-9,chu,"冲",angle + ANGLE_HALF_CIRCLE
-10,ha,"破",angle - ((angle % ANGLE_DOUBLE_SHI) - ANGLE_SHI) * SHI_COUNT / 2
-11,gai,"害",-(angle + ANGLE_HALF_CIRCLE)
-12,sangou,"三合",angle + ANGLE_CIRCLE / 3
-13,kagai,"華蓋", angle * -3 + ANGLE_DOUBLE_SHI
-14,tenmou,"天耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
-15,chimou,"地耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE)
-16,byakui,"白衣",angle + ANGLE_RIGHT
-17,byakui,"白衣",angle - ANGLE_RIGHT
-18,byakui,"白衣",angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2
-19,kessi,"血支",angle - ANGLE_CIRCLE / 3
-20,dankyo,"断橋",angle
-21,dankyo,"断橋",angle - ANGLE_CIRCLE / 6
-22,dankyo,"断橋",angle + ANGLE_CIRCLE / 3
-23,dankyo,"断橋",angle - ANGLE_CIRCLE / 3
-24,dankyo,"断橋",angle + ANGLE_CIRCLE / 6
+RelationByJunishi,ANGLE,gou,"支合", -angle
+RelationByJunishi,ANGLE,gou,"支合しない", nil
+RelationByJunishi,ANGLE,kei,"自刑",angle
+RelationByJunishi,ANGLE,kei,"勢刑",angle + ANGLE_RIGHT
+RelationByJunishi,ANGLE,kei,"無恩の刑",angle - ANGLE_RIGHT
+RelationByJunishi,ANGLE,kei,"勢刑",angle + ANGLE_HALF_CIRCLE
+RelationByJunishi,ANGLE,kei,"無礼の刑",ANGLE_DOUBLE_SHI - angle
+RelationByJunishi,ANGLE,kei,"無恩の刑",angle - ANGLE_HALF_CIRCLE
+RelationByJunishi,ANGLE,chu,"冲",angle + ANGLE_HALF_CIRCLE
+RelationByJunishi,ANGLE,ha,"破",angle - ((angle % ANGLE_DOUBLE_SHI) - ANGLE_SHI) * SHI_COUNT / 2
+RelationByJunishi,ANGLE,gai,"害",-(angle + ANGLE_HALF_CIRCLE)
+RelationByJunishi,ANGLE,sangou,"三合",angle + ANGLE_CIRCLE / 3
+RelationByJunishi,ANGLE,kagai,"華蓋", angle * -3 + ANGLE_DOUBLE_SHI
+RelationByJunishi,ANGLE,tenmou,"天耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
+RelationByJunishi,ANGLE,chimou,"地耗",angle * 2 - (ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE)
+RelationByJunishi,ANGLE,byakui,"白衣",angle + ANGLE_RIGHT
+RelationByJunishi,ANGLE,byakui,"白衣",angle - ANGLE_RIGHT
+RelationByJunishi,ANGLE,byakui,"白衣",angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2
+RelationByJunishi,ANGLE,kessi,"血支",angle - ANGLE_CIRCLE / 3
+RelationByJunishi,ANGLE,dankyo,"断橋",angle
+RelationByJunishi,ANGLE,dankyo,"断橋",angle - ANGLE_CIRCLE / 6
+RelationByJunishi,ANGLE,dankyo,"断橋",angle + ANGLE_CIRCLE / 3
+RelationByJunishi,ANGLE,dankyo,"断橋",angle - ANGLE_CIRCLE / 3
+RelationByJunishi,ANGLE,dankyo,"断橋",angle + ANGLE_CIRCLE / 6
+RelationByJunishi,ANGLE,tentoku_kijin,"天徳貴人",(angle + ANGLE_SHI * 5) % ANGLE_CIRCLE
+RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 13 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+RelationByJunishi,METHOD,tentoku_kijin,"天徳貴人",Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+RelationByJunishi,METHOD,tentoku_gou,"天徳貴人",tentoku_kijin.gou

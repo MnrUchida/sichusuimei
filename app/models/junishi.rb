@@ -1,5 +1,6 @@
 class Junishi < ActiveRecord::Base
-  after_initialize :def_relation
+  after_initialize :def_angle_relation
+  after_initialize :def_method_relation
 
   SHI_COUNT = 12
   ANGLE_CIRCLE = 360
@@ -18,7 +19,7 @@ class Junishi < ActiveRecord::Base
   has_many :tentoku_shi, :foreign_key => "shi_id"
   has_many :meishiki_plr, :foreign_key => "chishi_id"
   has_many :junishi_relation, :primary_key => :id, :foreign_key => "junishi_code"
-  has_many :relation, :through => :junishi_relation
+  has_many :relation_by_junishis, :through => :junishi_relation
 
   def +(value)
     Junishi.find_by_code((self.code + value) % SHI_COUNT)
@@ -53,8 +54,8 @@ class Junishi < ActiveRecord::Base
     self.tentoku_shi.any?{|tentoku| tentoku.target?(junishi)}
   end
 
-  def def_relation
-    self.relation.each do |relation_define|
+  def def_angle_relation
+    self.relation_by_junishis.where(:relation_type => "ANGLE").each do |relation_define|
       self.instance_eval <<-EOS
         def #{relation_define.name}_angle
           return if (#{relation_define.function}).nil?
@@ -67,6 +68,22 @@ class Junishi < ActiveRecord::Base
 
         def #{relation_define.name}?(relate_junishi)
           relate_junishi.angle == #{relation_define.name}_angle
+        end
+      EOS
+    end
+  end
+
+  def def_method_relation
+    self.relation_by_junishis.where(:relation_type => "METHOD").each do |relation_define|
+      self.instance_eval <<-EOS
+        def #{relation_define.name}
+          return if (#{relation_define.function}).nil?
+          #{relation_define.function}
+        end
+
+        def #{relation_define.name}?(target)
+          return if (#{relation_define.function}).nil?
+          target.code == #{relation_define.name}.code
         end
       EOS
     end
