@@ -7,3 +7,6 @@ pillar:
   month: MonthPillar
   day: DayPillar
   time: TimePillar
+inyou:
+  you: 1
+  in: -1

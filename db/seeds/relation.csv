@@ -30,3 +30,7 @@ RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.tenkan.name == se
 RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.tenkan.name == self.tentoku_gou.name"
 RelationByJunishi,METHOD,tentoku_gou?,"天徳合","target.chishi.name == self.tentoku_gou.name"
 RelationByJunishi,METHOD,tentoku_kijin?,"天徳貴人","target.chishi.name == self.tentoku_kijin.name"
+RelationByJunishi,METHOD,gettoku_kijin,"月徳貴人","Gogyo.shidai(self.code % 4).you_kan"
+RelationByJunishi,METHOD,gettoku_kijin?,"月徳貴人","target.name == self.gettoku_kijin.name"
+RelationByJunishi,METHOD,gettoku_gou,"月徳合",gettoku_kijin.gou
+RelationByJunishi,METHOD,gettoku_gou?,"月徳合","target.name == self.gettoku_gou.name"

@@ -1665,3 +1665,257 @@ describe Junishi, "天徳合" do
     end
   end
 end
+
+describe Junishi, "月徳貴人" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "壬" do
+      subject.gettoku_kijin.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "庚" do
+      subject.gettoku_kijin.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "丙" do
+      subject.gettoku_kijin.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "甲" do
+      subject.gettoku_kijin.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "壬" do
+      subject.gettoku_kijin.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(1)}
+    it "庚" do
+      subject.gettoku_kijin.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "丙" do
+      subject.gettoku_kijin.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "甲" do
+      subject.gettoku_kijin.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "壬" do
+      subject.gettoku_kijin.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(1)}
+    it "庚" do
+      subject.gettoku_kijin.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "丙" do
+      subject.gettoku_kijin.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "甲" do
+      subject.gettoku_kijin.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gettoku_kijin?(jikkan).should == true
+    end
+  end
+end
+
+describe Junishi, "月徳合" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "丁" do
+      subject.gettoku_gou.name.should == "丁"
+      jikkan = Jikkan.find_by_code(3)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "乙" do
+      subject.gettoku_gou.name.should == "乙"
+      jikkan = Jikkan.find_by_code(1)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "辛" do
+      subject.gettoku_gou.name.should == "辛"
+      jikkan = Jikkan.find_by_code(7)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "己" do
+      subject.gettoku_gou.name.should == "己"
+      jikkan = Jikkan.find_by_code(5)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "丁" do
+      subject.gettoku_gou.name.should == "丁"
+      jikkan = Jikkan.find_by_code(3)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(1)}
+    it "乙" do
+      subject.gettoku_gou.name.should == "乙"
+      jikkan = Jikkan.find_by_code(1)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "辛" do
+      subject.gettoku_gou.name.should == "辛"
+      jikkan = Jikkan.find_by_code(7)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "己" do
+      subject.gettoku_gou.name.should == "己"
+      jikkan = Jikkan.find_by_code(5)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "丁" do
+      subject.gettoku_gou.name.should == "丁"
+      jikkan = Jikkan.find_by_code(3)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(1)}
+    it "乙" do
+      subject.gettoku_gou.name.should == "乙"
+      jikkan = Jikkan.find_by_code(1)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "辛" do
+      subject.gettoku_gou.name.should == "辛"
+      jikkan = Jikkan.find_by_code(7)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "己" do
+      subject.gettoku_gou.name.should == "己"
+      jikkan = Jikkan.find_by_code(5)
+      subject.gettoku_gou?(jikkan).should == true
+    end
+  end
+end
