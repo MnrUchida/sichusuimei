@@ -34,3 +34,8 @@ RelationByJunishi,METHOD,gettoku_kijin,"月徳貴人","Gogyo.shidai(self.code % 
 RelationByJunishi,METHOD,gettoku_kijin?,"月徳貴人","target.name == self.gettoku_kijin.name"
 RelationByJunishi,METHOD,gettoku_gou,"月徳合",gettoku_kijin.gou
 RelationByJunishi,METHOD,gettoku_gou?,"月徳合","target.name == self.gettoku_gou.name"
+RelationByJunishi,METHOD,gekku,"月空","Gogyo.shidai((self.code + 2) % 4).you_kan"
+RelationByJunishi,METHOD,gekku?,"月空","target.name == self.gekku.name"
+RelationByJunishi,ANGLE,ekiba,"駅馬",(angle + ANGLE_HALF_SHI) * 9 + ANGLE_DOUBLE_SHI - ANGLE_HALF_SHI
+RelationByJunishi,METHOD,seiseiba?,"生成馬","(ekiba?(target.chishi) && target.tenkan.code == (6 - 3 * ((self.code + 2) % 4)))"
+RelationByJunishi,METHOD,seiseiba?,"生成馬","(ekiba?(target.chishi) && target.tenkan.code == 7)"

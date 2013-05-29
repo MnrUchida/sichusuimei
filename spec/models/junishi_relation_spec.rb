@@ -1919,3 +1919,371 @@ describe Junishi, "月徳合" do
     end
   end
 end
+
+describe Junishi, "月空" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "丙" do
+      subject.gekku.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "甲" do
+      subject.gekku.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "壬" do
+      subject.gekku.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "庚" do
+      subject.gekku.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "丙" do
+      subject.gekku.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(1)}
+    it "甲" do
+      subject.gekku.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "壬" do
+      subject.gekku.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "庚" do
+      subject.gekku.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "丙" do
+      subject.gekku.name.should == "丙"
+      jikkan = Jikkan.find_by_code(2)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(1)}
+    it "甲" do
+      subject.gekku.name.should == "甲"
+      jikkan = Jikkan.find_by_code(0)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "壬" do
+      subject.gekku.name.should == "壬"
+      jikkan = Jikkan.find_by_code(8)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "庚" do
+      subject.gekku.name.should == "庚"
+      jikkan = Jikkan.find_by_code(6)
+      subject.gekku?(jikkan).should == true
+    end
+  end
+end
+
+describe Junishi, "駅馬" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "寅" do
+      subject.ekiba.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "亥" do
+      subject.ekiba.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "申" do
+      subject.ekiba.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "巳" do
+      subject.ekiba.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "寅" do
+      subject.ekiba.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "亥" do
+      subject.ekiba.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "申" do
+      subject.ekiba.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "巳" do
+      subject.ekiba.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "寅" do
+      subject.ekiba.name.should == "寅"
+      junishi = Junishi.find_by_code(2)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "亥" do
+      subject.ekiba.name.should == "亥"
+      junishi = Junishi.find_by_code(11)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "申" do
+      subject.ekiba.name.should == "申"
+      junishi = Junishi.find_by_code(8)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "巳" do
+      subject.ekiba.name.should == "巳"
+      junishi = Junishi.find_by_code(5)
+      subject.ekiba?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "生成馬" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "甲寅" do
+      junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "辛亥" do
+      junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "庚申" do
+      junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "丁巳" do
+      junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "甲寅" do
+      junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "辛亥" do
+      junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "庚申" do
+      junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "丁巳" do
+      junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "甲寅" do
+      junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "辛亥" do
+      junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "庚申" do
+      junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "丁巳" do
+      junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
+      subject.seiseiba?(junishi).should == true
+    end
+  end
+end
