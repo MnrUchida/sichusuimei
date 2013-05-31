@@ -1,0 +1,476 @@
+ANGLE:
+ gou:
+  name: 支合
+  method:
+   - -angle
+ kei:
+  name: 刑
+  method:
+   - angle + ANGLE_RIGHT
+   - angle - ANGLE_RIGHT
+   - angle + ANGLE_HALF_CIRCLE
+   - ANGLE_DOUBLE_SHI - angle
+   - angle - ANGLE_HALF_CIRCLE
+   - angle
+ chu:
+  name: 冲
+  method:
+   - angle + ANGLE_HALF_CIRCLE
+ ha:
+  name: 破
+  method:
+   - angle - ((angle % ANGLE_DOUBLE_SHI) - ANGLE_SHI) * SHI_COUNT / 2
+ gai:
+  name: 害
+  method:
+   - -(angle + ANGLE_HALF_CIRCLE)
+ sangou:
+  name: 三合
+  method:
+   - angle + ANGLE_CIRCLE / 3
+ kagai:
+  name: 華蓋
+  method:
+   - angle * -3 + ANGLE_DOUBLE_SHI
+ tenmou:
+  name: 天耗
+  method:
+   - angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
+ chimou:
+  name: 地耗
+  method:
+   - angle * 2 - (ANGLE_HALF_SHI + ANGLE_HALF_CIRCLE)
+ byakui:
+  name: 白衣
+  method:
+   - angle + ANGLE_RIGHT
+   - angle - ANGLE_RIGHT
+   - angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2
+ kessi:
+  name: 血支
+  method:
+   - angle - ANGLE_CIRCLE / 3
+ dankyo: 
+  name: 断橋
+  method:
+   - angle
+   - angle - ANGLE_CIRCLE / 6
+   - angle + ANGLE_CIRCLE / 3
+   - angle - ANGLE_CIRCLE / 3
+   - angle + ANGLE_CIRCLE / 6
+ ekiba:
+  name: 駅馬
+  method:
+   - (angle + ANGLE_HALF_SHI) * 9 + ANGLE_DOUBLE_SHI - ANGLE_HALF_SHI
+METHOD:
+ tentoku_kijin:
+  name: 天徳貴人
+  method:
+   - Junishi.by_angle((angle + ANGLE_SHI * 5) % ANGLE_CIRCLE)
+   - Zoukan.by_angle((angle - 13 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+   - Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+ tentoku_gou:
+  name: 天徳合
+  method:
+   - tentoku_kijin.gou
+ tentoku_kijin?:
+  name: 天徳貴人
+  method:
+   - target.tenkan.name == self.tentoku_kijin.name
+   - target.chishi.name == self.tentoku_kijin.name
+ tentoku_gou?:
+  name: 天徳合
+  method:
+   - target.tenkan.name == self.tentoku_gou.name
+   - target.chishi.name == self.tentoku_gou.name
+ gettoku_kijin:
+  name: 月徳貴人
+  method:
+   - Gogyo.shidai(self.code % 4).you_kan
+ gettoku_kijin?:
+  name: 月徳貴人
+  method:
+   - target.name == self.gettoku_kijin.name
+ gettoku_gou:
+  name: 月徳合
+  method:
+   - gettoku_kijin.gou
+ gettoku_gou?:
+  name: 月徳合
+  method:
+   - target.name == self.gettoku_gou.name
+ gekku:
+  name: 月空
+  method:
+   - Gogyo.shidai((self.code + 2) % 4).you_kan
+ gekku?:
+  name: 月空
+  method:
+   - target.name == self.gekku.name
+ seiseiba?:
+  name: 生成馬
+  method:
+   - (ekiba?(target.chishi) && target.tenkan.code == (6 - 3 * ((self.code + 2) % 4)))
+   - (ekiba?(target.chishi) && target.tenkan.code == 7)
+
+JUNISHI:
+ ne:
+  member:
+   angle: 345
+   name: 子
+   code: 0
+  relation:
+    kei: 0
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 1
+    kessi: 0
+    dankyo: 0
+    tentoku_kijin: 0
+    tentoku_gou: 0
+    tentoku_kijin?: 1
+    tentoku_gou?: 1
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+
+ usi:
+  member:
+    angle: 15
+    name: 丑
+    code: 1
+  relation:
+    kei: 1
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 2
+    kessi: 0
+    dankyo: 1
+    tentoku_kijin: 2
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 1
+
+ tora:
+  member:
+    angle: 45
+    name: 寅
+    code: 2
+  relation:
+    gou: 0
+    kei: 0
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 0
+    kessi: 0
+    dankyo: 0
+    tentoku_kijin: 1
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+
+ u:
+  member:
+    angle: 75
+    name: 卯
+    code: 3
+  relation:
+    gou: 0
+    kei: 1
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 1
+    kessi: 0
+    dankyo: 0
+    tentoku_kijin: 0
+    tentoku_gou: 0
+    tentoku_kijin?: 1
+    tentoku_gou?: 1
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+
+ tatsu:
+  member:
+    angle: 105
+    name: 辰
+    code: 4
+  relation:
+    gou: 0
+    kei: 5
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 2
+    kessi: 0
+    dankyo: 2
+    tentoku_kijin: 2
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+ mi:
+  member:
+    angle: 135
+    name: 巳
+    code: 5
+  relation:
+    gou: 0
+    kei: 0
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 0
+    kessi: 0
+    dankyo: 3
+    tentoku_kijin: 1
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 1
+ uma:
+  member:
+    angle: 165
+    name: 午
+    code: 6
+  relation:
+    kei: 5
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 1
+    kessi: 0
+    dankyo: 2
+    tentoku_kijin: 0
+    tentoku_gou: 0
+    tentoku_kijin?: 1
+    tentoku_gou?: 1
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+ hitsuji:
+  member:
+    angle: 195
+    name: 未
+    code: 7
+  relation:
+    kei: 4
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 2
+    kessi: 0
+    dankyo: 4
+    tentoku_kijin: 2
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+ saru:
+  member:
+    angle: 225
+    name: 申
+    code: 8
+  relation:
+    gou: 0
+    kei: 2
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 0
+    kessi: 0
+    dankyo: 3
+    tentoku_kijin: 1
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+ tori:
+  member:
+    angle: 255
+    name: 酉
+    code: 9
+  relation:
+    gou: 0
+    kei: 5
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 1
+    kessi: 0
+    dankyo: 3
+    tentoku_kijin: 0
+    tentoku_gou: 0
+    tentoku_kijin?: 1
+    tentoku_gou?: 1
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 1
+ inu:
+  member:
+    angle: 285
+    name: 戌
+    code: 10
+  relation:
+    gou: 0
+    kei: 1
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 2
+    kessi: 0
+    dankyo: 3
+    tentoku_kijin: 2
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0
+ i:
+  member:
+    angle: 315
+    name: 亥
+    code: 11
+  relation:
+    gou: 0
+    kei: 5
+    chu: 0
+    ha: 0
+    gai: 0
+    sangou: 0
+    kagai: 0
+    tenmou: 0
+    chimou: 0
+    byakui: 0
+    kessi: 0
+    dankyo: 3
+    tentoku_kijin: 1
+    tentoku_gou: 0
+    tentoku_kijin?: 0
+    tentoku_gou?: 0
+    gettoku_kijin: 0
+    gettoku_kijin?: 0
+    gettoku_gou: 0
+    gettoku_gou?: 0
+    gekku: 0
+    gekku?: 0
+    ekiba: 0
+    seiseiba?: 0

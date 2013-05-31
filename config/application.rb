@@ -60,10 +60,10 @@ module Sichusuimei
     config.assets.version = '1.0'
 
     config.autoload_paths += %W(#{config.root}/lib/simple_form)
+    config.autoload_paths += %W(#{config.root}/lib/data)
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
-
   end
 end
