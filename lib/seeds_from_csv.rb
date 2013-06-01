@@ -5,13 +5,7 @@ require 'csv'
 module SeedsFromCsv
 
   def read_all_seeds
-    read_relation()
-
-    read_junishi_relation()
-
     read_jikkan()
-
-    read_junishi()
 
     read_gogyo()
 
@@ -26,18 +20,6 @@ module SeedsFromCsv
     read_pillar_relation_pillar()
 
     read_zoukan()
-  end
-
-  # 十二支データ取り込み
-  def read_junishi
-    Junishi.destroy_all
-    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'junishis'")
-
-    _file_path = File.expand_path('db/seeds/junishi.csv', ENV['RAILS_ROOT'])
-
-    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Junishi.create(:name => row[0], :code => row[1], :angle => row[2])
-    end
   end
 
   # 十干データ取り込み
@@ -99,31 +81,6 @@ module SeedsFromCsv
 
     CSV.foreach(_file_path, encoding: "UTF-8") do |row|
       JunishiGogyo.create(:junishi_code => row[0], :gogyo_id => row[1], :point => row[2], :point_month => row[3], :doseishi => row[4])
-    end
-  end
-
-  # 十二支　関連データ取り込み
-  def read_junishi_relation
-    JunishiRelation.destroy_all
-    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'junishi_relations'")
-
-    _file_path = File.expand_path('db/seeds/junishi_relation.csv', ENV['RAILS_ROOT'])
-
-    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      JunishiRelation.create(:relation_code => row[0], :junishi_code => row[1])
-    end
-  end
-
-  # 関連データ取り込み
-  def read_relation
-    Relation.destroy_all
-    ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name = 'relations'")
-
-    _file_path = File.expand_path('db/seeds/relation.csv', ENV['RAILS_ROOT'])
-
-    CSV.foreach(_file_path, encoding: "UTF-8") do |row|
-      Relation.create(:type => row[0], :relation_type => row[1],
-                      :name => row[2], :description => row[3], :function => row[4] )
     end
   end
 

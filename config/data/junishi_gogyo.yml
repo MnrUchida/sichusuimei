@@ -1,0 +1,62 @@
+JUNISHI_GOGYO:
+ regular:
+   ne:
+    -
+     gogyo: mizu
+     point: 1
+     point_month: 3
+   usi:
+    -
+     gogyo:
+     point:
+     point_month:
+   tora:
+    -
+     gogyo: ki
+     point: 1
+     point_month: 3
+   u:
+    -
+     gogyo: ki
+     point: 1
+     point_month: 3
+   tatsu:
+    -
+     gogyo:
+     point:
+     point_month:
+   mi:
+    -
+     gogyo: hi
+     point: 1
+     point_month: 3
+   uma:
+    -
+     gogyo: hi
+     point: 1
+     point_month: 3
+   hitsuji:
+    -
+     gogyo:
+     point:
+     point_month:
+   saru:
+    -
+     gogyo: kane
+     point: 1
+     point_month: 3
+   tori:
+    -
+     gogyo: kane
+     point: 1
+     point_month: 3
+   inu:
+    -
+     gogyo:
+     point:
+     point_month:
+   i:
+    -
+     gogyo: mizu
+     point: 1
+     point_month: 3
