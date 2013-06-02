@@ -1,0 +1,30 @@
+GOGYO:
+ ki:
+   code: 0
+   name: 木
+   angle: 60
+   color: blue
+
+ hi:
+   code: 1
+   name: 火
+   angle: 150
+   color: red
+
+ tsuchi:
+   code: 2
+   name: 土
+   angle: 150
+   color: yellow
+
+ kane:
+   code: 3
+   name: 金
+   angle: 240
+   color: white
+
+ mizu:
+   code: 4
+   name: 水
+   angle: 330
+   color: black
