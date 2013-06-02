@@ -1,6 +1,9 @@
 require 'yaml'
+require 'base_data'
 
 class JunishiData
+  include BaseData
+
   @yaml_data = Hash.new
 
   def self.instance
@@ -15,12 +18,20 @@ class JunishiData
     end
   end
 
-  def find_by_code(code)
-    @data.find(nil){|key, data| data.code == code}[1]
+  def by_code(code)
+    find_by(@data){|datum|datum.code == code}
   end
 
-  def find_by_angle(angle)
-    @data.find(nil){|key, data| data.angle == angle}[1]
+  def by_key(find_key)
+    find_by(@data){|datum|datum.key == find_key}
+  end
+
+  def by_id(id)
+    find_by(@data){|datum|datum.id == id}
+  end
+
+  def by_angle(angle)
+    find_by(@data){|datum|datum.angle == angle}
   end
 
 end

@@ -1,4 +1,4 @@
-class Junishi < ActiveRecord::Base
+class Junishi
 
   SHI_COUNT = 12
   ANGLE_CIRCLE = 360
@@ -9,15 +9,13 @@ class Junishi < ActiveRecord::Base
   ANGLE_DOUBLE_SHI = ANGLE_SHI * 2
   GOGYO_DO = 3
 
-  attr_accessible :code, :name, :angle
-  attr_accessor :key, :relation
-
-  has_many :junishi_gogyo, :primary_key => :code, :foreign_key => "junishi_code"
+  attr_accessor :key, :relation, :id, :code, :name, :angle
 
   def load_data(key, data, angle_relation, method_relation)
     self.key = key
     self.relation = data["relation"]
     self.code = data["member"]["code"]
+    self.id = self.code.to_i + 1
     self.name = data["member"]["name"]
     self.angle = data["member"]["angle"]
     self.def_angle_relation(angle_relation)
@@ -47,7 +45,11 @@ class Junishi < ActiveRecord::Base
   end
 
   def gogyo(day)
-    self.junishi_gogyo.where(:doseishi => doou(day))
+    if doou(day)
+      JunishiGogyo.doou_by_key(self.key)
+    else
+      JunishiGogyo.regular_by_key(self.key)
+    end
   end
 
   def def_angle_relation(angle_relation)
@@ -63,11 +65,15 @@ class Junishi < ActiveRecord::Base
   end
 
   def self.by_angle(angle)
-    JunishiData.instance.find_by_angle(angle)
+    JunishiData.instance.by_angle(angle)
   end
 
   def self.find_by_code(code)
-    JunishiData.instance.find_by_code(code)
+    JunishiData.instance.by_code(code)
+  end
+
+  def self.find_by_id(id)
+    JunishiData.instance.by_id(id)
   end
 
   protected

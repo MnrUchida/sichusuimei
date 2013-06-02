@@ -7,13 +7,9 @@ module SeedsFromCsv
   def read_all_seeds
     read_jikkan()
 
-    read_gogyo()
-
     read_houn()
 
     read_hentsusei()
-
-    read_junishi_gogyo
 
     read_pillar_relation()
 

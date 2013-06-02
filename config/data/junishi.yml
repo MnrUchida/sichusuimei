@@ -112,6 +112,11 @@ METHOD:
   method:
    - (ekiba?(target.chishi) && target.tenkan.code == (6 - 3 * ((self.code + 2) % 4)))
    - (ekiba?(target.chishi) && target.tenkan.code == 7)
+ tentoku:
+  name: 天徳
+  method:
+   - return tentoku_kijin, tentoku_gou
+
 
 JUNISHI:
  ne:
@@ -143,6 +148,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
 
  usi:
   member:
@@ -173,6 +179,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 1
+    tentoku: 0
 
  tora:
   member:
@@ -204,6 +211,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
 
  u:
   member:
@@ -235,6 +243,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
 
  tatsu:
   member:
@@ -266,6 +275,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
  mi:
   member:
     angle: 135
@@ -296,6 +306,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 1
+    tentoku: 0
  uma:
   member:
     angle: 165
@@ -325,6 +336,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
  hitsuji:
   member:
     angle: 195
@@ -354,6 +366,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
  saru:
   member:
     angle: 225
@@ -384,6 +397,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
  tori:
   member:
     angle: 255
@@ -414,6 +428,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 1
+    tentoku: 0
  inu:
   member:
     angle: 285
@@ -444,6 +459,7 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0
  i:
   member:
     angle: 315
@@ -474,3 +490,4 @@ JUNISHI:
     gekku?: 0
     ekiba: 0
     seiseiba?: 0
+    tentoku: 0

@@ -7,9 +7,13 @@ JUNISHI_GOGYO:
      point_month: 3
    usi:
     -
-     gogyo:
-     point:
-     point_month:
+     gogyo: mizu
+     point: 0.5
+     point_month: 2
+    -
+     gogyo: tsuchi
+     point: 0.5
+     point_month: 1
    tora:
     -
      gogyo: ki
@@ -22,9 +26,13 @@ JUNISHI_GOGYO:
      point_month: 3
    tatsu:
     -
-     gogyo:
-     point:
-     point_month:
+     gogyo: ki
+     point: 0.5
+     point_month: 2
+    -
+     gogyo: tsuchi
+     point: 1
+     point_month: 1
    mi:
     -
      gogyo: hi
@@ -37,9 +45,13 @@ JUNISHI_GOGYO:
      point_month: 3
    hitsuji:
     -
-     gogyo:
-     point:
-     point_month:
+     gogyo: hi
+     point: 0.5
+     point_month: 2
+    -
+     gogyo: tsuchi
+     point: 0.5
+     point_month: 1
    saru:
     -
      gogyo: kane
@@ -52,11 +64,53 @@ JUNISHI_GOGYO:
      point_month: 3
    inu:
     -
-     gogyo:
-     point:
-     point_month:
+     gogyo: kane
+     point: 0.5
+     point_month: 2
+    -
+     gogyo: tsuchi
+     point: 1
+     point_month: 1
    i:
     -
      gogyo: mizu
+     point: 1
+     point_month: 3
+
+ doou:
+   usi:
+    -
+     gogyo: mizu
+     point: 0.5
+     point_month: 1
+    -
+     gogyo: tsuchi
+     point: 0.5
+     point_month: 2
+   tatsu:
+    -
+     gogyo: ki
+     point: 0.5
+     point_month: 1
+    -
+     gogyo: tsuchi
+     point: 1
+     point_month: 3
+   hitsuji:
+    -
+     gogyo: hi
+     point: 0.5
+     point_month: 1
+    -
+     gogyo: tsuchi
+     point: 0.5
+     point_month: 2
+   inu:
+    -
+     gogyo: kane
+     point: 0.5
+     point_month: 1
+    -
+     gogyo: tsuchi
      point: 1
      point_month: 3

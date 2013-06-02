@@ -5,7 +5,6 @@ class MeishikiPlr < ActiveRecord::Base
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
   
   belongs_to :meishiki, :foreign_key => "meishiki_id", class_name: 'Meishiki'
-  belongs_to :chishi, :foreign_key => "chishi_id", class_name: 'Junishi'
   belongs_to :tenkan, :foreign_key => "tenkan_id", class_name: 'Jikkan'
   belongs_to :zoukan, :foreign_key => "zoukan_id", class_name: 'Jikkan'
 
@@ -48,17 +47,9 @@ class MeishikiPlr < ActiveRecord::Base
     return self.kubou_first, self.kubou_first + 1
   end
 
-  #def kangou?(pillar)
-  #  self.tenkan.gou?(pillar.tenkan)
-  #end
-  #
-  #def shigou?(pillar)
-  #   self.chishi.gou?(pillar.chishi)
-  #end
-  #
-  #def sangou?(pillar, pillar2)
-  #  self.chishi.sangou?(pillar.chishi) && self.chishi.sangou?(pillar2.chishi)
-  #end
+  def chishi
+    Junishi.find_by_id(self.chishi_id)
+  end
 
   protected
 
