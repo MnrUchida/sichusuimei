@@ -1,18 +1,20 @@
 class JunishiGogyo
-  attr_accessor :key, :gogyo_key, :gogyo_id, :junishi_code, :point, :point_month, :doseishi
+  attr_reader :key, :gogyo_key, :gogyo_id, :junishi_code, :point, :point_month, :doseishi
 
   def code
     gogyo.code
   end
 
+  def initialize(key, data)
+    @key = key
+    @gogyo_key = data["gogyo"]
+    @point = data["point"]
+    @point_month = data["point_month"]
+  end
+
   def self.load_data(key, data)
     data.map do |datum|
-      junishi_gogyo = JunishiGogyo.new
-      junishi_gogyo.key = key
-      junishi_gogyo.gogyo_key = datum["gogyo"]
-      junishi_gogyo.point = datum["point"]
-      junishi_gogyo.point_month = datum["point_month"]
-      junishi_gogyo
+      JunishiGogyo.new(key,datum)
     end
   end
 

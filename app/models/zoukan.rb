@@ -1,12 +1,23 @@
-class Zoukan < ActiveRecord::Base
-  attr_accessible :jikkan_code, :start_angle, :span_angle
+class Zoukan
+  attr_reader :key, :jikkan_key, :start_angle, :span_angle
+
+  def initialize(key, data)
+    @key = key
+    @jikkan_key = data["jikkan_key"]
+    @start_angle = data["start_angle"]
+    @span_angle = data["span_angle"]
+  end
 
   def self.by_angle(angle)
-    self.where("start_angle <= :angle and (start_angle + span_angle - 1) >= :angle ", {:angle => angle}).first
+    ZoukanData.instance.by_angle(angle)
+  end
+
+  def end_angle
+    self.start_angle + self.span_angle - 1
   end
 
   def jikkan()
-    Jikkan.find_by_code(self.jikkan_code)
+    Jikkan.by_key(self.jikkan_key)
   end
 
 end

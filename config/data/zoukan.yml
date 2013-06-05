@@ -1,0 +1,97 @@
+ZOUKAN:
+ 1:
+   jikkan_key: mizunoto
+   start_angle: 0
+   span_angle:  24
+
+ 2:
+   jikkan_key: kanoto
+   start_angle: 24
+   span_angle:  3
+
+ 3:
+   jikkan_key: tsuchinoto
+   start_angle: 27
+   span_angle:  18
+
+ 4:
+   jikkan_key: tsuchinoe
+   start_angle: 45
+   span_angle:  7
+
+ 5:
+   jikkan_key: hinoe
+   start_angle: 52
+   span_angle:  7
+ 6:
+   jikkan_key: kinoe
+   start_angle: 59
+   span_angle:  26
+ 7:
+   jikkan_key: kinoto
+   start_angle: 85
+   span_angle:  29
+ 8:
+   jikkan_key: mizunoto
+   start_angle: 114
+   span_angle:  3
+ 9:
+   jikkan_key: tsuchinoe
+   start_angle: 117
+   span_angle:  25
+ 10:
+   jikkan_key: kanoe
+   start_angle: 142
+   span_angle:  7
+ 11:
+   jikkan_key: hinoe
+   start_angle: 149
+   span_angle:  26
+ 12:
+   jikkan_key: tsuchinoto
+   start_angle: 175
+   span_angle:  7
+ 13:
+   jikkan_key: hinoto
+   start_angle: 182
+   span_angle:  22
+ 14:
+   jikkan_key: kinoto
+   start_angle: 204
+   span_angle:  3
+ 15:
+   jikkan_key: tsuchinoto
+   start_angle: 207
+   span_angle:  25
+ 16:
+   jikkan_key: mizunoe
+   start_angle: 232
+   span_angle:  7
+ 17:
+   jikkan_key: kanoe
+   start_angle: 239
+   span_angle:  26
+ 18:
+   jikkan_key: kanoto
+   start_angle: 265
+   span_angle:  29
+ 19:
+   jikkan_key: hinoto
+   start_angle: 294
+   span_angle:  3
+ 20:
+   jikkan_key: tsuchinoe
+   start_angle: 297
+   span_angle:  25
+ 21:
+   jikkan_key: kinoe
+   start_angle: 322
+   span_angle:  7
+ 22:
+   jikkan_key: mizunoe
+   start_angle: 329
+   span_angle:  26
+ 23:
+   jikkan_key: mizunoto
+   start_angle: 355
+   span_angle:  29

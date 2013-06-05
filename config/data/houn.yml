@@ -1,0 +1,61 @@
+HOUN:
+ tai:
+   code: 0
+   name: 胎
+   point: 0
+   angle: 195
+ you:
+   code: 1
+   name: 養
+   point: 0
+   angle: 225
+ chosei:
+   code: 2
+   name: 長生
+   point: 0
+   angle: 255
+ mokuyoku:
+   code: 3
+   name: 沐浴
+   point: 0
+   angle: 285
+ kantai:
+   code: 4
+   name: 冠帯
+   point: 1
+   angle: 315
+ kenroku:
+   code: 5
+   name: 建禄
+   point: 1
+   angle: 345
+ teiou:
+   code: 6
+   name: 帝旺
+   point: 1
+   angle: 15
+ sui:
+   code: 7
+   name: 衰
+   point: 0
+   angle: 45
+ byo:
+   code: 8
+   name: 病
+   point: -1
+   angle: 75
+ shi:
+   code: 9
+   name: 死
+   point: -1
+   angle: 105
+ bo:
+   code: 10
+   name: 墓
+   point: -1
+   angle: 135
+ zetsu:
+   code: 11
+   name: 絶
+   point: -1
+   angle: 165

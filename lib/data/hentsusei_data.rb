@@ -13,7 +13,7 @@ class HentsuseiData
   def initialize
     @yaml_data = YAML.load_file('config/data/hentsusei.yml')
     @data = @yaml_data["HENTSUSEI"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Hentsusei.load_data(key, data)
+      ret_data[key] = Hentsusei.new(key, data)
       ret_data
     end
   end

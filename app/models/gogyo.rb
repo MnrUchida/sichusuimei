@@ -2,16 +2,14 @@ class Gogyo
   GOGYO_COUNT = 5
   SHIDAI = [4,3,1,0]
 
-  attr_accessor :key, :color, :code, :name, :angle
+  attr_reader :key, :color, :code, :name, :angle
 
-  def self.load_data(key, data)
-    gogyo = Gogyo.new
-    gogyo.key = key
-    gogyo.code = data["code"]
-    gogyo.name = data["name"]
-    gogyo.angle = data["angle"]
-    gogyo.color = data["color"]
-    gogyo
+  def initialize(key, data)
+    @key = key
+    @code = data["code"]
+    @name = data["name"]
+    @angle = data["angle"]
+    @color = data["color"]
   end
 
   def relation_with_gogyo(relate_gogyo)

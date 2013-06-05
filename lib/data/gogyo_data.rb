@@ -13,7 +13,7 @@ class GogyoData
   def initialize
     @yaml_data = YAML.load_file('config/data/gogyo.yml')
     @data = @yaml_data["GOGYO"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Gogyo.load_data(key, data)
+      ret_data[key] = Gogyo.new(key, data)
       ret_data
     end
   end

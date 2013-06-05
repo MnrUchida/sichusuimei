@@ -1,15 +1,13 @@
 class Hentsusei
-  attr_accessor :key, :code, :name, :point, :category, :inyou
+  attr_reader :key, :code, :name, :point, :category, :inyou
 
-  def self.load_data(key, data)
-    hentsusei = Hentsusei.new
-    hentsusei.key = key
-    hentsusei.inyou = data["inyou"]
-    hentsusei.code = data["code"]
-    hentsusei.name = data["name"]
-    hentsusei.point = data["point"]
-    hentsusei.category = data["category"]
-    hentsusei
+  def initialize(key, data)
+    @key = key
+    @inyou = data["inyou"]
+    @code = data["code"]
+    @name = data["name"]
+    @point = data["point"]
+    @category = data["category"]
   end
 
   def self.by_inyou(inyou)
