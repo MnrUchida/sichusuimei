@@ -18,6 +18,10 @@ class JikkanData
     end
   end
 
+  def by_id(id)
+    find_by(@data){|datum|datum.id == id}
+  end
+
   def by_code(code)
     find_by(@data){|datum|datum.code == code}
   end

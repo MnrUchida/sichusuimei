@@ -5,11 +5,7 @@ require 'csv'
 module SeedsFromCsv
 
   def read_all_seeds
-    read_jikkan()
-
     read_houn()
-
-    read_hentsusei()
 
     read_pillar_relation()
 

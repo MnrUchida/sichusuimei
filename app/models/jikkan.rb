@@ -2,13 +2,14 @@ class Jikkan < ActiveRecord::Base
   JIKKAN_COUNT = 10
 
   attr_accessible :type, :inyou, :code, :name, :point, :point_day, :gogyo_id
-  attr_accessor :key, :gogyo_key
+  attr_accessor :key, :gogyo_key, :id
 
   def self.load_data(key, data)
     jikkan = Jikkan.new
     jikkan.key = key
     jikkan.inyou = data["inyou"]
     jikkan.code = data["code"]
+    jikkan.id = jikkan.code + 1
     jikkan.name = data["name"]
     jikkan.point = data["point"]
     jikkan.point_day = data["point_day"]
@@ -25,8 +26,8 @@ class Jikkan < ActiveRecord::Base
   end
 
   def hentsusei(relate_jikkan)
-    Hentsusei.where(:category => self.gogyo.relation_with_gogyo(relate_jikkan.gogyo),
-                    :inyou => relate_jikkan.inyou * self.inyou).first
+    Hentsusei.by_inyou_and_category(relate_jikkan.inyou * self.inyou,
+        self.gogyo.relation_with_gogyo(relate_jikkan.gogyo))
   end
 
   def houn(relate_junishi)
@@ -51,6 +52,10 @@ class Jikkan < ActiveRecord::Base
 
   def self.by_inyou_and_gogyo(inyou, gogyo_key)
     JikkanData.instance.by_inyou_and_gogyo(inyou, gogyo_key)
+  end
+
+  def self.by_id(id)
+    JikkanData.instance.by_id(id)
   end
 
   def gogyo

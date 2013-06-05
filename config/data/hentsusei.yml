@@ -1,0 +1,70 @@
+HENTSUSEI:
+ hiken:
+   code: 0
+   name: 比肩
+   inyou: 1
+   point: 1
+   category: 0
+
+ gozai:
+   code: 1
+   name: 劫財
+   inyou: -1
+   point: 1
+   category: 0
+
+ shokusin:
+   code: 2
+   name: 食神
+   inyou: 1
+   point: -1
+   category: 1
+
+ shoukan:
+   code: 3
+   name: 傷官
+   inyou: -1
+   point: -1
+   category: 1
+
+ henzai:
+   code: 4
+   name: 偏財
+   inyou: 1
+   point: -1
+   category: 2
+
+ seizai:
+   code: 5
+   name: 正財
+   inyou: -1
+   point: -1
+   category: 2
+
+ henkan:
+   code: 6
+   name: 偏官
+   inyou: 1
+   point: -1
+   category: 3
+
+ seikan:
+   code: 7
+   name: 正官
+   inyou: -1
+   point: -1
+   category: 3
+
+ henin:
+   code: 8
+   name: 偏印
+   inyou: 1
+   point: -1
+   category: 4
+
+ inju:
+   code: 9
+   name: 印綬
+   inyou: -1
+   point: -1
+   category: 4

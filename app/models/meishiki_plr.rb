@@ -5,8 +5,14 @@ class MeishikiPlr < ActiveRecord::Base
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
   
   belongs_to :meishiki, :foreign_key => "meishiki_id", class_name: 'Meishiki'
-  belongs_to :tenkan, :foreign_key => "tenkan_id", class_name: 'Jikkan'
-  belongs_to :zoukan, :foreign_key => "zoukan_id", class_name: 'Jikkan'
+
+  def tenkan
+    Jikkan.by_id(self.tenkan_id)
+  end
+
+  def zoukan
+    Jikkan.by_id(self.zoukan_id)
+  end
 
   def reset_data
     self.set_initial_value
