@@ -62,12 +62,17 @@ ANGLE:
   name: 駅馬
   method:
    - (angle + ANGLE_HALF_SHI) * 9 + ANGLE_DOUBLE_SHI - ANGLE_HALF_SHI
+ momon:
+  name: 喪門
+  method:
+   - angle + ANGLE_DOUBLE_SHI
+
 METHOD:
  tentoku_kijin:
   name: 天徳貴人
   method:
    - Junishi.by_angle((angle + ANGLE_SHI * 5) % ANGLE_CIRCLE)
-   - Zoukan.by_angle((angle - 13 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+   - Zoukan.by_angle((angle - 12 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
    - Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
  tentoku_gou:
   name: 天徳合
@@ -117,7 +122,6 @@ METHOD:
   method:
    - return tentoku_kijin, tentoku_gou
 
-
 JUNISHI:
  ne:
   member:
@@ -149,6 +153,7 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
 
  usi:
   member:
@@ -180,6 +185,7 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 1
     tentoku: 0
+    momon: 0
 
  tora:
   member:
@@ -212,6 +218,7 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
 
  u:
   member:
@@ -244,6 +251,7 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
 
  tatsu:
   member:
@@ -276,6 +284,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
+
  mi:
   member:
     angle: 135
@@ -307,6 +317,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 1
     tentoku: 0
+    momon: 0
+
  uma:
   member:
     angle: 165
@@ -337,6 +349,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
+
  hitsuji:
   member:
     angle: 195
@@ -367,6 +381,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
+
  saru:
   member:
     angle: 225
@@ -398,6 +414,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
+
  tori:
   member:
     angle: 255
@@ -429,6 +447,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 1
     tentoku: 0
+    momon: 0
+
  inu:
   member:
     angle: 285
@@ -460,6 +480,8 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0
+
  i:
   member:
     angle: 315
@@ -491,3 +513,4 @@ JUNISHI:
     ekiba: 0
     seiseiba?: 0
     tentoku: 0
+    momon: 0

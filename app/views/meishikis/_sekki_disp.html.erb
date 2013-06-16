@@ -1,0 +1,23 @@
+  <table>
+    <tr>
+      <% if ext_meishiki.cur_sekki_exists? %>
+        <td><%= t "activerecord.attributes.ext_meishiki.cur_sekki_date" %>:</td>
+        <td><%= ext_meishiki.cur_sekki_date %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <% if ext_meishiki.bef_sekki_exists? %>
+          <td><%= t "activerecord.attributes.ext_meishiki.bef_sekki_date" %>:</td>
+          <td><%= ext_meishiki.bef_sekki_date %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <% if ext_meishiki.aft_sekki_exists? %>
+          <td><%= t "activerecord.attributes.ext_meishiki.aft_sekki_date" %>:</td>
+          <td><%= ext_meishiki.aft_sekki_date %></td>
+      <% end %>
+    </tr>
+  </table>
+

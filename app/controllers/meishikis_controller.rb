@@ -8,7 +8,7 @@ class MeishikisController < ApplicationController
 
     gogyo = @meishiki.gogyo_with_array
 
-    g = Gruff::Spider.new 10,400
+    g = Gruff::Spider.new 10,500
     g.base_angle = -Math::PI * @meishiki.nisshu.gogyo.code / Gogyo::GOGYO_COUNT * 2
 
     g.theme_37signals
@@ -35,6 +35,7 @@ class MeishikisController < ApplicationController
   # GET /meishikis/1.json
   def show
     @meishiki = Meishiki.find(params[:id])
+    @ext_meishiki = ExtMeishiki.new(:meishiki => @meishiki)
 
     respond_to do |format|
       format.html # show.html.erb

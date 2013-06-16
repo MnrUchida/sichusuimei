@@ -25,6 +25,18 @@
       <%= render :partial => 'relation', :locals => { :meishiki => @meishiki} %>
     </td>
   </tr>
+  <tr>
+    <td>
+    </td>
+    <td valign="top">
+      <%= render :partial => 'relation_with_month', :locals => { :meishiki => @meishiki} %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      <%= render :partial => 'sekki_disp', :locals => { :ext_meishiki => @ext_meishiki} %>
+    </td>
+  </tr>
 </table>
 
 <div class="form-actions">

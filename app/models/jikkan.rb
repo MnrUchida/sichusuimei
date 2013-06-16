@@ -1,9 +1,13 @@
+require 'angle'
+
 class Jikkan
+  include Angle
+
   JIKKAN_COUNT = 10
 
   attr_reader :inyou, :code, :name, :point, :point_day, :gogyo_id, :key, :gogyo_key, :id
 
-  def initialize(key, data)
+  def initialize(key, data, method_relation)
     @key = key
     @inyou = data["inyou"]
     @code = data["code"]
@@ -12,6 +16,8 @@ class Jikkan
     @point = data["point"]
     @point_day = data["point_day"]
     @gogyo_key = data["gogyo_key"]
+
+    def_method_relation(method_relation)
   end
 
   def self.find_by_code(code)
@@ -52,15 +58,30 @@ class Jikkan
   end
 
   def houn_angle(relate_junishi)
-    ((relate_junishi.angle - self.gogyo.angle) * self.inyou) % 360
+    ((relate_junishi.angle - self.gogyo.angle) * self.inyou) % ANGLE_CIRCLE
   end
 
   def gogyo
     Gogyo.by_key(self.gogyo_key)
   end
 
+  def def_method_relation(method_relation)
+    method_relation.each do |method_name, relation|
+      self.instance_eval method_relation_string(relation, method_name)
+    end
+  end
+
   protected
   def gou_code
     (self.code + JIKKAN_COUNT / 2) % JIKKAN_COUNT
   end
+
+  def method_relation_no_method_string(method_relation, method_name)
+    if relation.key?(method_name.to_s)
+      <<-EOS
+        #{method_relation["method"][relation[method_name.to_s]]}
+      EOS
+    end
+  end
+
 end

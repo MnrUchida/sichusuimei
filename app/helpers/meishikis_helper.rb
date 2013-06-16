@@ -19,6 +19,22 @@ module MeishikisHelper
     end
   end
 
+  def display_month_pillar_relation(meishiki, method_name, display_string)
+    PillarRelation.where(:name => method_name).inject("") do |ret_data, pillar_relation|
+      pillar_relation.pillar_relation_pillars.each do |pillar|
+        ret_data += content_of_target_pillar_relation(pillar, display_string) if result_of_pillar_relation(meishiki, method_name, pillar)
+      end
+      ret_data
+    end
+  end
+
+  private
+  def content_of_target_pillar_relation(pillar, display_string)
+    "<tr><td>" + display_string + content_of_target_pillar(pillar.target_pillar) +
+        content_of_target_pillar(pillar.target2_pillar) +
+        "</td></tr>"
+  end
+
   def content_of_pillar_relation(pillar)
     "<tr><td>" + translate_meishiki_attribute(pillar.base_pillar) +
         content_of_target_pillar(pillar.target_pillar) +

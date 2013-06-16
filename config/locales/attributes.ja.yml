@@ -3,7 +3,7 @@ ja:
     models:
       meishiki: 命式
       relation: 相関
-
+      ext_meishiki: 節気と命式
     attributes:
       meishiki:
         name: 氏名
@@ -34,6 +34,18 @@ ja:
         gai: 害
         tentoku_kijin: 天徳貴人
         tentoku_gou: 天徳合
+        gettoku_kijin: 月徳貴人
+        gettoku_gou: 月徳合
+        kagai: 華蓋
+        tenmou: 天耗
+        chimou: 地耗
+        byakui: 白衣
+        kessi: 血支
+        dankyo: 断橋
+        gekku: 月空
+        ekiba: 駅馬
+        seiseiba: 生成馬
+        momon: 喪門
       relation:
         name: 関連名
         function: 関数
@@ -47,3 +59,7 @@ ja:
         subject: 関連対象
         method: 関連メソッド
         arg: 引数
+      ext_meishiki:
+        cur_sekki_date: 入日
+        bef_sekki_date: 前入日
+        aft_sekki_date: 後入日

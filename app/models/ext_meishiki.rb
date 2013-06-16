@@ -12,11 +12,11 @@ class ExtMeishiki < SimpleModel
     @cur_sekki.date = value
   end
   def cur_sekki_date()
-    sekki_date(0.month).strftime("%Y/%m/%d %H:%M %Z")
+    sekki_date(0.month).strftime("%Y/%m/%d %H:%M")
   end
 
   def bef_sekki_date()
-    sekki_date(-1.month).strftime("%Y/%m/%d %H:%M %Z")
+    sekki_date(-1.month).strftime("%Y/%m/%d %H:%M")
   end
   def bef_sekki_date=(value)
     @bef_sekki = Sekki.new() if @bef_sekki.nil?
@@ -24,7 +24,7 @@ class ExtMeishiki < SimpleModel
   end
 
   def aft_sekki_date()
-    sekki_date(1.month).strftime("%Y/%m/%d %H:%M %Z")
+    sekki_date(1.month).strftime("%Y/%m/%d %H:%M")
   end
   def aft_sekki_date=(value)
     @aft_sekki = Sekki.new() if @aft_sekki.nil?
@@ -45,35 +45,6 @@ class ExtMeishiki < SimpleModel
     @meishiki = Meishiki.new() if @meishiki.nil?
     @meishiki
   end
-
-  #def name()
-  #  meishiki.name
-  #end
-  #def name=(value)
-  #  meishiki.name = value
-  #end
-  #
-  #def sex()
-  #  meishiki.sex
-  #end
-  #def sex=(value)
-  #  meishiki.sex = value
-  #end
-  #
-  #def birthday()
-  #  meishiki.birthday
-  #end
-  #def birthday=(value)
-  #  meishiki.birthday = value
-  #end
-  #
-  #def meikyu()
-  #  meishiki.meikyu
-  #end
-  #def meikyu(value)
-  #  meishiki.meikyu = value
-  #end
-
 
   def ext_meishikis_path
     meishiki.meishikis_path

@@ -1,4 +1,8 @@
+require 'angle'
+
 class Gogyo
+  include Angle
+
   GOGYO_COUNT = 5
   SHIDAI = [4,3,1,0]
 
@@ -36,8 +40,28 @@ class Gogyo
     kan("inyou.you")
   end
 
+  def pos_x
+    sign_pos * abs_pos_x
+  end
+
+  def pos_y
+    sign_pos * abs_pos_y
+  end
+
   private
   def kan(inyou)
     Jikkan.by_inyou_and_gogyo(SelectParameters.get_value(inyou), self.key )
+  end
+
+  def abs_pos_x
+    ((angle + ANGLE_SHI) % ANGLE_HALF_CIRCLE) / ANGLE_RIGHT
+  end
+
+  def abs_pos_y
+    ((angle + ANGLE_SHI + ANGLE_RIGHT) % ANGLE_HALF_CIRCLE) / ANGLE_RIGHT
+  end
+
+  def sign_pos
+    (angle + ANGLE_SHI - ANGLE_HALF_CIRCLE) <= 0 ? 1 : -1
   end
 end

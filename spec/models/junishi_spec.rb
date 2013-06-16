@@ -6,6 +6,10 @@ include SeedsFromCsv
 
 describe Junishi, "蔵干取得" do
 
+  shared_examples_for :zoukan_validation do |days, valid_value|
+    days.each{|day| it{ subject.zoukan(0).code.to_s.should == valid_value }}
+  end
+
  before do
    read_all_seeds()
  end
@@ -15,10 +19,10 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(0)}
   it "余気 壬" do
       subject.zoukan(0).code.to_s.should == "8"
-      subject.zoukan(9).code.to_s.should == "8"
+      subject.zoukan(10).code.to_s.should == "8"
   end
   it "正気 癸" do
-      subject.zoukan(10).code.to_s.should == "9"
+      subject.zoukan(11).code.to_s.should == "9"
       subject.zoukan(30).code.to_s.should == "9"
   end
  end
@@ -28,14 +32,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(1)}
   it "余気 癸" do
       subject.zoukan(0).code.to_s.should == "9"
-      subject.zoukan(8).code.to_s.should == "9"
+      subject.zoukan(9).code.to_s.should == "9"
   end
   it "中気 辛" do
-      subject.zoukan(9).code.to_s.should == "7"
-      subject.zoukan(11).code.to_s.should == "7"
+      subject.zoukan(10).code.to_s.should == "7"
+      subject.zoukan(12).code.to_s.should == "7"
   end
   it "正気 己" do
-      subject.zoukan(12).code.to_s.should == "5"
+      subject.zoukan(13).code.to_s.should == "5"
       subject.zoukan(30).code.to_s.should == "5"
   end
  end
@@ -45,14 +49,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(2)}
   it "余気 戊" do
       subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(6).code.to_s.should == "4"
+      subject.zoukan(7).code.to_s.should == "4"
   end
   it "中気 丙" do
-      subject.zoukan(7).code.to_s.should == "2"
-      subject.zoukan(13).code.to_s.should == "2"
+      subject.zoukan(8).code.to_s.should == "2"
+      subject.zoukan(14).code.to_s.should == "2"
   end
   it "正気 甲" do
-      subject.zoukan(14).code.to_s.should == "0"
+      subject.zoukan(15).code.to_s.should == "0"
       subject.zoukan(30).code.to_s.should == "0"
   end
  end
@@ -62,10 +66,10 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(3)}
   it "余気 甲" do
       subject.zoukan(0).code.to_s.should == "0"
-      subject.zoukan(9).code.to_s.should == "0"
+      subject.zoukan(10).code.to_s.should == "0"
   end
   it "正気 乙" do
-      subject.zoukan(10).code.to_s.should == "1"
+      subject.zoukan(11).code.to_s.should == "1"
       subject.zoukan(30).code.to_s.should == "1"
   end
  end
@@ -75,14 +79,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(4)}
   it "余気 乙" do
       subject.zoukan(0).code.to_s.should == "1"
-      subject.zoukan(8).code.to_s.should == "1"
+      subject.zoukan(9).code.to_s.should == "1"
   end
   it "中気 癸" do
-      subject.zoukan(9).code.to_s.should == "9"
-      subject.zoukan(11).code.to_s.should == "9"
+      subject.zoukan(10).code.to_s.should == "9"
+      subject.zoukan(12).code.to_s.should == "9"
   end
   it "正気 戊" do
-      subject.zoukan(12).code.to_s.should == "4"
+      subject.zoukan(13).code.to_s.should == "4"
       subject.zoukan(30).code.to_s.should == "4"
   end
  end
@@ -92,14 +96,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(5)}
   it "余気 戊" do
       subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(6).code.to_s.should == "4"
+      subject.zoukan(7).code.to_s.should == "4"
   end
   it "中気 庚" do
-      subject.zoukan(7).code.to_s.should == "6"
-      subject.zoukan(13).code.to_s.should == "6"
+      subject.zoukan(8).code.to_s.should == "6"
+      subject.zoukan(14).code.to_s.should == "6"
   end
   it "正気 丙" do
-      subject.zoukan(14).code.to_s.should == "2"
+      subject.zoukan(15).code.to_s.should == "2"
       subject.zoukan(30).code.to_s.should == "2"
   end
  end
@@ -109,14 +113,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(6)}
   it "余気 丙" do
       subject.zoukan(0).code.to_s.should == "2"
-      subject.zoukan(9).code.to_s.should == "2"
+      subject.zoukan(10).code.to_s.should == "2"
   end
   it "中気 己" do
-      subject.zoukan(10).code.to_s.should == "5"
-      subject.zoukan(16).code.to_s.should == "5"
+      subject.zoukan(11).code.to_s.should == "5"
+      subject.zoukan(17).code.to_s.should == "5"
   end
   it "正気 丁" do
-      subject.zoukan(17).code.to_s.should == "3"
+      subject.zoukan(18).code.to_s.should == "3"
       subject.zoukan(30).code.to_s.should == "3"
   end
  end
@@ -126,14 +130,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(7)}
   it "余気 丁" do
       subject.zoukan(0).code.to_s.should == "3"
-      subject.zoukan(8).code.to_s.should == "3"
+      subject.zoukan(9).code.to_s.should == "3"
   end
   it "中気 乙" do
-      subject.zoukan(9).code.to_s.should == "1"
-      subject.zoukan(11).code.to_s.should == "1"
+      subject.zoukan(10).code.to_s.should == "1"
+      subject.zoukan(12).code.to_s.should == "1"
   end
   it "正気 己" do
-      subject.zoukan(12).code.to_s.should == "5"
+      subject.zoukan(13).code.to_s.should == "5"
       subject.zoukan(30).code.to_s.should == "5"
   end
  end
@@ -144,14 +148,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(8)}
   it "余気 己" do
       subject.zoukan(0).code.to_s.should == "5"
-      subject.zoukan(6).code.to_s.should == "5"
+      subject.zoukan(7).code.to_s.should == "5"
   end
   it "中気 壬" do
-      subject.zoukan(7).code.to_s.should == "8"
-      subject.zoukan(13).code.to_s.should == "8"
+      subject.zoukan(8).code.to_s.should == "8"
+      subject.zoukan(14).code.to_s.should == "8"
   end
   it "正気 庚" do
-      subject.zoukan(14).code.to_s.should == "6"
+      subject.zoukan(15).code.to_s.should == "6"
       subject.zoukan(30).code.to_s.should == "6"
   end
  end
@@ -162,10 +166,10 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(9)}
   it "余気 庚" do
       subject.zoukan(0).code.to_s.should == "6"
-      subject.zoukan(9).code.to_s.should == "6"
+      subject.zoukan(10).code.to_s.should == "6"
   end
   it "正気 辛" do
-      subject.zoukan(10).code.to_s.should == "7"
+      subject.zoukan(11).code.to_s.should == "7"
       subject.zoukan(30).code.to_s.should == "7"
   end
  end
@@ -175,14 +179,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(10)}
   it "余気 辛" do
       subject.zoukan(0).code.to_s.should == "7"
-      subject.zoukan(8).code.to_s.should == "7"
+      subject.zoukan(9).code.to_s.should == "7"
   end
   it "中気 丁" do
-      subject.zoukan(9).code.to_s.should == "3"
-      subject.zoukan(11).code.to_s.should == "3"
+      subject.zoukan(10).code.to_s.should == "3"
+      subject.zoukan(12).code.to_s.should == "3"
   end
   it "正気 戊" do
-      subject.zoukan(12).code.to_s.should == "4"
+      subject.zoukan(13).code.to_s.should == "4"
       subject.zoukan(30).code.to_s.should == "4"
   end
  end
@@ -192,14 +196,14 @@ describe Junishi, "蔵干取得" do
   subject{Junishi.find_by_code(11)}
   it "余気 戊" do
       subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(6).code.to_s.should == "4"
+      subject.zoukan(7).code.to_s.should == "4"
   end
   it "中気 甲" do
-      subject.zoukan(7).code.to_s.should == "0"
-      subject.zoukan(13).code.to_s.should == "0"
+      subject.zoukan(8).code.to_s.should == "0"
+      subject.zoukan(14).code.to_s.should == "0"
   end
   it "正気 壬" do
-      subject.zoukan(14).code.to_s.should == "8"
+      subject.zoukan(15).code.to_s.should == "8"
       subject.zoukan(30).code.to_s.should == "8"
   end
  end
@@ -2757,6 +2761,169 @@ describe Junishi, "生成馬" do
     it "丁巳" do
       junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
       subject.seiseiba?(junishi).should == true
+    end
+  end
+end
+
+describe Junishi, "喪門" do
+  before do
+    read_all_seeds()
+  end
+
+  describe "子" do
+
+    subject{Junishi.find_by_code(0)}
+    it "寅" do
+      subject.momon.name.should == "寅"
+    end
+
+    it "寅" do
+      junishi = Junishi.find_by_code(2)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "丑" do
+
+    subject{Junishi.find_by_code(1)}
+    it "卯" do
+      subject.momon.name.should == "卯"
+    end
+
+    it "卯" do
+      junishi = Junishi.find_by_code(3)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "寅" do
+
+    subject{Junishi.find_by_code(2)}
+    it "辰" do
+      subject.momon.name.should == "辰"
+    end
+
+    it "辰" do
+      junishi = Junishi.find_by_code(4)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "卯" do
+
+    subject{Junishi.find_by_code(3)}
+    it "巳" do
+      subject.momon.name.should == "巳"
+    end
+
+    it "巳" do
+      junishi = Junishi.find_by_code(5)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "辰" do
+
+    subject{Junishi.find_by_code(4)}
+    it "午" do
+      subject.momon.name.should == "午"
+    end
+
+    it "午" do
+      junishi = Junishi.find_by_code(6)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "巳" do
+
+    subject{Junishi.find_by_code(5)}
+    it "未" do
+      subject.momon.name.should == "未"
+    end
+
+    it "未" do
+      junishi = Junishi.find_by_code(7)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "午" do
+
+    subject{Junishi.find_by_code(6)}
+    it "申" do
+      subject.momon.name.should == "申"
+    end
+
+    it "申" do
+      junishi = Junishi.find_by_code(8)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "未" do
+
+    subject{Junishi.find_by_code(7)}
+    it "酉" do
+      subject.momon.name.should == "酉"
+    end
+
+    it "酉" do
+      junishi = Junishi.find_by_code(9)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+
+  describe "申" do
+
+    subject{Junishi.find_by_code(8)}
+    it "戌" do
+      subject.momon.name.should == "戌"
+    end
+
+    it "戌" do
+      junishi = Junishi.find_by_code(10)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "酉" do
+
+    subject{Junishi.find_by_code(9)}
+    it "亥" do
+      subject.momon.name.should == "亥"
+    end
+
+    it "亥" do
+      junishi = Junishi.find_by_code(11)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "戌" do
+
+    subject{Junishi.find_by_code(10)}
+    it "子" do
+      subject.momon.name.should == "子"
+    end
+
+    it "子" do
+      junishi = Junishi.find_by_code(0)
+      subject.momon?(junishi).should == true
+    end
+  end
+
+  describe "亥" do
+
+    subject{Junishi.find_by_code(11)}
+    it "丑" do
+      subject.momon.name.should == "丑"
+    end
+
+    it "丑" do
+      junishi = Junishi.find_by_code(1)
+      subject.momon?(junishi).should == true
     end
   end
 end

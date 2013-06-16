@@ -12,12 +12,12 @@ ZOUKAN:
  3:
    jikkan_key: tsuchinoto
    start_angle: 27
-   span_angle:  18
+   span_angle:  17
 
  4:
    jikkan_key: tsuchinoe
-   start_angle: 45
-   span_angle:  7
+   start_angle: 44
+   span_angle:  8
 
  5:
    jikkan_key: hinoe

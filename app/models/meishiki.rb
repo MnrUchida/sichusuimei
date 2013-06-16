@@ -53,13 +53,13 @@ class Meishiki < ActiveRecord::Base
   def gogyo_with_array()
     gogyo_array = []
     Gogyo::GOGYO_COUNT.times do |index|
-      gogyo_array[index] = {:gogyo => Gogyo.find_by_code(index), :point => 0}
+      gogyo_array[index] = {:gogyo => Gogyo.by_code(index), :point => 0}
     end
 
     gogyo.each do |gogyo_key, gogyo_value|
       index = gogyo_key
 
-      gogyo_array[index] = {:gogyo => Gogyo.find_by_code(gogyo_key), :point => gogyo_value}
+      gogyo_array[index] = {:gogyo => Gogyo.by_code(gogyo_key), :point => gogyo_value}
     end
 
     gogyo_array

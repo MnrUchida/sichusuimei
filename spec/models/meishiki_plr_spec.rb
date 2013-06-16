@@ -338,4 +338,23 @@ describe MeishikiPlr, "四柱" do
    end
  end
 
+ describe "喪門" do
+   let(:year_pillar){YearPillar.new(:chishi_id => 3)}
+   let(:month_pillar){MonthPillar.new(:chishi_id => 1)}
+   let(:day_pillar){DayPillar.new(:chishi_id => 3)}
+   let(:time_pillar){TimePillar.new(:chishi_id => 3)}
+
+   it "年柱" do
+     month_pillar.momon?(:target_pillar => year_pillar).should == true
+   end
+
+   it "日柱" do
+     month_pillar.momon?(:target_pillar => day_pillar).should == true
+   end
+
+   it "時柱" do
+     month_pillar.momon?(:target_pillar => time_pillar).should == true
+   end
+ end
+
 end

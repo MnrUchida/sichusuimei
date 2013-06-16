@@ -13,11 +13,14 @@ class Zoukan
   end
 
   def end_angle
-    self.start_angle + self.span_angle - 1
+    self.start_angle + self.span_angle
   end
 
   def jikkan()
     Jikkan.by_key(self.jikkan_key)
   end
 
+  def id
+    jikkan.id
+  end
 end
