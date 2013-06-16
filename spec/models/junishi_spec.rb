@@ -6,8 +6,8 @@ include SeedsFromCsv
 
 describe Junishi, "蔵干取得" do
 
-  shared_examples_for :zoukan_validation do |days, valid_value|
-    days.each{|day| it{ subject.zoukan(day).code.to_s.should == valid_value }}
+  shared_examples_for :zoukan_validation do |params|
+    params[:days].each{|day| it{ subject.zoukan(day).code.to_s.should == params[:valid_value] }}
   end
 
  before do
@@ -18,7 +18,7 @@ describe Junishi, "蔵干取得" do
 
   subject{Junishi.find_by_code(0)}
   describe "余気 壬" do
-    it_behaves_like :zoukan_validation, [0, 10], "8"
+    it_behaves_like :zoukan_validation, :days => [0, 10], :valid_value => "8"
   end
   it "正気 癸" do
       subject.zoukan(11).code.to_s.should == "9"
