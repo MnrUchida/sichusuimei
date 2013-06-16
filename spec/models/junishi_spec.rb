@@ -17,9 +17,8 @@ describe Junishi, "蔵干取得" do
  describe "子" do
 
   subject{Junishi.find_by_code(0)}
-  it "余気 壬" do
-      subject.zoukan(0).code.to_s.should == "8"
-      subject.zoukan(10).code.to_s.should == "8"
+  describe "余気 壬" do
+    it_behaves_like :zoukan_validation, [0, 10], "8"
   end
   it "正気 癸" do
       subject.zoukan(11).code.to_s.should == "9"

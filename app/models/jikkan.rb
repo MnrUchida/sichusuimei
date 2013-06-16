@@ -5,10 +5,11 @@ class Jikkan
 
   JIKKAN_COUNT = 10
 
-  attr_reader :inyou, :code, :name, :point, :point_day, :gogyo_id, :key, :gogyo_key, :id
+  attr_reader :inyou, :code, :name, :point, :point_day, :gogyo_id, :key, :gogyo_key,:relation, :id
 
   def initialize(key, data, method_relation)
     @key = key
+    @relation = data["relation"]
     @inyou = data["inyou"]
     @code = data["code"]
     @id = @code + 1
@@ -76,7 +77,7 @@ class Jikkan
     (self.code + JIKKAN_COUNT / 2) % JIKKAN_COUNT
   end
 
-  def method_relation_no_method_string(method_relation, method_name)
+  def method_relation_string(method_relation, method_name)
     if relation.key?(method_name.to_s)
       <<-EOS
         #{method_relation["method"][relation[method_name.to_s]]}
