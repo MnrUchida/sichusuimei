@@ -7,7 +7,7 @@ include SeedsFromCsv
 describe Junishi, "蔵干取得" do
 
   shared_examples_for :zoukan_validation do |days, valid_value|
-    days.each{|day| it{ subject.zoukan(0).code.to_s.should == valid_value }}
+    days.each{|day| it{ subject.zoukan(day).code.to_s.should == valid_value }}
   end
 
  before do
