@@ -32,6 +32,9 @@ gem 'chronic'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-readline'
 end
 group :test do
   gem "simplecov", :require => false

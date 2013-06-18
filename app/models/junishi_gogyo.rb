@@ -1,5 +1,5 @@
 class JunishiGogyo
-  attr_reader :key, :gogyo_key, :gogyo_id, :junishi_code, :point, :point_month, :doseishi
+  attr_reader :key, :gogyo_key, :point, :point_month
 
   def code
     gogyo.code

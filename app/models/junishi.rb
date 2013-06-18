@@ -16,6 +16,10 @@ class Junishi
     def_method_relation(method_relation)
   end
 
+  def self.by_key(key)
+    JunishiData.instance.by_key(key)
+  end
+
   def self.by_angle(angle)
     JunishiData.instance.by_angle(angle)
   end
