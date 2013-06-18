@@ -7,205 +7,110 @@ include SeedsFromCsv
 describe Junishi, "蔵干取得" do
 
   shared_examples_for :zoukan_validation do |params|
-    params[:days].each{|day| it{ subject.zoukan(day).code.to_s.should == params[:valid_value] }}
+    params.each do |param|
+      param[:days].each do |day|
+        it{ subject.zoukan(day).name.should == param[:expected_value] }
+      end
+    end
   end
 
- before do
-   read_all_seeds()
- end
+  before do
+    read_all_seeds()
+  end
 
- describe "子" do
+  describe "子" do
+    subject{Junishi.find_by_code(0)}
 
-  subject{Junishi.find_by_code(0)}
-  describe "余気 壬" do
-    it_behaves_like :zoukan_validation, :days => [0, 10], :valid_value => "8"
+    it_behaves_like :zoukan_validation, [{:days => [0, 10], :expected_value => "壬"},
+                                         {:days => [11, 30], :expected_value => "癸"}]
   end
-  it "正気 癸" do
-      subject.zoukan(11).code.to_s.should == "9"
-      subject.zoukan(30).code.to_s.should == "9"
-  end
- end
 
- describe "丑" do
+  describe "丑" do
+    subject{Junishi.find_by_code(1)}
 
-  subject{Junishi.find_by_code(1)}
-  it "余気 癸" do
-      subject.zoukan(0).code.to_s.should == "9"
-      subject.zoukan(9).code.to_s.should == "9"
+    it_behaves_like :zoukan_validation, [{:days => [0, 9], :expected_value => "癸"}]
+    it_behaves_like :zoukan_validation, [{:days => [10, 12], :expected_value => "辛"}]
+    it_behaves_like :zoukan_validation, [{:days => [13, 30], :expected_value => "己"}]
   end
-  it "中気 辛" do
-      subject.zoukan(10).code.to_s.should == "7"
-      subject.zoukan(12).code.to_s.should == "7"
-  end
-  it "正気 己" do
-      subject.zoukan(13).code.to_s.should == "5"
-      subject.zoukan(30).code.to_s.should == "5"
-  end
- end
 
- describe "寅" do
+  describe "寅" do
+    subject{Junishi.find_by_code(2)}
 
-  subject{Junishi.find_by_code(2)}
-  it "余気 戊" do
-      subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(7).code.to_s.should == "4"
+    it_behaves_like :zoukan_validation, [{:days => [0, 7], :expected_value => "戊"}]
+    it_behaves_like :zoukan_validation, [{:days => [8, 14], :expected_value => "丙"}]
+    it_behaves_like :zoukan_validation, [{:days => [15, 30], :expected_value => "甲"}]
   end
-  it "中気 丙" do
-      subject.zoukan(8).code.to_s.should == "2"
-      subject.zoukan(14).code.to_s.should == "2"
-  end
-  it "正気 甲" do
-      subject.zoukan(15).code.to_s.should == "0"
-      subject.zoukan(30).code.to_s.should == "0"
-  end
- end
 
- describe "卯" do
+  describe "卯" do
+    subject{Junishi.find_by_code(3)}
 
-  subject{Junishi.find_by_code(3)}
-  it "余気 甲" do
-      subject.zoukan(0).code.to_s.should == "0"
-      subject.zoukan(10).code.to_s.should == "0"
+    it_behaves_like :zoukan_validation, [{:days => [0, 10], :expected_value => "甲"}]
+    it_behaves_like :zoukan_validation, [{:days => [11, 30], :expected_value => "乙"}]
   end
-  it "正気 乙" do
-      subject.zoukan(11).code.to_s.should == "1"
-      subject.zoukan(30).code.to_s.should == "1"
-  end
- end
 
- describe "辰" do
+  describe "辰" do
+    subject{Junishi.find_by_code(4)}
 
-  subject{Junishi.find_by_code(4)}
-  it "余気 乙" do
-      subject.zoukan(0).code.to_s.should == "1"
-      subject.zoukan(9).code.to_s.should == "1"
+    it_behaves_like :zoukan_validation, [{:days => [0, 9], :expected_value => "乙"}]
+    it_behaves_like :zoukan_validation, [{:days => [10, 12], :expected_value => "癸"}]
+    it_behaves_like :zoukan_validation, [{:days => [13, 30], :expected_value => "戊"}]
   end
-  it "中気 癸" do
-      subject.zoukan(10).code.to_s.should == "9"
-      subject.zoukan(12).code.to_s.should == "9"
-  end
-  it "正気 戊" do
-      subject.zoukan(13).code.to_s.should == "4"
-      subject.zoukan(30).code.to_s.should == "4"
-  end
- end
 
- describe "巳" do
+  describe "巳" do
+    subject{Junishi.find_by_code(5)}
 
-  subject{Junishi.find_by_code(5)}
-  it "余気 戊" do
-      subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(7).code.to_s.should == "4"
+    it_behaves_like :zoukan_validation, [{:days => [0, 7], :expected_value => "戊"}]
+    it_behaves_like :zoukan_validation, [{:days => [8, 14], :expected_value => "庚"}]
+    it_behaves_like :zoukan_validation, [{:days => [15, 30], :expected_value => "丙"}]
   end
-  it "中気 庚" do
-      subject.zoukan(8).code.to_s.should == "6"
-      subject.zoukan(14).code.to_s.should == "6"
-  end
-  it "正気 丙" do
-      subject.zoukan(15).code.to_s.should == "2"
-      subject.zoukan(30).code.to_s.should == "2"
-  end
- end
 
- describe "午" do
+  describe "午" do
+    subject{Junishi.find_by_code(6)}
 
-  subject{Junishi.find_by_code(6)}
-  it "余気 丙" do
-      subject.zoukan(0).code.to_s.should == "2"
-      subject.zoukan(10).code.to_s.should == "2"
+    it_behaves_like :zoukan_validation, [{:days => [0, 10], :expected_value => "丙"}]
+    it_behaves_like :zoukan_validation, [{:days => [11, 17], :expected_value => "己"}]
+    it_behaves_like :zoukan_validation, [{:days => [18, 30], :expected_value => "丁"}]
   end
-  it "中気 己" do
-      subject.zoukan(11).code.to_s.should == "5"
-      subject.zoukan(17).code.to_s.should == "5"
-  end
-  it "正気 丁" do
-      subject.zoukan(18).code.to_s.should == "3"
-      subject.zoukan(30).code.to_s.should == "3"
-  end
- end
 
- describe "未" do
+  describe "未" do
+    subject{Junishi.find_by_code(7)}
 
-  subject{Junishi.find_by_code(7)}
-  it "余気 丁" do
-      subject.zoukan(0).code.to_s.should == "3"
-      subject.zoukan(9).code.to_s.should == "3"
+    it_behaves_like :zoukan_validation, [{:days => [0, 9], :expected_value => "丁"}]
+    it_behaves_like :zoukan_validation, [{:days => [10, 12], :expected_value => "乙"}]
+    it_behaves_like :zoukan_validation, [{:days => [13, 30], :expected_value => "己"}]
   end
-  it "中気 乙" do
-      subject.zoukan(10).code.to_s.should == "1"
-      subject.zoukan(12).code.to_s.should == "1"
+
+  describe "申" do
+    subject{Junishi.find_by_code(8)}
+
+    it_behaves_like :zoukan_validation, [{:days => [0, 7], :expected_value => "己"}]
+    it_behaves_like :zoukan_validation, [{:days => [8, 14], :expected_value => "壬"}]
+    it_behaves_like :zoukan_validation, [{:days => [15, 30], :expected_value => "庚"}]
   end
-  it "正気 己" do
-      subject.zoukan(13).code.to_s.should == "5"
-      subject.zoukan(30).code.to_s.should == "5"
-  end
- end
 
 
- describe "申" do
+  describe "酉" do
+    subject{Junishi.find_by_code(9)}
 
-  subject{Junishi.find_by_code(8)}
-  it "余気 己" do
-      subject.zoukan(0).code.to_s.should == "5"
-      subject.zoukan(7).code.to_s.should == "5"
+    it_behaves_like :zoukan_validation, [{:days => [0, 10], :expected_value => "庚"}]
+    it_behaves_like :zoukan_validation, [{:days => [11, 30], :expected_value => "辛"}]
   end
-  it "中気 壬" do
-      subject.zoukan(8).code.to_s.should == "8"
-      subject.zoukan(14).code.to_s.should == "8"
-  end
-  it "正気 庚" do
-      subject.zoukan(15).code.to_s.should == "6"
-      subject.zoukan(30).code.to_s.should == "6"
-  end
- end
 
+  describe "戌" do
+    subject{Junishi.find_by_code(10)}
 
- describe "酉" do
+    it_behaves_like :zoukan_validation, [{:days => [0, 9], :expected_value => "辛"}]
+    it_behaves_like :zoukan_validation, [{:days => [10, 12], :expected_value => "丁"}]
+    it_behaves_like :zoukan_validation, [{:days => [13, 30], :expected_value => "戊"}]
+  end
 
-  subject{Junishi.find_by_code(9)}
-  it "余気 庚" do
-      subject.zoukan(0).code.to_s.should == "6"
-      subject.zoukan(10).code.to_s.should == "6"
-  end
-  it "正気 辛" do
-      subject.zoukan(11).code.to_s.should == "7"
-      subject.zoukan(30).code.to_s.should == "7"
-  end
- end
+  describe "亥" do
+    subject{Junishi.find_by_code(11)}
 
- describe "戌" do
-
-  subject{Junishi.find_by_code(10)}
-  it "余気 辛" do
-      subject.zoukan(0).code.to_s.should == "7"
-      subject.zoukan(9).code.to_s.should == "7"
+    it_behaves_like :zoukan_validation, [{:days => [0, 7], :expected_value => "戊"}]
+    it_behaves_like :zoukan_validation, [{:days => [8, 14], :expected_value => "甲"}]
+    it_behaves_like :zoukan_validation, [{:days => [15, 30], :expected_value => "壬"}]
   end
-  it "中気 丁" do
-      subject.zoukan(10).code.to_s.should == "3"
-      subject.zoukan(12).code.to_s.should == "3"
-  end
-  it "正気 戊" do
-      subject.zoukan(13).code.to_s.should == "4"
-      subject.zoukan(30).code.to_s.should == "4"
-  end
- end
-
- describe "亥" do
-
-  subject{Junishi.find_by_code(11)}
-  it "余気 戊" do
-      subject.zoukan(0).code.to_s.should == "4"
-      subject.zoukan(7).code.to_s.should == "4"
-  end
-  it "中気 甲" do
-      subject.zoukan(8).code.to_s.should == "0"
-      subject.zoukan(14).code.to_s.should == "0"
-  end
-  it "正気 壬" do
-      subject.zoukan(15).code.to_s.should == "8"
-      subject.zoukan(30).code.to_s.should == "8"
-  end
- end
 end
 
 describe Junishi, "天徳取得" do
