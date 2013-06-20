@@ -257,18 +257,10 @@ describe Junishi, "十二支のテスト" do
       it_behaves_like :relation_check_validation, params
     end
 
-    shared_examples_for :relation_check_validation_pillar do |params, chishi, tenkan|
-      let(:relation){MeishikiPlr.new(:chishi_id => chishi.id, :tenkan_id => tenkan.id)}
+    shared_examples_for :relation_check_validation_jikkan do |params|
+      let(:relation){Jikkan.by_key(params[:relation_value])}
 
       it_behaves_like :relation_check_validation, params
-    end
-
-    shared_examples_for :relation_check_validation_pillar_junishi do |params|
-      it_behaves_like :relation_check_validation_pillar, params, Junishi.by_key(params[:relation_value]), Jikkan.by_key('kinoe')
-    end
-
-    shared_examples_for :relation_check_validation_pillar_jikkan do |params|
-      it_behaves_like :relation_check_validation_pillar, params, Junishi.by_key('ne'), Jikkan.by_key(params[:relation_value])
     end
 
     shared_examples_for :relation_get_validation_junishi do |params|
@@ -281,6 +273,20 @@ describe Junishi, "十二支のテスト" do
       let(:expected){Jikkan.by_key(params[:relation_value])}
 
       it_behaves_like :relation_get_validation, params
+    end
+
+    shared_examples_for :relation_check_validation_pillar do |params, chishi, tenkan|
+      let(:relation){MeishikiPlr.new(:chishi_id => chishi.id, :tenkan_id => tenkan.id)}
+
+      it_behaves_like :relation_check_validation, params
+    end
+
+    shared_examples_for :relation_check_validation_pillar_junishi do |params|
+      it_behaves_like :relation_check_validation_pillar, params, Junishi.by_key(params[:relation_value]), Jikkan.by_key('kinoe')
+    end
+
+    shared_examples_for :relation_check_validation_pillar_jikkan do |params|
+      it_behaves_like :relation_check_validation_pillar, params, Junishi.by_key('ne'), Jikkan.by_key(params[:relation_value])
     end
 
     describe Junishi, "支合" do
@@ -681,914 +687,228 @@ describe Junishi, "十二支のテスト" do
     end
 
     describe Junishi, "天徳合" do
-      before do
-        read_all_seeds()
+
+      shared_examples_for :tentoku_gou_get_validation_junishi do |params|
+        subject{Junishi.by_key(key).tentoku_gou}
+        it_behaves_like :relation_get_validation_junishi, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "申" do
-          subject.tentoku_gou.name.should == "申"
-          junishi = MeishikiPlr.new(:chishi_id => 9)
-          subject.tentoku_gou?(junishi).should == true
-        end
+      shared_examples_for :tentoku_gou_get_validation_jikkan do |params|
+        subject{Junishi.by_key(key).tentoku_gou}
+        it_behaves_like :relation_get_validation_jikkan, params
       end
 
-      describe "丑" do
-
-        subject{Junishi.find_by_code(1)}
-        it "乙" do
-          subject.tentoku_gou.name.should == "乙"
-          jikkan = MeishikiPlr.new(:tenkan_id => 2)
-          subject.tentoku_gou?(jikkan).should == true
-        end
+      shared_examples_for :tentoku_gou_check_validation_junishi do |params|
+        subject{Junishi.by_key(key).tentoku_gou?(relation)}
+        it_behaves_like :relation_check_validation_pillar_junishi, params
       end
 
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "壬" do
-          subject.tentoku_gou.name.should == "壬"
-          jikkan = MeishikiPlr.new(:tenkan_id => 9)
-          subject.tentoku_gou?(jikkan).should == true
-        end
+      shared_examples_for :tentoku_gou_check_validation_jikkan do |params|
+        subject{Junishi.by_key(key).tentoku_gou?(relation)}
+        it_behaves_like :relation_check_validation_pillar_jikkan, params
       end
 
-      describe "卯" do
+      test_patterns_junishi = [{:key => 'ne', :relation_value => 'saru', :expected_value => true},
+                               {:key => 'u', :relation_value => 'mi', :expected_value => true},
+                               {:key => 'uma', :relation_value => 'tora', :expected_value => true},
+                               {:key => 'tori', :relation_value => 'i', :expected_value => true}]
 
-        subject{Junishi.find_by_code(3)}
-        it "巳" do
-          subject.tentoku_gou.name.should == "巳"
-          junishi = MeishikiPlr.new(:chishi_id => 6)
-          subject.tentoku_gou?(junishi).should == true
-        end
+      test_patterns_jikkan = [{:key => 'usi', :relation_value => 'kinoto', :expected_value => true},
+                              {:key => 'tora', :relation_value => 'mizunoe', :expected_value => true},
+                              {:key => 'tatsu', :relation_value => 'hinoto', :expected_value => true},
+                              {:key => 'mi', :relation_value => 'hinoe', :expected_value => true},
+                              {:key => 'hitsuji', :relation_value => 'tsuchinoto', :expected_value => true},
+                              {:key => 'saru', :relation_value => 'tsuchinoe', :expected_value => true},
+                              {:key => 'inu', :relation_value => 'kanoto', :expected_value => true},
+                              {:key => 'i', :relation_value => 'kanoe', :expected_value => true}]
+
+      test_patterns_junishi.each do |pattern|
+        it_behaves_like :tentoku_gou_get_validation_junishi, pattern
+        it_behaves_like :tentoku_gou_check_validation_junishi, pattern
       end
 
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "丁" do
-          subject.tentoku_gou.name.should == "丁"
-          jikkan = MeishikiPlr.new(:tenkan_id => 4)
-          subject.tentoku_gou?(jikkan).should == true
-        end
+      test_patterns_jikkan.each do |pattern|
+        it_behaves_like :tentoku_gou_get_validation_jikkan, pattern
+        it_behaves_like :tentoku_gou_check_validation_jikkan, pattern
       end
 
-      describe "巳" do
-
-        subject{Junishi.find_by_code(5)}
-        it "丙" do
-          subject.tentoku_gou.name.should == "丙"
-          jikkan = MeishikiPlr.new(:tenkan_id => 3)
-          subject.tentoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "寅" do
-          subject.tentoku_gou.name.should == "寅"
-          junishi = MeishikiPlr.new(:chishi_id => 3)
-          subject.tentoku_gou?(junishi).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "己" do
-          subject.tentoku_gou.name.should == "己"
-          jikkan = MeishikiPlr.new(:tenkan_id => 6)
-          subject.tentoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "戊" do
-          subject.tentoku_gou.name.should == "戊"
-          jikkan = MeishikiPlr.new(:tenkan_id => 5)
-          subject.tentoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(9)}
-        it "亥" do
-          subject.tentoku_gou.name.should == "亥"
-          junishi = MeishikiPlr.new(:chishi_id => 12)
-          subject.tentoku_gou?(junishi).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "辛" do
-          subject.tentoku_gou.name.should == "辛"
-          jikkan = MeishikiPlr.new(:tenkan_id => 8)
-          subject.tentoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "庚" do
-          subject.tentoku_gou.name.should == "庚"
-          jikkan = MeishikiPlr.new(:tenkan_id => 7)
-          subject.tentoku_gou?(jikkan).should == true
-        end
-      end
     end
 
     describe Junishi, "月徳貴人" do
-      before do
-        read_all_seeds()
+      shared_examples_for :gettoku_kijin_get_validation do |params|
+        subject{Junishi.by_key(key).gettoku_kijin}
+        it_behaves_like :relation_get_validation_jikkan, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "壬" do
-          subject.gettoku_kijin.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
+      shared_examples_for :gettoku_kijin_check_validation do |params|
+        subject{Junishi.by_key(key).gettoku_kijin?(relation)}
+        it_behaves_like :relation_check_validation_jikkan, params
       end
 
-      describe "丑" do
+      test_patterns = [{:key => 'ne', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'usi', :relation_value => 'kanoe', :expected_value => true},
+                       {:key => 'tora', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'u', :relation_value => 'kinoe', :expected_value => true},
+                       {:key => 'tatsu', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'mi', :relation_value => 'kanoe', :expected_value => true},
+                       {:key => 'uma', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'hitsuji', :relation_value => 'kinoe', :expected_value => true},
+                       {:key => 'saru', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'tori', :relation_value => 'kanoe', :expected_value => true},
+                       {:key => 'inu', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'i', :relation_value => 'kinoe', :expected_value => true}]
 
-        subject{Junishi.find_by_code(1)}
-        it "庚" do
-          subject.gettoku_kijin.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "丙" do
-          subject.gettoku_kijin.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "甲" do
-          subject.gettoku_kijin.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "壬" do
-          subject.gettoku_kijin.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(1)}
-        it "庚" do
-          subject.gettoku_kijin.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "丙" do
-          subject.gettoku_kijin.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "甲" do
-          subject.gettoku_kijin.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "壬" do
-          subject.gettoku_kijin.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(1)}
-        it "庚" do
-          subject.gettoku_kijin.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "丙" do
-          subject.gettoku_kijin.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "甲" do
-          subject.gettoku_kijin.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gettoku_kijin?(jikkan).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :gettoku_kijin_check_validation, pattern
+        it_behaves_like :gettoku_kijin_get_validation, pattern
       end
     end
 
     describe Junishi, "月徳合" do
-      before do
-        read_all_seeds()
+      shared_examples_for :gettoku_gou_get_validation do |params|
+        subject{Junishi.by_key(key).gettoku_gou}
+        it_behaves_like :relation_get_validation_jikkan, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "丁" do
-          subject.gettoku_gou.name.should == "丁"
-          jikkan = Jikkan.find_by_code(3)
-          subject.gettoku_gou?(jikkan).should == true
-        end
+      shared_examples_for :gettoku_gou_check_validation do |params|
+        subject{Junishi.by_key(key).gettoku_gou?(relation)}
+        it_behaves_like :relation_check_validation_jikkan, params
       end
 
-      describe "丑" do
+      test_patterns = [{:key => 'ne', :relation_value => 'hinoto', :expected_value => true},
+                       {:key => 'usi', :relation_value => 'kinoto', :expected_value => true},
+                       {:key => 'tora', :relation_value => 'kanoto', :expected_value => true},
+                       {:key => 'u', :relation_value => 'tsuchinoto', :expected_value => true},
+                       {:key => 'tatsu', :relation_value => 'hinoto', :expected_value => true},
+                       {:key => 'mi', :relation_value => 'kinoto', :expected_value => true},
+                       {:key => 'uma', :relation_value => 'kanoto', :expected_value => true},
+                       {:key => 'hitsuji', :relation_value => 'tsuchinoto', :expected_value => true},
+                       {:key => 'saru', :relation_value => 'hinoto', :expected_value => true},
+                       {:key => 'tori', :relation_value => 'kinoto', :expected_value => true},
+                       {:key => 'inu', :relation_value => 'kanoto', :expected_value => true},
+                       {:key => 'i', :relation_value => 'tsuchinoto', :expected_value => true}]
 
-        subject{Junishi.find_by_code(1)}
-        it "乙" do
-          subject.gettoku_gou.name.should == "乙"
-          jikkan = Jikkan.find_by_code(1)
-          subject.gettoku_gou?(jikkan).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :gettoku_gou_check_validation, pattern
+        it_behaves_like :gettoku_gou_get_validation, pattern
       end
 
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "辛" do
-          subject.gettoku_gou.name.should == "辛"
-          jikkan = Jikkan.find_by_code(7)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "己" do
-          subject.gettoku_gou.name.should == "己"
-          jikkan = Jikkan.find_by_code(5)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "丁" do
-          subject.gettoku_gou.name.should == "丁"
-          jikkan = Jikkan.find_by_code(3)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(1)}
-        it "乙" do
-          subject.gettoku_gou.name.should == "乙"
-          jikkan = Jikkan.find_by_code(1)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "辛" do
-          subject.gettoku_gou.name.should == "辛"
-          jikkan = Jikkan.find_by_code(7)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "己" do
-          subject.gettoku_gou.name.should == "己"
-          jikkan = Jikkan.find_by_code(5)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "丁" do
-          subject.gettoku_gou.name.should == "丁"
-          jikkan = Jikkan.find_by_code(3)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(1)}
-        it "乙" do
-          subject.gettoku_gou.name.should == "乙"
-          jikkan = Jikkan.find_by_code(1)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "辛" do
-          subject.gettoku_gou.name.should == "辛"
-          jikkan = Jikkan.find_by_code(7)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "己" do
-          subject.gettoku_gou.name.should == "己"
-          jikkan = Jikkan.find_by_code(5)
-          subject.gettoku_gou?(jikkan).should == true
-        end
-      end
     end
 
     describe Junishi, "月空" do
-      before do
-        read_all_seeds()
+      shared_examples_for :gekku_get_validation do |params|
+        subject{Junishi.by_key(key).gekku}
+        it_behaves_like :relation_get_validation_jikkan, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "丙" do
-          subject.gekku.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gekku?(jikkan).should == true
-        end
+      shared_examples_for :gekku_check_validation do |params|
+        subject{Junishi.by_key(key).gekku?(relation)}
+        it_behaves_like :relation_check_validation_jikkan, params
       end
 
-      describe "丑" do
+      test_patterns = [{:key => 'ne', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'usi', :relation_value => 'kinoe', :expected_value => true},
+                       {:key => 'tora', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'u', :relation_value => 'kanoe', :expected_value => true},
+                       {:key => 'tatsu', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'mi', :relation_value => 'kinoe', :expected_value => true},
+                       {:key => 'uma', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'hitsuji', :relation_value => 'kanoe', :expected_value => true},
+                       {:key => 'saru', :relation_value => 'hinoe', :expected_value => true},
+                       {:key => 'tori', :relation_value => 'kinoe', :expected_value => true},
+                       {:key => 'inu', :relation_value => 'mizunoe', :expected_value => true},
+                       {:key => 'i', :relation_value => 'kanoe', :expected_value => true}]
 
-        subject{Junishi.find_by_code(1)}
-        it "甲" do
-          subject.gekku.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "壬" do
-          subject.gekku.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "庚" do
-          subject.gekku.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "丙" do
-          subject.gekku.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(1)}
-        it "甲" do
-          subject.gekku.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "壬" do
-          subject.gekku.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "庚" do
-          subject.gekku.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "丙" do
-          subject.gekku.name.should == "丙"
-          jikkan = Jikkan.find_by_code(2)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(1)}
-        it "甲" do
-          subject.gekku.name.should == "甲"
-          jikkan = Jikkan.find_by_code(0)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "壬" do
-          subject.gekku.name.should == "壬"
-          jikkan = Jikkan.find_by_code(8)
-          subject.gekku?(jikkan).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "庚" do
-          subject.gekku.name.should == "庚"
-          jikkan = Jikkan.find_by_code(6)
-          subject.gekku?(jikkan).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :gekku_check_validation, pattern
+        it_behaves_like :gekku_get_validation, pattern
       end
     end
 
     describe Junishi, "駅馬" do
-      before do
-        read_all_seeds()
+      shared_examples_for :ekiba_check_validation do |params|
+        subject{Junishi.by_key(key).ekiba?(relation)}
+        it_behaves_like :relation_check_validation_junishi, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "寅" do
-          subject.ekiba.name.should == "寅"
-          junishi = Junishi.find_by_code(2)
-          subject.ekiba?(junishi).should == true
-        end
+      shared_examples_for :ekiba_get_validation do |params|
+        subject{Junishi.by_key(key).ekiba}
+        it_behaves_like :relation_get_validation_junishi, params
       end
 
-      describe "丑" do
+      test_patterns = [{:key => 'ne', :relation_value => 'tora', :expected_value => true},
+                       {:key => 'usi', :relation_value => 'i', :expected_value => true},
+                       {:key => 'tora', :relation_value => 'saru', :expected_value => true},
+                       {:key => 'u', :relation_value => 'mi', :expected_value => true},
+                       {:key => 'tatsu', :relation_value => 'tora', :expected_value => true},
+                       {:key => 'mi', :relation_value => 'i', :expected_value => true},
+                       {:key => 'uma', :relation_value => 'saru', :expected_value => true},
+                       {:key => 'hitsuji', :relation_value => 'mi', :expected_value => true},
+                       {:key => 'saru', :relation_value => 'tora', :expected_value => true},
+                       {:key => 'tori', :relation_value => 'i', :expected_value => true},
+                       {:key => 'inu', :relation_value => 'saru', :expected_value => true},
+                       {:key => 'i', :relation_value => 'mi', :expected_value => true}]
 
-        subject{Junishi.find_by_code(1)}
-        it "亥" do
-          subject.ekiba.name.should == "亥"
-          junishi = Junishi.find_by_code(11)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "申" do
-          subject.ekiba.name.should == "申"
-          junishi = Junishi.find_by_code(8)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "巳" do
-          subject.ekiba.name.should == "巳"
-          junishi = Junishi.find_by_code(5)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "寅" do
-          subject.ekiba.name.should == "寅"
-          junishi = Junishi.find_by_code(2)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(5)}
-        it "亥" do
-          subject.ekiba.name.should == "亥"
-          junishi = Junishi.find_by_code(11)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "申" do
-          subject.ekiba.name.should == "申"
-          junishi = Junishi.find_by_code(8)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "巳" do
-          subject.ekiba.name.should == "巳"
-          junishi = Junishi.find_by_code(5)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "寅" do
-          subject.ekiba.name.should == "寅"
-          junishi = Junishi.find_by_code(2)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(9)}
-        it "亥" do
-          subject.ekiba.name.should == "亥"
-          junishi = Junishi.find_by_code(11)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "申" do
-          subject.ekiba.name.should == "申"
-          junishi = Junishi.find_by_code(8)
-          subject.ekiba?(junishi).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "巳" do
-          subject.ekiba.name.should == "巳"
-          junishi = Junishi.find_by_code(5)
-          subject.ekiba?(junishi).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :ekiba_check_validation, pattern
+        it_behaves_like :ekiba_get_validation, pattern
       end
     end
 
     describe Junishi, "生成馬" do
-      before do
-        read_all_seeds()
+      shared_examples_for :seiseiba_check_validation do |params|
+        subject{Junishi.by_key(key).seiseiba?(relation)}
+        it_behaves_like :relation_check_validation_pillar,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
       end
 
-      describe "子" do
+      test_patterns = [{:key => 'ne', :tenkan => 'kinoe', :chishi => 'tora', :expected_value => true},
+                       {:key => 'usi', :tenkan => 'kanoto', :chishi => 'i', :expected_value => true},
+                       {:key => 'tora', :tenkan => 'kanoe', :chishi => 'saru', :expected_value => true},
+                       {:key => 'u', :tenkan => 'hinoto', :chishi => 'mi', :expected_value => true},
+                       {:key => 'tatsu', :tenkan => 'kinoe', :chishi => 'tora', :expected_value => true},
+                       {:key => 'mi', :tenkan => 'kanoto', :chishi => 'i', :expected_value => true},
+                       {:key => 'uma', :tenkan => 'kanoe', :chishi => 'saru', :expected_value => true},
+                       {:key => 'hitsuji', :tenkan => 'hinoto', :chishi => 'mi', :expected_value => true},
+                       {:key => 'saru', :tenkan => 'kinoe', :chishi => 'tora', :expected_value => true},
+                       {:key => 'tori', :tenkan => 'kanoto', :chishi => 'i', :expected_value => true},
+                       {:key => 'inu', :tenkan => 'kanoe', :chishi => 'saru', :expected_value => true},
+                       {:key => 'i', :tenkan => 'hinoto', :chishi => 'mi', :expected_value => true}]
 
-        subject{Junishi.find_by_code(0)}
-        it "甲寅" do
-          junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "丑" do
-
-        subject{Junishi.find_by_code(1)}
-        it "辛亥" do
-          junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "庚申" do
-          junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "丁巳" do
-          junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "甲寅" do
-          junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(5)}
-        it "辛亥" do
-          junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "庚申" do
-          junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "丁巳" do
-          junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "甲寅" do
-          junishi = MeishikiPlr.new(:tenkan_id => 1, :chishi_id =>3)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(9)}
-        it "辛亥" do
-          junishi = MeishikiPlr.new(:tenkan_id => 8, :chishi_id => 12)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "庚申" do
-          junishi = MeishikiPlr.new(:tenkan_id => 7, :chishi_id => 9)
-          subject.seiseiba?(junishi).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "丁巳" do
-          junishi = MeishikiPlr.new(:tenkan_id => 4, :chishi_id => 6)
-          subject.seiseiba?(junishi).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :seiseiba_check_validation, pattern
       end
     end
 
     describe Junishi, "喪門" do
-      before do
-        read_all_seeds()
+      shared_examples_for :momon_check_validation do |params|
+        subject{Junishi.by_key(key).momon?(relation)}
+        it_behaves_like :relation_check_validation_junishi, params
       end
 
-      describe "子" do
-
-        subject{Junishi.find_by_code(0)}
-        it "寅" do
-          subject.momon.name.should == "寅"
-        end
-
-        it "寅" do
-          junishi = Junishi.find_by_code(2)
-          subject.momon?(junishi).should == true
-        end
+      shared_examples_for :momon_get_validation do |params|
+        subject{Junishi.by_key(key).momon}
+        it_behaves_like :relation_get_validation_junishi, params
       end
 
-      describe "丑" do
+      test_patterns = [{:key => 'ne', :relation_value => 'tora', :expected_value => true},
+                       {:key => 'usi', :relation_value => 'u', :expected_value => true},
+                       {:key => 'tora', :relation_value => 'tatsu', :expected_value => true},
+                       {:key => 'u', :relation_value => 'mi', :expected_value => true},
+                       {:key => 'tatsu', :relation_value => 'uma', :expected_value => true},
+                       {:key => 'mi', :relation_value => 'hitsuji', :expected_value => true},
+                       {:key => 'uma', :relation_value => 'saru', :expected_value => true},
+                       {:key => 'hitsuji', :relation_value => 'tori', :expected_value => true},
+                       {:key => 'saru', :relation_value => 'inu', :expected_value => true},
+                       {:key => 'tori', :relation_value => 'i', :expected_value => true},
+                       {:key => 'inu', :relation_value => 'ne', :expected_value => true},
+                       {:key => 'i', :relation_value => 'usi', :expected_value => true}]
 
-        subject{Junishi.find_by_code(1)}
-        it "卯" do
-          subject.momon.name.should == "卯"
-        end
-
-        it "卯" do
-          junishi = Junishi.find_by_code(3)
-          subject.momon?(junishi).should == true
-        end
+      test_patterns.each do |pattern|
+        it_behaves_like :momon_check_validation, pattern
+        it_behaves_like :momon_get_validation, pattern
       end
 
-      describe "寅" do
-
-        subject{Junishi.find_by_code(2)}
-        it "辰" do
-          subject.momon.name.should == "辰"
-        end
-
-        it "辰" do
-          junishi = Junishi.find_by_code(4)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "卯" do
-
-        subject{Junishi.find_by_code(3)}
-        it "巳" do
-          subject.momon.name.should == "巳"
-        end
-
-        it "巳" do
-          junishi = Junishi.find_by_code(5)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "辰" do
-
-        subject{Junishi.find_by_code(4)}
-        it "午" do
-          subject.momon.name.should == "午"
-        end
-
-        it "午" do
-          junishi = Junishi.find_by_code(6)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "巳" do
-
-        subject{Junishi.find_by_code(5)}
-        it "未" do
-          subject.momon.name.should == "未"
-        end
-
-        it "未" do
-          junishi = Junishi.find_by_code(7)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "午" do
-
-        subject{Junishi.find_by_code(6)}
-        it "申" do
-          subject.momon.name.should == "申"
-        end
-
-        it "申" do
-          junishi = Junishi.find_by_code(8)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "未" do
-
-        subject{Junishi.find_by_code(7)}
-        it "酉" do
-          subject.momon.name.should == "酉"
-        end
-
-        it "酉" do
-          junishi = Junishi.find_by_code(9)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-
-      describe "申" do
-
-        subject{Junishi.find_by_code(8)}
-        it "戌" do
-          subject.momon.name.should == "戌"
-        end
-
-        it "戌" do
-          junishi = Junishi.find_by_code(10)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "酉" do
-
-        subject{Junishi.find_by_code(9)}
-        it "亥" do
-          subject.momon.name.should == "亥"
-        end
-
-        it "亥" do
-          junishi = Junishi.find_by_code(11)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "戌" do
-
-        subject{Junishi.find_by_code(10)}
-        it "子" do
-          subject.momon.name.should == "子"
-        end
-
-        it "子" do
-          junishi = Junishi.find_by_code(0)
-          subject.momon?(junishi).should == true
-        end
-      end
-
-      describe "亥" do
-
-        subject{Junishi.find_by_code(11)}
-        it "丑" do
-          subject.momon.name.should == "丑"
-        end
-
-        it "丑" do
-          junishi = Junishi.find_by_code(1)
-          subject.momon?(junishi).should == true
-        end
-      end
     end
 
   end
