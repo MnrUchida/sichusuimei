@@ -10,13 +10,13 @@ class Jikkan
   def initialize(key, data, method_relation)
     @key = key
     @relation = data["relation"] || {}
-    @inyou = data["inyou"]
-    @code = data["code"]
+    @inyou = data["member"]["inyou"]
+    @code = data["member"]["code"]
     @id = @code + 1
-    @name = data["name"]
-    @point = data["point"]
-    @point_day = data["point_day"]
-    @gogyo_key = data["gogyo_key"]
+    @name = data["member"]["name"]
+    @point = data["member"]["point"]
+    @point_day = data["member"]["point_day"]
+    @gogyo_key = data["member"]["gogyo_key"]
 
     def_method_relation(method_relation)
   end

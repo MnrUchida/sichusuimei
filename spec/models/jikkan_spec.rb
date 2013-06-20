@@ -1,6 +1,7 @@
 # coding : utf-8
 
 require 'spec_helper'
+require 'relation_spec_helper'
 require 'seeds_from_csv'
 include SeedsFromCsv
 
@@ -345,4 +346,119 @@ describe Jikkan, "干合" do
       subject.gou.name.should == "戊"
     end
   end
+end
+
+describe Jikkan, "大極貴人" do
+  describe "一つ目" do
+    shared_examples_for :taikyoku_kijin_1_check_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_1?(relation)}
+      it_behaves_like :relation_check_validation_junishi, params
+    end
+
+    shared_examples_for :taikyoku_kijin_1_get_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_1}
+      it_behaves_like :relation_get_validation_junishi, params
+    end
+
+    test_patterns = [{:key => 'kinoe', :relation_value => 'ne', :expected_value => true},
+                     {:key => 'kinoto', :relation_value => 'ne', :expected_value => true},
+                     {:key => 'hinoe', :relation_value => 'u', :expected_value => true},
+                     {:key => 'hinoto', :relation_value => 'u', :expected_value => true},
+                     {:key => 'tsuchinoe', :relation_value => 'tatsu', :expected_value => true},
+                     {:key => 'tsuchinoto', :relation_value => 'tatsu', :expected_value => true},
+                     {:key => 'kanoe', :relation_value => 'tora', :expected_value => true},
+                     {:key => 'kanoto', :relation_value => 'tora', :expected_value => true},
+                     {:key => 'mizunoe', :relation_value => 'mi', :expected_value => true},
+                     {:key => 'mizunoto', :relation_value => 'mi', :expected_value => true}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :taikyoku_kijin_1_check_validation, pattern
+      it_behaves_like :taikyoku_kijin_1_get_validation, pattern
+    end
+  end
+
+  describe "二つ目" do
+    shared_examples_for :taikyoku_kijin_2_check_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_2?(relation)}
+      it_behaves_like :relation_check_validation_junishi, params
+    end
+
+    shared_examples_for :taikyoku_kijin_2_get_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_2}
+      it_behaves_like :relation_get_validation_junishi, params
+    end
+
+    test_patterns = [{:key => 'kinoe', :relation_value => 'uma', :expected_value => true},
+                     {:key => 'kinoto', :relation_value => 'uma', :expected_value => true},
+                     {:key => 'hinoe', :relation_value => 'tori', :expected_value => true},
+                     {:key => 'hinoto', :relation_value => 'tori', :expected_value => true},
+                     {:key => 'tsuchinoe', :relation_value => 'hitsuji', :expected_value => true},
+                     {:key => 'tsuchinoto', :relation_value => 'hitsuji', :expected_value => true},
+                     {:key => 'kanoe', :relation_value => 'i', :expected_value => true},
+                     {:key => 'kanoto', :relation_value => 'i', :expected_value => true},
+                     {:key => 'mizunoe', :relation_value => 'saru', :expected_value => true},
+                     {:key => 'mizunoto', :relation_value => 'saru', :expected_value => true}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :taikyoku_kijin_2_check_validation, pattern
+      it_behaves_like :taikyoku_kijin_2_get_validation, pattern
+    end
+  end
+
+  describe "三つ目" do
+    shared_examples_for :taikyoku_kijin_3_check_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_3?(relation)}
+      it_behaves_like :relation_check_validation_junishi, params
+    end
+
+    shared_examples_for :taikyoku_kijin_3_get_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_3}
+      it_behaves_like :relation_get_validation_junishi, params
+    end
+
+    test_patterns = [{:key => 'kinoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'kinoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'hinoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'hinoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'tsuchinoe', :relation_value => 'inu', :expected_value => true},
+                     {:key => 'tsuchinoto', :relation_value => 'inu', :expected_value => true},
+                     {:key => 'kanoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'kanoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'mizunoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'mizunoto', :relation_value => nil, :expected_value => true}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :taikyoku_kijin_3_check_validation, pattern
+      it_behaves_like :taikyoku_kijin_3_get_validation, pattern
+    end
+  end
+
+  describe "四つ目" do
+    shared_examples_for :taikyoku_kijin_4_check_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_4?(relation)}
+      it_behaves_like :relation_check_validation_junishi, params
+    end
+
+    shared_examples_for :taikyoku_kijin_4_get_validation do |params|
+      subject{Jikkan.by_key(key).taikyoku_kijin_4}
+      it_behaves_like :relation_get_validation_junishi, params
+    end
+
+    test_patterns = [{:key => 'kinoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'kinoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'hinoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'hinoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'tsuchinoe', :relation_value => 'usi', :expected_value => true},
+                     {:key => 'tsuchinoto', :relation_value => 'usi', :expected_value => true},
+                     {:key => 'kanoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'kanoto', :relation_value => nil, :expected_value => true},
+                     {:key => 'mizunoe', :relation_value => nil, :expected_value => true},
+                     {:key => 'mizunoto', :relation_value => nil, :expected_value => true}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :taikyoku_kijin_4_check_validation, pattern
+      it_behaves_like :taikyoku_kijin_4_get_validation, pattern
+    end
+  end
+
 end

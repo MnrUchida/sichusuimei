@@ -8,5 +8,6 @@ guard :rspec do
 
   # Rails example
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^config/data/(.+)\.yml$})                  { |m| "spec/models/#{m[1]}_spec.rb" }
 end
 

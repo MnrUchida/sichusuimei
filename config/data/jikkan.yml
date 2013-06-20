@@ -3,34 +3,34 @@ METHOD:
   name: 大極貴人
   method:
    - Junishi.by_angle(revise_angle((-ANGLE_SHI * gogyo.pos_x + ANGLE_DOUBLE_SHI * gogyo.pos_y + ANGLE_SHI) % ANGLE_HALF_CIRCLE))
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT)
+   - Junishi.by_angle(revise_angle(ANGLE_RIGHT + ANGLE_SHI))
  taikyoku_kijin_2:
   name: 大極貴人
   method:
-   - Junishi.by_angle(revise_angle(-ANGLE_DOUBLE_SHI * gogyo.pos_x + ANGLE_SHI * gogyo.pos_y + ANGLE_DOUBLE_SHI + ANGLE_HALF_CIRCLE))
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 2)
+   - Junishi.by_angle(revise_angle(-2.5 * ANGLE_SHI * gogyo.pos_x + ANGLE_HALF_SHI * gogyo.pos_y + ANGLE_SHI * 8.5))
+   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 2 + ANGLE_SHI))
  taikyoku_kijin_3:
   name: 大極貴人
   method:
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 3)
+   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 3 + ANGLE_SHI))
  taikyoku_kijin_4:
   name: 大極貴人
   method:
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4)
+   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4 + ANGLE_SHI))
  taikyoku_kijin_1?:
   name: 大極貴人
   method:
    - target.name == self.taikyoku_kijin_1.name
- taikyoku_kijin_2:
+ taikyoku_kijin_2?:
   name: 大極貴人
   method:
    - target.name == self.taikyoku_kijin_2.name
- taikyoku_kijin_3:
+ taikyoku_kijin_3?:
   name: 大極貴人
   method:
    - target.name == self.taikyoku_kijin_3.name
    - true
- taikyoku_kijin_4:
+ taikyoku_kijin_4?:
   name: 大極貴人
   method:
    - target.name == self.taikyoku_kijin_4.name
@@ -38,81 +38,165 @@ METHOD:
 
 JIKKAN:
  kinoe:
-   gogyo_key: ki
-   inyou: 1
-   code: 0
-   name: 甲
-   point: 1
-   point_day: 1
+   member:
+     gogyo_key: ki
+     inyou: 1
+     code: 0
+     name: 甲
+     point: 1
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  kinoto:
-   gogyo_key: ki
-   inyou: -1
-   code: 1
-   name: 乙
-   point: 0.5
-   point_day: 1
+   member:
+     gogyo_key: ki
+     inyou: -1
+     code: 1
+     name: 乙
+     point: 0.5
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  hinoe:
-   gogyo_key: hi
-   inyou: 1
-   code: 2
-   name: 丙
-   point: 1
-   point_day: 1
+   member:
+     gogyo_key: hi
+     inyou: 1
+     code: 2
+     name: 丙
+     point: 1
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  hinoto:
-   gogyo_key: hi
-   inyou: -1
-   code: 3
-   name: 丁
-   point: 0.5
-   point_day: 1
+   member:
+     gogyo_key: hi
+     inyou: -1
+     code: 3
+     name: 丁
+     point: 0.5
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  tsuchinoe:
-   gogyo_key: tsuchi
-   inyou: 1
-   code: 4
-   name: 戊
-   point: 1
-   point_day: 1
+   member:
+     gogyo_key: tsuchi
+     inyou: 1
+     code: 4
+     name: 戊
+     point: 1
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 1
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 1
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3: 0
+     taikyoku_kijin_3?: 0
+     taikyoku_kijin_4: 0
+     taikyoku_kijin_4?: 0
 
  tsuchinoto:
-   gogyo_key: tsuchi
-   inyou: -1
-   code: 5
-   name: 己
-   point: 0.5
-   point_day: 1
+   member:
+     gogyo_key: tsuchi
+     inyou: -1
+     code: 5
+     name: 己
+     point: 0.5
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 1
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 1
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3: 0
+     taikyoku_kijin_3?: 0
+     taikyoku_kijin_4: 0
+     taikyoku_kijin_4?: 0
 
  kanoe:
-   gogyo_key: kane
-   inyou: 1
-   code: 6
-   name: 庚
-   point: 1
-   point_day: 1
+   member:
+     gogyo_key: kane
+     inyou: 1
+     code: 6
+     name: 庚
+     point: 1
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  kanoto:
-   gogyo_key: kane
-   inyou: -1
-   code: 7
-   name: 辛
-   point: 0.5
-   point_day: 1
+   member:
+     gogyo_key: kane
+     inyou: -1
+     code: 7
+     name: 辛
+     point: 0.5
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  mizunoe:
-   gogyo_key: mizu
-   inyou: 1
-   code: 8
-   name: 壬
-   point: 1
-   point_day: 1
+   member:
+     gogyo_key: mizu
+     inyou: 1
+     code: 8
+     name: 壬
+     point: 1
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
 
  mizunoto:
-   gogyo_key: mizu
-   inyou: -1
-   code: 9
-   name: 癸
-   point: 0.5
-   point_day: 1
+   member:
+     gogyo_key: mizu
+     inyou: -1
+     code: 9
+     name: 癸
+     point: 0.5
+     point_day: 1
+   relation:
+     taikyoku_kijin_1: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 1
+     taikyoku_kijin_4?: 1
