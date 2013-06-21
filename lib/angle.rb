@@ -11,4 +11,8 @@ module Angle
   def revise_angle(angle)
     (angle - ANGLE_HALF_SHI) % ANGLE_CIRCLE
   end
+
+  def original_angle(angle)
+    (angle + ANGLE_HALF_SHI) % ANGLE_CIRCLE
+  end
 end

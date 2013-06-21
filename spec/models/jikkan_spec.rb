@@ -604,3 +604,31 @@ describe Jikkan, "暗禄" do
     it_behaves_like :anroku_get_validation, pattern
   end
 end
+
+describe Jikkan, "干禄" do
+  shared_examples_for :kanroku_check_validation do |params|
+    subject{Jikkan.by_key(key).kanroku?(relation)}
+    it_behaves_like :relation_check_validation_junishi, params
+  end
+
+  shared_examples_for :kanroku_get_validation do |params|
+    subject{Jikkan.by_key(key).kanroku}
+    it_behaves_like :relation_get_validation_junishi, params
+  end
+
+  test_patterns = [{:key => 'kinoe', :relation_value => 'tora', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'u', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'uma', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'tsuchinoto', :relation_value => 'uma', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'saru', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'tori', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'i', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'ne', :expected_value => true}]
+
+  test_patterns.each do |pattern|
+    it_behaves_like :kanroku_check_validation, pattern
+    it_behaves_like :kanroku_get_validation, pattern
+  end
+end

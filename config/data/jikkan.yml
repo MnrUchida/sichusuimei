@@ -9,7 +9,7 @@ ANGLE:
  tenotsu_kijin_2:
   name: 天乙貴人
   method:
-   - -(self.tenotsu_kijin_1_angle + ANGLE_HALF_SHI + ANGLE_SHI + ANGLE_RIGHT)
+   - -(original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT)
 
  tenkan_kijin:
   name: 天官貴人
@@ -27,7 +27,12 @@ ANGLE:
  anroku:
   name: 暗禄
   method:
-   - -self.gogyo.angle + (1 + self.inyou) * ANGLE_HALF_SHI
+   - original_angle(-self.kanroku_angle)
+
+ kanroku:
+  name: 干禄
+  method:
+   - (self.gogyo.angle - (self.inyou - 1) * ANGLE_HALF_SHI)
 
 METHOD:
  taikyoku_kijin_1:
@@ -89,6 +94,7 @@ JIKKAN:
      tenkan_kijin: 0
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  kinoto:
    member:
@@ -110,6 +116,7 @@ JIKKAN:
      tenkan_kijin: 0
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  hinoe:
    member:
@@ -131,6 +138,7 @@ JIKKAN:
      tenkan_kijin: 1
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  hinoto:
    member:
@@ -152,6 +160,7 @@ JIKKAN:
      tenkan_kijin: 1
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  tsuchinoe:
    member:
@@ -175,6 +184,7 @@ JIKKAN:
      tenkan_kijin: 2
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  tsuchinoto:
    member:
@@ -198,6 +208,7 @@ JIKKAN:
      tenkan_kijin: 2
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  kanoe:
    member:
@@ -219,6 +230,7 @@ JIKKAN:
      tenkan_kijin: 0
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  kanoto:
    member:
@@ -240,6 +252,7 @@ JIKKAN:
      tenkan_kijin: 0
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  mizunoe:
    member:
@@ -261,6 +274,7 @@ JIKKAN:
      tenkan_kijin: 1
      tenhuku_kijin: 0
      anroku: 0
+     kanroku: 0
 
  mizunoto:
    member:
@@ -282,3 +296,4 @@ JIKKAN:
      tenkan_kijin: 1
      tenhuku_kijin: 1
      anroku: 0
+     kanroku: 0
