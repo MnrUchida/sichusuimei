@@ -520,3 +520,59 @@ describe Jikkan, "天乙貴人" do
     end
   end
 end
+
+describe Jikkan, "天官貴人" do
+  shared_examples_for :tenkan_kijin_check_validation do |params|
+    subject{Jikkan.by_key(key).tenkan_kijin?(relation)}
+    it_behaves_like :relation_check_validation_junishi, params
+  end
+
+  shared_examples_for :tenkan_kijin_get_validation do |params|
+    subject{Jikkan.by_key(key).tenkan_kijin}
+    it_behaves_like :relation_get_validation_junishi, params
+  end
+
+  test_patterns = [{:key => 'kinoe', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'tatsu', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'tori', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'inu', :expected_value => true},
+                   {:key => 'tsuchinoto', :relation_value => 'u', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'i', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'saru', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'tora', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'uma', :expected_value => true}]
+
+  test_patterns.each do |pattern|
+    it_behaves_like :tenkan_kijin_check_validation, pattern
+    it_behaves_like :tenkan_kijin_get_validation, pattern
+  end
+end
+
+describe Jikkan, "天福貴人" do
+  shared_examples_for :tenhuku_kijin_check_validation do |params|
+    subject{Jikkan.by_key(key).tenhuku_kijin?(relation)}
+    it_behaves_like :relation_check_validation_junishi, params
+  end
+
+  shared_examples_for :tenhuku_kijin_get_validation do |params|
+    subject{Jikkan.by_key(key).tenhuku_kijin}
+    it_behaves_like :relation_get_validation_junishi, params
+  end
+
+  test_patterns = [{:key => 'kinoe', :relation_value => 'tora', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'usi', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'ne', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'tori', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'saru', :expected_value => true},
+                   {:key => 'tsuchinoto', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'uma', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'tatsu', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
+
+  test_patterns.each do |pattern|
+    it_behaves_like :tenhuku_kijin_check_validation, pattern
+    it_behaves_like :tenhuku_kijin_get_validation, pattern
+  end
+end

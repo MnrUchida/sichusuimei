@@ -1,3 +1,29 @@
+ANGLE:
+ tenotsu_kijin_1:
+  name: 天乙貴人
+  method:
+   - ANGLE_SHI
+   - self.gogyo.angle + ANGLE_HALF_CIRCLE
+   - self.gogyo.angle + ANGLE_RIGHT
+
+ tenotsu_kijin_2:
+  name: 天乙貴人
+  method:
+   - -(self.tenotsu_kijin_1_angle + ANGLE_HALF_SHI + ANGLE_SHI + ANGLE_RIGHT)
+
+ tenkan_kijin:
+  name: 天官貴人
+  method:
+   - 210 * gogyo.pos_x ** 2 - 60 * gogyo.pos_x + 45 * inyou + 15
+   - 150 * gogyo.pos_y ** 2 + 45 * gogyo.pos_y - 60 * inyou + 15
+   - -75 * inyou + 15
+
+ tenhuku_kijin:
+  name: 天福貴人
+  method:
+   - ((2 - self.code) % Jikkan::JIKKAN_COUNT) * ANGLE_SHI
+   - ANGLE_SHI
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -17,51 +43,25 @@ METHOD:
   name: 大極貴人
   method:
    - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4 + ANGLE_SHI))
+
  taikyoku_kijin_1?:
   name: 大極貴人
   method:
-   - target.name == self.taikyoku_kijin_1.name
+   - target == self.taikyoku_kijin_1
  taikyoku_kijin_2?:
   name: 大極貴人
   method:
-   - target.name == self.taikyoku_kijin_2.name
+   - target == self.taikyoku_kijin_2
  taikyoku_kijin_3?:
   name: 大極貴人
   method:
-   - target.name == self.taikyoku_kijin_3.name
+   - target == self.taikyoku_kijin_3
    - true
  taikyoku_kijin_4?:
   name: 大極貴人
   method:
-   - target.name == self.taikyoku_kijin_4.name
+   - target == self.taikyoku_kijin_4
    - true
-
- tenotsu_kijin_angle:
-  name: 天乙貴人(角度)
-  method:
-   - ANGLE_SHI
-   - self.gogyo.angle + ANGLE_HALF_CIRCLE
-   - self.gogyo.angle + ANGLE_RIGHT
-
- tenotsu_kijin_1:
-  name: 天乙貴人
-  method:
-   - Junishi.by_angle(revise_angle(self.tenotsu_kijin_angle))
-
- tenotsu_kijin_1?:
-  name: 天乙貴人
-  method:
-   - target.name == self.tenotsu_kijin_1.name
-
- tenotsu_kijin_2:
-  name: 天乙貴人
-  method:
-   - Junishi.by_angle( revise_angle(-(self.tenotsu_kijin_angle + ANGLE_SHI + ANGLE_RIGHT)))
-
- tenotsu_kijin_2?:
-  name: 天乙貴人
-  method:
-   - target.name == self.tenotsu_kijin_2.name
 
 JIKKAN:
  kinoe:
@@ -74,16 +74,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
      tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 0
-     tenotsu_kijin_1?: 0
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 0
+     tenhuku_kijin: 0
 
  kinoto:
    member:
@@ -95,16 +94,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 0
+     tenhuku_kijin: 0
 
  hinoe:
    member:
@@ -116,16 +114,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 1
+     tenhuku_kijin: 0
 
  hinoto:
    member:
@@ -137,16 +134,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 1
+     tenhuku_kijin: 0
 
  tsuchinoe:
    member:
@@ -158,18 +154,17 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 1
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 1
-     taikyoku_kijin_2?: 0
      taikyoku_kijin_3: 0
-     taikyoku_kijin_3?: 0
      taikyoku_kijin_4: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 0
      taikyoku_kijin_4?: 0
      tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 0
-     tenotsu_kijin_1?: 0
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 2
+     tenhuku_kijin: 0
 
  tsuchinoto:
    member:
@@ -181,18 +176,17 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 1
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 1
-     taikyoku_kijin_2?: 0
      taikyoku_kijin_3: 0
-     taikyoku_kijin_3?: 0
      taikyoku_kijin_4: 0
+     taikyoku_kijin_1?: 0
+     taikyoku_kijin_2?: 0
+     taikyoku_kijin_3?: 0
      taikyoku_kijin_4?: 0
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 2
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 2
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 2
+     tenhuku_kijin: 0
 
  kanoe:
    member:
@@ -204,16 +198,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
      tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 0
-     tenotsu_kijin_1?: 0
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 0
+     tenhuku_kijin: 0
 
  kanoto:
    member:
@@ -225,16 +218,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 0
+     tenhuku_kijin: 0
 
  mizunoe:
    member:
@@ -246,16 +238,15 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 1
+     tenhuku_kijin: 0
 
  mizunoto:
    member:
@@ -267,13 +258,12 @@ JIKKAN:
      point_day: 1
    relation:
      taikyoku_kijin_1: 0
-     taikyoku_kijin_1?: 0
      taikyoku_kijin_2: 0
+     taikyoku_kijin_1?: 0
      taikyoku_kijin_2?: 0
      taikyoku_kijin_3?: 1
      taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_angle: 1
-     tenotsu_kijin_1?: 0
+     tenotsu_kijin_1: 1
      tenotsu_kijin_2: 0
-     tenotsu_kijin_2?: 0
+     tenkan_kijin: 1
+     tenhuku_kijin: 1

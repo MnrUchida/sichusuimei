@@ -13,7 +13,7 @@ class JikkanData
   def initialize
     @yaml_data = YAML.load_file('config/data/jikkan.yml')
     @data = @yaml_data["JIKKAN"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Jikkan.new(key, data, @yaml_data[:METHOD.to_s])
+      ret_data[key] = Jikkan.new(key, data, @yaml_data[:ANGLE.to_s], @yaml_data[:METHOD.to_s])
       ret_data
     end
   end
