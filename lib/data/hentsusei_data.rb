@@ -18,6 +18,10 @@ class HentsuseiData
     end
   end
 
+  def by_key(find_key)
+    find_by(@data){|datum|datum.key == find_key}
+  end
+
   def by_inyou(inyou)
     select_by(@data){|datum|datum.inyou == inyou}
   end

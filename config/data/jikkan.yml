@@ -34,6 +34,16 @@ ANGLE:
   method:
    - (self.gogyo.angle - (self.inyou - 1) * ANGLE_HALF_SHI)
 
+ fukigakudo:
+  name: 富貴学童
+  method:
+   - (self.gogyo.angle + ANGLE_HALF_SHI - self.inyou * (ANGLE_RIGHT + ANGLE_HALF_SHI))
+
+ tenchukijin:
+  name: 天厨貴人
+  method:
+   - original_angle(Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle)
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -95,6 +105,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  kinoto:
    member:
@@ -117,6 +129,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  hinoe:
    member:
@@ -139,6 +153,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  hinoto:
    member:
@@ -161,6 +177,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  tsuchinoe:
    member:
@@ -185,6 +203,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  tsuchinoto:
    member:
@@ -209,6 +229,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  kanoe:
    member:
@@ -231,6 +253,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  kanoto:
    member:
@@ -253,6 +277,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  mizunoe:
    member:
@@ -275,6 +301,8 @@ JIKKAN:
      tenhuku_kijin: 0
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0
 
  mizunoto:
    member:
@@ -297,3 +325,5 @@ JIKKAN:
      tenhuku_kijin: 1
      anroku: 0
      kanroku: 0
+     fukigakudo: 0
+     tenchukijin: 0

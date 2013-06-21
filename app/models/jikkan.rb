@@ -5,7 +5,7 @@ class Jikkan
 
   JIKKAN_COUNT = 10
 
-  attr_reader :inyou, :code, :name, :point, :point_day, :gogyo_id, :key, :gogyo_key, :relation, :id
+  attr_reader :inyou, :code, :name, :point, :point_day, :key, :gogyo_key, :relation, :id
 
   def initialize(key, data, angle_relation, method_relation)
     @key = key

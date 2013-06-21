@@ -16,6 +16,10 @@ class Gogyo
     @color = data["color"]
   end
 
+  def +(value)
+    Gogyo.by_code( (self.code + value) % GOGYO_COUNT)
+  end
+
   def relation_with_gogyo(relate_gogyo)
     (relate_gogyo.code - self.code) % GOGYO_COUNT
   end

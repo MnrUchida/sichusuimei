@@ -10,6 +10,10 @@ class Hentsusei
     @category = data["category"]
   end
 
+  def self.by_key(key)
+    HentsuseiData.instance.by_key(key)
+  end
+
   def self.by_inyou(inyou)
     HentsuseiData.instance.by_inyou(inyou)
   end
@@ -18,4 +22,7 @@ class Hentsusei
     HentsuseiData.instance.by_inyou_and_category(inyou, category)
   end
 
+  def construct_other_with(jikkan)
+    Jikkan.by_inyou_and_gogyo(jikkan.inyou, (jikkan.gogyo + self.category).key)
+  end
 end
