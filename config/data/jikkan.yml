@@ -49,6 +49,12 @@ ANGLE:
   method:
    - original_angle(self.kanroku_angle + ANGLE_DOUBLE_SHI)
 
+ gakushi:
+  name: 学士
+  method:
+   - original_angle(Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle)
+
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -113,6 +119,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  kinoto:
    member:
@@ -138,6 +145,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  hinoe:
    member:
@@ -163,6 +171,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  hinoto:
    member:
@@ -188,6 +197,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  tsuchinoe:
    member:
@@ -215,6 +225,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  tsuchinoto:
    member:
@@ -242,6 +253,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  kanoe:
    member:
@@ -267,6 +279,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  kanoto:
    member:
@@ -292,6 +305,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  mizunoe:
    member:
@@ -317,6 +331,7 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0
 
  mizunoto:
    member:
@@ -342,3 +357,4 @@ JIKKAN:
      fukigakudo: 0
      tenchukijin: 0
      kinyoroku: 0
+     gakushi: 0

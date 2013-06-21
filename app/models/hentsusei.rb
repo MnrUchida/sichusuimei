@@ -23,6 +23,6 @@ class Hentsusei
   end
 
   def construct_other_with(jikkan)
-    Jikkan.by_inyou_and_gogyo(jikkan.inyou, (jikkan.gogyo + self.category).key)
+    Jikkan.by_inyou_and_gogyo(jikkan.inyou * self.inyou, (jikkan.gogyo + self.category).key)
   end
 end
