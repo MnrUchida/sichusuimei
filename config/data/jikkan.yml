@@ -54,7 +54,6 @@ ANGLE:
   method:
    - original_angle(Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle)
 
-
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -94,6 +93,15 @@ METHOD:
    - target == self.taikyoku_kijin_4
    - true
 
+ tenzai:
+  name: 天財
+  method:
+   - Hentsusei.by_key('henzai').construct_other_with(self)
+ tenzai?:
+  name: 天財
+  method:
+   - target == self.tenzai
+
 JIKKAN:
  kinoe:
    member:
@@ -120,6 +128,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  kinoto:
    member:
@@ -146,6 +156,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  hinoe:
    member:
@@ -172,6 +184,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  hinoto:
    member:
@@ -198,6 +212,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  tsuchinoe:
    member:
@@ -226,6 +242,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  tsuchinoto:
    member:
@@ -254,6 +272,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  kanoe:
    member:
@@ -280,6 +300,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  kanoto:
    member:
@@ -306,6 +328,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  mizunoe:
    member:
@@ -332,6 +356,8 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
 
  mizunoto:
    member:
@@ -358,3 +384,5 @@ JIKKAN:
      tenchukijin: 0
      kinyoroku: 0
      gakushi: 0
+     tenzai: 0
+     tenzai?: 0
