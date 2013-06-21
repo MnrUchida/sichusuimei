@@ -44,6 +44,11 @@ ANGLE:
   method:
    - original_angle(Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle)
 
+ kinyoroku:
+  name: 金輿禄
+  method:
+   - original_angle(self.kanroku_angle + ANGLE_DOUBLE_SHI)
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -107,6 +112,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  kinoto:
    member:
@@ -131,6 +137,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  hinoe:
    member:
@@ -155,6 +162,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  hinoto:
    member:
@@ -179,6 +187,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  tsuchinoe:
    member:
@@ -205,6 +214,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  tsuchinoto:
    member:
@@ -231,6 +241,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  kanoe:
    member:
@@ -255,6 +266,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  kanoto:
    member:
@@ -279,6 +291,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  mizunoe:
    member:
@@ -303,6 +316,7 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0
 
  mizunoto:
    member:
@@ -327,3 +341,4 @@ JIKKAN:
      kanroku: 0
      fukigakudo: 0
      tenchukijin: 0
+     kinyoroku: 0

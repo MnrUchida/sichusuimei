@@ -688,3 +688,31 @@ describe Jikkan, "天厨貴人" do
     it_behaves_like :tenchukijin_get_validation, pattern
   end
 end
+
+describe Jikkan, "金輿禄" do
+  shared_examples_for :kinyoroku_check_validation do |params|
+    subject{Jikkan.by_key(key).kinyoroku?(relation)}
+    it_behaves_like :relation_check_validation_junishi, params
+  end
+
+  shared_examples_for :kinyoroku_get_validation do |params|
+    subject{Jikkan.by_key(key).kinyoroku}
+    it_behaves_like :relation_get_validation_junishi, params
+  end
+
+  test_patterns = [{:key => 'kinoe', :relation_value => 'tatsu', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'saru', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key=> 'tsuchinoto', :relation_value => 'saru', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'inu', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'i', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'usi', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'tora', :expected_value => true}]
+
+  test_patterns.each do |pattern|
+    it_behaves_like :kinyoroku_check_validation, pattern
+    it_behaves_like :kinyoroku_get_validation, pattern
+  end
+end
