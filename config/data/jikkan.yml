@@ -32,7 +32,7 @@ ANGLE:
  kanroku:
   name: 干禄
   method:
-   - (self.gogyo.angle - (self.inyou - 1) * ANGLE_HALF_SHI)
+   - original_angle(Houn.by_key('kenroku').construct_junishi_with(self).angle)
 
  fukigakudo:
   name: 富貴学童

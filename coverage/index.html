@@ -14,27 +14,27 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-06-21T15:19:12+09:00">2013-06-21T15:19:12+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-06-21T16:14:35+09:00">2013-06-21T16:14:35+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.23%</span></span>
+    (<span class="covered_percent"><span class="green">97.44%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         312.14
+         258.41
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>113</b> relevant lines. 
-    <span class="green"><b>111</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <b>117</b> relevant lines. 
+    <span class="green"><b>114</b> lines covered</span> and
+    <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#3bfafa399b26e50739b9e0c270be64946b7a4678" class="src_link" title="lib/data/base_data.rb">lib/data/base_data.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>11</td>
-        <td>6</td>
-        <td>6</td>
-        <td>0</td>
-        <td>1367.8</td>
+        <td class="yellow strong">90.0 %</td>
+        <td>19</td>
+        <td>10</td>
+        <td>9</td>
+        <td>1</td>
+        <td>961.9</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>7.3</td>
+        <td>11.6</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>20</td>
         <td>19</td>
         <td>1</td>
-        <td>169.9</td>
+        <td>195.4</td>
       </tr>
       
       <tr>
@@ -277,20 +277,20 @@
           <div class="file_list_container" id="Libraries">
   <h2>
     <span class="group_name">Libraries</span>
-    (<span class="covered_percent"><span class="green">98.23%</span></span>
+    (<span class="covered_percent"><span class="green">97.44%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         312.14
+         258.41
        </span>
     </span> hits/line)
   </h2>
   <a name="Libraries"></a>
   <div>
     <b>7</b> files in total.
-    <b>113</b> relevant lines. 
-    <span class="green"><b>111</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <b>117</b> relevant lines. 
+    <span class="green"><b>114</b> lines covered</span> and
+    <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -308,12 +308,12 @@
       
       <tr>
         <td class="strong"><a href="#3bfafa399b26e50739b9e0c270be64946b7a4678" class="src_link" title="lib/data/base_data.rb">lib/data/base_data.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>11</td>
-        <td>6</td>
-        <td>6</td>
-        <td>0</td>
-        <td>1367.8</td>
+        <td class="yellow strong">90.0 %</td>
+        <td>19</td>
+        <td>10</td>
+        <td>9</td>
+        <td>1</td>
+        <td>961.9</td>
       </tr>
       
       <tr>
@@ -343,7 +343,7 @@
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>7.3</td>
+        <td>11.6</td>
       </tr>
       
       <tr>
@@ -363,7 +363,7 @@
         <td>20</td>
         <td>19</td>
         <td>1</td>
-        <td>169.9</td>
+        <td>195.4</td>
       </tr>
       
       <tr>
@@ -431,11 +431,11 @@
         <div class="source_table" id="3bfafa399b26e50739b9e0c270be64946b7a4678">
   <div class="header">
     <h3>lib/data/base_data.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">90.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>10</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -451,58 +451,106 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by(data)</code>
+          <code class="ruby">  def by_code(code)</code>
         </li>
       
-        <li class="covered" data-hits="6582" data-linenumber="3">
-          <span class="hits">6582</span>
+        <li class="missed" data-hits="0" data-linenumber="3">
           
-          <code class="ruby">    found_data = data.find(nil){|key, datum| yield datum}</code>
+          
+          <code class="ruby">    find_by(@data){|datum|datum.code == code}</code>
         </li>
       
-        <li class="covered" data-hits="1094" data-linenumber="4">
-          <span class="hits">1094</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">    return found_data[1] unless found_data.nil?</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">    nil</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def by_key(find_key)</code>
+        </li>
+      
+        <li class="covered" data-hits="420" data-linenumber="7">
+          <span class="hits">420</span>
+          
+          <code class="ruby">    find_by(@data){|datum|datum.key == find_key}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  def select_by(data)</code>
+          <code class="ruby">  def find_by(data)</code>
         </li>
       
-        <li class="covered" data-hits="528" data-linenumber="9">
-          <span class="hits">528</span>
+        <li class="covered" data-hits="7452" data-linenumber="11">
+          <span class="hits">7452</span>
           
-          <code class="ruby">    data.select{|key, datum| yield datum}</code>
+          <code class="ruby">    found_data = data.find(nil){|key, datum| yield datum}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="covered" data-hits="1214" data-linenumber="12">
+          <span class="hits">1214</span>
+          
+          <code class="ruby">    return found_data[1] unless found_data.nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">    nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def select_by(data)</code>
+        </li>
+      
+        <li class="covered" data-hits="528" data-linenumber="17">
+          <span class="hits">528</span>
+          
+          <code class="ruby">    data.select{|key, datum| yield datum}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">end</code>
@@ -976,8 +1024,8 @@
           <code class="ruby">  def self.instance</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="10">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="68" data-linenumber="10">
+          <span class="hits">68</span>
           
           <code class="ruby">    @instance ||= self.new</code>
         </li>
@@ -1402,8 +1450,8 @@
           <code class="ruby">  def self.instance</code>
         </li>
       
-        <li class="covered" data-hits="376" data-linenumber="10">
-          <span class="hits">376</span>
+        <li class="covered" data-hits="436" data-linenumber="10">
+          <span class="hits">436</span>
           
           <code class="ruby">    @instance ||= self.new</code>
         </li>
@@ -1546,8 +1594,8 @@
           <code class="ruby">  def by_angle(angle)</code>
         </li>
       
-        <li class="covered" data-hits="960" data-linenumber="34">
-          <span class="hits">960</span>
+        <li class="covered" data-hits="1410" data-linenumber="34">
+          <span class="hits">1410</span>
           
           <code class="ruby">    find_by(@data){|datum|datum.angle == angle}</code>
         </li>
