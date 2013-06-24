@@ -67,7 +67,7 @@ ANGLE:
  youjin:
   name: 羊刃
   method:
-   - (self.gogyo.angle + ANGLE_SHI * 1.5 - self.inyou * ANGLE_HALF_SHI)
+   - original_angle(self.kanroku_angle + ANGLE_SHI)
 
  hijin:
   name: 飛刃
@@ -92,6 +92,11 @@ ANGLE:
    - (((5 - self.gogyo.code) % 5) % 4) * ANGLE_DOUBLE_SHI + ANGLE_DOUBLE_SHI
    - ANGLE_SHI
    - ((5 - self.gogyo.code) % 5) * ANGLE_DOUBLE_SHI + ANGLE_SHI
+
+ bunsei_kijin:
+  name: 文星貴人
+  method:
+   - original_angle(self.kanroku_angle + ANGLE_RIGHT)
 
 METHOD:
  taikyoku_kijin_1:
@@ -176,6 +181,7 @@ JIKKAN:
      kouen: 0
      ryuka: 0
      fukusei_kijin: 0
+     bunsei_kijin: 0
 
  kinoto:
    member:
@@ -211,6 +217,7 @@ JIKKAN:
      kouen: 1
      ryuka: 0
      fukusei_kijin: 1
+     bunsei_kijin: 0
 
  hinoe:
    member:
@@ -246,6 +253,7 @@ JIKKAN:
      kouen: 0
      ryuka: 0
      fukusei_kijin: 0
+     bunsei_kijin: 0
 
  hinoto:
    member:
@@ -281,6 +289,7 @@ JIKKAN:
      kouen: 1
      ryuka: 0
      fukusei_kijin: 2
+     bunsei_kijin: 0
 
  tsuchinoe:
    member:
@@ -318,6 +327,7 @@ JIKKAN:
      kouen: 0
      ryuka: 0
      fukusei_kijin: 0
+     bunsei_kijin: 0
 
  tsuchinoto:
    member:
@@ -355,6 +365,7 @@ JIKKAN:
      kouen: 1
      ryuka: 0
      fukusei_kijin: 2
+     bunsei_kijin: 0
 
  kanoe:
    member:
@@ -390,6 +401,7 @@ JIKKAN:
      kouen: 0
      ryuka: 1
      fukusei_kijin: 0
+     bunsei_kijin: 0
 
  kanoto:
    member:
@@ -425,6 +437,7 @@ JIKKAN:
      kouen: 1
      ryuka: 1
      fukusei_kijin: 2
+     bunsei_kijin: 0
 
  mizunoe:
    member:
@@ -460,6 +473,7 @@ JIKKAN:
      kouen: 0
      ryuka: 0
      fukusei_kijin: 0
+     bunsei_kijin: 0
 
  mizunoto:
    member:
@@ -495,3 +509,4 @@ JIKKAN:
      kouen: 1
      ryuka: 0
      fukusei_kijin: 1
+     bunsei_kijin: 0
