@@ -98,6 +98,12 @@ ANGLE:
   method:
    - original_angle(self.kanroku_angle + ANGLE_RIGHT)
 
+ setsudojin:
+  name: 節度人
+  method:
+   - ANGLE_HALF_CIRCLE - self.inyou * ANGLE_SHI
+   - -self.inyou * ANGLE_SHI
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -182,6 +188,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 0
      bunsei_kijin: 0
+     setsudojin: 0
 
  kinoto:
    member:
@@ -218,6 +225,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 1
      bunsei_kijin: 0
+     setsudojin: 0
 
  hinoe:
    member:
@@ -254,6 +262,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 0
      bunsei_kijin: 0
+     setsudojin: 0
 
  hinoto:
    member:
@@ -290,6 +299,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 2
      bunsei_kijin: 0
+     setsudojin: 0
 
  tsuchinoe:
    member:
@@ -328,6 +338,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 0
      bunsei_kijin: 0
+     setsudojin: 0
 
  tsuchinoto:
    member:
@@ -366,6 +377,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 2
      bunsei_kijin: 0
+     setsudojin: 0
 
  kanoe:
    member:
@@ -402,6 +414,7 @@ JIKKAN:
      ryuka: 1
      fukusei_kijin: 0
      bunsei_kijin: 0
+     setsudojin: 1
 
  kanoto:
    member:
@@ -438,6 +451,7 @@ JIKKAN:
      ryuka: 1
      fukusei_kijin: 2
      bunsei_kijin: 0
+     setsudojin: 1
 
  mizunoe:
    member:
@@ -474,6 +488,7 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 0
      bunsei_kijin: 0
+     setsudojin: 1
 
  mizunoto:
    member:
@@ -510,3 +525,4 @@ JIKKAN:
      ryuka: 0
      fukusei_kijin: 1
      bunsei_kijin: 0
+     setsudojin: 1

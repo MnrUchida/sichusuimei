@@ -998,3 +998,31 @@ describe Jikkan, "文星貴人" do
     it_behaves_like :bunsei_kijin_get_validation, pattern
   end
 end
+
+describe Jikkan, "節度人" do
+  shared_examples_for :setsudojin_check_validation do |params|
+    subject{Jikkan.by_key(key).setsudojin?(relation)}
+    it_behaves_like :relation_check_validation_junishi, params
+  end
+
+  shared_examples_for :setsudojin_get_validation do |params|
+    subject{Jikkan.by_key(key).setsudojin}
+    it_behaves_like :relation_get_validation_junishi, params
+  end
+
+  test_patterns = [{:key => 'kinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'mi', :expected_value => true},
+                   {:key => 'tsuchinoto', :relation_value => 'hitsuji', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'i', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'usi', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'i', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
+
+  test_patterns.each do |pattern|
+    it_behaves_like :setsudojin_check_validation, pattern
+    it_behaves_like :setsudojin_get_validation, pattern
+  end
+end
