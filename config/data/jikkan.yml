@@ -74,6 +74,12 @@ ANGLE:
   method:
    - original_angle(self.youjin.chu_angle)
 
+ kouen:
+  name: 紅艶
+  method:
+   - -ANGLE_SHI * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)
+   - ANGLE_HALF_SHI * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -154,6 +160,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 0
 
  kinoto:
    member:
@@ -186,6 +193,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 1
 
  hinoe:
    member:
@@ -218,6 +226,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 0
 
  hinoto:
    member:
@@ -250,6 +259,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 1
 
  tsuchinoe:
    member:
@@ -284,6 +294,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 0
 
  tsuchinoto:
    member:
@@ -318,6 +329,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 1
 
  kanoe:
    member:
@@ -350,6 +362,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 0
 
  kanoto:
    member:
@@ -382,6 +395,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 1
 
  mizunoe:
    member:
@@ -414,6 +428,7 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 0
 
  mizunoto:
    member:
@@ -446,3 +461,4 @@ JIKKAN:
      kyoroku_2: 0
      youjin: 0
      hijin: 0
+     kouen: 1

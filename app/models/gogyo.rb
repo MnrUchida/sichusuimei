@@ -58,14 +58,14 @@ class Gogyo
   end
 
   def abs_pos_x
-    ((angle + ANGLE_SHI) % ANGLE_HALF_CIRCLE) / ANGLE_RIGHT
+    ((code + 1) % 3) % 2
   end
 
   def abs_pos_y
-    ((angle + ANGLE_SHI + ANGLE_RIGHT) % ANGLE_HALF_CIRCLE) / ANGLE_RIGHT
+    ((code) % 3) % 2
   end
 
   def sign_pos
-    (angle + ANGLE_SHI - ANGLE_HALF_CIRCLE) <= 0 ? 1 : -1
+    code <= 2 ? 1 : -1
   end
 end
