@@ -69,6 +69,11 @@ ANGLE:
   method:
    - (self.gogyo.angle + ANGLE_SHI * 1.5 - self.inyou * ANGLE_HALF_SHI)
 
+ hijin:
+  name: 飛刃
+  method:
+   - original_angle(self.youjin.chu_angle)
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -148,6 +153,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  kinoto:
    member:
@@ -179,6 +185,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  hinoe:
    member:
@@ -210,6 +217,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  hinoto:
    member:
@@ -241,6 +249,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  tsuchinoe:
    member:
@@ -274,6 +283,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  tsuchinoto:
    member:
@@ -307,6 +317,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  kanoe:
    member:
@@ -338,6 +349,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  kanoto:
    member:
@@ -369,6 +381,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  mizunoe:
    member:
@@ -400,6 +413,7 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
 
  mizunoto:
    member:
@@ -431,3 +445,4 @@ JIKKAN:
      kyoroku_1: 0
      kyoroku_2: 0
      youjin: 0
+     hijin: 0
