@@ -86,6 +86,13 @@ ANGLE:
    - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) - self.inyou * ANGLE_HALF_SHI) % 300 + 60
    - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) + self.inyou * ANGLE_HALF_SHI) % 300 + 60
 
+ fukusei_kijin:
+  name: 福星貴人
+  method:
+   - (((5 - self.gogyo.code) % 5) % 4) * ANGLE_DOUBLE_SHI + ANGLE_DOUBLE_SHI
+   - ANGLE_SHI
+   - ((5 - self.gogyo.code) % 5) * ANGLE_DOUBLE_SHI + ANGLE_SHI
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -168,6 +175,7 @@ JIKKAN:
      hijin: 0
      kouen: 0
      ryuka: 0
+     fukusei_kijin: 0
 
  kinoto:
    member:
@@ -202,6 +210,7 @@ JIKKAN:
      hijin: 0
      kouen: 1
      ryuka: 0
+     fukusei_kijin: 1
 
  hinoe:
    member:
@@ -236,6 +245,7 @@ JIKKAN:
      hijin: 0
      kouen: 0
      ryuka: 0
+     fukusei_kijin: 0
 
  hinoto:
    member:
@@ -270,6 +280,7 @@ JIKKAN:
      hijin: 0
      kouen: 1
      ryuka: 0
+     fukusei_kijin: 2
 
  tsuchinoe:
    member:
@@ -306,6 +317,7 @@ JIKKAN:
      hijin: 0
      kouen: 0
      ryuka: 0
+     fukusei_kijin: 0
 
  tsuchinoto:
    member:
@@ -342,6 +354,7 @@ JIKKAN:
      hijin: 0
      kouen: 1
      ryuka: 0
+     fukusei_kijin: 2
 
  kanoe:
    member:
@@ -376,6 +389,7 @@ JIKKAN:
      hijin: 0
      kouen: 0
      ryuka: 1
+     fukusei_kijin: 0
 
  kanoto:
    member:
@@ -410,6 +424,7 @@ JIKKAN:
      hijin: 0
      kouen: 1
      ryuka: 1
+     fukusei_kijin: 2
 
  mizunoe:
    member:
@@ -444,6 +459,7 @@ JIKKAN:
      hijin: 0
      kouen: 0
      ryuka: 0
+     fukusei_kijin: 0
 
  mizunoto:
    member:
@@ -478,3 +494,4 @@ JIKKAN:
      hijin: 0
      kouen: 1
      ryuka: 0
+     fukusei_kijin: 1
