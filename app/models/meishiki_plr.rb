@@ -95,7 +95,7 @@ class MeishikiPlr < ActiveRecord::Base
   end
 
   def def_relation
-    PillarRelationPillar.where(:base_pillar => self.type).group(:pillar_relation_id).each {|pillar|
+    PillarRelationPillar.instance.by_pillar(self.type).each {|pillar|
       self.instance_eval <<-EOS
         def #{pillar.pillar_relation.name}(pillar)
           target_pillar = pillar[:target_pillar]

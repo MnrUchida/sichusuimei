@@ -76,9 +76,9 @@ class Junishi
   protected
 
   def doou?(day)
-    return false if (self.angle - ANGLE_HALF_SHI) % ANGLE_RIGHT
+    return false unless (self.angle - ANGLE_HALF_SHI) % ANGLE_RIGHT == 0
 
-    zoukan(day).gogyo_id == GOGYO_DO
+    zoukan(day).gogyo_key == 'tsuchi'
   end
 
   def method_relation_string(method_relation, method_name)

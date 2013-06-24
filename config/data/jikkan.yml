@@ -64,6 +64,11 @@ ANGLE:
   method:
    - original_angle(self.kanroku_angle + ANGLE_SHI)
 
+ youjin:
+  name: 羊刃
+  method:
+   - (self.gogyo.angle + ANGLE_SHI * 1.5 - self.inyou * ANGLE_HALF_SHI)
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -142,6 +147,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  kinoto:
    member:
@@ -172,6 +178,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  hinoe:
    member:
@@ -202,6 +209,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  hinoto:
    member:
@@ -232,6 +240,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  tsuchinoe:
    member:
@@ -264,6 +273,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  tsuchinoto:
    member:
@@ -296,6 +306,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  kanoe:
    member:
@@ -326,6 +337,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  kanoto:
    member:
@@ -356,6 +368,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  mizunoe:
    member:
@@ -386,6 +399,7 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0
 
  mizunoto:
    member:
@@ -416,3 +430,4 @@ JIKKAN:
      tenzai?: 0
      kyoroku_1: 0
      kyoroku_2: 0
+     youjin: 0

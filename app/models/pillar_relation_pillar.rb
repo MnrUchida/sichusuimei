@@ -2,6 +2,25 @@ class PillarRelationPillar < ActiveRecord::Base
   attr_accessible :pillar_relation_id ,:base_pillar ,:target_pillar ,:target2_pillar
   belongs_to :pillar_relation
 
+  def initialize(attributes = {}, options = {})
+    super(attributes, options)
+    @pillars ||= Hash.new
+  end
+
+  def self.instance
+    @instance ||= self.new
+  end
+
+  def by_pillar(type)
+    @pillars[type] = PillarRelationPillar.where(:base_pillar => type).group(:pillar_relation_id) unless @pillars.key?(type)
+    @pillars[type]
+  end
+
+  def pillar_relation
+    @pillar_relation ||= PillarRelation.where(:id => self.pillar_relation_id).first
+    @pillar_relation
+  end
+
   def self.by_group
     pillar_group = self.init_groups
     self.group.each do |base_pillar, group|
