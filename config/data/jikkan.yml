@@ -80,6 +80,12 @@ ANGLE:
    - -ANGLE_SHI * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)
    - ANGLE_HALF_SHI * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)
 
+ ryuka:
+  name: 流霞
+  method:
+   - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) - self.inyou * ANGLE_HALF_SHI) % 300 + 60
+   - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) + self.inyou * ANGLE_HALF_SHI) % 300 + 60
+
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
@@ -161,6 +167,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 0
+     ryuka: 0
 
  kinoto:
    member:
@@ -194,6 +201,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 1
+     ryuka: 0
 
  hinoe:
    member:
@@ -227,6 +235,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 0
+     ryuka: 0
 
  hinoto:
    member:
@@ -260,6 +269,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 1
+     ryuka: 0
 
  tsuchinoe:
    member:
@@ -295,6 +305,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 0
+     ryuka: 0
 
  tsuchinoto:
    member:
@@ -330,6 +341,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 1
+     ryuka: 0
 
  kanoe:
    member:
@@ -363,6 +375,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 0
+     ryuka: 1
 
  kanoto:
    member:
@@ -396,6 +409,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 1
+     ryuka: 1
 
  mizunoe:
    member:
@@ -429,6 +443,7 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 0
+     ryuka: 0
 
  mizunoto:
    member:
@@ -462,3 +477,4 @@ JIKKAN:
      youjin: 0
      hijin: 0
      kouen: 1
+     ryuka: 0
