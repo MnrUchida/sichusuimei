@@ -4,7 +4,7 @@ module BaseData
   end
 
   def by_key(find_key)
-    find_by(@data){|datum|datum.key == find_key}
+    @data[find_key]
   end
 
   def find_by(data)

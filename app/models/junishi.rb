@@ -5,15 +5,12 @@ class Junishi
 
   attr_reader :key, :relation, :id, :code, :name, :angle
 
-  def initialize(key, data, angle_relation, method_relation)
+  def initialize(key, data)
     @key = key
-    @relation = data["relation"]
     @code = data["member"]["code"]
     @id = @code.to_i + 1
     @name = data["member"]["name"]
     @angle = data["member"]["angle"]
-    def_angle_relation(angle_relation)
-    def_method_relation(method_relation)
   end
 
   def self.by_key(key)
@@ -61,19 +58,7 @@ class Junishi
     end
   end
 
-  def def_angle_relation(angle_relation)
-    angle_relation.each do |method_name, relation|
-      self.instance_eval angle_relation_string(relation, method_name)
-    end
-  end
-
-  def def_method_relation(method_relation)
-    method_relation.each do |method_name, relation|
-      self.instance_eval method_relation_string(relation, method_name)
-    end
-  end
-
-  protected
+  private
 
   def doou?(day)
     return false unless (self.angle - ANGLE_HALF_SHI) % ANGLE_RIGHT == 0
@@ -81,43 +66,4 @@ class Junishi
     zoukan(day).gogyo_key == 'tsuchi'
   end
 
-  def method_relation_string(method_relation, method_name)
-    <<-EOS
-        def #{method_name.to_s}(target = nil)
-          #{method_relation_no_method_string(method_relation, method_name)}
-        end
-    EOS
-  end
-
-  def method_relation_no_method_string(method_relation, method_name)
-    if relation.key?(method_name.to_s)
-      <<-EOS
-        #{method_relation["method"][relation[method_name.to_s]]}
-      EOS
-    end
-  end
-
-  def angle_relation_string(angle_relation, method_name)
-    <<-EOS
-      def #{method_name.to_s}_angle
-        #{angle_relation_angle_string(angle_relation, method_name)}
-      end
-
-      def #{method_name.to_s}
-        Junishi.by_angle(#{method_name.to_s}_angle)
-      end
-
-      def #{method_name.to_s}?(relate_junishi)
-        relate_junishi.angle == #{method_name.to_s}_angle
-      end
-    EOS
-  end
-
-  def angle_relation_angle_string(angle_relation, method_name)
-    if relation.key?(method_name.to_s)
-      <<-EOS
-        (#{angle_relation["method"][relation[method_name.to_s]]}) % ANGLE_CIRCLE
-      EOS
-    end
-  end
 end

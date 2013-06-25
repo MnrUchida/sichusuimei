@@ -1,8 +1,10 @@
 require 'yaml'
 require 'base_data'
+require 'relation_define'
 
 class JikkanData
   include BaseData
+  include RelationDefine
 
   @yaml_data = Hash.new
 
@@ -13,9 +15,12 @@ class JikkanData
   def initialize
     @yaml_data = YAML.load_file('config/data/jikkan.yml')
     @data = @yaml_data["JIKKAN"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Jikkan.new(key, data, @yaml_data[:ANGLE.to_s], @yaml_data[:METHOD.to_s])
+      ret_data[key] = Jikkan.new(key, data)
       ret_data
     end
+
+    def_method_relation_new(@yaml_data[:ANGLE.to_s]){|define, name| angle_relation_string_new(define, name)}
+    def_method_relation_new(@yaml_data[:METHOD.to_s]){|define, name| method_relation_string_new(define, name)}
   end
 
   def by_id(id)
@@ -29,4 +34,9 @@ class JikkanData
   def by_inyou_and_gogyo(inyou, gogyo_key)
     find_by(by_inyou(inyou)){|datum|datum.gogyo_key == gogyo_key}
   end
+
+  def angle_relation_angle_string(angle_relation)
+    "revise_angle(#{angle_relation})"
+  end
+
 end

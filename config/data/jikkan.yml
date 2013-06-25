@@ -2,155 +2,237 @@ ANGLE:
  tenotsu_kijin_1:
   name: 天乙貴人
   method:
-   - ANGLE_SHI
-   - self.gogyo.angle + ANGLE_HALF_CIRCLE
-   - self.gogyo.angle + ANGLE_RIGHT
+   -
+     define: ANGLE_SHI
+     target:
+      - kinoe
+      - tsuchinoe
+      - kanoe
+   -
+     define: self.gogyo.angle + ANGLE_HALF_CIRCLE
+     target:
+      - kinoto
+      - hinoe
+      - hinoto
+      - kanoto
+      - mizunoe
+      - mizunoto
+   -
+     define: self.gogyo.angle + ANGLE_RIGHT
+     target:
+      - tsuchinoto
 
  tenotsu_kijin_2:
   name: 天乙貴人
-  method:
-   - -(original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT)
+  default_method: -(original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT)
 
  tenkan_kijin:
   name: 天官貴人
   method:
-   - 210 * gogyo.pos_x ** 2 - 60 * gogyo.pos_x + 45 * inyou + 15
-   - 150 * gogyo.pos_y ** 2 + 45 * gogyo.pos_y - 60 * inyou + 15
-   - -75 * inyou + 15
+   - define: 210 * gogyo.pos_x ** 2 - 60 * gogyo.pos_x + 45 * inyou + 15
+     target:
+      - kinoe
+      - kinoto
+      - kanoe
+      - kanoto
+   - define: 150 * gogyo.pos_y ** 2 + 45 * gogyo.pos_y - 60 * inyou + 15
+     target:
+      - hinoe
+      - hinoto
+      - mizunoe
+      - mizunoto
+   - define: -75 * inyou + 15
+     target:
+      - tsuchinoe
+      - tsuchinoto
 
  tenhuku_kijin:
   name: 天福貴人
+  default_method: ((2 - self.code) % Jikkan::JIKKAN_COUNT) * ANGLE_SHI
   method:
-   - ((2 - self.code) % Jikkan::JIKKAN_COUNT) * ANGLE_SHI
-   - ANGLE_SHI
+   - define: ANGLE_SHI
+     target:
+      - mizunoto
 
  anroku:
   name: 暗禄
-  method:
-   - original_angle(-self.kanroku_angle)
+  default_method: original_angle(-self.kanroku_angle)
 
  kanroku:
   name: 干禄
-  method:
-   - original_angle(Houn.by_key('kenroku').construct_junishi_with(self).angle)
+  default_method: original_angle(Houn.by_key('kenroku').construct_junishi_with(self).angle)
 
  fukigakudo:
   name: 富貴学童
-  method:
-   - (self.gogyo.angle + ANGLE_HALF_SHI - self.inyou * (ANGLE_RIGHT + ANGLE_HALF_SHI))
+  default_method: (self.gogyo.angle + ANGLE_HALF_SHI - self.inyou * (ANGLE_RIGHT + ANGLE_HALF_SHI))
 
  tenchukijin:
   name: 天厨貴人
-  method:
-   - original_angle(Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle)
+  default_method: original_angle(Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle)
 
  kinyoroku:
   name: 金輿禄
-  method:
-   - original_angle(self.kanroku_angle + ANGLE_DOUBLE_SHI)
+  default_method: original_angle(self.kanroku_angle + ANGLE_DOUBLE_SHI)
 
  gakushi:
   name: 学士
-  method:
-   - original_angle(Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle)
+  default_method: original_angle(Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle)
 
  kyoroku_1:
   name: 夾禄
-  method:
-   - original_angle(self.kanroku_angle - ANGLE_SHI)
+  default_method: original_angle(self.kanroku_angle - ANGLE_SHI)
 
  kyoroku_2:
   name: 夾禄
-  method:
-   - original_angle(self.kanroku_angle + ANGLE_SHI)
+  default_method: original_angle(self.kanroku_angle + ANGLE_SHI)
 
  youjin:
   name: 羊刃
-  method:
-   - original_angle(self.kanroku_angle + ANGLE_SHI)
+  default_method: original_angle(self.kanroku_angle + ANGLE_SHI)
 
  hijin:
   name: 飛刃
-  method:
-   - original_angle(self.youjin.chu_angle)
+  default_method: original_angle(self.youjin.chu_angle)
 
  kouen:
   name: 紅艶
   method:
-   - -ANGLE_SHI * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)
-   - ANGLE_HALF_SHI * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)
+   - define: -ANGLE_SHI * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)
+     target:
+      - kinoe
+      - kanoe
+      - tsuchinoe
+      - hinoe
+      - mizunoe
+   - define: ANGLE_HALF_SHI * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)
+     target:
+      - kinoto
+      - kanoto
+      - tsuchinoto
+      - hinoto
+      - mizunoto
 
  ryuka:
   name: 流霞
+  default_method: (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) - self.inyou * ANGLE_HALF_SHI) % 300 + 60
   method:
-   - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) - self.inyou * ANGLE_HALF_SHI) % 300 + 60
-   - (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) + self.inyou * ANGLE_HALF_SHI) % 300 + 60
+   - define: (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) + self.inyou * ANGLE_HALF_SHI) % 300 + 60
+     target:
+      - kanoe
+      - kanoto
 
  fukusei_kijin:
   name: 福星貴人
   method:
-   - (((5 - self.gogyo.code) % 5) % 4) * ANGLE_DOUBLE_SHI + ANGLE_DOUBLE_SHI
-   - ANGLE_SHI
-   - ((5 - self.gogyo.code) % 5) * ANGLE_DOUBLE_SHI + ANGLE_SHI
+   - define: (((5 - self.gogyo.code) % 5) % 4) * ANGLE_DOUBLE_SHI + ANGLE_DOUBLE_SHI
+     target:
+      - kinoe
+      - hinoe
+      - tsuchinoe
+      - kanoe
+      - mizunoe
+   - define: ANGLE_SHI
+     target:
+      - kinoto
+      - mizunoto
+   - define: ((5 - self.gogyo.code) % 5) * ANGLE_DOUBLE_SHI + ANGLE_SHI
+     target:
+      - hinoto
+      - tsuchinoto
+      - kanoto
 
  bunsei_kijin:
   name: 文星貴人
-  method:
-   - original_angle(self.kanroku_angle + ANGLE_RIGHT)
+  default_method: original_angle(self.kanroku_angle + ANGLE_RIGHT)
 
  setsudojin:
   name: 節度人
   method:
-   - ANGLE_HALF_CIRCLE - self.inyou * ANGLE_SHI
-   - -self.inyou * ANGLE_SHI
+   - define: ANGLE_HALF_CIRCLE - self.inyou * ANGLE_SHI
+     target:
+      - kinoe
+      - kinoto
+      - hinoe
+      - hinoto
+      - tsuchinoe
+      - tsuchinoto
+   - define: -self.inyou * ANGLE_SHI
+     target:
+      - kanoe
+      - kanoto
+      - mizunoe
+      - mizunoto
 
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
+  default_method: Junishi.by_angle(revise_angle((-ANGLE_SHI * gogyo.pos_x + ANGLE_DOUBLE_SHI * gogyo.pos_y + ANGLE_SHI) % ANGLE_HALF_CIRCLE))
   method:
-   - Junishi.by_angle(revise_angle((-ANGLE_SHI * gogyo.pos_x + ANGLE_DOUBLE_SHI * gogyo.pos_y + ANGLE_SHI) % ANGLE_HALF_CIRCLE))
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT + ANGLE_SHI))
+   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT + ANGLE_SHI))
+     target:
+      - tsuchinoe
+      - tsuchinoto
+
  taikyoku_kijin_2:
   name: 大極貴人
+  default_method: Junishi.by_angle(revise_angle(-2.5 * ANGLE_SHI * gogyo.pos_x + ANGLE_HALF_SHI * gogyo.pos_y + ANGLE_SHI * 8.5))
   method:
-   - Junishi.by_angle(revise_angle(-2.5 * ANGLE_SHI * gogyo.pos_x + ANGLE_HALF_SHI * gogyo.pos_y + ANGLE_SHI * 8.5))
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 2 + ANGLE_SHI))
+   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 2 + ANGLE_SHI))
+     target:
+      - tsuchinoe
+      - tsuchinoto
+
  taikyoku_kijin_3:
   name: 大極貴人
   method:
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 3 + ANGLE_SHI))
+   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 3 + ANGLE_SHI))
+     target:
+      - tsuchinoe
+      - tsuchinoto
+  default_method: nil
+
  taikyoku_kijin_4:
   name: 大極貴人
   method:
-   - Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4 + ANGLE_SHI))
+   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4 + ANGLE_SHI))
+     target:
+      - tsuchinoe
+      - tsuchinoto
+  default_method: nil
 
  taikyoku_kijin_1?:
   name: 大極貴人
-  method:
-   - target == self.taikyoku_kijin_1
+  default_method: target == self.taikyoku_kijin_1
+
  taikyoku_kijin_2?:
   name: 大極貴人
-  method:
-   - target == self.taikyoku_kijin_2
+  default_method: target == self.taikyoku_kijin_2
+
  taikyoku_kijin_3?:
   name: 大極貴人
   method:
-   - target == self.taikyoku_kijin_3
-   - true
+   - define: target == self.taikyoku_kijin_3
+     target:
+      - tsuchinoe
+      - tsuchinoto
+  default_method: true
+
  taikyoku_kijin_4?:
   name: 大極貴人
   method:
-   - target == self.taikyoku_kijin_4
-   - true
+   - define: target == self.taikyoku_kijin_4
+     target:
+      - tsuchinoe
+      - tsuchinoto
+  default_method: true
 
  tenzai:
   name: 天財
-  method:
-   - Hentsusei.by_key('henzai').construct_other_with(self)
+  default_method: Hentsusei.by_key('henzai').construct_other_with(self)
+
  tenzai?:
   name: 天財
-  method:
-   - target == self.tenzai
+  default_method: target == self.tenzai
 
 JIKKAN:
  kinoe:
@@ -161,34 +243,6 @@ JIKKAN:
      name: 甲
      point: 1
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 0
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 0
-     ryuka: 0
-     fukusei_kijin: 0
-     bunsei_kijin: 0
-     setsudojin: 0
 
  kinoto:
    member:
@@ -198,34 +252,6 @@ JIKKAN:
      name: 乙
      point: 0.5
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 0
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 1
-     ryuka: 0
-     fukusei_kijin: 1
-     bunsei_kijin: 0
-     setsudojin: 0
 
  hinoe:
    member:
@@ -235,34 +261,6 @@ JIKKAN:
      name: 丙
      point: 1
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 1
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 0
-     ryuka: 0
-     fukusei_kijin: 0
-     bunsei_kijin: 0
-     setsudojin: 0
 
  hinoto:
    member:
@@ -272,34 +270,6 @@ JIKKAN:
      name: 丁
      point: 0.5
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 1
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 1
-     ryuka: 0
-     fukusei_kijin: 2
-     bunsei_kijin: 0
-     setsudojin: 0
 
  tsuchinoe:
    member:
@@ -309,36 +279,6 @@ JIKKAN:
      name: 戊
      point: 1
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 1
-     taikyoku_kijin_2: 1
-     taikyoku_kijin_3: 0
-     taikyoku_kijin_4: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 0
-     taikyoku_kijin_4?: 0
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 2
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 0
-     ryuka: 0
-     fukusei_kijin: 0
-     bunsei_kijin: 0
-     setsudojin: 0
 
  tsuchinoto:
    member:
@@ -348,36 +288,6 @@ JIKKAN:
      name: 己
      point: 0.5
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 1
-     taikyoku_kijin_2: 1
-     taikyoku_kijin_3: 0
-     taikyoku_kijin_4: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 0
-     taikyoku_kijin_4?: 0
-     tenotsu_kijin_1: 2
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 2
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 1
-     ryuka: 0
-     fukusei_kijin: 2
-     bunsei_kijin: 0
-     setsudojin: 0
 
  kanoe:
    member:
@@ -387,34 +297,6 @@ JIKKAN:
      name: 庚
      point: 1
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 0
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 0
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 0
-     ryuka: 1
-     fukusei_kijin: 0
-     bunsei_kijin: 0
-     setsudojin: 1
 
  kanoto:
    member:
@@ -424,34 +306,6 @@ JIKKAN:
      name: 辛
      point: 0.5
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 0
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 1
-     ryuka: 1
-     fukusei_kijin: 2
-     bunsei_kijin: 0
-     setsudojin: 1
 
  mizunoe:
    member:
@@ -461,34 +315,6 @@ JIKKAN:
      name: 壬
      point: 1
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 1
-     tenhuku_kijin: 0
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 0
-     ryuka: 0
-     fukusei_kijin: 0
-     bunsei_kijin: 0
-     setsudojin: 1
 
  mizunoto:
    member:
@@ -498,31 +324,3 @@ JIKKAN:
      name: 癸
      point: 0.5
      point_day: 1
-   relation:
-     taikyoku_kijin_1: 0
-     taikyoku_kijin_2: 0
-     taikyoku_kijin_1?: 0
-     taikyoku_kijin_2?: 0
-     taikyoku_kijin_3?: 1
-     taikyoku_kijin_4?: 1
-     tenotsu_kijin_1: 1
-     tenotsu_kijin_2: 0
-     tenkan_kijin: 1
-     tenhuku_kijin: 1
-     anroku: 0
-     kanroku: 0
-     fukigakudo: 0
-     tenchukijin: 0
-     kinyoroku: 0
-     gakushi: 0
-     tenzai: 0
-     tenzai?: 0
-     kyoroku_1: 0
-     kyoroku_2: 0
-     youjin: 0
-     hijin: 0
-     kouen: 1
-     ryuka: 0
-     fukusei_kijin: 1
-     bunsei_kijin: 0
-     setsudojin: 1
