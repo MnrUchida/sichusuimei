@@ -1,0 +1,234 @@
+METHOD:
+  kei?:
+    method: self.chishi.kei?(target_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        YearPillar: null
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        YearPillar: null
+        MonthPillar: null
+        TimePillar: null
+      TimePillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+
+  chu?:
+    method: self.chishi.chu?(target_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        TimePillar: null
+  ha?:
+    method: self.chishi.ha?(target_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        TimePillar: null
+
+  gai?:
+    method: self.chishi.gai?(target_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        TimePillar: null
+
+  shigou?:
+    method: self.chishi.gou?(target_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        TimePillar: null
+  kangou?:
+    method: self.tenkan.gou?(target_pillar.tenkan)
+    relation:
+      YearPillar:
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+      MonthPillar:
+        DayPillar: null
+        TimePillar: null
+      DayPillar:
+        TimePillar: null
+
+  sangou_part?:
+    method: self.chishi.sangou?(target_pillar.chishi) && target_pillar.chishi.sangou?(target2_pillar.chishi)
+    relation:
+      YearPillar:
+        MonthPillar:
+          DayPillar: null
+          TimePillar: null
+        DayPillar:
+          TimePillar: null
+      MonthPillar:
+        DayPillar:
+          TimePillar: null
+  sangou?:
+    method: self.sangou_part?(:target_pillar => target_pillar, :target2_pillar => target2_pillar) || self.sangou_part?(:target_pillar => target2_pillar, :target2_pillar => target_pillar)
+    relation:
+      YearPillar:
+        MonthPillar:
+          DayPillar: null
+          TimePillar: null
+        DayPillar:
+          TimePillar: null
+      MonthPillar:
+        DayPillar:
+          TimePillar: null
+
+  tentoku_kijin?:
+    method: self.chishi.tentoku_kijin?(target_pillar)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  tentoku_kijin:
+    method: self.chishi.tentoku_kijin
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  tentoku_gou?:
+    method: self.chishi.tentoku_gou?(target_pillar)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  tentoku_gou:
+    method: self.chishi.tentoku_gou
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  gettoku_kijin?:
+    method: self.chishi.gettoku_kijin?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  gettoku_kijin:
+    method: self.chishi.gettoku_kijin
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  gettoku_gou?:
+    method: self.chishi.gettoku_gou?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  gettoku_gou:
+    method: self.chishi.gettoku_gou
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kagai?:
+    method: self.chishi.kagai?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+  tenmou?:
+    method: self.chishi.tenmou?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+  chimou?:
+    method: self.chishi.chimou?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+  byakui?:
+    method: self.chishi.byakui?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+  kessi?:
+    method: self.chishi.kessi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+  dankyo?:
+    method: self.chishi.dankyo?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+  gekku?:
+    method: self.chishi.gekku?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        MonthPillar: null
+        DayPillar: null
+  ekiba?:
+    method: self.chishi.ekiba?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+  seiseiba?:
+    method: self.chishi.seiseiba?(target_pillar)
+    relation:
+      MonthPillar:
+        DayPillar: null
+  momon?:
+    method: self.chishi.momon?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        DayPillar: null

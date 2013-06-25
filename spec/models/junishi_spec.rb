@@ -2,14 +2,8 @@
 
 require 'spec_helper'
 require 'relation_spec_helper'
-require 'seeds_from_csv'
-include SeedsFromCsv
 
 describe Junishi, "十二支のテスト" do
-  before do
-    read_all_seeds()
-  end
-
   subject{Junishi.by_key(key)}
 
   describe Junishi, "蔵干取得" do

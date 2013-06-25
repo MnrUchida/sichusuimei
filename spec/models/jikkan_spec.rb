@@ -2,14 +2,8 @@
 
 require 'spec_helper'
 require 'relation_spec_helper'
-require 'seeds_from_csv'
-include SeedsFromCsv
 
 describe Jikkan, "変通星取得" do
-
-  before do
-    read_all_seeds()
-  end
 
   describe "甲" do
 
@@ -189,10 +183,6 @@ end
 
 describe Jikkan, "補運取得" do
 
- before do
-   read_all_seeds()
- end
-
  describe "甲" do
 
   subject{Jikkan.find_by_code(0)}
@@ -253,10 +243,6 @@ describe Jikkan, "補運取得" do
 end
 
 describe Jikkan, "干合" do
-  before do
-    read_all_seeds()
-  end
-
   describe "甲" do
     subject{Jikkan.find_by_code(0)}
     it "己" do

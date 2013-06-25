@@ -86,6 +86,7 @@ class Meishiki < ActiveRecord::Base
   def pillar(pillar_name)
     meishiki_plr.where(:type => pillar_name).first
   end
+
   protected
 
   def update_birth_day_by_meikyu

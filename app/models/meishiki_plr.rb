@@ -1,9 +1,7 @@
 class MeishikiPlr < ActiveRecord::Base
   before_create :set_initial_value
-  after_initialize :def_relation
 
   attr_accessible :chishi_id, :meishiki_id, :tenkan_id, :type, :zoukan_id
-  
   belongs_to :meishiki, :foreign_key => "meishiki_id", class_name: 'Meishiki'
 
   def tenkan
@@ -92,18 +90,5 @@ class MeishikiPlr < ActiveRecord::Base
 
   def kubou_first
     self.chishi + (Jikkan::JIKKAN_COUNT - self.tenkan.code)
-  end
-
-  def def_relation
-    PillarRelationPillar.instance.by_pillar(self.type).each {|pillar|
-      self.instance_eval <<-EOS
-        def #{pillar.pillar_relation.name}(pillar)
-          target_pillar = pillar[:target_pillar]
-          target2_pillar = pillar[:target2_pillar]
-
-          #{pillar.pillar_relation.method_define}
-        end
-      EOS
-    }
   end
 end

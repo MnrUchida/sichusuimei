@@ -11,49 +11,57 @@ module MeishikisHelper
   end
 
   def display_two_pillar_relation(meishiki, method_name)
-    PillarRelation.where(:name => method_name).inject("") do |ret_data, pillar_relation|
-      pillar_relation.pillar_relation_pillars.each do |pillar|
-        ret_data += content_of_pillar_relation(pillar) if result_of_pillar_relation(meishiki, method_name, pillar)
-      end
+
+    PillarRelationData.instance.pillars_by_relation_name(method_name).inject("") do |ret_data, pillars|
+      ret_data += content_of_pillar_relation(pillars) if result_of_pillar_relation(meishiki, method_name, pillars)
       ret_data
     end
   end
 
   def display_month_pillar_relation(meishiki, method_name, display_string)
-    PillarRelation.where(:name => method_name).inject("") do |ret_data, pillar_relation|
-      pillar_relation.pillar_relation_pillars.each do |pillar|
-        ret_data += content_of_target_pillar_relation(pillar, display_string) if result_of_pillar_relation(meishiki, method_name, pillar)
-      end
+    PillarRelationData.instance.pillars_by_relation_name(method_name).inject("") do |ret_data, pillars|
+      ret_data += content_of_target_pillar_relation(pillars, display_string) if result_of_pillar_relation(meishiki, method_name, pillars)
       ret_data
     end
   end
 
   private
   def content_of_target_pillar_relation(pillar, display_string)
-    "<tr><td>" + display_string + content_of_target_pillar(pillar.target_pillar) +
-        content_of_target_pillar(pillar.target2_pillar) +
-        "</td></tr>"
+    "<tr><td>#{display_string}#{content_of_pillars(pillar[:target])}</td></tr>"
   end
 
   def content_of_pillar_relation(pillar)
-    "<tr><td>" + translate_meishiki_attribute(pillar.base_pillar) +
-        content_of_target_pillar(pillar.target_pillar) +
-        content_of_target_pillar(pillar.target2_pillar) +
-        "</td></tr>"
+    "<tr><td>#{translate_meishiki_attribute(pillar[:base_pillar])}#{content_of_pillars(pillar[:target])}</td></tr>"
   end
 
   def content_of_target_pillar(target_pillar)
-    return "" if target_pillar.nil?
-    "-" + translate_meishiki_attribute(target_pillar)
+    return '' if target_pillar.nil?
+    '-' + translate_meishiki_attribute(target_pillar)
   end
 
   def result_of_pillar_relation(meishiki, method_name, pillar)
-    meishiki.pillar(pillar.base_pillar).send(method_name.to_sym,
-                                             :target_pillar => meishiki.pillar(pillar.target_pillar),
-                                             :target2_pillar => meishiki.pillar(pillar.target2_pillar))
+    puts method_name + " " + pillars_hash(meishiki, pillar[:target]).inspect
+    meishiki.pillar(pillar[:base_pillar]).send(method_name.to_sym,
+                                               pillars_hash(meishiki, pillar[:target]))
   end
 
   def translate_meishiki_attribute(attribute)
     I18n.t("activerecord.attributes.meishiki." + attribute)
+  end
+
+  private
+  def content_of_pillars(pillars)
+    pillars.inject('') do |content, target|
+      content + content_of_target_pillar(target)
+    end
+  end
+
+  def pillars_hash(meishiki, pillars)
+    ret_data = Hash.new
+    pillars.each_with_index do |target, index|
+      target_index = index + 1 if index > 0
+      ret_data["target#{target_index}_pillar".to_sym] = meishiki.pillar(target)
+    end
+    ret_data
   end
 end

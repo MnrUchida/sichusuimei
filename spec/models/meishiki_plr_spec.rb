@@ -1,15 +1,12 @@
 # coding : utf-8
 
 require 'spec_helper'
-require 'seeds_from_csv'
-include SeedsFromCsv
 
 describe MeishikiPlr, "四柱" do
  let(:current_day){Time.new(1982,03,29,15,00,00)}
  let(:meishiki){Meishiki.create(:birthday=>current_day)}
  
  before do
-   read_all_seeds()
    Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
  end
 
