@@ -2,6 +2,10 @@ class YearPillar < MeishikiPlr
 
   PillarRelationData.instance.def_relation('YearPillar')
 
+  def pos
+    0
+  end
+
   def new_chishi
     (year % Junishi::SHI_COUNT) + 1
   end

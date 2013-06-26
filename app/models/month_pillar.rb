@@ -3,6 +3,10 @@ class MonthPillar < MeishikiPlr
 
   PillarRelationData.instance.def_relation('MonthPillar')
 
+  def pos
+    1
+  end
+
   protected
   def new_chishi
     (month_for_chishi % Junishi::SHI_COUNT) + 1

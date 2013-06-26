@@ -2,6 +2,10 @@ class DayPillar < MeishikiPlr
 
   PillarRelationData.instance.def_relation('DayPillar')
 
+  def pos
+    2
+  end
+
   def new_chishi
     (day_for_chishi % Junishi::SHI_COUNT) + 1
   end

@@ -8,6 +8,10 @@ class MeishikiPlr < ActiveRecord::Base
     Jikkan.by_id(self.tenkan_id)
   end
 
+  def chishi
+    Junishi.find_by_id(self.chishi_id)
+  end
+
   def zoukan
     Jikkan.by_id(self.zoukan_id)
   end
@@ -19,6 +23,10 @@ class MeishikiPlr < ActiveRecord::Base
 
   def tentoku?(target)
     self.meishiki.tentoku?(target)
+  end
+
+  def kubou
+    return self.kubou_first, self.kubou_first + 1
   end
 
   def kubou?()
@@ -45,14 +53,6 @@ class MeishikiPlr < ActiveRecord::Base
     self.tenkan_id = self.new_tenkan
     self.chishi_id = self.new_chishi
     self.zoukan_id = self.new_zoukan.id
-  end
-
-  def kubou
-    return self.kubou_first, self.kubou_first + 1
-  end
-
-  def chishi
-    Junishi.find_by_id(self.chishi_id)
   end
 
   protected

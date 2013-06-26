@@ -1,6 +1,10 @@
 class TimePillar < MeishikiPlr
   PillarRelationData.instance.def_relation('TimePillar')
 
+  def pos
+    3
+  end
+
   protected
   def new_chishi
     ((time_for_chishi / 2) % Junishi::SHI_COUNT) + 1

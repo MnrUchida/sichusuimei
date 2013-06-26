@@ -243,107 +243,43 @@ describe Jikkan, "補運取得" do
 end
 
 describe Jikkan, "干合" do
-  describe "甲" do
-    subject{Jikkan.find_by_code(0)}
-    it "己" do
-      jikkan = Jikkan.find_by_code(5)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "己"
-    end
+  shared_examples_for :kangou_check do |params|
+    subject{Jikkan.by_key(key).gou?(relation)}
+    it_behaves_like :relation_check_for_jikkan, params
   end
 
-  describe "乙" do
-    subject{Jikkan.find_by_code(1)}
-    it "庚" do
-      jikkan = Jikkan.find_by_code(6)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "庚"
-    end
+  shared_examples_for :kangou_get do |params|
+    subject{Jikkan.by_key(key).gou}
+    it_behaves_like :relation_get_for_jikkan, params
   end
 
-  describe "丙" do
-    subject{Jikkan.find_by_code(2)}
-    it "辛" do
-      jikkan = Jikkan.find_by_code(7)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "辛"
-    end
-  end
+  test_patterns = [{:key => 'kinoe', :relation_value => 'tsuchinoto', :expected_value => true},
+                   {:key => 'kinoto', :relation_value => 'kanoe', :expected_value => true},
+                   {:key => 'hinoe', :relation_value => 'kanoto', :expected_value => true},
+                   {:key => 'hinoto', :relation_value => 'mizunoe', :expected_value => true},
+                   {:key => 'tsuchinoe', :relation_value => 'mizunoto', :expected_value => true},
+                   {:key => 'tsuchinoto', :relation_value => 'kinoe', :expected_value => true},
+                   {:key => 'kanoe', :relation_value => 'kinoto', :expected_value => true},
+                   {:key => 'kanoto', :relation_value => 'hinoe', :expected_value => true},
+                   {:key => 'mizunoe', :relation_value => 'hinoto', :expected_value => true},
+                   {:key => 'mizunoto', :relation_value => 'tsuchinoe', :expected_value => true}]
 
-  describe "丁" do
-    subject{Jikkan.find_by_code(3)}
-    it "壬" do
-      jikkan = Jikkan.find_by_code(8)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "壬"
-    end
-  end
-
-  describe "戊" do
-    subject{Jikkan.find_by_code(4)}
-    it "癸" do
-      jikkan = Jikkan.find_by_code(9)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "癸"
-    end
-  end
-
-  describe "己" do
-    subject{Jikkan.find_by_code(5)}
-    it "甲" do
-      jikkan = Jikkan.find_by_code(0)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "甲"
-    end
-  end
-
-  describe "庚" do
-    subject{Jikkan.find_by_code(6)}
-    it "乙" do
-      jikkan = Jikkan.find_by_code(1)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "乙"
-    end
-  end
-
-  describe "辛" do
-    subject{Jikkan.find_by_code(7)}
-    it "丙" do
-      jikkan = Jikkan.find_by_code(2)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "丙"
-    end
-  end
-
-  describe "壬" do
-    subject{Jikkan.find_by_code(8)}
-    it "丁" do
-      jikkan = Jikkan.find_by_code(3)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "丁"
-    end
-  end
-
-  describe "癸" do
-    subject{Jikkan.find_by_code(9)}
-    it "戊" do
-      jikkan = Jikkan.find_by_code(4)
-      subject.gou?(jikkan).should == true
-      subject.gou.name.should == "戊"
-    end
+  test_patterns.each do |pattern|
+    it_behaves_like :kangou_check, pattern
+    it_behaves_like :kangou_get, pattern
   end
 end
 
 describe Jikkan, "大極貴人" do
   describe "一つ目" do
-    shared_examples_for :taikyoku_kijin_1_check_validation do |params|
+    shared_examples_for :taikyoku_kijin_1_check do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_1?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :taikyoku_kijin_1_get_validation do |params|
+    shared_examples_for :taikyoku_kijin_1_get do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_1}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'ne', :expected_value => true},
@@ -358,20 +294,20 @@ describe Jikkan, "大極貴人" do
                      {:key => 'mizunoto', :relation_value => 'mi', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :taikyoku_kijin_1_check_validation, pattern
-      it_behaves_like :taikyoku_kijin_1_get_validation, pattern
+      it_behaves_like :taikyoku_kijin_1_check, pattern
+      it_behaves_like :taikyoku_kijin_1_get, pattern
     end
   end
 
   describe "二つ目" do
-    shared_examples_for :taikyoku_kijin_2_check_validation do |params|
+    shared_examples_for :taikyoku_kijin_2_check do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_2?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :taikyoku_kijin_2_get_validation do |params|
+    shared_examples_for :taikyoku_kijin_2_get do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_2}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'uma', :expected_value => true},
@@ -386,20 +322,20 @@ describe Jikkan, "大極貴人" do
                      {:key => 'mizunoto', :relation_value => 'saru', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :taikyoku_kijin_2_check_validation, pattern
-      it_behaves_like :taikyoku_kijin_2_get_validation, pattern
+      it_behaves_like :taikyoku_kijin_2_check, pattern
+      it_behaves_like :taikyoku_kijin_2_get, pattern
     end
   end
 
   describe "三つ目" do
-    shared_examples_for :taikyoku_kijin_3_check_validation do |params|
+    shared_examples_for :taikyoku_kijin_3_check do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_3?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :taikyoku_kijin_3_get_validation do |params|
+    shared_examples_for :taikyoku_kijin_3_get do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_3}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => nil, :expected_value => true},
@@ -414,20 +350,20 @@ describe Jikkan, "大極貴人" do
                      {:key => 'mizunoto', :relation_value => nil, :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :taikyoku_kijin_3_check_validation, pattern
-      it_behaves_like :taikyoku_kijin_3_get_validation, pattern
+      it_behaves_like :taikyoku_kijin_3_check, pattern
+      it_behaves_like :taikyoku_kijin_3_get, pattern
     end
   end
 
   describe "四つ目" do
-    shared_examples_for :taikyoku_kijin_4_check_validation do |params|
+    shared_examples_for :taikyoku_kijin_4_check do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_4?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :taikyoku_kijin_4_get_validation do |params|
+    shared_examples_for :taikyoku_kijin_4_get do |params|
       subject{Jikkan.by_key(key).taikyoku_kijin_4}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => nil, :expected_value => true},
@@ -442,8 +378,8 @@ describe Jikkan, "大極貴人" do
                      {:key => 'mizunoto', :relation_value => nil, :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :taikyoku_kijin_4_check_validation, pattern
-      it_behaves_like :taikyoku_kijin_4_get_validation, pattern
+      it_behaves_like :taikyoku_kijin_4_check, pattern
+      it_behaves_like :taikyoku_kijin_4_get, pattern
     end
   end
 
@@ -451,14 +387,14 @@ end
 
 describe Jikkan, "天乙貴人" do
   describe "一つ目" do
-    shared_examples_for :tenotsu_kijin_1_check_validation do |params|
+    shared_examples_for :tenotsu_kijin_1_check do |params|
       subject{Jikkan.by_key(key).tenotsu_kijin_1?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :tenotsu_kijin_1_get_validation do |params|
+    shared_examples_for :tenotsu_kijin_1_get do |params|
       subject{Jikkan.by_key(key).tenotsu_kijin_1}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'usi', :expected_value => true},
@@ -473,20 +409,20 @@ describe Jikkan, "天乙貴人" do
                      {:key => 'mizunoto', :relation_value => 'mi', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :tenotsu_kijin_1_check_validation, pattern
-      it_behaves_like :tenotsu_kijin_1_get_validation, pattern
+      it_behaves_like :tenotsu_kijin_1_check, pattern
+      it_behaves_like :tenotsu_kijin_1_get, pattern
     end
   end
 
   describe "二つ目" do
-    shared_examples_for :tenotsu_kijin_2_check_validation do |params|
+    shared_examples_for :tenotsu_kijin_2_check do |params|
       subject{Jikkan.by_key(key).tenotsu_kijin_2?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :tenotsu_kijin_2_get_validation do |params|
+    shared_examples_for :tenotsu_kijin_2_get do |params|
       subject{Jikkan.by_key(key).tenotsu_kijin_2}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'hitsuji', :expected_value => true},
@@ -501,21 +437,21 @@ describe Jikkan, "天乙貴人" do
                      {:key => 'mizunoto', :relation_value => 'u', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :tenotsu_kijin_2_check_validation, pattern
-      it_behaves_like :tenotsu_kijin_2_get_validation, pattern
+      it_behaves_like :tenotsu_kijin_2_check, pattern
+      it_behaves_like :tenotsu_kijin_2_get, pattern
     end
   end
 end
 
 describe Jikkan, "天官貴人" do
-  shared_examples_for :tenkan_kijin_check_validation do |params|
+  shared_examples_for :tenkan_kijin_check do |params|
     subject{Jikkan.by_key(key).tenkan_kijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :tenkan_kijin_get_validation do |params|
+  shared_examples_for :tenkan_kijin_get do |params|
     subject{Jikkan.by_key(key).tenkan_kijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'hitsuji', :expected_value => true},
@@ -530,20 +466,20 @@ describe Jikkan, "天官貴人" do
                    {:key => 'mizunoto', :relation_value => 'uma', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :tenkan_kijin_check_validation, pattern
-    it_behaves_like :tenkan_kijin_get_validation, pattern
+    it_behaves_like :tenkan_kijin_check, pattern
+    it_behaves_like :tenkan_kijin_get, pattern
   end
 end
 
 describe Jikkan, "天福貴人" do
-  shared_examples_for :tenhuku_kijin_check_validation do |params|
+  shared_examples_for :tenhuku_kijin_check do |params|
     subject{Jikkan.by_key(key).tenhuku_kijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :tenhuku_kijin_get_validation do |params|
+  shared_examples_for :tenhuku_kijin_get do |params|
     subject{Jikkan.by_key(key).tenhuku_kijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tora', :expected_value => true},
@@ -558,20 +494,20 @@ describe Jikkan, "天福貴人" do
                    {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :tenhuku_kijin_check_validation, pattern
-    it_behaves_like :tenhuku_kijin_get_validation, pattern
+    it_behaves_like :tenhuku_kijin_check, pattern
+    it_behaves_like :tenhuku_kijin_get, pattern
   end
 end
 
 describe Jikkan, "暗禄" do
-  shared_examples_for :anroku_check_validation do |params|
+  shared_examples_for :anroku_check do |params|
     subject{Jikkan.by_key(key).anroku?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :anroku_get_validation do |params|
+  shared_examples_for :anroku_get do |params|
     subject{Jikkan.by_key(key).anroku}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'i', :expected_value => true},
@@ -586,20 +522,20 @@ describe Jikkan, "暗禄" do
                    {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :anroku_check_validation, pattern
-    it_behaves_like :anroku_get_validation, pattern
+    it_behaves_like :anroku_check, pattern
+    it_behaves_like :anroku_get, pattern
   end
 end
 
 describe Jikkan, "干禄" do
-  shared_examples_for :kanroku_check_validation do |params|
+  shared_examples_for :kanroku_check do |params|
     subject{Jikkan.by_key(key).kanroku?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :kanroku_get_validation do |params|
+  shared_examples_for :kanroku_get do |params|
     subject{Jikkan.by_key(key).kanroku}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tora', :expected_value => true},
@@ -614,20 +550,20 @@ describe Jikkan, "干禄" do
                    {:key => 'mizunoto', :relation_value => 'ne', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :kanroku_check_validation, pattern
-    it_behaves_like :kanroku_get_validation, pattern
+    it_behaves_like :kanroku_check, pattern
+    it_behaves_like :kanroku_get, pattern
   end
 end
 
 describe Jikkan, "富貴学童" do
-  shared_examples_for :fukigakudo_check_validation do |params|
+  shared_examples_for :fukigakudo_check do |params|
     subject{Jikkan.by_key(key).fukigakudo?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :fukigakudo_get_validation do |params|
+  shared_examples_for :fukigakudo_get do |params|
     subject{Jikkan.by_key(key).fukigakudo}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'i', :expected_value => true},
@@ -642,20 +578,20 @@ describe Jikkan, "富貴学童" do
                    {:key => 'mizunoto', :relation_value => 'u', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :fukigakudo_check_validation, pattern
-    it_behaves_like :fukigakudo_get_validation, pattern
+    it_behaves_like :fukigakudo_check, pattern
+    it_behaves_like :fukigakudo_get, pattern
   end
 end
 
 describe Jikkan, "天厨貴人" do
-  shared_examples_for :tenchukijin_check_validation do |params|
+  shared_examples_for :tenchukijin_check do |params|
     subject{Jikkan.by_key(key).tenchukijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :tenchukijin_get_validation do |params|
+  shared_examples_for :tenchukijin_get do |params|
     subject{Jikkan.by_key(key).tenchukijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'mi', :expected_value => true},
@@ -670,20 +606,20 @@ describe Jikkan, "天厨貴人" do
                    {:key => 'mizunoto', :relation_value => 'u', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :tenchukijin_check_validation, pattern
-    it_behaves_like :tenchukijin_get_validation, pattern
+    it_behaves_like :tenchukijin_check, pattern
+    it_behaves_like :tenchukijin_get, pattern
   end
 end
 
 describe Jikkan, "金輿禄" do
-  shared_examples_for :kinyoroku_check_validation do |params|
+  shared_examples_for :kinyoroku_check do |params|
     subject{Jikkan.by_key(key).kinyoroku?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :kinyoroku_get_validation do |params|
+  shared_examples_for :kinyoroku_get do |params|
     subject{Jikkan.by_key(key).kinyoroku}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tatsu', :expected_value => true},
@@ -698,20 +634,20 @@ describe Jikkan, "金輿禄" do
                    {:key => 'mizunoto', :relation_value => 'tora', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :kinyoroku_check_validation, pattern
-    it_behaves_like :kinyoroku_get_validation, pattern
+    it_behaves_like :kinyoroku_check, pattern
+    it_behaves_like :kinyoroku_get, pattern
   end
 end
 
 describe Jikkan, "学士" do
-  shared_examples_for :gakushi_check_validation do |params|
+  shared_examples_for :gakushi_check do |params|
     subject{Jikkan.by_key(key).gakushi?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :gakushi_get_validation do |params|
+  shared_examples_for :gakushi_get do |params|
     subject{Jikkan.by_key(key).gakushi}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'ne', :expected_value => true},
@@ -726,20 +662,20 @@ describe Jikkan, "学士" do
                    {:key => 'mizunoto', :relation_value => 'saru', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :gakushi_check_validation, pattern
-    it_behaves_like :gakushi_get_validation, pattern
+    it_behaves_like :gakushi_check, pattern
+    it_behaves_like :gakushi_get, pattern
   end
 end
 
 describe Jikkan, "天財" do
-  shared_examples_for :tenzai_check_validation do |params|
+  shared_examples_for :tenzai_check do |params|
     subject{Jikkan.by_key(key).tenzai?(relation)}
-    it_behaves_like :relation_check_validation_jikkan, params
+    it_behaves_like :relation_check_for_jikkan, params
   end
 
-  shared_examples_for :tenzai_get_validation do |params|
+  shared_examples_for :tenzai_get do |params|
     subject{Jikkan.by_key(key).tenzai}
-    it_behaves_like :relation_get_validation_jikkan, params
+    it_behaves_like :relation_get_for_jikkan, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tsuchinoe', :expected_value => true},
@@ -754,21 +690,21 @@ describe Jikkan, "天財" do
                    {:key => 'mizunoto', :relation_value => 'hinoto', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :tenzai_check_validation, pattern
-    it_behaves_like :tenzai_get_validation, pattern
+    it_behaves_like :tenzai_check, pattern
+    it_behaves_like :tenzai_get, pattern
   end
 end
 
 describe Jikkan, "夾禄" do
   describe "1つ目" do
-    shared_examples_for :kyoroku_1_check_validation do |params|
+    shared_examples_for :kyoroku_1_check do |params|
       subject{Jikkan.by_key(key).kyoroku_1?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :kyoroku_1_get_validation do |params|
+    shared_examples_for :kyoroku_1_get do |params|
       subject{Jikkan.by_key(key).kyoroku_1}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'usi', :expected_value => true},
@@ -783,20 +719,20 @@ describe Jikkan, "夾禄" do
                      {:key => 'mizunoto', :relation_value => 'i', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :kyoroku_1_check_validation, pattern
-      it_behaves_like :kyoroku_1_get_validation, pattern
+      it_behaves_like :kyoroku_1_check, pattern
+      it_behaves_like :kyoroku_1_get, pattern
     end
   end
 
   describe "2つ目" do
-    shared_examples_for :kyoroku_2_check_validation do |params|
+    shared_examples_for :kyoroku_2_check do |params|
       subject{Jikkan.by_key(key).kyoroku_2?(relation)}
-      it_behaves_like :relation_check_validation_junishi, params
+      it_behaves_like :relation_check_for_junishi, params
     end
 
-    shared_examples_for :kyoroku_2_get_validation do |params|
+    shared_examples_for :kyoroku_2_get do |params|
       subject{Jikkan.by_key(key).kyoroku_2}
-      it_behaves_like :relation_get_validation_junishi, params
+      it_behaves_like :relation_get_for_junishi, params
     end
 
     test_patterns = [{:key => 'kinoe', :relation_value => 'u', :expected_value => true},
@@ -811,21 +747,21 @@ describe Jikkan, "夾禄" do
                      {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
     test_patterns.each do |pattern|
-      it_behaves_like :kyoroku_2_check_validation, pattern
-      it_behaves_like :kyoroku_2_get_validation, pattern
+      it_behaves_like :kyoroku_2_check, pattern
+      it_behaves_like :kyoroku_2_get, pattern
     end
   end
 end
 
 describe Jikkan, "羊刃" do
-  shared_examples_for :youjin_check_validation do |params|
+  shared_examples_for :youjin_check do |params|
     subject{Jikkan.by_key(key).youjin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :youjin_get_validation do |params|
+  shared_examples_for :youjin_get do |params|
     subject{Jikkan.by_key(key).youjin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'u', :expected_value => true},
@@ -840,20 +776,20 @@ describe Jikkan, "羊刃" do
                    {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :youjin_check_validation, pattern
-    it_behaves_like :youjin_get_validation, pattern
+    it_behaves_like :youjin_check, pattern
+    it_behaves_like :youjin_get, pattern
   end
 end
 
 describe Jikkan, "飛刃" do
-  shared_examples_for :hijin_check_validation do |params|
+  shared_examples_for :hijin_check do |params|
     subject{Jikkan.by_key(key).hijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :hijin_get_validation do |params|
+  shared_examples_for :hijin_get do |params|
     subject{Jikkan.by_key(key).hijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tori', :expected_value => true},
@@ -868,20 +804,20 @@ describe Jikkan, "飛刃" do
                    {:key => 'mizunoto', :relation_value => 'hitsuji', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :hijin_check_validation, pattern
-    it_behaves_like :hijin_get_validation, pattern
+    it_behaves_like :hijin_check, pattern
+    it_behaves_like :hijin_get, pattern
   end
 end
 
 describe Jikkan, "紅艶" do
-  shared_examples_for :kouen_check_validation do |params|
+  shared_examples_for :kouen_check do |params|
     subject{Jikkan.by_key(key).kouen?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :kouen_get_validation do |params|
+  shared_examples_for :kouen_get do |params|
     subject{Jikkan.by_key(key).kouen}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'saru', :expected_value => true},
@@ -896,20 +832,20 @@ describe Jikkan, "紅艶" do
                    {:key => 'mizunoto', :relation_value => 'saru', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :kouen_check_validation, pattern
-    it_behaves_like :kouen_get_validation, pattern
+    it_behaves_like :kouen_check, pattern
+    it_behaves_like :kouen_get, pattern
   end
 end
 
 describe Jikkan, "流霞" do
-  shared_examples_for :ryuka_check_validation do |params|
+  shared_examples_for :ryuka_check do |params|
     subject{Jikkan.by_key(key).ryuka?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :ryuka_get_validation do |params|
+  shared_examples_for :ryuka_get do |params|
     subject{Jikkan.by_key(key).ryuka}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tori', :expected_value => true},
@@ -924,20 +860,20 @@ describe Jikkan, "流霞" do
                    {:key => 'mizunoto', :relation_value => 'tora', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :ryuka_check_validation, pattern
-    it_behaves_like :ryuka_get_validation, pattern
+    it_behaves_like :ryuka_check, pattern
+    it_behaves_like :ryuka_get, pattern
   end
 end
 
 describe Jikkan, "福星貴人" do
-  shared_examples_for :fukusei_kijin_check_validation do |params|
+  shared_examples_for :fukusei_kijin_check do |params|
     subject{Jikkan.by_key(key).fukusei_kijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :fukusei_kijin_get_validation do |params|
+  shared_examples_for :fukusei_kijin_get do |params|
     subject{Jikkan.by_key(key).fukusei_kijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'tora', :expected_value => true},
@@ -952,20 +888,20 @@ describe Jikkan, "福星貴人" do
                    {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :fukusei_kijin_check_validation, pattern
-    it_behaves_like :fukusei_kijin_get_validation, pattern
+    it_behaves_like :fukusei_kijin_check, pattern
+    it_behaves_like :fukusei_kijin_get, pattern
   end
 end
 
 describe Jikkan, "文星貴人" do
-  shared_examples_for :bunsei_kijin_check_validation do |params|
+  shared_examples_for :bunsei_kijin_check do |params|
     subject{Jikkan.by_key(key).bunsei_kijin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :bunsei_kijin_get_validation do |params|
+  shared_examples_for :bunsei_kijin_get do |params|
     subject{Jikkan.by_key(key).bunsei_kijin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'mi', :expected_value => true},
@@ -980,20 +916,20 @@ describe Jikkan, "文星貴人" do
                    {:key => 'mizunoto', :relation_value => 'u', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :bunsei_kijin_check_validation, pattern
-    it_behaves_like :bunsei_kijin_get_validation, pattern
+    it_behaves_like :bunsei_kijin_check, pattern
+    it_behaves_like :bunsei_kijin_get, pattern
   end
 end
 
 describe Jikkan, "節度人" do
-  shared_examples_for :setsudojin_check_validation do |params|
+  shared_examples_for :setsudojin_check do |params|
     subject{Jikkan.by_key(key).setsudojin?(relation)}
-    it_behaves_like :relation_check_validation_junishi, params
+    it_behaves_like :relation_check_for_junishi, params
   end
 
-  shared_examples_for :setsudojin_get_validation do |params|
+  shared_examples_for :setsudojin_get do |params|
     subject{Jikkan.by_key(key).setsudojin}
-    it_behaves_like :relation_get_validation_junishi, params
+    it_behaves_like :relation_get_for_junishi, params
   end
 
   test_patterns = [{:key => 'kinoe', :relation_value => 'mi', :expected_value => true},
@@ -1008,7 +944,7 @@ describe Jikkan, "節度人" do
                    {:key => 'mizunoto', :relation_value => 'usi', :expected_value => true}]
 
   test_patterns.each do |pattern|
-    it_behaves_like :setsudojin_check_validation, pattern
-    it_behaves_like :setsudojin_get_validation, pattern
+    it_behaves_like :setsudojin_check, pattern
+    it_behaves_like :setsudojin_get, pattern
   end
 end

@@ -3,10 +3,6 @@ class Houn
 
   attr_reader :key, :code, :name, :point, :angle
 
-  def self.load_data(key, data)
-    Houn.new(key,data)
-  end
-
   def self.by_key(key)
     HounData.instance.by_key(key)
   end
