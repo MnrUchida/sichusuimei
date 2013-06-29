@@ -21,7 +21,7 @@ class Junishi
     JunishiData.instance.by_angle(angle)
   end
 
-  def self.find_by_code(code)
+  def self.by_code(code)
     JunishiData.instance.by_code(code)
   end
 
@@ -30,7 +30,7 @@ class Junishi
   end
 
   def +(value)
-    Junishi.find_by_code((self.code + value) % SHI_COUNT)
+    Junishi.by_code((self.code + value) % SHI_COUNT)
   end
 
   def -(value)

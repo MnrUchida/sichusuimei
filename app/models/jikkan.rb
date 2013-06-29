@@ -18,7 +18,7 @@ class Jikkan
     @gogyo_key = data["member"]["gogyo_key"]
   end
 
-  def self.find_by_code(code)
+  def self.by_code(code)
     JikkanData.instance.by_code(code)
   end
 
@@ -39,7 +39,7 @@ class Jikkan
   end
 
   def gou
-    Jikkan.find_by_code(gou_code)
+    Jikkan.by_code(gou_code)
   end
 
   def gou?(relate_jikkan)

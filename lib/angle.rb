@@ -15,4 +15,12 @@ module Angle
   def original_angle(angle)
     (angle + ANGLE_HALF_SHI) % ANGLE_CIRCLE
   end
+
+  def four_season_by_angle(angle)
+    original_angle(angle - ANGLE_DOUBLE_SHI).div(ANGLE_RIGHT)
+  end
+
+  def two_season_by_angle(angle)
+    four_season_by_angle(angle).div(2)
+  end
 end

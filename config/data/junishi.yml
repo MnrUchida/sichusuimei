@@ -123,6 +123,26 @@ ANGLE:
   name: 喪門
   default_method: angle + ANGLE_DOUBLE_SHI
 
+ sinjin_shi:
+  name: 進神
+  default_method: revise_angle((four_season_by_angle(angle) * 2 + two_season_by_angle(angle)) * ANGLE_RIGHT)
+
+ tensha_shi:
+  name: 天赦
+  default_method: revise_angle((four_season_by_angle(angle + ANGLE_RIGHT) % 2) * ANGLE_DOUBLE_SHI + two_season_by_angle(angle + ANGLE_RIGHT) * ANGLE_HALF_CIRCLE)
+
+ zahai_1_shi:
+  name: 座敗
+  default_method: revise_angle((2 ** four_season_by_angle(angle + ANGLE_HALF_CIRCLE) + two_season_by_angle(angle + ANGLE_HALF_CIRCLE)) * ANGLE_SHI)
+
+ zahai_2_shi:
+  name: 座敗
+  default_method: revise_angle(( two_season_by_angle(angle + ANGLE_HALF_CIRCLE) * 7 + two_season_by_angle(angle * 2) + 1 ) * ANGLE_SHI)
+
+ zahai_3_shi:
+  name: 座敗
+  default_method: revise_angle( (four_season_by_angle(angle - ANGLE_RIGHT) * two_season_by_angle(angle) + two_season_by_angle(angle + ANGLE_HALF_CIRCLE) * 3 + two_season_by_angle(angle + ANGLE_RIGHT) * 6 ) * ANGLE_SHI)
+
 METHOD:
  tentoku_kijin:
   name: 天徳貴人
@@ -217,6 +237,27 @@ METHOD:
  tentoku:
   name: 天徳
   default_method: return tentoku_kijin, tentoku_gou
+
+METHOD_JIKKAN:
+ sinjin_kan:
+  name: 進神
+  default_method: two_season_by_angle(angle) * (Jikkan::JIKKAN_COUNT / 2)
+
+ tensha_kan:
+  name: 天赦
+  default_method: (four_season_by_angle(angle + ANGLE_RIGHT) % 2) * Jikkan.by_key('tsuchinoe').code
+
+ zahai_1_kan:
+  name: 座敗
+  default_method: four_season_by_angle(angle) + two_season_by_angle(angle)
+
+ zahai_3_kan:
+  name: 座敗
+  default_method: ( two_season_by_angle(angle + ANGLE_RIGHT) * 2 + two_season_by_angle(angle)) ** 2 + two_season_by_angle(angle * 2) * 3
+
+ zahai_4_kan:
+  name: 座敗
+  default_method: (four_season_by_angle(angle + ANGLE_RIGHT) ** two_season_by_angle(angle + ANGLE_HALF_CIRCLE) + two_season_by_angle(angle) * 2) * (3 ** two_season_by_angle(angle + ANGLE_RIGHT)) + two_season_by_angle(angle * 2)
 
 JUNISHI:
  ne:

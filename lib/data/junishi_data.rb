@@ -19,8 +19,9 @@ class JunishiData
       ret_data
     end
 
-    def_method_relation_new(@yaml_data[:ANGLE.to_s]){|define, name| angle_relation_string_new(define, name)}
-    def_method_relation_new(@yaml_data[:METHOD.to_s]){|define, name| method_relation_string_new(define, name)}
+    def_method_relation(@yaml_data[:ANGLE.to_s]){|define, name| angle_relation_string(define, name)}
+    def_method_relation(@yaml_data[:METHOD.to_s]){|define, name| method_relation_string(define, name)}
+    def_method_relation(@yaml_data[:METHOD_JIKKAN.to_s]){|define, name| jikkan_relation_string(define, name)}
   end
 
   def by_id(id)
