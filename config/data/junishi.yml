@@ -143,6 +143,10 @@ ANGLE:
   name: 座敗
   default_method: revise_angle( (four_season_by_angle(angle - ANGLE_RIGHT) * two_season_by_angle(angle) + two_season_by_angle(angle + ANGLE_HALF_CIRCLE) * 3 + two_season_by_angle(angle + ANGLE_RIGHT) * 6 ) * ANGLE_SHI)
 
+ tenten_shi:
+  name: 天転
+  default_method: revise_angle((four_season_by_angle(angle) + 1) * ANGLE_RIGHT)
+
 METHOD:
  tentoku_kijin:
   name: 天徳貴人
@@ -258,6 +262,10 @@ METHOD_JIKKAN:
  zahai_4_kan:
   name: 座敗
   default_method: (four_season_by_angle(angle + ANGLE_RIGHT) ** two_season_by_angle(angle + ANGLE_HALF_CIRCLE) + two_season_by_angle(angle) * 2) * (3 ** two_season_by_angle(angle + ANGLE_RIGHT)) + two_season_by_angle(angle * 2)
+
+ tenten_kan:
+  name: 天転
+  default_method: two_season_by_angle(angle * 2) + two_season_by_angle(angle) * 6 + 1
 
 JUNISHI:
  ne:
