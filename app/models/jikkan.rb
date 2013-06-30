@@ -56,7 +56,7 @@ class Jikkan
   end
 
   def houn_angle(relate_junishi)
-    ((relate_junishi.angle - self.gogyo.angle) * self.inyou) % ANGLE_CIRCLE
+    (AngleValue.new(relate_junishi.angle - self.gogyo.angle) * self.inyou).in_circle
   end
 
   def gogyo

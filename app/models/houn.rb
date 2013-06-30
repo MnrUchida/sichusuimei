@@ -1,14 +1,13 @@
 class Houn
-  include Angle
 
-  attr_reader :key, :code, :name, :point, :angle
+  attr_reader :key, :code, :name, :point
 
   def self.by_key(key)
     HounData.instance.by_key(key)
   end
 
   def self.by_angle(angle)
-    HounData.instance.by_angle(angle)
+    HounData.instance.by_angle(angle.to_i)
   end
 
   def initialize(key, data)
@@ -16,10 +15,14 @@ class Houn
     @code = data["code"]
     @name = data["name"]
     @point = data["point"]
-    @angle = data["angle"]
+    @angle = AngleValue.new(data["angle"])
+  end
+
+  def angle
+    @angle.to_i
   end
 
   def construct_junishi_with(jikkan)
-    Junishi.by_angle((self.angle / jikkan.inyou + jikkan.gogyo.angle) % ANGLE_CIRCLE )
+    Junishi.by_angle( (@angle * jikkan.inyou + jikkan.gogyo.angle).in_circle )
   end
 end

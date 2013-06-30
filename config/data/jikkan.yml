@@ -3,7 +3,7 @@ ANGLE:
   name: 天乙貴人
   method:
    -
-     define: ANGLE_SHI
+     define: AngleValue.new(ANGLE_SHI)
      target:
       - kinoe
       - tsuchinoe
@@ -24,7 +24,7 @@ ANGLE:
 
  tenotsu_kijin_2:
   name: 天乙貴人
-  default_method: -(original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT)
+  default_method: (original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT) * -1
 
  tenkan_kijin:
   name: 天官貴人

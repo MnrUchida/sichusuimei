@@ -1,16 +1,18 @@
-require 'angle'
-
 class Junishi
-  include Angle
+  SHI_COUNT = 12
 
-  attr_reader :key, :relation, :id, :code, :name, :angle
+  attr_reader :key, :relation, :id, :code, :name
 
   def initialize(key, data)
     @key = key
     @code = data["member"]["code"]
     @id = @code.to_i + 1
     @name = data["member"]["name"]
-    @angle = data["member"]["angle"]
+    @angle = AngleValue.new(data["member"]["angle"])
+  end
+
+  def angle
+    @angle.to_i
   end
 
   def self.by_key(key)
@@ -18,7 +20,7 @@ class Junishi
   end
 
   def self.by_angle(angle)
-    JunishiData.instance.by_angle(angle)
+    JunishiData.instance.by_angle(angle.to_i)
   end
 
   def self.by_code(code)
@@ -46,7 +48,7 @@ class Junishi
   end
 
   def day_angle(day)
-    return ANGLE_SHI - 1 if day >= ANGLE_SHI
+    return AngleValue::ANGLE_SHI - 1 if day >= AngleValue::ANGLE_SHI
     day
   end
 
@@ -61,7 +63,7 @@ class Junishi
   private
 
   def doou?(day)
-    return false unless (self.angle - ANGLE_HALF_SHI) % ANGLE_RIGHT == 0
+    return false unless @angle.with_shi(-0.5).mod_shi(3) == 0
 
     zoukan(day).gogyo_key == 'tsuchi'
   end

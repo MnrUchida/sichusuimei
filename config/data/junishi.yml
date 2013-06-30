@@ -1,7 +1,7 @@
 ANGLE:
  gou:
   name: 支合
-  default_method: -angle
+  default_method: (@angle * -1)
   method:
    - define: nil
      target:
@@ -13,23 +13,23 @@ ANGLE:
  kei:
   name: 刑
   method:
-   - define: angle + ANGLE_RIGHT
+   - define: (@angle.with_shi(3))
      target:
       - ne
       - tora
       - mi
-   - define: angle - ANGLE_RIGHT
+   - define: (@angle.with_shi(-3))
      target:
       - usi
       - u
       - inu
-   - define: angle + ANGLE_HALF_CIRCLE
+   - define: (@angle.with_shi(6))
      target:
       - saru
-   - define: angle - ANGLE_HALF_CIRCLE
+   - define: (@angle.with_shi(-6))
      target:
       - hitsuji
-   - define: angle
+   - define: (@angle)
      target:
       - tatsu
       - uma
@@ -37,48 +37,48 @@ ANGLE:
       - i
  chu:
   name: 冲
-  default_method: angle + ANGLE_HALF_CIRCLE
+  default_method: (@angle.with_shi(6))
 
  ha:
   name: 破
-  default_method: angle - ((angle % ANGLE_DOUBLE_SHI) - ANGLE_SHI) * SHI_COUNT / 2
+  default_method: (@angle - @angle.mod_shi(2).with_shi(-1) * (SHI_COUNT / 2))
 
  gai:
   name: 害
-  default_method: -(angle + ANGLE_HALF_CIRCLE)
+  default_method: self.chu_angle * -1
 
  sangou:
   name: 三合
-  default_method: angle + ANGLE_CIRCLE / 3
+  default_method: (@angle.with_shi(4))
 
  kagai:
   name: 華蓋
-  default_method: angle * -3 + ANGLE_DOUBLE_SHI
+  default_method: (@angle * -3).with_shi(2)
 
  tenmou:
   name: 天耗
-  default_method: angle * 2 - (ANGLE_HALF_SHI + ANGLE_RIGHT)
+  default_method: (@angle * 2).with_shi(-3).with_shi(-0.5)
 
  chimou:
   name: 地耗
-  default_method: self.tenmou_angle - ANGLE_RIGHT
+  default_method: self.tenmou_angle.with_shi(-3)
 
  byakui:
   name: 白衣
   method:
-   - define: angle + ANGLE_RIGHT
+   - define: (@angle.with_shi(3))
      target:
       - tora
       - mi
       - saru
       - i
-   - define: angle - ANGLE_RIGHT
+   - define: (@angle.with_shi(-3))
      target:
       - ne
       - u
       - uma
       - tori
-   - define: angle + ANGLE_RIGHT + (angle - ANGLE_HALF_SHI) * 2
+   - define: (@angle * 3).with_shi(2)
      target:
       - usi
       - tatsu
@@ -87,83 +87,111 @@ ANGLE:
 
  kessi:
   name: 血支
-  default_method: angle - ANGLE_CIRCLE / 3
+  default_method: (@angle.with_shi(-4))
 
  dankyo:
   name: 断橋
   method:
-   - define: angle
+   - define: (@angle)
      target:
       - ne
       - tora
       - u
-   - define: angle - ANGLE_CIRCLE / 6
+   - define: (@angle.with_shi(-2))
      target:
       - usi
-   - define: angle + ANGLE_CIRCLE / 3
+   - define: (@angle.with_shi(4))
      target:
       - tatsu
       - uma
-   - define: angle - ANGLE_CIRCLE / 3
+   - define: (@angle.with_shi(-4))
      target:
       - mi
       - saru
       - tori
       - inu
       - i
-   - define: angle + ANGLE_CIRCLE / 6
+   - define: (@angle.with_shi(2))
      target:
       - hitsuji
 
  ekiba:
   name: 駅馬
-  default_method: (angle + ANGLE_HALF_SHI) * 9 + ANGLE_DOUBLE_SHI - ANGLE_HALF_SHI
+  default_method: (@angle * 9).with_shi(6)
 
  momon:
   name: 喪門
-  default_method: angle + ANGLE_DOUBLE_SHI
+  default_method: (@angle.with_shi(2))
 
  sinjin_shi:
   name: 進神
-  default_method: revise_angle((four_season_by_angle(angle) * 2 + two_season_by_angle(angle)) * ANGLE_RIGHT)
+  default_method: (@angle.four_season * 2 + @angle.two_season).multi_shi(3).revise
 
  tensha_shi:
   name: 天赦
-  default_method: revise_angle((four_season_by_angle(angle + ANGLE_RIGHT) % 2) * ANGLE_DOUBLE_SHI + two_season_by_angle(angle + ANGLE_RIGHT) * ANGLE_HALF_CIRCLE)
+  default_method: ((@angle.with_shi(3).four_season % 2) + @angle.with_shi(3).two_season * 3).multi_shi(2).revise
 
  zahai_1_shi:
   name: 座敗
-  default_method: revise_angle((2 ** four_season_by_angle(angle + ANGLE_HALF_CIRCLE) + two_season_by_angle(angle + ANGLE_HALF_CIRCLE)) * ANGLE_SHI)
+  default_method: (@angle.with_shi(6).two_season + 2 ** @angle.with_shi(6).four_season.to_i).multi_shi(1).revise
 
  zahai_2_shi:
   name: 座敗
-  default_method: revise_angle(( two_season_by_angle(angle + ANGLE_HALF_CIRCLE) * 7 + two_season_by_angle(angle * 2) + 1 ) * ANGLE_SHI)
+  default_method: (@angle.with_shi(6).two_season * 7 + (@angle * 2).two_season + 1).multi_shi(1).revise
 
  zahai_3_shi:
   name: 座敗
-  default_method: revise_angle( (four_season_by_angle(angle - ANGLE_RIGHT) * two_season_by_angle(angle) + two_season_by_angle(angle + ANGLE_HALF_CIRCLE) * 3 + two_season_by_angle(angle + ANGLE_RIGHT) * 6 ) * ANGLE_SHI)
+  default_method: (@angle.with_shi(-3).four_season * @angle.two_season + @angle.with_shi(6).two_season * 3 + @angle.with_shi(3).two_season * 6 ).multi_shi(1).revise
 
  tenten_shi:
   name: 天転
-  default_method: revise_angle((four_season_by_angle(angle) + 1) * ANGLE_RIGHT)
+  default_method: (@angle.four_season + 1).multi_shi(3).revise
+
+ chiten_shi:
+  name: 地転
+  default_method: self.tenten_shi_angle
+
+ tensatsu_shi:
+  name: 天殺
+  default_method: self.tenten_shi_angle
+
+ happu_1_shi:
+  name: 八風
+  default_method: (@angle).four_season.multi_shi(3).with_shi(1).revise
+
+ happu_2_shi:
+  name: 八風
+  default_method: self.happu_1_shi_angle.with_shi(4)
+
+ shihai_1_shi:
+  name: 四廃
+  default_method: shihai_2_shi_angle.with_shi(-1)
+
+ shihai_2_shi:
+  name: 四廃
+  default_method: (@angle.four_season - 1).multi_shi(3).revise
+
+ bouhai_1_shi:
+  name: 暴敗
+  default_method: (@angle.with_shi(6).two_season + (@angle * 2).with_shi(6).two_season * 3 + 1).multi_shi(2).revise
 
 METHOD:
  tentoku_kijin:
   name: 天徳貴人
   method:
-   - define: Junishi.by_angle((angle + ANGLE_SHI * 5) % ANGLE_CIRCLE)
+   - define: Junishi.by_angle( @angle.with_shi(5).in_circle)
      target:
       - ne
       - u
       - uma
       - tori
-   - define: Zoukan.by_angle((angle - 12 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+   - define: Zoukan.by_angle( (@angle - 12).with_shi(5).in_circle).jikkan
      target:
       - tora
       - mi
       - saru
       - i
-   - define: Zoukan.by_angle((angle - 20 + ANGLE_SHI * 5) % ANGLE_CIRCLE).jikkan
+   - define: Zoukan.by_angle( (@angle - 20).with_shi(5).in_circle).jikkan
      target:
       - usi
       - tatsu
@@ -245,27 +273,47 @@ METHOD:
 METHOD_JIKKAN:
  sinjin_kan:
   name: 進神
-  default_method: two_season_by_angle(angle) * (Jikkan::JIKKAN_COUNT / 2)
+  default_method: (@angle.two_season.to_i) * (Jikkan::JIKKAN_COUNT / 2)
 
  tensha_kan:
   name: 天赦
-  default_method: (four_season_by_angle(angle + ANGLE_RIGHT) % 2) * Jikkan.by_key('tsuchinoe').code
+  default_method: (@angle * 2).with_shi(6).two_season.to_i * Jikkan.by_key('tsuchinoe').code
 
  zahai_1_kan:
   name: 座敗
-  default_method: four_season_by_angle(angle) + two_season_by_angle(angle)
+  default_method: (@angle.four_season + @angle.two_season).to_i
 
  zahai_3_kan:
   name: 座敗
-  default_method: ( two_season_by_angle(angle + ANGLE_RIGHT) * 2 + two_season_by_angle(angle)) ** 2 + two_season_by_angle(angle * 2) * 3
+  default_method: (@angle.with_shi(3).two_season * 2 + @angle.two_season).to_i ** 2 + ((@angle * 2).two_season * 3).to_i
 
  zahai_4_kan:
   name: 座敗
-  default_method: (four_season_by_angle(angle + ANGLE_RIGHT) ** two_season_by_angle(angle + ANGLE_HALF_CIRCLE) + two_season_by_angle(angle) * 2) * (3 ** two_season_by_angle(angle + ANGLE_RIGHT)) + two_season_by_angle(angle * 2)
+  default_method: (@angle.with_shi(3).four_season.to_i ** @angle.with_shi(6).two_season.to_i + (@angle.two_season * 2).to_i ) * (3 ** @angle.with_shi(3).two_season.to_i) + (@angle * 2).two_season.to_i
 
  tenten_kan:
   name: 天転
-  default_method: two_season_by_angle(angle * 2) + two_season_by_angle(angle) * 6 + 1
+  default_method: (@angle * 2).two_season.to_i + @angle.two_season.to_i * 6 + 1
+
+ chiten_kan:
+  name: 地転
+  default_method: ((@angle.with_shi(3).two_season + 1) * 2 + (@angle * 2).with_shi(6).two_season * 5).to_i
+
+ tensatsu_kan:
+  name: 天殺
+  default_method: (@angle.with_shi(-3).two_season * 2 + 1).to_i * ((@angle * 2).with_shi(6).two_season + 2).to_i
+
+ happu_kan:
+  name: 八風
+  default_method: (@angle * 2).with_shi(6).two_season.to_i * Jikkan.by_key('hinoto').code
+
+ shihai_1_kan:
+  name: 四廃
+  default_method: ((@angle.four_season.to_i + 3) % Gogyo::GOGYO_COUNT) * 2
+
+ shihai_2_kan:
+  name: 四廃
+  default_method: 2 ** ((@angle.four_season + 1) * @angle.with_shi(6).two_season * 2).to_i + @angle.with_shi(6).two_season.to_i * 3
 
 JUNISHI:
  ne:

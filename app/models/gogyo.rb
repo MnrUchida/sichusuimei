@@ -1,7 +1,4 @@
-require 'angle'
-
 class Gogyo
-  include Angle
 
   GOGYO_COUNT = 5
   SHIDAI = [4,3,1,0]

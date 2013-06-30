@@ -1,0 +1,1598 @@
+      def taikyoku_kijin?(pillar)
+        targets = pillar.values.permutation.to_a
+
+        puts pillar.values.inspect
+        targets.any? do |target|
+          part_of_taikyoku_kijin?(target)
+        end
+      end
+
+      def part_of_taikyoku_kijin?(target)
+        self.tenkan.taikyoku_kijin_1?(target[0].chishi) && self.tenkan.taikyoku_kijin_2?(target[1].chishi) && self.tenkan.taikyoku_kijin_3?(target[2].chishi) && self.tenkan.taikyoku_kijin_4?(target[3].chishi)
+      end
+
+月支
+  Junishi 断橋
+    behaves like dankyo_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like dankyo_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  Junishi 血支
+    behaves like kessi_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like kessi_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  天徳合
+    behaves like tentoku_gou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like tentoku_gou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              uma
+  天徳合
+    behaves like tentoku_gou_check_jikkan
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              usi
+    behaves like tentoku_gou_check_jikkan
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              mi
+  Junishi 華蓋
+    behaves like kagai_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like kagai_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              uma
+  三合
+    年柱
+    月柱
+  Junishi 月徳貴人
+    behaves like gettoku_kijin_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like gettoku_kijin_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  Junishi 地耗
+    behaves like chimou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like chimou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              u
+  Junishi 白衣
+    behaves like byakui_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like byakui_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  Junishi 生成馬
+    behaves like seiseiba_check
+      behaves like pillar_check_by_junishi
+        behaves like relation_check_for_pillar
+          behaves like relation_check
+            ne
+    behaves like seiseiba_check
+      behaves like pillar_check_by_junishi
+        behaves like relation_check_for_pillar
+          behaves like relation_check
+            i
+  喪門
+    behaves like momon_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like momon_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              uma
+  天徳貴人
+    behaves like tentoku_kijin_check_jikkan
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              usi
+    behaves like tentoku_kijin_check_jikkan
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              mi
+  Junishi 天耗
+    behaves like tenmou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like tenmou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              u
+  Junishi 駅馬
+    behaves like ekiba_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like ekiba_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  刑
+    behaves like kei_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like kei_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              u
+    behaves like kei_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tatsu
+    behaves like kei_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+  Junishi 月空
+    behaves like gekku_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like gekku_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  冲
+    時柱
+    behaves like chu_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like chu_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              uma
+    behaves like chu_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tatsu
+  支合
+    時柱
+    behaves like shigou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tora
+    behaves like shigou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+    behaves like shigou_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tatsu
+  害
+    時柱
+    behaves like gai_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like gai_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              hitsuji
+    behaves like gai_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tatsu
+  Junishi 月徳合
+    behaves like gettoku_gou_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like gettoku_gou_check
+      behaves like pillar_check_by_junishi_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              i
+  破
+    時柱
+    behaves like ha_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like ha_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tori
+    behaves like ha_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tatsu
+  天徳貴人
+    behaves like tentoku_kijin_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              ne
+    behaves like tentoku_kijin_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              tori
+    behaves like tentoku_kijin_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              u
+    behaves like tentoku_kijin_check
+      behaves like pillar_check_by_junishi_for_junishi
+        behaves like relation_check_for_pillar_by_junishi
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              uma
+
+十干
+  Jikkan 飛刃
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like hijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like hijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 富貴学童
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like fukigakudo_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like fukigakudo_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 紅艶
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like kouen_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like kouen_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 天厨貴人
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like tenchukijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like tenchukijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 学士
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like gakushi_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like gakushi_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 暗禄
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like anroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like anroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 流霞
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like ryuka_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like ryuka_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 夾禄
+    1つ目
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kanoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            hinoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kanoto
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            tsuchinoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            tsuchinoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            hinoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            mizunoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kanoe
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kanoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            hinoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            tsuchinoe
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            tsuchinoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            mizunoto
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kinoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            mizunoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kinoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            hinoe
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kinoto
+      behaves like kyoroku_1_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            mizunoe
+      behaves like kyoroku_1_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kinoto
+    2つ目
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kanoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            hinoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kanoto
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            tsuchinoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            tsuchinoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            hinoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            mizunoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kanoe
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kanoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            hinoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            tsuchinoe
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            tsuchinoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            mizunoto
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kinoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            mizunoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kinoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            hinoe
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            kinoto
+      behaves like kyoroku_2_get
+        behaves like relation_get_for_junishi
+          behaves like relation_get
+            mizunoe
+      behaves like kyoroku_2_check
+        behaves like relation_check_for_junishi
+          behaves like relation_check
+            kinoto
+  Jikkan 羊刃
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like youjin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like youjin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 干禄
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like kanroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like kanroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 金輿禄
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like kinyoroku_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like kinyoroku_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 天財
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          kanoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          hinoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          kanoto
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          tsuchinoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          tsuchinoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          hinoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          mizunoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          kanoe
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          kanoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          hinoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          tsuchinoe
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          tsuchinoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          mizunoto
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          kinoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          mizunoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          kinoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          hinoe
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          kinoto
+    behaves like tenzai_get
+      behaves like relation_get_for_jikkan
+        behaves like relation_get
+          mizunoe
+    behaves like tenzai_check
+      behaves like relation_check_for_jikkan
+        behaves like relation_check
+          kinoto
+  Jikkan 節度人
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like setsudojin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like setsudojin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 干合
+    behaves like kangou_check
+      behaves like pillar_check_by_jikkan_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              kinoe
+    behaves like kangou_check
+      behaves like pillar_check_by_jikkan_for_jikkan
+        behaves like relation_check_for_pillar_by_jikkan
+          behaves like relation_check_for_pillar
+            behaves like relation_check
+              mizunoto
+  Jikkan 文星貴人
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoto
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          tsuchinoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          hinoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kanoe
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kanoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoe
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          tsuchinoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoto
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          mizunoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          hinoe
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          kinoto
+    behaves like bunsei_kijin_get
+      behaves like relation_get_for_junishi
+        behaves like relation_get
+          mizunoe
+    behaves like bunsei_kijin_check
+      behaves like relation_check_for_junishi
+        behaves like relation_check
+          kinoto
+  Jikkan 大極貴人
+    一つ目
+      behaves like taikyoku_kijin_check
+        behaves like pillar_check_by_jikkan_for_junishi_with_relations
+          behaves like relation_check_for_pillar_by_junishi_with_relations
+            behaves like relation_check
+              mizunoto (FAILED - 1)
+
+Failures:
+
+  1) 十干 Jikkan 大極貴人 一つ目 behaves like taikyoku_kijin_check behaves like pillar_check_by_jikkan_for_junishi_with_relations behaves like relation_check_for_pillar_by_junishi_with_relations behaves like relation_check mizunoto
+     Failure/Error: @relations = params[:relations].map{|relation| MeishikiPlr.new(:chishi_id => Junishi.by_key(relation).id, :tenkan_id => Jikkan.by_key('kinoe').id)}
+     NoMethodError:
+       undefined method `map' for nil:NilClass
+     Shared Example Group: "relation_check" called from ./spec/relation_spec_helper.rb:62
+     # ./spec/relation_spec_helper.rb:59:in `block (2 levels) in <top (required)>'
+
+Finished in 0.66321 seconds
+359 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/relation_spec_helper.rb:6 # 十干 Jikkan 大極貴人 一つ目 behaves like taikyoku_kijin_check behaves like pillar_check_by_jikkan_for_junishi_with_relations behaves like relation_check_for_pillar_by_junishi_with_relations behaves like relation_check mizunoto
+
+Randomized with seed 60570
+
+Coverage report generated for RSpec to /home/uchida/source/sichusuimei/coverage. 128 / 140 LOC (91.43%) covered.

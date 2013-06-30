@@ -23,4 +23,29 @@ module Angle
   def two_season_by_angle(angle)
     four_season_by_angle(angle).div(2)
   end
+
+  def with_right(angle)
+    angle + ANGLE_RIGHT
+  end
+
+  def sub_right(angle)
+    angle - ANGLE_RIGHT
+  end
+
+  def with_half_circle(angle)
+    angle + ANGLE_HALF_CIRCLE
+  end
+
+  def sub_half_circle(angle)
+    angle - ANGLE_HALF_CIRCLE
+  end
+
+  def with_4_shi(angle)
+    angle + ANGLE_SHI * 4
+  end
+
+  def sub_4_shi(angle)
+    angle - ANGLE_SHI * 4
+  end
+
 end

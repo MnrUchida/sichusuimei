@@ -9,7 +9,7 @@ class Zoukan
   end
 
   def self.by_angle(angle)
-    ZoukanData.instance.by_angle(angle)
+    ZoukanData.instance.by_angle(angle.to_i)
   end
 
   def end_angle

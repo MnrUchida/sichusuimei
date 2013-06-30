@@ -1253,5 +1253,400 @@ describe Junishi, "十二支のテスト" do
       end
     end
 
+    describe Junishi, "地転" do
+      describe Junishi, "干" do
+        shared_examples_for :chiten_kan_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).chiten_kan?(relation)}
+          it_behaves_like :relation_check_for_jikkan, params
+        end
+
+        shared_examples_for :chiten_kan_get do |params|
+          subject{Junishi.by_key(key).chiten_kan}
+          it_behaves_like :relation_get_for_jikkan, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'hinoe'},
+                         {:key => 'usi', :relation_value => 'hinoe'},
+                         {:key => 'tora', :relation_value => 'kanoto'},
+                         {:key => 'u', :relation_value => 'kanoto'},
+                         {:key => 'tatsu', :relation_value => 'kanoto'},
+                         {:key => 'mi', :relation_value => 'tsuchinoe'},
+                         {:key => 'uma', :relation_value => 'tsuchinoe'},
+                         {:key => 'hitsuji', :relation_value => 'tsuchinoe'},
+                         {:key => 'saru', :relation_value => 'mizunoto'},
+                         {:key => 'tori', :relation_value => 'mizunoto'},
+                         {:key => 'inu', :relation_value => 'mizunoto'},
+                         {:key => 'i', :relation_value => 'hinoe'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :chiten_kan_check, pattern
+          it_behaves_like :chiten_kan_get, pattern
+        end
+      end
+
+      describe Junishi, "支" do
+        shared_examples_for :chiten_shi_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).chiten_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :chiten_shi_get do |params|
+          subject{Junishi.by_key(key).chiten_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'ne'},
+                         {:key => 'usi', :relation_value => 'ne'},
+                         {:key => 'tora', :relation_value => 'u'},
+                         {:key => 'u', :relation_value => 'u'},
+                         {:key => 'tatsu', :relation_value => 'u'},
+                         {:key => 'mi', :relation_value => 'uma'},
+                         {:key => 'uma', :relation_value => 'uma'},
+                         {:key => 'hitsuji', :relation_value => 'uma'},
+                         {:key => 'saru', :relation_value => 'tori'},
+                         {:key => 'tori', :relation_value => 'tori'},
+                         {:key => 'inu', :relation_value => 'tori'},
+                         {:key => 'i', :relation_value => 'ne'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :chiten_shi_check, pattern
+          it_behaves_like :chiten_shi_get, pattern
+        end
+      end
+    end
+
+    describe Junishi, "天殺" do
+      describe Junishi, "干" do
+        shared_examples_for :tensatsu_kan_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).tensatsu_kan?(relation)}
+          it_behaves_like :relation_check_for_jikkan, params
+        end
+
+        shared_examples_for :tensatsu_kan_get do |params|
+          subject{Junishi.by_key(key).tensatsu_kan}
+          it_behaves_like :relation_get_for_jikkan, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'kanoe'},
+                         {:key => 'usi', :relation_value => 'kanoe'},
+                         {:key => 'tora', :relation_value => 'mizunoto'},
+                         {:key => 'u', :relation_value => 'mizunoto'},
+                         {:key => 'tatsu', :relation_value => 'mizunoto'},
+                         {:key => 'mi', :relation_value => 'hinoe'},
+                         {:key => 'uma', :relation_value => 'hinoe'},
+                         {:key => 'hitsuji', :relation_value => 'hinoe'},
+                         {:key => 'saru', :relation_value => 'hinoto'},
+                         {:key => 'tori', :relation_value => 'hinoto'},
+                         {:key => 'inu', :relation_value => 'hinoto'},
+                         {:key => 'i', :relation_value => 'kanoe'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :tensatsu_kan_check, pattern
+          it_behaves_like :tensatsu_kan_get, pattern
+        end
+      end
+
+      describe Junishi, "支" do
+        shared_examples_for :tensatsu_shi_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).tensatsu_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :tensatsu_shi_get do |params|
+          subject{Junishi.by_key(key).tensatsu_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'ne'},
+                         {:key => 'usi', :relation_value => 'ne'},
+                         {:key => 'tora', :relation_value => 'u'},
+                         {:key => 'u', :relation_value => 'u'},
+                         {:key => 'tatsu', :relation_value => 'u'},
+                         {:key => 'mi', :relation_value => 'uma'},
+                         {:key => 'uma', :relation_value => 'uma'},
+                         {:key => 'hitsuji', :relation_value => 'uma'},
+                         {:key => 'saru', :relation_value => 'tori'},
+                         {:key => 'tori', :relation_value => 'tori'},
+                         {:key => 'inu', :relation_value => 'tori'},
+                         {:key => 'i', :relation_value => 'ne'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :tensatsu_shi_check, pattern
+          it_behaves_like :tensatsu_shi_get, pattern
+        end
+      end
+    end
+
+    describe Junishi, "八風" do
+      describe Junishi, "干" do
+        shared_examples_for :happu_kan_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).happu_kan?(relation)}
+          it_behaves_like :relation_check_for_jikkan, params
+        end
+
+        shared_examples_for :happu_kan_get do |params|
+          subject{Junishi.by_key(key).happu_kan}
+          it_behaves_like :relation_get_for_jikkan, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'kinoe'},
+                         {:key => 'usi', :relation_value => 'kinoe'},
+                         {:key => 'tora', :relation_value => 'hinoto'},
+                         {:key => 'u', :relation_value => 'hinoto'},
+                         {:key => 'tatsu', :relation_value => 'hinoto'},
+                         {:key => 'mi', :relation_value => 'kinoe'},
+                         {:key => 'uma', :relation_value => 'kinoe'},
+                         {:key => 'hitsuji', :relation_value => 'kinoe'},
+                         {:key => 'saru', :relation_value => 'hinoto'},
+                         {:key => 'tori', :relation_value => 'hinoto'},
+                         {:key => 'inu', :relation_value => 'hinoto'},
+                         {:key => 'i', :relation_value => 'kinoe'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :happu_kan_check, pattern
+          it_behaves_like :happu_kan_get, pattern
+        end
+      end
+
+      describe Junishi, "支(1)" do
+        shared_examples_for :happu_shi_1_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).happu_1_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :happu_shi_1_get do |params|
+          subject{Junishi.by_key(key).happu_1_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'inu'},
+                         {:key => 'usi', :relation_value => 'inu'},
+                         {:key => 'tora', :relation_value => 'usi'},
+                         {:key => 'u', :relation_value => 'usi'},
+                         {:key => 'tatsu', :relation_value => 'usi'},
+                         {:key => 'mi', :relation_value => 'tatsu'},
+                         {:key => 'uma', :relation_value => 'tatsu'},
+                         {:key => 'hitsuji', :relation_value => 'tatsu'},
+                         {:key => 'saru', :relation_value => 'hitsuji'},
+                         {:key => 'tori', :relation_value => 'hitsuji'},
+                         {:key => 'inu', :relation_value => 'hitsuji'},
+                         {:key => 'i', :relation_value => 'inu'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :happu_shi_1_check, pattern
+          it_behaves_like :happu_shi_1_get, pattern
+        end
+      end
+
+      describe Junishi, "支(2)" do
+        shared_examples_for :happu_shi_2_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).happu_2_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :happu_shi_2_get do |params|
+          subject{Junishi.by_key(key).happu_2_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'tora'},
+                         {:key => 'usi', :relation_value => 'tora'},
+                         {:key => 'tora', :relation_value => 'mi'},
+                         {:key => 'u', :relation_value => 'mi'},
+                         {:key => 'tatsu', :relation_value => 'mi'},
+                         {:key => 'mi', :relation_value => 'saru'},
+                         {:key => 'uma', :relation_value => 'saru'},
+                         {:key => 'hitsuji', :relation_value => 'saru'},
+                         {:key => 'saru', :relation_value => 'i'},
+                         {:key => 'tori', :relation_value => 'i'},
+                         {:key => 'inu', :relation_value => 'i'},
+                         {:key => 'i', :relation_value => 'tora'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :happu_shi_2_check, pattern
+          it_behaves_like :happu_shi_2_get, pattern
+        end
+      end
+
+    end
+
+    describe Junishi, "四廃" do
+      describe Junishi, "干_1" do
+        shared_examples_for :shihai_1_kan_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).shihai_1_kan?(relation)}
+          it_behaves_like :relation_check_for_jikkan, params
+        end
+
+        shared_examples_for :shihai_1_kan_get do |params|
+          subject{Junishi.by_key(key).shihai_1_kan}
+          it_behaves_like :relation_get_for_jikkan, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'hinoe'},
+                         {:key => 'usi', :relation_value => 'hinoe'},
+                         {:key => 'tora', :relation_value => 'kanoe'},
+                         {:key => 'u', :relation_value => 'kanoe'},
+                         {:key => 'tatsu', :relation_value => 'kanoe'},
+                         {:key => 'mi', :relation_value => 'mizunoe'},
+                         {:key => 'uma', :relation_value => 'mizunoe'},
+                         {:key => 'hitsuji', :relation_value => 'mizunoe'},
+                         {:key => 'saru', :relation_value => 'kinoe'},
+                         {:key => 'tori', :relation_value => 'kinoe'},
+                         {:key => 'inu', :relation_value => 'kinoe'},
+                         {:key => 'i', :relation_value => 'hinoe'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :shihai_1_kan_check, pattern
+          it_behaves_like :shihai_1_kan_get, pattern
+        end
+      end
+      describe Junishi, "干_2" do
+        shared_examples_for :shihai_2_kan_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).shihai_2_kan?(relation)}
+          it_behaves_like :relation_check_for_jikkan, params
+        end
+
+        shared_examples_for :shihai_2_kan_get do |params|
+          subject{Junishi.by_key(key).shihai_2_kan}
+          it_behaves_like :relation_get_for_jikkan, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'kinoto'},
+                         {:key => 'usi', :relation_value => 'kinoto'},
+                         {:key => 'tora', :relation_value => 'kanoto'},
+                         {:key => 'u', :relation_value => 'kanoto'},
+                         {:key => 'tatsu', :relation_value => 'kanoto'},
+                         {:key => 'mi', :relation_value => 'mizunoto'},
+                         {:key => 'uma', :relation_value => 'mizunoto'},
+                         {:key => 'hitsuji', :relation_value => 'mizunoto'},
+                         {:key => 'saru', :relation_value => 'kinoto'},
+                         {:key => 'tori', :relation_value => 'kinoto'},
+                         {:key => 'inu', :relation_value => 'kinoto'},
+                         {:key => 'i', :relation_value => 'kinoto'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :shihai_2_kan_check, pattern
+          it_behaves_like :shihai_2_kan_get, pattern
+        end
+      end
+
+      describe Junishi, "支(1)" do
+        shared_examples_for :shihai_shi_1_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).shihai_1_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :shihai_shi_1_get do |params|
+          subject{Junishi.by_key(key).shihai_1_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'mi'},
+                         {:key => 'usi', :relation_value => 'mi'},
+                         {:key => 'tora', :relation_value => 'saru'},
+                         {:key => 'u', :relation_value => 'saru'},
+                         {:key => 'tatsu', :relation_value => 'saru'},
+                         {:key => 'mi', :relation_value => 'i'},
+                         {:key => 'uma', :relation_value => 'i'},
+                         {:key => 'hitsuji', :relation_value => 'i'},
+                         {:key => 'saru', :relation_value => 'tora'},
+                         {:key => 'tori', :relation_value => 'tora'},
+                         {:key => 'inu', :relation_value => 'tora'},
+                         {:key => 'i', :relation_value => 'mi'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :shihai_shi_1_check, pattern
+          it_behaves_like :shihai_shi_1_get, pattern
+        end
+      end
+
+      describe Junishi, "支(2)" do
+        shared_examples_for :shihai_shi_2_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).shihai_2_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :shihai_shi_2_get do |params|
+          subject{Junishi.by_key(key).shihai_2_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'uma'},
+                         {:key => 'usi', :relation_value => 'uma'},
+                         {:key => 'tora', :relation_value => 'tori'},
+                         {:key => 'u', :relation_value => 'tori'},
+                         {:key => 'tatsu', :relation_value => 'tori'},
+                         {:key => 'mi', :relation_value => 'ne'},
+                         {:key => 'uma', :relation_value => 'ne'},
+                         {:key => 'hitsuji', :relation_value => 'ne'},
+                         {:key => 'saru', :relation_value => 'u'},
+                         {:key => 'tori', :relation_value => 'u'},
+                         {:key => 'inu', :relation_value => 'u'},
+                         {:key => 'i', :relation_value => 'uma'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :shihai_shi_2_check, pattern
+          it_behaves_like :shihai_shi_2_get, pattern
+        end
+      end
+
+    end
+
+    describe Junishi, "暴敗" do
+      describe Junishi, "支(1)" do
+        shared_examples_for :bouhai_shi_1_check do |params|
+          params[:expected_value] = true
+
+          subject{Junishi.by_key(key).bouhai_1_shi?(relation)}
+          it_behaves_like :relation_check_for_junishi, params
+        end
+
+        shared_examples_for :bouhai_shi_1_get do |params|
+          subject{Junishi.by_key(key).bouhai_1_shi}
+          it_behaves_like :relation_get_for_junishi, params
+        end
+
+        test_patterns = [{:key => 'ne', :relation_value => 'tora'},
+                         {:key => 'usi', :relation_value => 'tora'},
+                         {:key => 'tora', :relation_value => 'inu'},
+                         {:key => 'u', :relation_value => 'inu'},
+                         {:key => 'tatsu', :relation_value => 'inu'},
+                         {:key => 'mi', :relation_value => 'tatsu'},
+                         {:key => 'uma', :relation_value => 'tatsu'},
+                         {:key => 'hitsuji', :relation_value => 'tatsu'},
+                         {:key => 'saru', :relation_value => 'saru'},
+                         {:key => 'tori', :relation_value => 'saru'},
+                         {:key => 'inu', :relation_value => 'saru'},
+                         {:key => 'i', :relation_value => 'tora'}]
+
+        test_patterns.each do |pattern|
+          it_behaves_like :bouhai_shi_1_check, pattern
+          it_behaves_like :bouhai_shi_1_get, pattern
+        end
+      end
+    end
+
   end
 end

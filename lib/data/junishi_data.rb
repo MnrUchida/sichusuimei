@@ -36,7 +36,7 @@ class JunishiData
   def angle_relation_angle_string(angle_relation)
     <<-EOS
       return if (#{angle_relation}).nil?
-      (#{angle_relation}) % ANGLE_CIRCLE
+      (#{angle_relation}).in_circle
     EOS
   end
 

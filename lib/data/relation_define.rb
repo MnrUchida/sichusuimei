@@ -14,11 +14,11 @@ module RelationDefine
       end
 
       def #{method_name.to_s}
-        Junishi.by_angle(#{method_name.to_s}_angle)
+        Junishi.by_angle(#{method_name.to_s}_angle.to_i)
       end
 
       def #{method_name.to_s}?(relate_junishi)
-        relate_junishi.angle == #{method_name.to_s}_angle
+        relate_junishi.angle == #{method_name.to_s}_angle.to_i
       end
     EOS
   end
@@ -26,7 +26,7 @@ module RelationDefine
   def jikkan_relation_string(jikkan_relation, method_name)
     <<-EOS
       def #{method_name.to_s}_code
-        #{jikkan_relation}
+        (#{jikkan_relation}) % Jikkan::JIKKAN_COUNT
       end
 
       def #{method_name.to_s}

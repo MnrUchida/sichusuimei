@@ -12,5 +12,6 @@ guard :rspec do
   watch(%r{^config/data/pillar_relation\.yml$})       { |m| "spec/models/meishiki_plr_spec.rb" }
   watch(%r{^lib/data/pillar_relation_data\.rb$})      { |m| "spec/models/meishiki_plr_spec.rb" }
   watch(%r{^lib/data/(.+)_data\.rb$})                 { |m| "spec/models/#{m[1]}_spec.rb" }
+  watch(%r{^lib/angle_value\.rb$})               { |m| "spec/models/junishi_spec.rb" }
 end
 
