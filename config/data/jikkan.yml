@@ -3,13 +3,13 @@ ANGLE:
   name: 天乙貴人
   method:
    -
-     define: AngleValue.new(ANGLE_SHI)
+     define: AngleValue.new.with_shi(1)
      target:
       - kinoe
       - tsuchinoe
       - kanoe
    -
-     define: self.gogyo.angle + ANGLE_HALF_CIRCLE
+     define: self.gogyo.angle_value.with_shi(6)
      target:
       - kinoto
       - hinoe
@@ -18,93 +18,93 @@ ANGLE:
       - mizunoe
       - mizunoto
    -
-     define: self.gogyo.angle + ANGLE_RIGHT
+     define: self.gogyo.angle_value.with_shi(3)
      target:
       - tsuchinoto
 
  tenotsu_kijin_2:
   name: 天乙貴人
-  default_method: (original_angle(self.tenotsu_kijin_1_angle) + ANGLE_SHI + ANGLE_RIGHT) * -1
+  default_method: self.tenotsu_kijin_1_angle.original.with_shi(4) * -1
 
  tenkan_kijin:
   name: 天官貴人
   method:
-   - define: 210 * gogyo.pos_x ** 2 - 60 * gogyo.pos_x + 45 * inyou + 15
+   - define: AngleValue.new(15).with_shi(7 * gogyo.pos_x ** 2).with_shi(-2 * gogyo.pos_x).with_shi(1.5 * inyou)
      target:
       - kinoe
       - kinoto
       - kanoe
       - kanoto
-   - define: 150 * gogyo.pos_y ** 2 + 45 * gogyo.pos_y - 60 * inyou + 15
+   - define: AngleValue.new(15).with_shi(5 * gogyo.pos_y ** 2).with_shi(1.5 * gogyo.pos_y).with_shi(-2 * inyou)
      target:
       - hinoe
       - hinoto
       - mizunoe
       - mizunoto
-   - define: -75 * inyou + 15
+   - define: AngleValue.new(15).with_shi(-2.5 * inyou)
      target:
       - tsuchinoe
       - tsuchinoto
 
  tenhuku_kijin:
   name: 天福貴人
-  default_method: ((2 - self.code) % Jikkan::JIKKAN_COUNT) * ANGLE_SHI
+  default_method: (AngleValue.new(2 - self.code) % Jikkan::JIKKAN_COUNT).multi_shi(1)
   method:
-   - define: ANGLE_SHI
+   - define: AngleValue.new.with_shi(1)
      target:
       - mizunoto
 
  anroku:
   name: 暗禄
-  default_method: original_angle(-self.kanroku_angle)
+  default_method: (self.kanroku_angle * -1).original
 
  kanroku:
   name: 干禄
-  default_method: original_angle(Houn.by_key('kenroku').construct_junishi_with(self).angle)
+  default_method: Houn.by_key('kenroku').construct_junishi_with(self).angle_value.original
 
  fukigakudo:
   name: 富貴学童
-  default_method: (self.gogyo.angle + ANGLE_HALF_SHI - self.inyou * (ANGLE_RIGHT + ANGLE_HALF_SHI))
+  default_method: Houn.by_key('chosei').construct_junishi_with(self).angle_value.original
 
  tenchukijin:
   name: 天厨貴人
-  default_method: original_angle(Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle)
+  default_method: Hentsusei.by_key('shokusin').construct_other_with(self).kanroku_angle.original
 
  kinyoroku:
   name: 金輿禄
-  default_method: original_angle(self.kanroku_angle + ANGLE_DOUBLE_SHI)
+  default_method: self.kanroku_angle.with_shi(2).original
 
  gakushi:
   name: 学士
-  default_method: original_angle(Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle)
+  default_method: Hentsusei.by_key('inju').construct_other_with(self).kanroku_angle.original
 
  kyoroku_1:
   name: 夾禄
-  default_method: original_angle(self.kanroku_angle - ANGLE_SHI)
+  default_method: self.kanroku_angle.with_shi(-1).original
 
  kyoroku_2:
   name: 夾禄
-  default_method: original_angle(self.kanroku_angle + ANGLE_SHI)
+  default_method: self.kanroku_angle.with_shi(1).original
 
  youjin:
   name: 羊刃
-  default_method: original_angle(self.kanroku_angle + ANGLE_SHI)
+  default_method: self.kanroku_angle.with_shi(1).original
 
  hijin:
   name: 飛刃
-  default_method: original_angle(self.youjin.chu_angle)
+  default_method: self.youjin.chu_angle.original
 
  kouen:
   name: 紅艶
   method:
-   - define: -ANGLE_SHI * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)
+   - define: AngleValue.new.with_shi(-1){ |angle| angle * (-5 * gogyo.pos_x ** 2 + gogyo.pos_x + 3 * gogyo.pos_y ** 2 - gogyo.pos_y - 4)}
      target:
       - kinoe
       - kanoe
       - tsuchinoe
       - hinoe
       - mizunoe
-   - define: ANGLE_HALF_SHI * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)
+   - define: AngleValue.new.with_shi(0.5){ |angle| angle * (7 * gogyo.pos_x ** 2 - 3 * gogyo.pos_x + 7 * gogyo.pos_y ** 2 - gogyo.pos_y + 8)}
      target:
       - kinoto
       - kanoto
@@ -114,9 +114,9 @@ ANGLE:
 
  ryuka:
   name: 流霞
-  default_method: (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) - self.inyou * ANGLE_HALF_SHI) % 300 + 60
+  default_method: AngleValue.new.with_shi(0.5){|angle| angle * (15 - 4 * self.gogyo.code - self.inyou)}.mod_shi(10).with_shi(2)
   method:
-   - define: (ANGLE_HALF_SHI * ((4 -self.gogyo.code) * 4 - 1) + self.inyou * ANGLE_HALF_SHI) % 300 + 60
+   - define: AngleValue.new.with_shi(0.5){|angle| angle * (15 - 4 * self.gogyo.code + self.inyou)}.mod_shi(10).with_shi(2)
      target:
       - kanoe
       - kanoto
@@ -124,18 +124,18 @@ ANGLE:
  fukusei_kijin:
   name: 福星貴人
   method:
-   - define: (((5 - self.gogyo.code) % 5) % 4) * ANGLE_DOUBLE_SHI + ANGLE_DOUBLE_SHI
+   - define: AngleValue.new.with_shi(2).with_shi(2 * (self.gogyo.reverse_code % 4))
      target:
       - kinoe
       - hinoe
       - tsuchinoe
       - kanoe
       - mizunoe
-   - define: ANGLE_SHI
+   - define: AngleValue.new.with_shi(1)
      target:
       - kinoto
       - mizunoto
-   - define: ((5 - self.gogyo.code) % 5) * ANGLE_DOUBLE_SHI + ANGLE_SHI
+   - define: AngleValue.new.with_shi(2){|angle| angle * self.gogyo.reverse_code}.with_shi(1)
      target:
       - hinoto
       - tsuchinoto
@@ -143,12 +143,12 @@ ANGLE:
 
  bunsei_kijin:
   name: 文星貴人
-  default_method: original_angle(self.kanroku_angle + ANGLE_RIGHT)
+  default_method: self.kanroku_angle.with_shi(3).original
 
  setsudojin:
   name: 節度人
   method:
-   - define: ANGLE_HALF_CIRCLE - self.inyou * ANGLE_SHI
+   - define: AngleValue.new.with_shi( 6 - self.inyou)
      target:
       - kinoe
       - kinoto
@@ -156,7 +156,7 @@ ANGLE:
       - hinoto
       - tsuchinoe
       - tsuchinoto
-   - define: -self.inyou * ANGLE_SHI
+   - define: AngleValue.new.with_shi( -self.inyou)
      target:
       - kanoe
       - kanoto
@@ -166,18 +166,18 @@ ANGLE:
 METHOD:
  taikyoku_kijin_1:
   name: 大極貴人
-  default_method: Junishi.by_angle(revise_angle((-ANGLE_SHI * gogyo.pos_x + ANGLE_DOUBLE_SHI * gogyo.pos_y + ANGLE_SHI) % ANGLE_HALF_CIRCLE))
+  default_method: Junishi.by_angle( AngleValue.new.with_shi(-gogyo.pos_x + 2 * gogyo.pos_y + 1).mod_shi(6).revise)
   method:
-   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT + ANGLE_SHI))
+   - define: Junishi.by_angle(AngleValue.new.with_shi(4).revise)
      target:
       - tsuchinoe
       - tsuchinoto
 
  taikyoku_kijin_2:
   name: 大極貴人
-  default_method: Junishi.by_angle(revise_angle(-2.5 * ANGLE_SHI * gogyo.pos_x + ANGLE_HALF_SHI * gogyo.pos_y + ANGLE_SHI * 8.5))
+  default_method: Junishi.by_angle( AngleValue.new.with_shi(8.5 - 2.5 * gogyo.pos_x + 0.5 * gogyo.pos_y).revise)
   method:
-   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 2 + ANGLE_SHI))
+   - define: Junishi.by_angle( AngleValue.new.with_shi(7).revise)
      target:
       - tsuchinoe
       - tsuchinoto
@@ -185,7 +185,7 @@ METHOD:
  taikyoku_kijin_3:
   name: 大極貴人
   method:
-   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 3 + ANGLE_SHI))
+   - define: Junishi.by_angle( AngleValue.new.with_shi(10).revise)
      target:
       - tsuchinoe
       - tsuchinoto
@@ -194,7 +194,7 @@ METHOD:
  taikyoku_kijin_4:
   name: 大極貴人
   method:
-   - define: Junishi.by_angle(revise_angle(ANGLE_RIGHT * 4 + ANGLE_SHI))
+   - define: Junishi.by_angle( AngleValue.new.with_shi(1).revise)
      target:
       - tsuchinoe
       - tsuchinoto

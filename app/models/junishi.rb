@@ -15,6 +15,10 @@ class Junishi
     @angle.to_i
   end
 
+  def angle_value
+    @angle
+  end
+
   def self.by_key(key)
     JunishiData.instance.by_key(key)
   end

@@ -7,7 +7,7 @@ class AngleValue
   ANGLE_HALF_SHI = ANGLE_SHI / 2
   ANGLE_DOUBLE_SHI = ANGLE_SHI * 2
 
-  def initialize(value)
+  def initialize(value = 0)
     @value = value
   end
 
@@ -59,8 +59,10 @@ class AngleValue
     self * (value * ANGLE_SHI)
   end
 
-  def with_shi(value)
-    self + (value * ANGLE_SHI)
+  def with_shi(value, &proc)
+    proc ||= Proc.new{|angle| return angle}
+
+    proc.call self + (value * ANGLE_SHI)
   end
 
   def mod_shi(value)

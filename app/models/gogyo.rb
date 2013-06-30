@@ -3,14 +3,26 @@ class Gogyo
   GOGYO_COUNT = 5
   SHIDAI = [4,3,1,0]
 
-  attr_reader :key, :color, :code, :name, :angle
+  attr_reader :key, :color, :code, :name
 
   def initialize(key, data)
     @key = key
     @code = data["code"]
     @name = data["name"]
-    @angle = data["angle"]
+    @angle = AngleValue.new(data["angle"])
     @color = data["color"]
+  end
+
+  def angle
+    @angle.to_i
+  end
+
+  def angle_value
+    @angle
+  end
+
+  def reverse_code
+    (GOGYO_COUNT - @code) % GOGYO_COUNT
   end
 
   def +(value)

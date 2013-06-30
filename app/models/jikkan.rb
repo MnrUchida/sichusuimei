@@ -1,7 +1,4 @@
-require 'angle'
-
 class Jikkan
-  include Angle
 
   JIKKAN_COUNT = 10
 

@@ -36,7 +36,7 @@ class JikkanData
   end
 
   def angle_relation_angle_string(angle_relation)
-    "revise_angle(#{angle_relation})"
+    "(#{angle_relation}).revise"
   end
 
 end
