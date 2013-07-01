@@ -129,19 +129,19 @@ ANGLE:
 
  tensha_shi:
   name: 天赦
-  default_method: ((@angle.with_shi(3).four_season % 2) + @angle.with_shi(3).two_season * 3).multi_shi(2).revise
+  default_method: ((@angle.four_season(3) % 2) + @angle.two_season(3) * 3).multi_shi(2).revise
 
  zahai_1_shi:
   name: 座敗
-  default_method: (@angle.with_shi(6).two_season + 2 ** @angle.with_shi(6).four_season.to_i).multi_shi(1).revise
+  default_method: (@angle.two_season(6) + 2 ** @angle.four_season(6).to_i).multi_shi(1).revise
 
  zahai_2_shi:
   name: 座敗
-  default_method: (@angle.with_shi(6).two_season * 7 + (@angle * 2).two_season + 1).multi_shi(1).revise
+  default_method: (@angle.two_season(6) * 7 + @angle.even + 1).multi_shi(1).revise
 
  zahai_3_shi:
   name: 座敗
-  default_method: (@angle.with_shi(-3).four_season * @angle.two_season + @angle.with_shi(6).two_season * 3 + @angle.with_shi(3).two_season * 6 ).multi_shi(1).revise
+  default_method: (@angle.four_season(-3) * @angle.two_season + @angle.two_season(6) * 3 + @angle.two_season(3) * 6 ).multi_shi(1).revise
 
  tenten_shi:
   name: 天転
@@ -173,7 +173,31 @@ ANGLE:
 
  bouhai_1_shi:
   name: 暴敗
-  default_method: (@angle.with_shi(6).two_season + (@angle * 2).with_shi(6).two_season * 3 + 1).multi_shi(2).revise
+  default_method: (@angle.two_season(6) + @angle.even(3) * 3 + 1).multi_shi(2).revise
+
+ bouhai_2_shi:
+  name: 暴敗
+  default_method: bouhai_1_shi_angle.with_shi(1)
+
+ bouhai_3_shi:
+  name: 暴敗
+  default_method: (@angle).with_shi(3){ |angle|angle.four_season * angle.two_season(3) + angle.two_season * 4 + 6}.multi_shi(1).revise
+
+ kajou_1_shi:
+  name: 下情
+  default_method: (@angle.two_season(3) * (-@angle.four_season + 6)).multi_shi(2).revise
+
+ kajou_2_shi:
+  name: 下情
+  default_method: (@angle.even(3) + @angle.even * @angle.two_season(3) * 11).multi_shi(1).revise
+
+ kajou_3_shi:
+  name: 下情
+  default_method: (@angle.two_season(-3) + @angle.even * 4 + 1).multi_shi(1).revise
+
+ kajou_4_shi:
+  name: 下情
+  default_method: (@angle.two_season(-3) + @angle.even * 3 + 8).multi_shi(1).revise
 
 METHOD:
  tentoku_kijin:
@@ -277,7 +301,7 @@ METHOD_JIKKAN:
 
  tensha_kan:
   name: 天赦
-  default_method: (@angle * 2).with_shi(6).two_season.to_i * Jikkan.by_key('tsuchinoe').code
+  default_method: (@angle).even(3).to_i * Jikkan.by_key('tsuchinoe').code
 
  zahai_1_kan:
   name: 座敗
@@ -285,27 +309,27 @@ METHOD_JIKKAN:
 
  zahai_3_kan:
   name: 座敗
-  default_method: (@angle.with_shi(3).two_season * 2 + @angle.two_season).to_i ** 2 + ((@angle * 2).two_season * 3).to_i
+  default_method: (@angle.two_season(3) * 2 + @angle.two_season).to_i ** 2 + (@angle.even * 3).to_i
 
  zahai_4_kan:
   name: 座敗
-  default_method: (@angle.with_shi(3).four_season.to_i ** @angle.with_shi(6).two_season.to_i + (@angle.two_season * 2).to_i ) * (3 ** @angle.with_shi(3).two_season.to_i) + (@angle * 2).two_season.to_i
+  default_method: (@angle.four_season(3).to_i ** @angle.two_season(6).to_i + (@angle.two_season * 2).to_i ) * (3 ** @angle.two_season(3).to_i) + @angle.even.to_i
 
  tenten_kan:
   name: 天転
-  default_method: (@angle * 2).two_season.to_i + @angle.two_season.to_i * 6 + 1
+  default_method: (@angle.even).to_i + @angle.two_season.to_i * 6 + 1
 
  chiten_kan:
   name: 地転
-  default_method: ((@angle.with_shi(3).two_season + 1) * 2 + (@angle * 2).with_shi(6).two_season * 5).to_i
+  default_method: ((@angle.two_season(3) + 1) * 2 + @angle.even(3) * 5).to_i
 
  tensatsu_kan:
   name: 天殺
-  default_method: (@angle.with_shi(-3).two_season * 2 + 1).to_i * ((@angle * 2).with_shi(6).two_season + 2).to_i
+  default_method: (@angle.two_season(-3) * 2 + 1).to_i * (@angle.even(3) + 2).to_i
 
  happu_kan:
   name: 八風
-  default_method: (@angle * 2).with_shi(6).two_season.to_i * Jikkan.by_key('hinoto').code
+  default_method: (@angle).even(3).to_i * Jikkan.by_key('hinoto').code
 
  shihai_1_kan:
   name: 四廃
@@ -313,7 +337,7 @@ METHOD_JIKKAN:
 
  shihai_2_kan:
   name: 四廃
-  default_method: 2 ** ((@angle.four_season + 1) * @angle.with_shi(6).two_season * 2).to_i + @angle.with_shi(6).two_season.to_i * 3
+  default_method: 2 ** ((@angle.four_season + 1) * @angle.two_season(6) * 2).to_i + @angle.two_season(6).to_i * 3
 
 JUNISHI:
  ne:

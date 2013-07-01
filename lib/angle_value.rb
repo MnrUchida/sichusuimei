@@ -27,6 +27,10 @@ class AngleValue
     AngleValue.new(@value - value.to_i)
   end
 
+  def -@
+    AngleValue.new(-@value)
+  end
+
   def *(value)
     AngleValue.new(@value * value.to_i)
   end
@@ -47,12 +51,16 @@ class AngleValue
     (self + ANGLE_HALF_SHI).in_circle
   end
 
-  def four_season
-    (self - ANGLE_DOUBLE_SHI).original.div(ANGLE_RIGHT)
+  def four_season(offset = 0)
+    (self.with_shi(offset) - ANGLE_DOUBLE_SHI).original.div(ANGLE_RIGHT)
   end
 
-  def two_season
-    four_season.div(2)
+  def two_season(offset = 0)
+    self.with_shi(offset).four_season.div(2)
+  end
+
+  def even(offset = 0)
+    (self.with_shi(offset) * 2).two_season
   end
 
   def multi_shi(value)
