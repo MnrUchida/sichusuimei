@@ -199,6 +199,38 @@ ANGLE:
   name: 下情
   default_method: (@angle.two_season(-3) + @angle.even * 3 + 8).multi_shi(1).revise
 
+ kakukaku_1_shi:
+  name: 隔角
+  default_method: yokubon_shi_angle
+
+ kakukaku_2_shi:
+  name: 隔角
+  default_method: kakukaku_1_shi_angle.with_shi(1)
+
+ yokubon_shi:
+  name: 浴盆
+  default_method: (@angle).four_season(3).multi_shi(3).with_shi(1).revise
+
+ shinsui_1_shi:
+  name: 深水
+  default_method: (@angle.two_season(3) * @angle.even(3) + @angle.even * 5 + 2).multi_shi(1).revise
+
+ shinsui_2_shi:
+  name: 深水
+  default_method: ( -(@angle.four_season(3) - 2) * @angle.two_season(-3) + @angle.two_season * 2 + 7).multi_shi(1).revise
+
+ shogun_1_shi:
+  name: 将軍
+  default_method: (@angle.two_season(6) + @angle.two_season(-3) * 2 + 6).multi_shi(1).revise
+
+ shogun_2_shi:
+  name: 将軍
+  default_method: (@angle.two_season + @angle.two_season(3) * 2  + 10).multi_shi(1).revise
+
+ shogun_3_shi:
+  name: 将軍
+  default_method: ( -(@angle.four_season(3) - 5)).multi_shi(1).revise
+
 METHOD:
  tentoku_kijin:
   name: 天徳貴人
