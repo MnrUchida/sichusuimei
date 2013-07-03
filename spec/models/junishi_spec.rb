@@ -1498,18 +1498,18 @@ describe Junishi, "十二支のテスト" do
           it_behaves_like :relation_get_for_jikkan, params
         end
 
-        test_patterns = [{:key => 'ne', :relation_value => 'hinoe'},
-                         {:key => 'usi', :relation_value => 'hinoe'},
+        test_patterns = [{:key => 'ne', :relation_value => 'kinoto'},
+                         {:key => 'usi', :relation_value => 'kinoto'},
                          {:key => 'tora', :relation_value => 'kanoe'},
                          {:key => 'u', :relation_value => 'kanoe'},
                          {:key => 'tatsu', :relation_value => 'kanoe'},
-                         {:key => 'mi', :relation_value => 'mizunoe'},
-                         {:key => 'uma', :relation_value => 'mizunoe'},
-                         {:key => 'hitsuji', :relation_value => 'mizunoe'},
+                         {:key => 'mi', :relation_value => 'mizunoto'},
+                         {:key => 'uma', :relation_value => 'mizunoto'},
+                         {:key => 'hitsuji', :relation_value => 'mizunoto'},
                          {:key => 'saru', :relation_value => 'kinoe'},
                          {:key => 'tori', :relation_value => 'kinoe'},
                          {:key => 'inu', :relation_value => 'kinoe'},
-                         {:key => 'i', :relation_value => 'hinoe'}]
+                         {:key => 'i', :relation_value => 'kinoto'}]
 
         test_patterns.each do |pattern|
           it_behaves_like :shihai_1_kan_check, pattern
@@ -1529,18 +1529,18 @@ describe Junishi, "十二支のテスト" do
           it_behaves_like :relation_get_for_jikkan, params
         end
 
-        test_patterns = [{:key => 'ne', :relation_value => 'kinoto'},
-                         {:key => 'usi', :relation_value => 'kinoto'},
+        test_patterns = [{:key => 'ne', :relation_value => 'hinoe'},
+                         {:key => 'usi', :relation_value => 'hinoe'},
                          {:key => 'tora', :relation_value => 'kanoto'},
                          {:key => 'u', :relation_value => 'kanoto'},
                          {:key => 'tatsu', :relation_value => 'kanoto'},
-                         {:key => 'mi', :relation_value => 'mizunoto'},
-                         {:key => 'uma', :relation_value => 'mizunoto'},
-                         {:key => 'hitsuji', :relation_value => 'mizunoto'},
+                         {:key => 'mi', :relation_value => 'mizunoe'},
+                         {:key => 'uma', :relation_value => 'mizunoe'},
+                         {:key => 'hitsuji', :relation_value => 'mizunoe'},
                          {:key => 'saru', :relation_value => 'kinoto'},
                          {:key => 'tori', :relation_value => 'kinoto'},
                          {:key => 'inu', :relation_value => 'kinoto'},
-                         {:key => 'i', :relation_value => 'kinoto'}]
+                         {:key => 'i', :relation_value => 'hinoe'}]
 
         test_patterns.each do |pattern|
           it_behaves_like :shihai_2_kan_check, pattern

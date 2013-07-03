@@ -365,11 +365,11 @@ METHOD_JIKKAN:
 
  shihai_1_kan:
   name: 四廃
-  default_method: ((@angle.four_season.to_i + 3) % Gogyo::GOGYO_COUNT) * 2
+  default_method: (@angle.four_season(6) * (3 ** @angle.two_season(6).to_i)).to_i
 
  shihai_2_kan:
   name: 四廃
-  default_method: 2 ** ((@angle.four_season + 1) * @angle.two_season(6) * 2).to_i + @angle.two_season(6).to_i * 3
+  default_method: (@angle.even + @angle.two_season(6) * 6 + 1).to_i
 
 JUNISHI:
  ne:

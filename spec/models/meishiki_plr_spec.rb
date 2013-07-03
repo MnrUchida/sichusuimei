@@ -713,3 +713,755 @@ describe "十干" do
     end
   end
 end
+
+describe "四季" do
+  describe Junishi, "進神" do
+    shared_examples_for :sinjin_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.sinjin?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoto', :chishi => 'tori'},
+                     {:key => 'tora', :tenkan => 'kinoe', :chishi => 'ne'},
+                     {:key => 'mi', :tenkan => 'kinoe', :chishi => 'uma'},
+                     {:key => 'tori', :tenkan => 'tsuchinoto', :chishi => 'u'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :sinjin_check, pattern
+    end
+  end
+
+  describe Junishi, "天赦" do
+    shared_examples_for :tensha_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.tensha?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'kinoe', :chishi => 'ne'},
+                     {:key => 'tora', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                     {:key => 'mi', :tenkan => 'kinoe', :chishi => 'uma'},
+                     {:key => 'tori', :tenkan => 'tsuchinoe', :chishi => 'saru'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :tensha_check, pattern
+    end
+  end
+
+  describe Junishi, "座敗" do
+    describe "座敗" do
+      shared_examples_for :zahai_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.zahai?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'kinoe', :chishi => 'saru'},
+                       {:key => 'mi', :tenkan => 'kanoto', :chishi => 'tori'},
+                       {:key => 'tori', :tenkan => 'mizunoto', :chishi => 'hitsuji'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :zahai_check, pattern
+      end
+    end
+
+    describe "1つめ" do
+      shared_examples_for :zahai_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.zahai_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'kinoe', :chishi => 'mi'},
+                       {:key => 'mi', :tenkan => 'kinoto', :chishi => 'tori'},
+                       {:key => 'tori', :tenkan => 'hinoto', :chishi => 'usi'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :zahai_1_check, pattern
+      end
+    end
+
+    describe "2つめ" do
+      shared_examples_for :zahai_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.zahai_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'kinoe', :chishi => 'saru'},
+                       {:key => 'mi', :tenkan => 'kinoto', :chishi => 'tori'},
+                       {:key => 'tori', :tenkan => 'hinoto', :chishi => 'usi'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :zahai_2_check, pattern
+      end
+    end
+
+    describe "3つめ" do
+      shared_examples_for :zahai_3_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.zahai_3?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'kinoe', :chishi => 'u'},
+                       {:key => 'mi', :tenkan => 'kanoto', :chishi => 'tori'},
+                       {:key => 'tori', :tenkan => 'mizunoto', :chishi => 'hitsuji'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :zahai_3_check, pattern
+      end
+    end
+
+    describe "4つめ" do
+      shared_examples_for :zahai_4_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.zahai_4?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'tsuchinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'kinoto', :chishi => 'u'},
+                       {:key => 'mi', :tenkan => 'kanoto', :chishi => 'tori'},
+                       {:key => 'tori', :tenkan => 'mizunoto', :chishi => 'hitsuji'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :zahai_4_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "天転" do
+    shared_examples_for :tenten_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.tenten?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'mizunoe', :chishi => 'ne'},
+                     {:key => 'tora', :tenkan => 'kinoto', :chishi => 'u'},
+                     {:key => 'mi', :tenkan => 'hinoe', :chishi => 'uma'},
+                     {:key => 'tori', :tenkan => 'kanoto', :chishi => 'tori'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :tenten_check, pattern
+    end
+  end
+
+  describe Junishi, "地転" do
+    shared_examples_for :chiten_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.chiten?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'hinoe', :chishi => 'ne'},
+                     {:key => 'tora', :tenkan => 'kanoto', :chishi => 'u'},
+                     {:key => 'mi', :tenkan => 'tsuchinoe', :chishi => 'uma'},
+                     {:key => 'tori', :tenkan => 'mizunoto', :chishi => 'tori'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :chiten_check, pattern
+    end
+  end
+
+  describe Junishi, "天殺" do
+    shared_examples_for :tensatsu_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.tensatsu?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'kanoe', :chishi => 'ne'},
+                     {:key => 'tora', :tenkan => 'mizunoto', :chishi => 'u'},
+                     {:key => 'mi', :tenkan => 'hinoe', :chishi => 'uma'},
+                     {:key => 'tori', :tenkan => 'hinoto', :chishi => 'tori'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :tensatsu_check, pattern
+    end
+  end
+
+  describe Junishi, "八風" do
+    describe Junishi, "八風" do
+      shared_examples_for :happu_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.happu?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'kinoe', :chishi => 'inu'},
+                       {:key => 'tora', :tenkan => 'hinoto', :chishi => 'mi'},
+                       {:key => 'mi', :tenkan => 'kinoe', :chishi => 'saru'},
+                       {:key => 'tori', :tenkan => 'hinoto', :chishi => 'hitsuji'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :happu_check, pattern
+      end
+    end
+
+    describe Junishi, "1" do
+      shared_examples_for :happu_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.happu_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'kinoe', :chishi => 'inu'},
+                       {:key => 'tora', :tenkan => 'hinoto', :chishi => 'usi'},
+                       {:key => 'mi', :tenkan => 'kinoe', :chishi => 'tatsu'},
+                       {:key => 'tori', :tenkan => 'hinoto', :chishi => 'hitsuji'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :happu_1_check, pattern
+      end
+    end
+
+    describe Junishi, "2" do
+      shared_examples_for :happu_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.happu_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'kinoe', :chishi => 'tora'},
+                       {:key => 'tora', :tenkan => 'hinoto', :chishi => 'mi'},
+                       {:key => 'mi', :tenkan => 'kinoe', :chishi => 'saru'},
+                       {:key => 'tori', :tenkan => 'hinoto', :chishi => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :happu_2_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "四廃" do
+    shared_examples_for :shihai_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.shihai?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi,
+                      params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+    end
+
+    test_patterns = [{:key => 'ne', :tenkan => 'kinoto', :chishi => 'mi'},
+                     {:key => 'tora', :tenkan => 'kanoto', :chishi => 'tori'},
+                     {:key => 'mi', :tenkan => 'mizunoe', :chishi => 'ne'},
+                     {:key => 'tori', :tenkan => 'kinoe', :chishi => 'tora'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :shihai_check, pattern
+    end
+
+    describe Junishi, "1" do
+      shared_examples_for :shihai_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shihai_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'kinoto', :chishi => 'mi'},
+                       {:key => 'tora', :tenkan => 'kanoe', :chishi => 'saru'},
+                       {:key => 'mi', :tenkan => 'mizunoto', :chishi => 'i'},
+                       {:key => 'tori', :tenkan => 'kinoe', :chishi => 'tora'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shihai_1_check, pattern
+      end
+    end
+
+    describe Junishi, "2" do
+      shared_examples_for :shihai_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shihai_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi,
+                        params, Junishi.by_key(params[:chishi]), Jikkan.by_key(params[:tenkan])
+      end
+
+      test_patterns = [{:key => 'ne', :tenkan => 'hinoe', :chishi => 'uma'},
+                       {:key => 'tora', :tenkan => 'kanoto', :chishi => 'tori'},
+                       {:key => 'mi', :tenkan => 'mizunoe', :chishi => 'ne'},
+                       {:key => 'tori', :tenkan => 'kinoto', :chishi => 'u'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shihai_2_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "暴敗" do
+    describe Junishi, "all" do
+      shared_examples_for :bouhai_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.bouhai?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'tora'},
+                       {:key => 'tora', :relation_value => 'i'},
+                       {:key => 'mi', :relation_value => 'ne'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'tora'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :bouhai_check, pattern
+      end
+    end
+
+    describe Junishi, "支(1)" do
+      shared_examples_for :bouhai_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.bouhai_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'tora'},
+                       {:key => 'tora', :relation_value => 'inu'},
+                       {:key => 'mi', :relation_value => 'tatsu'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'tora'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :bouhai_1_check, pattern
+      end
+    end
+
+    describe Junishi, "支(2)" do
+      shared_examples_for :bouhai_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.bouhai_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'u'},
+                       {:key => 'tora', :relation_value => 'i'},
+                       {:key => 'mi', :relation_value => 'mi'},
+                       {:key => 'saru', :relation_value => 'tori'},
+                       {:key => 'i', :relation_value => 'u'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :bouhai_2_check, pattern
+      end
+    end
+
+    describe Junishi, "支(3)" do
+      shared_examples_for :bouhai_3_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.bouhai_3?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'uma'},
+                       {:key => 'tora', :relation_value => 'hitsuji'},
+                       {:key => 'mi', :relation_value => 'ne'},
+                       {:key => 'saru', :relation_value => 'inu'},
+                       {:key => 'i', :relation_value => 'uma'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :bouhai_3_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "下情" do
+    describe Junishi, "all" do
+      shared_examples_for :kajou_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kajou?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'ne'},
+                       {:key => 'tora', :relation_value => 'ne'},
+                       {:key => 'mi', :relation_value => 'inu'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'ne'},
+                       {:key => 'usi', :relation_value => 'ne'},
+                       {:key => 'u', :relation_value => 'usi'},
+                       {:key => 'uma', :relation_value => 'i'},
+                       {:key => 'tori', :relation_value => 'usi'},
+                       {:key => 'tatsu', :relation_value => 'tora'},
+                       {:key => 'hitsuji', :relation_value => 'mi'},
+                       {:key => 'inu', :relation_value => 'usi'},
+                       {:key => 'i', :relation_value => 'uma'},
+                       {:key => 'ne', :relation_value => 'ne'},
+                       {:key => 'u', :relation_value => 'tori'},
+                       {:key => 'hitsuji', :relation_value => 'i'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'ne'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kajou_check, pattern
+      end
+    end
+
+    describe Junishi, "支(1)" do
+      shared_examples_for :kajou_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kajou_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'ne'},
+                       {:key => 'tora', :relation_value => 'ne'},
+                       {:key => 'mi', :relation_value => 'inu'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'ne'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kajou_1_check, pattern
+      end
+    end
+
+    describe Junishi, "支(2)" do
+      shared_examples_for :kajou_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kajou_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'usi', :relation_value => 'ne'},
+                       {:key => 'u', :relation_value => 'usi'},
+                       {:key => 'uma', :relation_value => 'i'},
+                       {:key => 'tori', :relation_value => 'usi'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kajou_2_check, pattern
+      end
+    end
+
+    describe Junishi, "支(3)" do
+      shared_examples_for :kajou_3_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kajou_3?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'tatsu', :relation_value => 'tora'},
+                       {:key => 'hitsuji', :relation_value => 'mi'},
+                       {:key => 'inu', :relation_value => 'usi'},
+                       {:key => 'i', :relation_value => 'uma'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kajou_3_check, pattern
+      end
+    end
+
+    describe Junishi, "支(4)" do
+      shared_examples_for :kajou_4_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kajou_4?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'ne'},
+                       {:key => 'u', :relation_value => 'tori'},
+                       {:key => 'hitsuji', :relation_value => 'i'},
+                       {:key => 'saru', :relation_value => 'saru'},
+                       {:key => 'i', :relation_value => 'ne'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kajou_4_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "隔角" do
+    describe Junishi, "all" do
+      shared_examples_for :kakukaku_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kakukaku?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'usi'},
+                       {:key => 'u', :relation_value => 'tatsu'},
+                       {:key => 'uma', :relation_value => 'hitsuji'},
+                       {:key => 'tori', :relation_value => 'inu'},
+                       {:key => 'usi', :relation_value => 'tora'},
+                       {:key => 'tatsu', :relation_value => 'mi'},
+                       {:key => 'hitsuji', :relation_value => 'saru'},
+                       {:key => 'inu', :relation_value => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kakukaku_check, pattern
+      end
+    end
+
+    describe Junishi, "支(1)" do
+      shared_examples_for :kakukaku_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kakukaku_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'usi'},
+                       {:key => 'u', :relation_value => 'tatsu'},
+                       {:key => 'uma', :relation_value => 'hitsuji'},
+                       {:key => 'tori', :relation_value => 'inu'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kakukaku_1_check, pattern
+      end
+    end
+
+    describe Junishi, "支(2)" do
+      shared_examples_for :kakukaku_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.kakukaku_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'usi', :relation_value => 'tora'},
+                       {:key => 'tatsu', :relation_value => 'mi'},
+                       {:key => 'hitsuji', :relation_value => 'saru'},
+                       {:key => 'inu', :relation_value => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kakukaku_2_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "浴盆" do
+    shared_examples_for :yokubon_check do |params|
+      params[:expected_value] = true
+      params[:pillar] = MonthPillar
+
+      subject{pillar.yokubon?(:target_pillar => relation)}
+      it_behaves_like :pillar_check_by_junishi_for_junishi, params
+    end
+
+    test_patterns = [{:key => 'ne', :relation_value => 'usi'},
+                     {:key => 'tora', :relation_value => 'tatsu'},
+                     {:key => 'hitsuji', :relation_value => 'hitsuji'},
+                     {:key => 'tori', :relation_value => 'inu'},
+                     {:key => 'i', :relation_value => 'usi'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :yokubon_check, pattern
+    end
+  end
+
+  describe Junishi, "深水" do
+    describe Junishi, "all" do
+      shared_examples_for :shinsui_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shinsui?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'hitsuji'},
+                       {:key => 'u', :relation_value => 'tora'},
+                       {:key => 'uma', :relation_value => 'hitsuji'},
+                       {:key => 'tori', :relation_value => 'u'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shinsui_check, pattern
+      end
+    end
+
+    describe Junishi, "支(1)" do
+      shared_examples_for :shinsui_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shinsui_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'hitsuji'},
+                       {:key => 'u', :relation_value => 'tora'},
+                       {:key => 'uma', :relation_value => 'hitsuji'},
+                       {:key => 'tori', :relation_value => 'u'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shinsui_1_check, pattern
+      end
+    end
+
+    describe Junishi, "支(2)" do
+      shared_examples_for :shinsui_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shinsui_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'usi', :relation_value => 'i'},
+                       {:key => 'tatsu', :relation_value => 'saru'},
+                       {:key => 'hitsuji', :relation_value => 'hitsuji'},
+                       {:key => 'inu', :relation_value => 'tori'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shinsui_2_check, pattern
+      end
+    end
+  end
+
+  describe Junishi, "将軍" do
+    describe Junishi, "all" do
+      shared_examples_for :shogun_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shogun?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'saru'},
+                       {:key => 'tora', :relation_value => 'tori'},
+                       {:key => 'mi', :relation_value => 'hitsuji'},
+                       {:key => 'saru', :relation_value => 'uma'},
+                       {:key => 'i', :relation_value => 'saru'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shogun_check, pattern
+      end
+    end
+
+    describe Junishi, "支(1)" do
+      shared_examples_for :shogun_1_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shogun_1?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'saru'},
+                       {:key => 'tora', :relation_value => 'tori'},
+                       {:key => 'mi', :relation_value => 'hitsuji'},
+                       {:key => 'saru', :relation_value => 'uma'},
+                       {:key => 'i', :relation_value => 'saru'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shogun_1_check, pattern
+      end
+    end
+
+    describe Junishi, "支(2)" do
+      shared_examples_for :shogun_2_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shogun_2?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'i'},
+                       {:key => 'tatsu', :relation_value => 'inu'},
+                       {:key => 'hitsuji', :relation_value => 'ne'},
+                       {:key => 'inu', :relation_value => 'usi'},
+                       {:key => 'i', :relation_value => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shogun_2_check, pattern
+      end
+    end
+
+    describe Junishi, "支(3)" do
+      shared_examples_for :shogun_shi_3_check do |params|
+        params[:expected_value] = true
+        params[:pillar] = MonthPillar
+
+        subject{pillar.shogun_3?(:target_pillar => relation)}
+        it_behaves_like :pillar_check_by_junishi_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ne', :relation_value => 'mi'},
+                       {:key => 'usi', :relation_value => 'mi'},
+                       {:key => 'tora', :relation_value => 'tatsu'},
+                       {:key => 'u', :relation_value => 'tatsu'},
+                       {:key => 'tatsu', :relation_value => 'tatsu'},
+                       {:key => 'mi', :relation_value => 'u'},
+                       {:key => 'uma', :relation_value => 'u'},
+                       {:key => 'hitsuji', :relation_value => 'u'},
+                       {:key => 'saru', :relation_value => 'tora'},
+                       {:key => 'tori', :relation_value => 'tora'},
+                       {:key => 'inu', :relation_value => 'tora'},
+                       {:key => 'i', :relation_value => 'mi'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :shogun_shi_3_check, pattern
+      end
+    end
+  end
+end

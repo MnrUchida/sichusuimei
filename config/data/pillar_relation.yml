@@ -329,6 +329,265 @@ METHOD:
         DayPillar: null
         TimePillar: null
 
+  sinjin?:
+    method: self.chishi.sinjin_shi?(target_pillar.chishi) && self.chishi.sinjin_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  tensha?:
+    method: self.chishi.tensha_shi?(target_pillar.chishi) && self.chishi.tensha_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  zahai?:
+    method: " self.zahai_1?(target_pillar: target_pillar) || self.zahai_2?(target_pillar: target_pillar)
+             || self.zahai_3?(target_pillar: target_pillar) || self.zahai_4?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  zahai_1?:
+    method: self.chishi.zahai_1_shi?(target_pillar.chishi) && self.chishi.zahai_1_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  zahai_2?:
+    method: self.chishi.zahai_2_shi?(target_pillar.chishi) && self.chishi.zahai_1_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  zahai_3?:
+    method: self.chishi.zahai_3_shi?(target_pillar.chishi) && self.chishi.zahai_3_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  zahai_4?:
+    method: self.chishi.zahai_3_shi?(target_pillar.chishi) && self.chishi.zahai_4_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  tenten?:
+    method: self.chishi.tenten_shi?(target_pillar.chishi) && self.chishi.tenten_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+  chiten?:
+    method: self.chishi.chiten_shi?(target_pillar.chishi) && self.chishi.chiten_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  tensatsu?:
+    method: self.chishi.tensatsu_shi?(target_pillar.chishi) && self.chishi.tensatsu_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  happu?:
+    method: "self.happu_1?(target_pillar: target_pillar) || self.happu_2?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  happu_1?:
+    method: self.chishi.happu_1_shi?(target_pillar.chishi) && self.chishi.happu_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  happu_2?:
+    method: self.chishi.happu_2_shi?(target_pillar.chishi) && self.chishi.happu_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  shihai?:
+    method: "self.shihai_1?(target_pillar: target_pillar) || self.shihai_2?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  shihai_1?:
+    method: self.chishi.shihai_1_shi?(target_pillar.chishi) && self.chishi.shihai_1_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  shihai_2?:
+    method: self.chishi.shihai_2_shi?(target_pillar.chishi) && self.chishi.shihai_2_kan?(target_pillar.tenkan)
+    relation:
+      MonthPillar:
+        DayPillar: null
+
+  bouhai?:
+    method: "self.bouhai_1?(target_pillar: target_pillar) || self.bouhai_2?(target_pillar: target_pillar)
+             || self.bouhai_3?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  bouhai_1?:
+    method: self.chishi.bouhai_1_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  bouhai_2?:
+    method: self.chishi.bouhai_2_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  bouhai_3?:
+    method: self.chishi.bouhai_3_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kajou?:
+    method: "self.kajou_1?(target_pillar: target_pillar) || self.kajou_2?(target_pillar: target_pillar)
+             || self.kajou_3?(target_pillar: target_pillar) || self.kajou_4?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kajou_1?:
+    method: self.chishi.kajou_1_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kajou_2?:
+    method: self.chishi.kajou_2_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kajou_3?:
+    method: self.chishi.kajou_3_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kajou_4?:
+    method: self.chishi.kajou_4_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kakukaku?:
+    method: "self.kakukaku_1?(target_pillar: target_pillar) || self.kakukaku_2?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kakukaku_1?:
+    method: self.chishi.kakukaku_1_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  kakukaku_2?:
+    method: self.chishi.kakukaku_2_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  yokubon?:
+    method: self.chishi.yokubon_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shinsui?:
+    method: "self.shinsui_1?(target_pillar: target_pillar) || self.shinsui_2?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shinsui_1?:
+    method: self.chishi.shinsui_1_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shinsui_2?:
+    method: self.chishi.shinsui_2_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shogun?:
+    method: "self.shogun_1?(target_pillar: target_pillar) || self.shogun_2?(target_pillar: target_pillar) || self.shogun_3?(target_pillar: target_pillar)"
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shogun_1?:
+    method: self.chishi.shogun_1_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shogun_2?:
+    method: self.chishi.shogun_2_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+  shogun_3?:
+    method: self.chishi.shogun_3_shi?(target_pillar.chishi)
+    relation:
+      MonthPillar:
+        YearPillar: null
+        MonthPillar: null
+        DayPillar: null
+        TimePillar: null
+
 PLURAL_METHOD:
   taikyoku_kijin?:
     construct_methods:
