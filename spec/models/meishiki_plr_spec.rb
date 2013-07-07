@@ -1465,3 +1465,32 @@ describe "四季" do
     end
   end
 end
+
+describe "納音" do
+  describe "五行" do
+    shared_examples_for :gogyo_get do |params|
+      let(:expected){Gogyo.by_key(params[:key])}
+      let(:pillar){MeishikiPlr.new(:chishi_id => Junishi.by_key(params[:chishi]).id,
+                                   :tenkan_id => Jikkan.by_key(params[:tenkan]).id)}
+
+      subject{pillar.nacchin_gogyo}
+      it_behaves_like :relation_get, params
+    end
+
+    test_patterns = [{:key => 'kane', :chishi => 'ne', :tenkan => 'kinoe'},
+                     {:key => 'kane', :chishi => 'usi', :tenkan => 'kinoto'},
+                     {:key => 'hi', :chishi => 'tora', :tenkan => 'hinoe'},
+                     {:key => 'hi', :chishi => 'u', :tenkan => 'hinoto'},
+                     {:key => 'ki', :chishi => 'tatsu', :tenkan => 'tsuchinoe'},
+                     {:key => 'ki', :chishi => 'mi', :tenkan => 'tsuchinoto'},
+                     {:key => 'tsuchi', :chishi => 'uma', :tenkan => 'kanoe'},
+                     {:key => 'tsuchi', :chishi => 'hitsuji', :tenkan => 'kanoto'},
+                     {:key => 'mizu', :chishi => 'i', :tenkan => 'mizunoto'}]
+
+    test_patterns.each do |pattern|
+      it_behaves_like :gogyo_get, pattern
+    end
+
+  end
+
+end

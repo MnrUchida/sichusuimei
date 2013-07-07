@@ -27,7 +27,8 @@ class PillarRelationData
   end
 
   def pillars_by_relation_name(relation_name)
-    @data[relation_name]['relation'].inject([]) do |pillars, (pillar_name, data)|
+    relation = @data[relation_name] || @rel_data[relation_name]
+    relation['relation'].inject([]) do |pillars, (pillar_name, data)|
       pillar_relation = {:base_pillar => pillar_name, :target => []}
       pillars + target_pillars(pillar_relation,data)
     end

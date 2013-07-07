@@ -1,7 +1,7 @@
 class Gogyo
 
   GOGYO_COUNT = 5
-  SHIDAI = [4,3,1,0]
+  CYCLE = [3,1,0,4,2]
 
   attr_reader :key, :color, :code, :name
 
@@ -34,7 +34,7 @@ class Gogyo
   end
 
   def self.shidai(code)
-    self.by_code(SHIDAI[code])
+    self.by_code( CYCLE[(code + 3) % (GOGYO_COUNT - 1)])
   end
 
   def self.by_key(key)
@@ -43,6 +43,10 @@ class Gogyo
 
   def self.by_code(code)
     GogyoData.instance.by_code(code)
+  end
+
+  def self.by_cycle(code)
+    self.by_code( CYCLE[code])
   end
 
   def in_kan

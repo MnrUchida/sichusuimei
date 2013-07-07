@@ -55,7 +55,18 @@ class MeishikiPlr < ActiveRecord::Base
     self.zoukan_id = self.new_zoukan.id
   end
 
+  def nacchin_gogyo
+    Gogyo.by_cycle(nacchin_gogyo_code)
+  end
+
   protected
+  def nacchin_gogyo_shi_offset
+    (Jikkan::JIKKAN_COUNT - (self.chishi.code - self.tenkan.code)) % Jikkan::JIKKAN_COUNT + self.chishi.angle_value.two_season(2).to_i
+  end
+
+  def nacchin_gogyo_code
+    (self.tenkan.gogyo.code + nacchin_gogyo_shi_offset) % Gogyo::GOGYO_COUNT
+  end
 
   def new_zoukan()
     self.chishi.zoukan(self.meishiki.day_from_sekki)
