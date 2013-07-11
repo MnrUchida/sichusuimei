@@ -69,3 +69,15 @@ shared_examples_for :relation_check_for_pillar_by_jikkan_with_relations do |para
   let(:relations){@relations}
   it_behaves_like :relation_check, params
 end
+
+shared_examples_for :relation_check_for_gogyo do |params|
+  let(:relation){Gogyo.by_key(params[:relation_value])}
+
+  it_behaves_like :relation_check, params
+end
+
+shared_examples_for :relation_get_for_gogyo do |params|
+  let(:expected){Gogyo.by_key(params[:relation_value])}
+
+  it_behaves_like :relation_get, params
+end

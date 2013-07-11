@@ -32,7 +32,7 @@ class JikkanData
   end
 
   def by_inyou_and_gogyo(inyou, gogyo_key)
-    find_by(by_inyou(inyou)){|datum|datum.gogyo_key == gogyo_key}
+    find_by(by_inyou(inyou)){|datum|datum.gogyo_key == gogyo_key.to_s}
   end
 
   def angle_relation_angle_string(angle_relation)

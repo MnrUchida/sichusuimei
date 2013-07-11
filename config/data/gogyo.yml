@@ -1,3 +1,94 @@
+METHOD:
+ kangakubi_inyou:
+  name: 干学日
+  default_method: ((cycle_index(1) + 1) % 2) * 2 - 1
+
+ kangakubi_gogyo:
+  name: 干学日
+  default_method: Gogyo.by_code((cycle_index(-1).div(2) + 1) * 2 - self.code)
+
+ kangakubi_kan:
+  name: 干学日
+  default_method: Jikkan.by_inyou_and_gogyo(kangakubi_inyou, kangakubi_gogyo.key)
+
+ kangakubi_kan?:
+  name: 干学日
+  default_method: target == kangakubi_kan
+
+ seijubi_gogyo:
+  name: 正綬日
+  default_method: Gogyo.by_code( ((self.code + 1) % 2 + (self.code - 2).abs.div(2) ** 2) ** 2 )
+
+ seijubi_inyou:
+  name: 正綬日
+  default_method: kangakubi_inyou
+
+ seijubi_kan:
+  name: 正綬日
+  default_method: Jikkan.by_inyou_and_gogyo(seijubi_inyou, seijubi_gogyo.key)
+
+ seijubi_kan?:
+  name: 正綬日
+  default_method: target == seijubi_kan
+
+ zaikobi_gogyo:
+  name: 財庫日
+  default_method: (self + 2).seijubi_gogyo
+
+ zaikobi_inyou:
+  name: 財庫日
+  default_method: (self + 2).seijubi_inyou
+
+ zaikobi_kan:
+  name: 財庫日
+  default_method: Jikkan.by_inyou_and_gogyo(zaikobi_inyou, zaikobi_gogyo.key)
+
+ seitoukajitsu_kan?:
+  name: 正桃華日
+  default_method: true
+  method:
+   - define: target == Jikkan.by_inyou_and_gogyo( ((self.code + 1) % 2) * 2 - 1, :tsuchi)
+     target:
+      - tsuchi
+      - kane
+
+ singinbi_gogyo:
+  name: 呻吟日
+  default_method: Gogyo.by_code(2 - self.pos_x)
+
+ singinbi_inyou:
+  name: 呻吟日
+  default_method: ((self + 1).code % 2) * 2 -1
+
+ singinbi_kan:
+  name: 呻吟日
+  default_method: Jikkan.by_inyou_and_gogyo(singinbi_inyou, singinbi_gogyo.key)
+
+ANGLE:
+ kangakubi_shi:
+  name: 干学日
+  default_method: AngleValue.new(((self.code + 1) % 2) * 2  + ((self.code + 2) % 3).div(2)).multi_shi(3).with_shi(2)
+
+ seijubi_shi:
+  name: 正綬日
+  default_method: AngleValue.new( (4 - cycle_index(-4)) % 4 + 1).multi_shi(3).with_shi(1)
+
+ zaikobi_shi:
+  name: 在庫日
+  default_method: (self + 2).seijubi_shi_angle.original
+
+ seitoukajitsu_shi_1:
+  name: 正桃華日
+  default_method: self.angle_value.with_shi(0.5).original
+
+ seitoukajitsu_shi_2:
+  name: 正桃華日
+  default_method: AngleValue.new( 4 * self.pos_x ** 2 + self.pos_x + 3 * self.pos_y ** 2 + self.pos_y).multi_shi(1).with_shi(6)
+
+ singinbi_shi:
+  name: 呻吟日
+  default_method: AngleValue.new( ((self + 1).code - 1).abs).multi_shi(3).with_shi(2)
+
 GOGYO:
  ki:
    code: 0

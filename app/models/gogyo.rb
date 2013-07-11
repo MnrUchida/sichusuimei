@@ -13,6 +13,10 @@ class Gogyo
     @color = data["color"]
   end
 
+  def cycle_index(offset)
+    (CYCLE.index(self.code) + offset) % GOGYO_COUNT
+  end
+
   def angle
     @angle.to_i
   end
