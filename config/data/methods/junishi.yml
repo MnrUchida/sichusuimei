@@ -1,0 +1,432 @@
+gou:
+  name: 支合
+  type: angle
+  default_method: (@angle * -1)
+  method:
+   - define: nil
+     target:
+      - ne
+      - usi
+      - uma
+      - hitsuji
+kei:
+  name: 刑
+  type: angle
+  method:
+   - define: (@angle.with_shi(3))
+     target:
+      - ne
+      - tora
+      - mi
+   - define: (@angle.with_shi(-3))
+     target:
+      - usi
+      - u
+      - inu
+   - define: (@angle.with_shi(6))
+     target:
+      - saru
+   - define: (@angle.with_shi(-6))
+     target:
+      - hitsuji
+   - define: (@angle)
+     target:
+      - tatsu
+      - uma
+      - tori
+      - i
+chu:
+  name: 冲
+  type: angle
+  default_method: (@angle.with_shi(6))
+
+ha:
+  name: 破
+  type: angle
+  default_method: (@angle - @angle.mod_shi(2).with_shi(-1) * (SHI_COUNT / 2))
+
+gai:
+  name: 害
+  type: angle
+  default_method: self.chu_angle * -1
+
+sangou:
+  name: 三合
+  type: angle
+  default_method: (@angle.with_shi(4))
+
+kagai:
+  name: 華蓋
+  type: angle
+  default_method: (@angle * -3).with_shi(2)
+
+tenmou:
+  name: 天耗
+  type: angle
+  default_method: (@angle * 2).with_shi(-3).with_shi(-0.5)
+
+chimou:
+  name: 地耗
+  type: angle
+  default_method: self.tenmou_angle.with_shi(-3)
+
+byakui:
+  name: 白衣
+  type: angle
+  method:
+   - define: (@angle.with_shi(3))
+     target:
+      - tora
+      - mi
+      - saru
+      - i
+   - define: (@angle.with_shi(-3))
+     target:
+      - ne
+      - u
+      - uma
+      - tori
+   - define: (@angle * 3).with_shi(2)
+     target:
+      - usi
+      - tatsu
+      - hitsuji
+      - inu
+
+kessi:
+  name: 血支
+  type: angle
+  default_method: (@angle.with_shi(-4))
+
+dankyo:
+  name: 断橋
+  type: angle
+  method:
+   - define: (@angle)
+     target:
+      - ne
+      - tora
+      - u
+   - define: (@angle.with_shi(-2))
+     target:
+      - usi
+   - define: (@angle.with_shi(4))
+     target:
+      - tatsu
+      - uma
+   - define: (@angle.with_shi(-4))
+     target:
+      - mi
+      - saru
+      - tori
+      - inu
+      - i
+   - define: (@angle.with_shi(2))
+     target:
+      - hitsuji
+
+ekiba:
+  name: 駅馬
+  type: angle
+  default_method: (@angle * 9).with_shi(6)
+
+momon:
+  name: 喪門
+  type: angle
+  default_method: (@angle.with_shi(2))
+
+sinjin:
+  name: 進神
+  _?:
+    default_method: self.sinjin_kan?(target.tenkan) && self.sinjin_shi?(target.chishi)
+    type: method
+  parts:
+    kan:
+      type: method_jikkan
+      default_method: (@angle.two_season.to_i) * (Jikkan::JIKKAN_COUNT / 2)
+    shi:
+      type: angle
+      default_method: (@angle.four_season * 2 + @angle.two_season).multi_shi(3).revise
+
+tensha:
+  name: 天赦
+  _?:
+    default_method: self.tensha_kan?(target.tenkan) && self.tensha_shi?(target.chishi)
+    type: method
+  parts:
+    kan:
+      type: method_jikkan
+      default_method: (@angle).even(3).to_i * Jikkan.by_key('tsuchinoe').code
+    shi:
+      type: angle
+      default_method: ((@angle.four_season(3) % 2) + @angle.two_season(3) * 3).multi_shi(2).revise
+
+zahai:
+  name: 座敗
+  parts:
+    1_shi:
+      type: angle
+      default_method: (@angle.two_season(6) + 2 ** @angle.four_season(6).to_i).multi_shi(1).revise
+    1_kan:
+      type: method_jikkan
+      default_method: (@angle.four_season + @angle.two_season).to_i
+    1:
+      _?:
+        default_method: self.zahai_1_kan?(target.tenkan) && self.zahai_1_shi?(target.chishi)
+        type: method
+    2_shi:
+      type: angle
+      default_method: (@angle.two_season(6) * 7 + @angle.even + 1).multi_shi(1).revise
+    2:
+      _?:
+        default_method: self.zahai_1_kan?(target.tenkan) && self.zahai_2_shi?(target.chishi)
+        type: method
+    3_shi:
+      type: angle
+      default_method: (@angle.four_season(-3) * @angle.two_season + @angle.two_season(6) * 3 + @angle.two_season(3) * 6 ).multi_shi(1).revise
+    3_kan:
+      type: method_jikkan
+      default_method: (@angle.two_season(3) * 2 + @angle.two_season).to_i ** 2 + (@angle.even * 3).to_i
+    3:
+      _?:
+        default_method: self.zahai_3_kan?(target.tenkan) && self.zahai_3_shi?(target.chishi)
+        type: method
+    4_kan:
+      type: method_jikkan
+      default_method: (@angle.four_season(3).to_i ** @angle.two_season(6).to_i + (@angle.two_season * 2).to_i ) * (3 ** @angle.two_season(3).to_i) + @angle.even.to_i
+    4:
+      _?:
+        default_method: self.zahai_4_kan?(target.tenkan) && self.zahai_3_shi?(target.chishi)
+        type: method
+
+tenten:
+  name: 天転
+  _?:
+    default_method: self.tenten_kan?(target.tenkan) && self.tenten_shi?(target.chishi)
+    type: method
+  parts:
+    shi:
+      type: angle
+      default_method: (@angle.four_season + 1).multi_shi(3).revise
+    kan:
+      type: method_jikkan
+      default_method: (@angle.even).to_i + @angle.two_season.to_i * 6 + 1
+
+chiten:
+  name: 地転
+  _?:
+    default_method: self.chiten_kan?(target.tenkan) && self.chiten_shi?(target.chishi)
+    type: method
+  parts:
+    kan:
+      type: method_jikkan
+      default_method: ((@angle.two_season(3) + 1) * 2 + @angle.even(3) * 5).to_i
+    shi:
+      type: angle
+      default_method: self.tenten_shi_angle
+
+tensatsu:
+  name: 天殺
+  _?:
+    default_method: self.tensatsu_kan?(target.tenkan) && self.tensatsu_shi?(target.chishi)
+    type: method
+  parts:
+    kan:
+      type: method_jikkan
+      default_method: (@angle.two_season(-3) * 2 + 1).to_i * (@angle.even(3) + 2).to_i
+    shi:
+      type: angle
+      default_method: self.tenten_shi_angle
+
+happu:
+  name: 八風
+  _?:
+    default_method: self.happu_kan?(target.tenkan) && (self.happu_1_shi?(target.chishi) || self.happu_2_shi?(target.chishi))
+    type: method
+  parts:
+    kan:
+      type: method_jikkan
+      default_method: (@angle).even(3).to_i * Jikkan.by_key('hinoto').code
+    1_shi:
+      type: angle
+      default_method: (@angle).four_season.multi_shi(3).with_shi(1).revise
+    2_shi:
+      type: angle
+      default_method: self.happu_1_shi_angle.with_shi(4)
+shihai:
+  name: 四廃
+  parts:
+    1_kan:
+      type: method_jikkan
+      default_method: (@angle.four_season(6) * (3 ** @angle.two_season(6).to_i)).to_i
+    1_shi:
+      type: angle
+      default_method: shihai_2_shi_angle.with_shi(-1)
+    1:
+      _?:
+        default_method: self.shihai_1_kan?(target.tenkan) && self.shihai_1_shi?(target.chishi)
+        type: method
+    2_kan:
+      type: method_jikkan
+      default_method: (@angle.even + @angle.two_season(6) * 6 + 1).to_i
+    2_shi:
+      type: angle
+      default_method: (@angle.four_season - 1).multi_shi(3).revise
+    2:
+      _?:
+        default_method: self.shihai_2_kan?(target.tenkan) && self.shihai_2_shi?(target.chishi)
+        type: method
+bouhai:
+  name: 暴敗
+  parts:
+    1_shi:
+      type: angle
+      default_method: (@angle.two_season(6) + @angle.even(3) * 3 + 1).multi_shi(2).revise
+    2_shi:
+      type: angle
+      default_method: bouhai_1_shi_angle.with_shi(1)
+    3_shi:
+      type: angle
+      default_method: (@angle).with_shi(3){ |angle|angle.four_season * angle.two_season(3) + angle.two_season * 4 + 6}.multi_shi(1).revise
+kajou:
+  name: 下情
+  parts:
+    1_shi:
+      type: angle
+      default_method: (@angle.two_season(3) * (-@angle.four_season + 6)).multi_shi(2).revise
+    2_shi:
+      type: angle
+      default_method: (@angle.even(3) + @angle.even * @angle.two_season(3) * 11).multi_shi(1).revise
+    3_shi:
+      type: angle
+      default_method: (@angle.two_season(-3) + @angle.even * 4 + 1).multi_shi(1).revise
+    4_shi:
+      type: angle
+      default_method: (@angle.two_season(-3) + @angle.even * 3 + 8).multi_shi(1).revise
+
+kakukaku:
+  name: 隔角
+  parts:
+    1_shi:
+      type: angle
+      default_method: yokubon_shi_angle
+    2_shi:
+      type: angle
+      default_method: kakukaku_1_shi_angle.with_shi(1)
+
+yokubon:
+  name: 浴盆
+  parts:
+    shi:
+      type: angle
+      default_method: (@angle).four_season(3).multi_shi(3).with_shi(1).revise
+
+shinsui:
+  name: 深水
+  parts:
+    1_shi:
+      type: angle
+      default_method: (@angle.two_season(3) * @angle.even(3) + @angle.even * 5 + 2).multi_shi(1).revise
+    2_shi:
+      type: angle
+      default_method: ( -(@angle.four_season(3) - 2) * @angle.two_season(-3) + @angle.two_season * 2 + 7).multi_shi(1).revise
+
+shogun:
+  name: 将軍
+  parts:
+    1_shi:
+      type: angle
+      default_method: (@angle.two_season(6) + @angle.two_season(-3) * 2 + 6).multi_shi(1).revise
+    2_shi:
+      type: angle
+      default_method: (@angle.two_season + @angle.two_season(3) * 2  + 10).multi_shi(1).revise
+    3_shi:
+      type: angle
+      default_method: ( -(@angle.four_season(3) - 5)).multi_shi(1).revise
+tentoku_kijin:
+  name: 天徳貴人
+  type: method
+  method:
+   - define: Junishi.by_angle( @angle.with_shi(5).in_circle)
+     target:
+      - ne
+      - u
+      - uma
+      - tori
+   - define: Zoukan.by_angle( (@angle - 12).with_shi(5).in_circle).jikkan
+     target:
+      - tora
+      - mi
+      - saru
+      - i
+   - define: Zoukan.by_angle( (@angle - 20).with_shi(5).in_circle).jikkan
+     target:
+      - usi
+      - tatsu
+      - hitsuji
+      - inu
+  _?:
+    default_method: target.tenkan.name == self.tentoku_kijin.name
+    type: method
+    method:
+     - define: target.chishi.name == self.tentoku_kijin.name
+       target:
+        - ne
+        - u
+        - uma
+        - tori
+
+tentoku_gou:
+  name: 天徳合
+  type: method
+  default_method: tentoku_kijin.gou
+  _?:
+    type: method
+    default_method: target.tenkan.name == self.tentoku_gou.name
+    method:
+     - define: target.chishi.name == self.tentoku_gou.name
+       target:
+        - ne
+        - u
+        - uma
+        - tori
+gettoku_kijin:
+  name: 月徳貴人
+  type: method
+  default_method: Gogyo.shidai(self.code % 4).you_kan
+
+gettoku_gou:
+  name: 月徳合
+  type: method
+  default_method: gettoku_kijin.gou
+
+gekku:
+  name: 月空
+  type: method
+  default_method: Gogyo.shidai((self.code + 2) % 4).you_kan
+
+seiseiba:
+  name: 生成馬
+  _?:
+    type: method
+    method:
+     - define: (ekiba?(target.chishi) && target.tenkan.code == (6 - 3 * ((self.code + 2) % 4)))
+       target:
+        - ne
+        - tora
+        - u
+        - tatsu
+        - uma
+        - hitsuji
+        - saru
+        - inu
+        - i
+     - define: (ekiba?(target.chishi) && target.tenkan.code == 7)
+       target:
+        - usi
+        - mi
+        - tori
+tentoku:
+  name: 天徳
+  type: method
+  default_method: return tentoku_kijin, tentoku_gou
