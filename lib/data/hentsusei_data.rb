@@ -4,18 +4,8 @@ require 'base_data'
 class HentsuseiData
   include BaseData
 
-  @yaml_data = Hash.new
-
-  def self.instance
-    @instance ||= self.new
-  end
-
   def initialize
-    @yaml_data = YAML.load_file('config/data/hentsusei.yml')
-    @data = @yaml_data["HENTSUSEI"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Hentsusei.new(key, data)
-      ret_data
-    end
+    init_data(Hentsusei)
   end
 
   def by_inyou(inyou)

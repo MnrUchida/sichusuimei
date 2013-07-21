@@ -1,4 +1,23 @@
 module BaseData
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def instance
+      @instance ||= self.new
+    end
+  end
+
+  def init_data(klass)
+    @data_name = klass.name.underscore
+    @data = data_yaml["data"].inject(Hash.new) do |ret_data, (key, data)|
+      ret_data[key] = klass.new(key, data)
+      ret_data
+    end
+
+  end
+
   def by_code(code)
     find_by(@data){|datum|datum.code == code}
   end
@@ -24,6 +43,7 @@ module BaseData
 
   def methods_yaml
     return @methods_yaml if @methods_yaml.present?
+    return unless File.exists?("config/data/methods/#{@data_name}.yml")
     @methods_yaml = YAML.load_file("config/data/methods/#{@data_name}.yml")
   end
 end

@@ -6,22 +6,10 @@ class JunishiData
   include BaseData
   include RelationDefine
 
-  @yaml_data = Hash.new
-
-  def self.instance
-    @instance ||= self.new
-  end
-
   def initialize
-    @yaml_data = YAML.load_file('config/data/junishi.yml')
-    @data = @yaml_data[:JUNISHI.to_s].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Junishi.new(key, data)
-      ret_data
-    end
+    init_data(Junishi)
 
-    def_method_relation(@yaml_data[:ANGLE.to_s]){|define, name| angle_relation_string(define, name)}
-    def_method_relation(@yaml_data[:METHOD.to_s]){|define, name| method_relation_string(define, name)}
-    def_method_relation(@yaml_data[:METHOD_JIKKAN.to_s]){|define, name| jikkan_relation_string(define, name)}
+    def_methods_new
   end
 
   def by_id(id)
@@ -39,5 +27,4 @@ class JunishiData
       (#{angle_relation}).in_circle
     EOS
   end
-
 end

@@ -1,6 +1,7 @@
 module RelationDefine
   public
   def def_methods_new
+    return if methods_yaml.nil?
     methods_yaml.each do |method_name, relation|
       def_method_new(method_name, relation)
       def_question_method_new(method_name, relation)
@@ -47,20 +48,15 @@ module RelationDefine
 
     relation['method'].inject([]) do |complete_target, method_define|
       complete_target + method_define['target'].map do |target|
-        @data[target].instance_eval def_relation_method_new(method_name, method_define['define'], relation['type'])
+        @data[target].instance_eval relation_method_hash[relation['type'].to_sym].
+                                        call(method_name, method_define['define'])
         target
       end
     end
   end
 
   def def_relation_method_new(method_name, relation, type)
-    case type
-      when 'method'
-        def_method_relation_new(method_name, relation)
-      when 'angle'
-        def_angle_relation_new(method_name, relation)
-      else
-    end
+    relation_method_hash[type.to_sym].call(method_name, relation)
   end
 
   def def_method_relation_new(method_name, method_relation)
@@ -83,93 +79,22 @@ module RelationDefine
     EOS
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  public
-  def def_method_relation(method_relation)
-    return if method_relation.nil?
-    method_relation.each do |method_name, relation|
-      complete_target = def_target_method(method_name, relation){|define, name| yield(define, name)}
-      def_default_method(method_name, relation, complete_target || []){|define, name| yield(define, name)}
-    end
-  end
-
-  def angle_relation_string(angle_relation, method_name)
-    <<-EOS
-      def #{method_name.to_s}_angle
-        #{angle_relation_angle_string(angle_relation)}
-      end
-
-      def #{method_name.to_s}
-        Junishi.by_angle(#{method_name.to_s}_angle.to_i)
-      end
-
-      def #{method_name.to_s}?(relate_junishi)
-        relate_junishi.angle == #{method_name.to_s}_angle.to_i
-      end
-    EOS
-  end
-
-  def jikkan_relation_string(jikkan_relation, method_name)
+  def def_jikkan_relation_new(method_name, method_relation)
     <<-EOS
       def #{method_name.to_s}_code
-        (#{jikkan_relation}) % Jikkan::JIKKAN_COUNT
+        (#{method_relation}) % Jikkan::JIKKAN_COUNT
       end
 
       def #{method_name.to_s}
         Jikkan.by_code(#{method_name.to_s}_code)
       end
-
-      def #{method_name.to_s}?(relate_jikkan)
-        relate_jikkan.code == #{method_name.to_s}_code
-      end
     EOS
   end
 
-  def method_relation_string(method_relation, method_name)
-    <<-EOS
-        def #{method_name.to_s}(target = nil)
-          #{method_relation}
-        end
-    EOS
-  end
-
-  private
-  def def_target_method(method_name, relation)
-    return unless relation.key?('method')
-
-    relation['method'].inject([]) do |complete_target, method_define|
-      complete_target + method_define['target'].map do |target|
-        @data[target].instance_eval yield(method_define['define'], method_name)
-        target
-      end
-    end
-  end
-
-  def def_default_method(method_name, relation, complete_target)
-    return unless relation.key?('default_method')
-
-    @data.each do |key, target|
-      next if complete_target.any?{|complete_key| complete_key == key}
-      target.instance_eval yield(relation['default_method'], method_name)
-    end
+  def relation_method_hash
+    {:method => lambda{|method_name, relation| def_method_relation_new(method_name, relation)},
+     :angle => lambda{|method_name, relation| def_angle_relation_new(method_name, relation)},
+     :method_jikkan => lambda{|method_name, relation| def_jikkan_relation_new(method_name, relation)},
+    }
   end
 end

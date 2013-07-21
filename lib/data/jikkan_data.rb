@@ -6,21 +6,10 @@ class JikkanData
   include BaseData
   include RelationDefine
 
-  @yaml_data = Hash.new
-
-  def self.instance
-    @instance ||= self.new
-  end
-
   def initialize
-    @yaml_data = YAML.load_file('config/data/jikkan.yml')
-    @data = @yaml_data["JIKKAN"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Jikkan.new(key, data)
-      ret_data
-    end
+    init_data(Jikkan)
 
-    def_method_relation(@yaml_data[:ANGLE.to_s]){|define, name| angle_relation_string(define, name)}
-    def_method_relation(@yaml_data[:METHOD.to_s]){|define, name| method_relation_string(define, name)}
+    def_methods_new
   end
 
   def by_id(id)

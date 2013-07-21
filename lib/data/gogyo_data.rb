@@ -5,16 +5,8 @@ class GogyoData
   include BaseData
   include RelationDefine
 
-  def self.instance
-    @instance ||= self.new
-  end
-
   def initialize
-    @data_name = 'gogyo'
-    @data = data_yaml["data"].inject(Hash.new) do |ret_data, (key, data)|
-      ret_data[key] = Gogyo.new(key, data)
-      ret_data
-    end
+    init_data(Gogyo)
 
     def_methods_new
   end

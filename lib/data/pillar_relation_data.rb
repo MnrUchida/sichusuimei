@@ -4,16 +4,10 @@ require 'base_data'
 class PillarRelationData
   include BaseData
 
-  @yaml_data = Hash.new
-
-  def self.instance
-    @instance ||= self.new
-  end
-
   def initialize
-    @yaml_data = YAML.load_file('config/data/pillar_relation.yml')
-    @data = @yaml_data["METHOD"]
-    @rel_data = @yaml_data["PLURAL_METHOD"]
+    @data_name = 'pillar_relation'
+    @data = methods_yaml["METHOD"]
+    @rel_data = methods_yaml["PLURAL_METHOD"]
   end
 
   def def_relation(pillar)
