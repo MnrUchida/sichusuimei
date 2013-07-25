@@ -164,3 +164,240 @@ yousakubi:
     kan:
       type: method
       default_method: Jikkan.by_inyou_and_gogyo(1, yousakubi_gogyo.key)
+
+josakubi:
+  name: 女錯日
+  _?:
+    type: method
+    default_method: josakubi_1?(target) || josakubi_2?(target) || josakubi_3?(target)
+  parts:
+    1:
+      _?:
+        type: method
+        default_method: josakubi_kan_1?(target.tenkan) && josakubi_shi_1?(target.chishi)
+    kan_1:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo(-1, self.key)
+          target:
+            - hi
+            - kane
+            - mizu
+    shi_1:
+      type: method
+      default_method: nil
+      method:
+        - type: angle
+          define: AngleValue.new(6 + self.code + (self.code + 1) % 2).multi_shi(1)
+          target:
+            - hi
+            - kane
+            - mizu
+    2:
+      _?:
+        type: method
+        default_method: josakubi_kan_2?(target.tenkan) && josakubi_shi_2?(target.chishi)
+    kan_2:
+      type: method
+      default_method: nil
+      method:
+        - define: josakubi_kan_1
+          target:
+            - kane
+            - mizu
+        - define: Jikkan.by_inyou_and_gogyo(self.code * 2 - 1, 'hi')
+          target:
+            - ki
+            - hi
+    shi_2:
+      type: method
+      default_method: nil
+      method:
+        - type: angle
+          define: AngleValue.new(1 + ((self.code + 1) / 2) * (self.code % 2) + 4 * (cycle_index(0) % 2)).multi_shi(1)
+          target:
+            - ki
+            - hi
+            - kane
+            - mizu
+    3:
+      _?:
+        type: method
+        default_method: josakubi_kan_3?(target.tenkan) && josakubi_shi_3?(target.chishi)
+    kan_3:
+      type: method
+      default_method: nil
+      method:
+        - define: josakubi_kan_1 + 1
+          target:
+            - hi
+    shi_3:
+      type: method
+      default_method: nil
+      method:
+        - define: Junishi.by_key('saru')
+          target:
+            - hi
+
+kaigou:
+  name: 魁ゴウ
+  parts:
+    1:
+      _?:
+        type: method
+        default_method: kaigou_kan_1?(target.tenkan) && kaigou_shi_1?(target.chishi)
+    kan_1:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo(1, self.key)
+          target:
+            - kane
+            - mizu
+    shi_1:
+      type: method
+      default_method: nil
+      method:
+        - type: angle
+          define: AngleValue.new(4 + 6 * (self.code % 2)).multi_shi(1)
+          target:
+            - hi
+            - kane
+            - mizu
+    2:
+      _?:
+        type: method
+        default_method: kaigou_kan_2?(target.tenkan) && kaigou_shi_2?(target.chishi)
+    kan_2:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo(1, 'kane')
+          target:
+            - hi
+    shi_2:
+      type: method
+      default_method: nil
+      method:
+        - type: angle
+          define: AngleValue.new(4).multi_shi(1)
+          target:
+            - hi
+    3:
+      _?:
+        type: method
+        default_method: kaigou_kan_3?(target.tenkan) && kaigou_shi_1?(target.chishi)
+    kan_3:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo(1, 'tsuchi')
+          target:
+            - hi
+taihai:
+  name: 大敗
+  parts:
+    1:
+      _?:
+        type: method
+        default_method: taihai_kan_1?(target.tenkan) && taihai_shi_1?(target.chishi)
+    kan_1:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(-1, self.key)
+      method:
+        - define: nil
+          type: method
+          target:
+            - kane
+    shi_1:
+      type: angle
+      default_method: AngleValue.new(1 - 2 * (cycle_index(0) % 2)).multi_shi(1)
+      method:
+        - define: nil
+          type: method
+          target:
+            - kane
+
+    2:
+      _?:
+        type: method
+        default_method: taihai_kan_2?(target.tenkan) && taihai_shi_2?(target.chishi)
+    kan_2:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(1, (self + 1).key)
+      method:
+        - define: nil
+          target:
+            - mizu
+            - tsuchi
+    shi_2:
+      type: angle
+      default_method: AngleValue.new(8).multi_shi(1)
+      method:
+        - define: nil
+          type: method
+          target:
+            - mizu
+            - tsuchi
+    3:
+      _?:
+        type: method
+        default_method: taihai_kan_3?(target.tenkan) && taihai_shi_3?(target.chishi)
+    kan_3:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo( 1, Gogyo.by_code(-self.code % GOGYO_COUNT).key)
+          target:
+            - ki
+            - tsuchi
+    shi_3:
+      type: method
+      default_method: nil
+      method:
+        - define: AngleValue.new(4).multi_shi(1)
+          type: angle
+          target:
+            - ki
+            - tsuchi
+    4:
+      _?:
+        type: method
+        default_method: taihai_kan_4?(target.tenkan) && taihai_shi_4?(target.chishi)
+    kan_4:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo( -1, Gogyo.by_code(-self.code % GOGYO_COUNT).key)
+          target:
+            - ki
+            - tsuchi
+    shi_4:
+      type: method
+      default_method: nil
+      method:
+        - define: AngleValue.new(5).multi_shi(1)
+          type: angle
+          target:
+            - ki
+            - tsuchi
+    5:
+      _?:
+        type: method
+        default_method: taihai_kan_5?(target.tenkan) && taihai_shi_5?(target.chishi)
+    kan_5:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo(1, self.key)
+          target:
+            - tsuchi
+    shi_5:
+      type: method
+      default_method: nil
+      method:
+        - define: AngleValue.new(10).multi_shi(1)
+          type: angle
+          target:
+            - tsuchi

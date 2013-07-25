@@ -13,6 +13,10 @@ class Gogyo
     @color = data["color"]
   end
 
+  def +(value)
+    Gogyo.by_code((self.code + value) % GOGYO_COUNT)
+  end
+
   def cycle_index(offset)
     (CYCLE.index(self.code) + offset) % GOGYO_COUNT
   end
@@ -27,10 +31,6 @@ class Gogyo
 
   def reverse_code
     (GOGYO_COUNT - @code) % GOGYO_COUNT
-  end
-
-  def +(value)
-    Gogyo.by_code((self.code + value) % GOGYO_COUNT)
   end
 
   def relation_with_gogyo(relate_gogyo)

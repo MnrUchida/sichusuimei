@@ -525,3 +525,532 @@ describe "陽錯日" do
     end
   end
 end
+
+describe "女錯日" do
+  describe "十干" do
+    describe "1つめ" do
+      shared_examples_for :josakubi_kan_1_get do |params|
+        subject{Gogyo.by_key(key).josakubi_kan_1}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :josakubi_kan_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_kan_1?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'hinoto'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'kanoto'},
+                       {:key => 'mizu', :relation_value => 'mizunoto'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_kan_1_get, pattern
+        it_behaves_like :josakubi_kan_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :josakubi_kan_2_get do |params|
+        subject{Gogyo.by_key(key).josakubi_kan_2}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :josakubi_kan_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_kan_2?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'hinoto'},
+                       {:key => 'hi', :relation_value => 'hinoe'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'kanoto'},
+                       {:key => 'mizu', :relation_value => 'mizunoto'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_kan_2_get, pattern
+        it_behaves_like :josakubi_kan_2_check, pattern
+      end
+    end
+    describe "3つめ" do
+      shared_examples_for :josakubi_kan_3_get do |params|
+        subject{Gogyo.by_key(key).josakubi_kan_3}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :josakubi_kan_3_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_kan_3?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'tsuchinoe'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_kan_3_get, pattern
+        it_behaves_like :josakubi_kan_3_check, pattern
+      end
+    end
+  end
+  describe "十二支" do
+    describe "1つめ" do
+      shared_examples_for :josakubi_shi_1_get do |params|
+        subject{Gogyo.by_key(key).josakubi_shi_1}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :josakubi_shi_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_shi_1?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'hitsuji'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'tori'},
+                       {:key => 'mizu', :relation_value => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_shi_1_get, pattern
+        it_behaves_like :josakubi_shi_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :josakubi_shi_2_get do |params|
+        subject{Gogyo.by_key(key).josakubi_shi_2}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :josakubi_shi_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_shi_2?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'usi'},
+                       {:key => 'hi', :relation_value => 'uma'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'u'},
+                       {:key => 'mizu', :relation_value => 'mi'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_shi_2_get, pattern
+        it_behaves_like :josakubi_shi_2_check, pattern
+      end
+    end
+    describe "3つめ" do
+      shared_examples_for :josakubi_shi_3_get do |params|
+        subject{Gogyo.by_key(key).josakubi_shi_3}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :josakubi_shi_3_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).josakubi_shi_3?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'saru'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :josakubi_shi_3_get, pattern
+        it_behaves_like :josakubi_shi_3_check, pattern
+      end
+    end
+  end
+
+end
+
+describe "魁ゴウ" do
+  describe "十干" do
+    describe "1つめ" do
+      shared_examples_for :kaigou_kan_1_get do |params|
+        subject{Gogyo.by_key(key).kaigou_kan_1}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :kaigou_kan_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).kaigou_kan_1?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'kanoe'},
+                       {:key => 'mizu', :relation_value => 'mizunoe'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kaigou_kan_1_get, pattern
+        it_behaves_like :kaigou_kan_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :kaigou_kan_2_get do |params|
+        subject{Gogyo.by_key(key).kaigou_kan_2}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :kaigou_kan_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).kaigou_kan_2?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'kanoe'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kaigou_kan_2_get, pattern
+        it_behaves_like :kaigou_kan_2_check, pattern
+      end
+    end
+    describe "3つめ" do
+      shared_examples_for :kaigou_kan_3_get do |params|
+        subject{Gogyo.by_key(key).kaigou_kan_3}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :kaigou_kan_3_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).kaigou_kan_3?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'tsuchinoe'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kaigou_kan_3_get, pattern
+        it_behaves_like :kaigou_kan_3_check, pattern
+      end
+    end
+  end
+  describe "十二支" do
+    describe "1つめ" do
+      shared_examples_for :kaigou_shi_1_get do |params|
+        subject{Gogyo.by_key(key).kaigou_shi_1}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :kaigou_shi_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).kaigou_shi_1?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'inu'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'inu'},
+                       {:key => 'mizu', :relation_value => 'tatsu'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kaigou_shi_1_get, pattern
+        it_behaves_like :kaigou_shi_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :kaigou_shi_2_get do |params|
+        subject{Gogyo.by_key(key).kaigou_shi_2}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :kaigou_shi_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).kaigou_shi_2?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => 'tatsu'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :kaigou_shi_2_get, pattern
+        it_behaves_like :kaigou_shi_2_check, pattern
+      end
+    end
+  end
+
+end
+
+describe "大敗" do
+  describe "十干" do
+    describe "1つめ" do
+      shared_examples_for :taihai_kan_1_get do |params|
+        subject{Gogyo.by_key(key).taihai_kan_1}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :taihai_kan_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_kan_1?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'kinoto'},
+                       {:key => 'hi', :relation_value => 'hinoto'},
+                       {:key => 'tsuchi', :relation_value => 'tsuchinoto'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => 'mizunoto'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_kan_1_get, pattern
+        it_behaves_like :taihai_kan_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :taihai_kan_2_get do |params|
+        subject{Gogyo.by_key(key).taihai_kan_2}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :taihai_kan_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_kan_2?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'hinoe'},
+                       {:key => 'hi', :relation_value => 'tsuchinoe'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'mizunoe'},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_kan_2_get, pattern
+        it_behaves_like :taihai_kan_2_check, pattern
+      end
+    end
+    describe "3つめ" do
+      shared_examples_for :taihai_kan_3_get do |params|
+        subject{Gogyo.by_key(key).taihai_kan_3}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :taihai_kan_3_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_kan_3?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'kinoe'},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'kanoe'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_kan_3_get, pattern
+        it_behaves_like :taihai_kan_3_check, pattern
+      end
+    end
+    describe "4つめ" do
+      shared_examples_for :taihai_kan_4_get do |params|
+        subject{Gogyo.by_key(key).taihai_kan_4}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :taihai_kan_4_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_kan_4?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'kinoto'},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'kanoto'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_kan_4_get, pattern
+        it_behaves_like :taihai_kan_4_check, pattern
+      end
+    end
+    describe "5つめ" do
+      shared_examples_for :taihai_kan_5_get do |params|
+        subject{Gogyo.by_key(key).taihai_kan_5}
+        it_behaves_like :relation_get_for_jikkan, params
+      end
+
+      shared_examples_for :taihai_kan_5_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_kan_5?(relation)}
+        it_behaves_like :relation_check_for_jikkan, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'tsuchinoe'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_kan_5_get, pattern
+        it_behaves_like :taihai_kan_5_check, pattern
+      end
+    end
+  end
+  describe "十二支" do
+    describe "1つめ" do
+      shared_examples_for :taihai_shi_1_get do |params|
+        subject{Gogyo.by_key(key).taihai_shi_1}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :taihai_shi_1_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_shi_1?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'usi'},
+                       {:key => 'hi', :relation_value => 'i'},
+                       {:key => 'tsuchi', :relation_value => 'usi'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => 'i'}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_shi_1_get, pattern
+        it_behaves_like :taihai_shi_1_check, pattern
+      end
+    end
+    describe "2つめ" do
+      shared_examples_for :taihai_shi_2_get do |params|
+        subject{Gogyo.by_key(key).taihai_shi_2}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :taihai_shi_2_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_shi_2?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'saru'},
+                       {:key => 'hi', :relation_value => 'saru'},
+                       {:key => 'tsuchi', :relation_value => nil},
+                       {:key => 'kane', :relation_value => 'saru'},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_shi_2_get, pattern
+        it_behaves_like :taihai_shi_2_check, pattern
+      end
+    end
+
+    describe "3つめ" do
+      shared_examples_for :taihai_shi_3_get do |params|
+        subject{Gogyo.by_key(key).taihai_shi_3}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :taihai_shi_3_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_shi_3?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'tatsu'},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'tatsu'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_shi_3_get, pattern
+        it_behaves_like :taihai_shi_3_check, pattern
+      end
+    end
+    describe "4つめ" do
+      shared_examples_for :taihai_shi_4_get do |params|
+        subject{Gogyo.by_key(key).taihai_shi_4}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :taihai_shi_4_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_shi_4?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => 'mi'},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'mi'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_shi_4_get, pattern
+        it_behaves_like :taihai_shi_4_check, pattern
+      end
+    end
+    describe "5つめ" do
+      shared_examples_for :taihai_shi_5_get do |params|
+        subject{Gogyo.by_key(key).taihai_shi_5}
+        it_behaves_like :relation_get_for_junishi, params
+      end
+
+      shared_examples_for :taihai_shi_5_check do |params|
+        params[:expected_value] = true
+
+        subject{Gogyo.by_key(key).taihai_shi_5?(relation)}
+        it_behaves_like :relation_check_for_junishi, params
+      end
+
+      test_patterns = [{:key => 'ki', :relation_value => nil},
+                       {:key => 'hi', :relation_value => nil},
+                       {:key => 'tsuchi', :relation_value => 'inu'},
+                       {:key => 'kane', :relation_value => nil},
+                       {:key => 'mizu', :relation_value => nil}]
+
+      test_patterns.each do |pattern|
+        it_behaves_like :taihai_shi_5_get, pattern
+        it_behaves_like :taihai_shi_5_check, pattern
+      end
+    end
+  end
+
+end

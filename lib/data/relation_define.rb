@@ -47,8 +47,9 @@ module RelationDefine
     return unless relation.key?('method')
 
     relation['method'].inject([]) do |complete_target, method_define|
+      type = (method_define['type'] || relation['type']).to_sym
       complete_target + method_define['target'].map do |target|
-        @data[target].instance_eval relation_method_hash[relation['type'].to_sym].
+        @data[target].instance_eval relation_method_hash[type].
                                         call(method_name, method_define['define'])
         target
       end

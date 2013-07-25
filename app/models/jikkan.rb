@@ -15,6 +15,14 @@ class Jikkan
     @gogyo_key = data["member"]["gogyo_key"]
   end
 
+  def +(value)
+    Jikkan.by_code((self.code + value) % JIKKAN_COUNT)
+  end
+
+  def -(value)
+    self.+(-value)
+  end
+
   def self.by_code(code)
     JikkanData.instance.by_code(code)
   end
