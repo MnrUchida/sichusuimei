@@ -1,0 +1,18 @@
+kangakubi:
+  name: 干学日
+  _?:
+    type: method
+    default_method: kangakubi_kan?(target.tenkan) && kangakubi_shi?(target.chishi)
+  parts:
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(kangakubi_inyou, kangakubi_gogyo.key)
+    inyou:
+      type: method
+      default_method: ((cycle_index(1) + 1) % 2) * 2 - 1
+    gogyo:
+      type: method
+      default_method: Gogyo.by_code((cycle_index(-1).div(2) + 1) * 2 - self.code)
+    shi:
+      type: angle
+      default_method: AngleValue.new(((self.code + 1) % 2) * 2  + ((self.code + 2) % 3).div(2)).multi_shi(3).with_shi(2)

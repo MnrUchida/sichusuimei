@@ -1,20 +1,4 @@
 METHOD:
- kangakubi_inyou:
-  name: 干学日
-  default_method: ((cycle_index(1) + 1) % 2) * 2 - 1
-
- kangakubi_gogyo:
-  name: 干学日
-  default_method: Gogyo.by_code((cycle_index(-1).div(2) + 1) * 2 - self.code)
-
- kangakubi_kan:
-  name: 干学日
-  default_method: Jikkan.by_inyou_and_gogyo(kangakubi_inyou, kangakubi_gogyo.key)
-
- kangakubi_kan?:
-  name: 干学日
-  default_method: target == kangakubi_kan
-
  seijubi_gogyo:
   name: 正綬日
   default_method: Gogyo.by_code( ((self.code + 1) % 2 + (self.code - 2).abs.div(2) ** 2) ** 2 )
@@ -64,11 +48,43 @@ METHOD:
   name: 呻吟日
   default_method: Jikkan.by_inyou_and_gogyo(singinbi_inyou, singinbi_gogyo.key)
 
-ANGLE:
- kangakubi_shi:
-  name: 干学日
-  default_method: AngleValue.new(((self.code + 1) % 2) * 2  + ((self.code + 2) % 3).div(2)).multi_shi(3).with_shi(2)
+ kigenbi_gogyo:
+  name: 鬼限日
+  default_method: self
 
+ kigenbi_inyou:
+  name: 鬼限日
+  default_method: -1
+  method:
+   - define: 1
+     target:
+      - kane
+
+ kigenbi_kan:
+  name: 鬼限日
+  default_method: Jikkan.by_inyou_and_gogyo(kigenbi_inyou, kigenbi_gogyo.key)
+
+ yousakubi_shi_2:
+  name: 陽錯日
+  default_method: nil
+  method:
+   - define: Junishi.by_key('inu')
+     target:
+      - mizu
+
+ yousakubi_shi_2?:
+  name: 陽錯日
+  default_method: target == yousakubi_shi_2
+
+ yousakubi_shi?:
+  name: 陽錯日
+  default_method: yousakubi_shi_1?(target) || yousakubi_shi_2?(target)
+
+ yousakubi_gogyo:
+  name: 陽錯日
+  default_method: Gogyo.by_cycle( ((3 - sign(code - 2)) % 3) * 2 - 1)
+
+ANGLE:
  seijubi_shi:
   name: 正綬日
   default_method: AngleValue.new( (4 - cycle_index(-4)) % 4 + 1).multi_shi(3).with_shi(1)
@@ -89,7 +105,27 @@ ANGLE:
   name: 呻吟日
   default_method: AngleValue.new( ((self + 1).code - 1).abs).multi_shi(3).with_shi(2)
 
-GOGYO:
+ bougaibi_shi_1:
+  name: 妨害日
+  default_method: AngleValue.new( 3 - (cycle_index(1) % 4)).multi_shi(3)
+
+ bougaibi_shi_2:
+  name: 妨害日
+  default_method: bougaibi_shi_1_angle.original.with_shi(1)
+  method:
+   - define: bougaibi_shi_1_angle.original.with_shi(-1)
+     target:
+      - hi
+
+ kigenbi_shi:
+  name: 鬼限日
+  default_method: AngleValue.new( cycle_index(0).div(3) * 9 + (2 - cycle_index(1).div(2)) * ((cycle_index(1) % 2) * 2 + 1) ).multi_shi(1)
+
+ yousakubi_shi_1:
+  name: 陽錯日
+  default_method: AngleValue.new((cycle_index(0) <= 2 ? 1:0) * 4 + (3 - (2 - cycle_index(0)).abs) % 3 ).multi_shi(2)
+
+data:
  ki:
    code: 0
    name: 木

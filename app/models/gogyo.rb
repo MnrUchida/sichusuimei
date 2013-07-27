@@ -85,4 +85,9 @@ class Gogyo
   def sign_pos
     code <= 2 ? 1 : -1
   end
+
+  def sign(value)
+    return 0 if value == 0
+    value / value.abs
+  end
 end

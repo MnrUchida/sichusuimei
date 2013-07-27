@@ -16,4 +16,14 @@ module BaseData
   def select_by(data)
     data.select{|key, datum| yield datum}
   end
+
+  def data_yaml
+    return @data_yaml if @data_yaml.present?
+    @data_yaml = YAML.load_file("config/data/#{@data_name}.yml")
+  end
+
+  def methods_yaml
+    return @methods_yaml if @methods_yaml.present?
+    @methods_yaml = YAML.load_file("config/data/methods/#{@data_name}.yml")
+  end
 end
