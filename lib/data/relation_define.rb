@@ -15,6 +15,7 @@ module RelationDefine
 
     relation['parts'].each do |name, part_relation|
       def_method_new("#{method_name}_#{name}", part_relation)
+      def_question_method_new("#{method_name}_#{name}", part_relation)
     end
   end
 
@@ -28,14 +29,27 @@ module RelationDefine
   end
 
   def def_method_new(method_name, relation)
-    def_default_method_new(method_name, relation)
+    complete_target = def_target_method_new(method_name, relation)
+    def_default_method_new(method_name, relation, complete_target || [])
   end
 
-  def def_default_method_new(method_name, relation)
+  def def_default_method_new(method_name, relation, complete_target)
     return unless relation.key?('default_method')
 
     @data.each do |key, target|
+      next if complete_target.any?{|complete_key| complete_key == key}
       target.instance_eval def_relation_method_new(method_name, relation['default_method'], relation['type'])
+    end
+  end
+
+  def def_target_method_new(method_name, relation)
+    return unless relation.key?('method')
+
+    relation['method'].inject([]) do |complete_target, method_define|
+      complete_target + method_define['target'].map do |target|
+        @data[target].instance_eval def_relation_method_new(method_name, method_define['define'], relation['type'])
+        target
+      end
     end
   end
 

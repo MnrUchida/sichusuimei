@@ -16,8 +16,6 @@ class GogyoData
       ret_data
     end
 
-    def_method_relation(data_yaml[:METHOD.to_s]){|define, name| method_relation_string(define, name)}
-    def_method_relation(data_yaml[:ANGLE.to_s]){|define, name| angle_relation_string(define, name)}
     def_methods_new
   end
 

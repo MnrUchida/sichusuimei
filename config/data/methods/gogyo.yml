@@ -16,3 +16,151 @@ kangakubi:
     shi:
       type: angle
       default_method: AngleValue.new(((self.code + 1) % 2) * 2  + ((self.code + 2) % 3).div(2)).multi_shi(3).with_shi(2)
+
+seijubi:
+  name: 正綬日
+  _?:
+    type: method
+    default_method: seijubi_kan?(target.tenkan) && seijubi_shi?(target.chishi)
+  parts:
+    shi:
+      type: angle
+      default_method: AngleValue.new( (4 - cycle_index(-4)) % 4 + 1).multi_shi(3).with_shi(1)
+    gogyo:
+      type: method
+      default_method: Gogyo.by_code( ((self.code + 1) % 2 + (self.code - 2).abs.div(2) ** 2) ** 2 )
+    inyou:
+      type: method
+      default_method: kangakubi_inyou
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(seijubi_inyou, seijubi_gogyo.key)
+
+zaikobi:
+  name: 在庫日
+  _?:
+    type: method
+    default_method: zaikobi_kan?(target.tenkan) && zaikobi_shi?(target.chishi)
+  parts:
+    gogyo:
+      type: method
+      default_method: (self + 2).seijubi_gogyo
+    inyou:
+      type: method
+      default_method: (self + 2).seijubi_inyou
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(zaikobi_inyou, zaikobi_gogyo.key)
+    shi:
+      type: angle
+      default_method: (self + 2).seijubi_shi_angle.original
+seitoukajitsu:
+  name: 正桃華日
+  _?:
+    type: method
+    default_method: seitoukajitsu_kan?(target.tenkan) && seitoukajitsu_shi?(target.chishi)
+  parts:
+    shi_1:
+      type: angle
+      default_method: self.angle_value.with_shi(0.5).original
+    shi_2:
+      type: angle
+      default_method: AngleValue.new( 4 * self.pos_x ** 2 + self.pos_x + 3 * self.pos_y ** 2 + self.pos_y).multi_shi(1).with_shi(6)
+    kan:
+      type: method
+      default_method: nil
+      method:
+        - define: Jikkan.by_inyou_and_gogyo( ((self.code + 1) % 2) * 2 - 1, :tsuchi)
+          target:
+           - tsuchi
+           - kane
+      _?:
+        type: method
+        default_method: true
+        method:
+          - define: target == seitoukajitsu_kan
+            target:
+             - tsuchi
+             - kane
+singinbi:
+  name: 呻吟日
+  _?:
+    type: method
+    default_method: singinbi_kan?(target.tenkan) && singinbi_shi?(target.chishi)
+  parts:
+    gogyo:
+      type: method
+      default_method: Gogyo.by_code(2 - self.pos_x)
+    inyou:
+      type: method
+      default_method: ((self + 1).code % 2) * 2 -1
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(singinbi_inyou, singinbi_gogyo.key)
+    shi:
+      type: angle
+      default_method: AngleValue.new( ((self + 1).code - 1).abs).multi_shi(3).with_shi(2)
+
+kigenbi:
+  name: 鬼限日
+  _?:
+    type: method
+    default_method: kigenbi_kan?(target.tenkan) && kigenbi_shi?(target.chishi)
+  parts:
+    gogyo:
+      type: method
+      default_method: self
+    inyou:
+      type: method
+      default_method: -1
+      method:
+       - define: 1
+         target:
+          - kane
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(kigenbi_inyou, kigenbi_gogyo.key)
+    shi:
+      type: angle
+      default_method: AngleValue.new( cycle_index(0).div(3) * 9 + (2 - cycle_index(1).div(2)) * ((cycle_index(1) % 2) * 2 + 1) ).multi_shi(1)
+bougaibi:
+  name: 妨害日
+  _?:
+    type: method
+    default_method: bougaibi_shi_1?(target.chishi) || bougaibi_shi_2?(target.chishi)
+  parts:
+    shi_1:
+      type: angle
+      default_method: AngleValue.new( 3 - (cycle_index(1) % 4)).multi_shi(3)
+    shi_2:
+      type: angle
+      default_method: bougaibi_shi_1_angle.original.with_shi(1)
+      method:
+       - define: bougaibi_shi_1_angle.original.with_shi(-1)
+         target:
+          - hi
+yousakubi:
+  _?:
+    type: method
+    default_method: yousakubi_kan(target.tenkan) && yousakubi_shi?(target.chishi)
+  parts:
+    shi:
+      _?:
+        type: method
+        default_method: yousakubi_shi_1?(target) || yousakubi_shi_2?(target)
+    shi_1:
+      type: angle
+      default_method: AngleValue.new((cycle_index(0) <= 2 ? 1:0) * 4 + (3 - (2 - cycle_index(0)).abs) % 3 ).multi_shi(2)
+    shi_2:
+      type: method
+      default_method: nil
+      method:
+       - define: Junishi.by_key('inu')
+         target:
+          - mizu
+    gogyo:
+      type: method
+      default_method: Gogyo.by_cycle( ((3 - sign(code - 2)) % 3) * 2 - 1)
+    kan:
+      type: method
+      default_method: Jikkan.by_inyou_and_gogyo(1, yousakubi_gogyo.key)
