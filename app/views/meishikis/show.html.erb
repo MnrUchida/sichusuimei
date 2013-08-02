@@ -8,7 +8,7 @@
     <td colspan=2>
       <%= render :partial => 'base_param', :locals => { :meishiki => @meishiki} %>
     </td>
-    <td rowspan=3>
+    <td colspan=2 rowspan=3>
       <%= image_tag url_for(:action => 'image', :id => @meishiki.id) %>
     </td>
   </tr>
@@ -26,15 +26,22 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td colspan=3>
+      <%= render :partial => 'sekki_disp', :locals => { :ext_meishiki => @ext_meishiki} %>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <%= render :partial => 'relation_with_year', :locals => { :meishiki => @meishiki} %>
     </td>
     <td valign="top">
       <%= render :partial => 'relation_with_month', :locals => { :meishiki => @meishiki} %>
     </td>
-  </tr>
-  <tr>
-    <td colspan=3>
-      <%= render :partial => 'sekki_disp', :locals => { :ext_meishiki => @ext_meishiki} %>
+    <td valign="top">
+      <%= render :partial => 'relation_with_day', :locals => { :meishiki => @meishiki} %>
+    </td>
+    <td valign="top">
+      <%= render :partial => 'relation_with_season', :locals => { :meishiki => @meishiki} %>
     </td>
   </tr>
 </table>

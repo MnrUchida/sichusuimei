@@ -67,7 +67,7 @@ class Junishi
   private
 
   def doou?(day)
-    return false unless @angle.with_shi(-0.5).mod_shi(3) == 0
+    return false unless @angle.with_shi(-0.5).mod_shi(3).to_i == 0
 
     zoukan(day).gogyo_key == 'tsuchi'
   end

@@ -9,7 +9,7 @@ class JunishiData
   def initialize
     init_data(Junishi)
 
-    def_methods_new
+    def_methods
   end
 
   def by_id(id)

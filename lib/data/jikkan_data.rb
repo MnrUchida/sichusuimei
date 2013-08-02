@@ -9,7 +9,7 @@ class JikkanData
   def initialize
     init_data(Jikkan)
 
-    def_methods_new
+    def_methods
   end
 
   def by_id(id)

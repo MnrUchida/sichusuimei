@@ -32,20 +32,68 @@ ja:
         chu: 冲
         ha: 破
         gai: 害
-        tentoku_kijin: 天徳貴人
-        tentoku_gou: 天徳合
-        gettoku_kijin: 月徳貴人
-        gettoku_gou: 月徳合
-        kagai: 華蓋
-        tenmou: 天耗
-        chimou: 地耗
-        byakui: 白衣
-        kessi: 血支
-        dankyo: 断橋
-        gekku: 月空
-        ekiba: 駅馬
-        seiseiba: 生成馬
-        momon: 喪門
+        year:
+          kangakubi: 干学日
+          seijubi: 正綬日
+          zaikobi: 在庫日
+          seitoukajitsu: 正桃華日
+          singinbi: 呻吟日
+          kigenbi: 鬼限日
+          bougaibi: 妨害日
+          yousakubi: 陽錯日
+          josakubi: 女錯日
+          kaigou: 魁ゴウ
+          taihai: 大敗
+        month:
+          tentoku_kijin: 天徳貴人
+          tentoku_gou: 天徳合
+          gettoku_kijin: 月徳貴人
+          gettoku_gou: 月徳合
+          kagai: 華蓋
+          tenmou: 天耗
+          chimou: 地耗
+          byakui: 白衣
+          kessi: 血支
+          dankyo: 断橋
+          gekku: 月空
+          ekiba: 駅馬
+          seiseiba: 生成馬
+          momon: 喪門
+        day:
+          taikyoku_kijin: 大極貴人
+          tenotsu_kijin: 天乙貴人
+          tenkan_kijin: 天官貴人
+          tenhuku_kijin: 天福貴人
+          anroku: 暗禄
+          kanroku: 干禄
+          fukigakudo: 富貴学童
+          tenchukijin: 天厨貴人
+          kinyoroku: 金輿禄
+          gakushi: 学士
+          tenzai: 天財
+          kyoroku: 夾禄
+          youjin: 羊刃
+          hijin: 飛刃
+          kouen: 紅艶
+          ryuka: 流霞
+          fukusei_kijin: 福星貴人
+          bunsei_kijin: 文星貴人
+          setsudojin: 節度人
+        season:
+          sinjin: 進神
+          tensha: 天赦
+          zahai: 座敗
+          tenten: 天転
+          chiten: 地転
+          tensatsu: 天殺
+          happu: 八風
+          shihai: 四廃
+          bouhai: 暴敗
+          kajou: 下情
+          kakukaku: 隔角
+          yokubon: 浴盆
+          shinsui: 深水
+          shogun: 将軍
       relation:
         name: 関連名
         function: 関数

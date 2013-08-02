@@ -431,10 +431,6 @@ describe "十干" do
                                                       {:type => MonthPillar, :value => 'ne'},
                                                       {:type => DayPillar, :value => 'uma'},
                                                       {:type => TimePillar, :value => 'i'}]},
-                     {:key => 'kinoe', :relations => [{:type => YearPillar, :value => 'inu'},
-                                                      {:type => MonthPillar, :value => 'ne'},
-                                                      {:type => DayPillar, :value => 'i'},
-                                                      {:type => TimePillar, :value => 'uma'}]},
                      {:key => 'tsuchinoe', :relations => [{:type => YearPillar, :value => 'inu'},
                                                       {:type => MonthPillar, :value => 'usi'},
                                                       {:type => DayPillar, :value => 'hitsuji'},
@@ -1467,6 +1463,16 @@ describe "四季" do
 end
 
 describe "納音" do
+  shared_examples_for :relation_check_for_pillar_by_pillar do |params|
+    params[:expected_value] = true
+
+    let(:pillar){YearPillar.new(:chishi_id => Junishi.by_key(params[:key][:chishi]).id,
+                                :tenkan_id => Jikkan.by_key(params[:key][:tenkan]).id)}
+
+    it_behaves_like :relation_check_for_pillar, params,
+                    Junishi.by_key(params[:relation][:chishi]), Jikkan.by_key(params[:relation][:tenkan])
+  end
+
   describe "五行" do
     shared_examples_for :gogyo_get do |params|
       let(:expected){Gogyo.by_key(params[:key])}
@@ -1544,4 +1550,227 @@ describe "納音" do
 
   end
 
+  describe "干学日" do
+    describe "1" do
+      shared_examples_for :kangakubi_1_check do |params|
+        params[:expected_value] = true
+
+        subject{pillar.kangakubi?(:target_pillar => relation)}
+        it_behaves_like :relation_check_for_pillar_by_pillar, params
+      end
+      test_patterns = [
+          {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'tsuchinoto', chishi: 'i'}},
+          {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoe', chishi: 'tora'}},
+          {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'saru'}},
+          {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'mi'}},
+          {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'kinoe', chishi: 'saru'}}]
+      test_patterns.each do |pattern|
+        it_behaves_like :kangakubi_1_check, pattern
+      end
+    end
+  end
+
+  describe "正綬日" do
+    shared_examples_for :seijubi_1_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.seijubi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'mizunoto', chishi: 'hitsuji'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'kinoe', chishi: 'inu'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'hinoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoe', chishi: 'tatsu'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :seijubi_1_check, pattern
+    end
+  end
+
+  describe "財庫日" do
+    shared_examples_for :zaikobi_1_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.zaikobi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'kinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'mizunoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'mizunoto', chishi: 'hitsuji'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'kinoe', chishi: 'inu'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :zaikobi_1_check, pattern
+    end
+  end
+
+  describe "正桃華日" do
+    shared_examples_for :seitoukajitsu_1_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.seitoukajitsu?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'i'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'kinoto', chishi: 'inu'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'uma'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'tori'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'kinoe', chishi: 'saru'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'u'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'kinoto', chishi: 'uma'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'uma'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'tori'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'kinoe', chishi: 'ne'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :seitoukajitsu_1_check, pattern
+    end
+  end
+
+  describe "呻吟日" do
+    shared_examples_for :singinbi_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.singinbi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'tora'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'mi'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'saru'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'i'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'tsuchinoto', chishi: 'mi'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :singinbi_check, pattern
+    end
+  end
+
+  describe "妨害日" do
+    shared_examples_for :bougaibi_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.bougaibi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'ne'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'u'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'tori'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'uma'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'tsuchinoto', chishi: 'tori'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'usi'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'tora'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'inu'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'hitsuji'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'tsuchinoto', chishi: 'inu'}}
+    ]
+    test_patterns.each do |pattern|
+      it_behaves_like :bougaibi_check, pattern
+    end
+  end
+
+  describe "鬼限日" do
+    shared_examples_for :kigenbi_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.kigenbi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'kinoto', chishi: 'u'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'i'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoe', chishi: 'uma'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoto', chishi: 'tori'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :kigenbi_check, pattern
+    end
+  end
+
+  describe "陽錯日" do
+    shared_examples_for :yousakubi_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.yousakubi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'saru'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoe', chishi: 'ne'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'tora'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'mizunoe', chishi: 'inu'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoe', chishi: 'inu'}}
+    ]
+    test_patterns.each do |pattern|
+      it_behaves_like :yousakubi_check, pattern
+    end
+  end
+
+  describe "女錯日" do
+    shared_examples_for :josakubi_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.josakubi?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoto', chishi: 'hitsuji'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'tori'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoto', chishi: 'i'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoe', chishi: 'uma'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoto', chishi: 'u'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoto', chishi: 'mi'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'saru'}}
+    ]
+    test_patterns.each do |pattern|
+      it_behaves_like :josakubi_check, pattern
+    end
+  end
+
+  describe "魁ゴウ" do
+    shared_examples_for :kaigou_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.kaigou?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'inu'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'kanoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'kanoe', chishi: 'inu'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoe', chishi: 'tatsu'}}]
+    test_patterns.each do |pattern|
+      it_behaves_like :kaigou_check, pattern
+    end
+  end
+
+  describe "大敗" do
+    shared_examples_for :taihai_check do |params|
+      params[:expected_value] = true
+
+      subject{pillar.taihai?(:target_pillar => relation)}
+      it_behaves_like :relation_check_for_pillar_by_pillar, params
+    end
+    test_patterns = [
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'kinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'hinoto', chishi: 'i'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoto', chishi: 'usi'}},
+        {:key => {:chishi => 'ne', :tenkan => 'hinoe'}, :relation => {tenkan: 'mizunoto', chishi: 'i'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'hinoe', chishi: 'saru'}},
+        {:key => {:chishi => 'u', :tenkan => 'hinoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'saru'}},
+        {:key => {:chishi => 'usi', :tenkan => 'kinoto'}, :relation => {tenkan: 'mizunoe', chishi: 'saru'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'kinoe', chishi: 'tatsu'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'kanoe', chishi: 'tatsu'}},
+        {:key => {chishi: 'tatsu', tenkan: 'tsuchinoe'}, :relation => {tenkan: 'kinoto', chishi: 'mi'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'kanoto', chishi: 'mi'}},
+        {:key => {:chishi => 'hitsuji', :tenkan => 'kanoto'}, :relation => {tenkan: 'tsuchinoe', chishi: 'inu'}},
+    ]
+    test_patterns.each do |pattern|
+      it_behaves_like :taihai_check, pattern
+    end
+  end
 end

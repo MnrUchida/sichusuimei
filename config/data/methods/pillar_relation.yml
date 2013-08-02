@@ -588,6 +588,62 @@ METHOD:
         DayPillar: null
         TimePillar: null
 
+  kangakubi?:
+    method: self.nacchin_gogyo.kangakubi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  seijubi?:
+    method: self.nacchin_gogyo.seijubi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  zaikobi?:
+    method: self.nacchin_gogyo.zaikobi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  seitoukajitsu?:
+    method: self.nacchin_gogyo.seitoukajitsu?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  singinbi?:
+    method: self.nacchin_gogyo.singinbi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  bougaibi?:
+    method: self.nacchin_gogyo.bougaibi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  kigenbi?:
+    method: self.nacchin_gogyo.kigenbi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  yousakubi?:
+    method: self.nacchin_gogyo.yousakubi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  josakubi?:
+    method: self.nacchin_gogyo.josakubi?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  kaigou?:
+    method: self.nacchin_gogyo.kaigou?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+  taihai?:
+    method: self.nacchin_gogyo.taihai?(target_pillar)
+    relation:
+      YearPillar:
+        DayPillar: null
+
 PLURAL_METHOD:
   taikyoku_kijin?:
     construct_methods:
@@ -595,7 +651,7 @@ PLURAL_METHOD:
       - self.tenkan.taikyoku_kijin_2?(target[1].chishi)
       - self.tenkan.taikyoku_kijin_3?(target[2].chishi)
       - self.tenkan.taikyoku_kijin_4?(target[3].chishi)
-      - "self.tenkan.gogyo.key == 'tsuchi' ? true : (target[0].pos - target[1].pos).abs <= 1"
+      - "(self.tenkan.gogyo.key == 'tsuchi' ? true : (target[0].pos - target[1].pos).abs <= 1)"
     relation:
       DayPillar:
         YearPillar:

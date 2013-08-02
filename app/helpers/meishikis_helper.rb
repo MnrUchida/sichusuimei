@@ -18,7 +18,7 @@ module MeishikisHelper
     end
   end
 
-  def display_month_pillar_relation(meishiki, method_name, display_string)
+  def display_pillar_relation(meishiki, method_name, display_string)
     PillarRelationData.instance.pillars_by_relation_name(method_name).inject("") do |ret_data, pillars|
       ret_data += content_of_target_pillar_relation(pillars, display_string) if result_of_pillar_relation(meishiki, method_name, pillars)
       ret_data

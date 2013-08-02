@@ -8,7 +8,7 @@ class GogyoData
   def initialize
     init_data(Gogyo)
 
-    def_methods_new
+    def_methods
   end
 
   def angle_relation_angle_string(angle_relation)

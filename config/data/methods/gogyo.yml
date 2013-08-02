@@ -1,7 +1,6 @@
 kangakubi:
   name: 干学日
   _?:
-    type: method
     default_method: kangakubi_kan?(target.tenkan) && kangakubi_shi?(target.chishi)
   parts:
     kan:
@@ -20,7 +19,6 @@ kangakubi:
 seijubi:
   name: 正綬日
   _?:
-    type: method
     default_method: seijubi_kan?(target.tenkan) && seijubi_shi?(target.chishi)
   parts:
     shi:
@@ -39,7 +37,6 @@ seijubi:
 zaikobi:
   name: 在庫日
   _?:
-    type: method
     default_method: zaikobi_kan?(target.tenkan) && zaikobi_shi?(target.chishi)
   parts:
     gogyo:
@@ -57,9 +54,11 @@ zaikobi:
 seitoukajitsu:
   name: 正桃華日
   _?:
-    type: method
     default_method: seitoukajitsu_kan?(target.tenkan) && seitoukajitsu_shi?(target.chishi)
   parts:
+    shi:
+      _?:
+        default_method: seitoukajitsu_shi_1?(target) || seitoukajitsu_shi_2?(target)
     shi_1:
       type: angle
       default_method: self.angle_value.with_shi(0.5).original
@@ -75,7 +74,6 @@ seitoukajitsu:
            - tsuchi
            - kane
       _?:
-        type: method
         default_method: true
         method:
           - define: target == seitoukajitsu_kan
@@ -85,7 +83,6 @@ seitoukajitsu:
 singinbi:
   name: 呻吟日
   _?:
-    type: method
     default_method: singinbi_kan?(target.tenkan) && singinbi_shi?(target.chishi)
   parts:
     gogyo:
@@ -104,7 +101,6 @@ singinbi:
 kigenbi:
   name: 鬼限日
   _?:
-    type: method
     default_method: kigenbi_kan?(target.tenkan) && kigenbi_shi?(target.chishi)
   parts:
     gogyo:
@@ -126,7 +122,6 @@ kigenbi:
 bougaibi:
   name: 妨害日
   _?:
-    type: method
     default_method: bougaibi_shi_1?(target.chishi) || bougaibi_shi_2?(target.chishi)
   parts:
     shi_1:
@@ -141,12 +136,10 @@ bougaibi:
           - hi
 yousakubi:
   _?:
-    type: method
     default_method: yousakubi_kan(target.tenkan) && yousakubi_shi?(target.chishi)
   parts:
     shi:
       _?:
-        type: method
         default_method: yousakubi_shi_1?(target) || yousakubi_shi_2?(target)
     shi_1:
       type: angle
@@ -168,12 +161,10 @@ yousakubi:
 josakubi:
   name: 女錯日
   _?:
-    type: method
     default_method: josakubi_1?(target) || josakubi_2?(target) || josakubi_3?(target)
   parts:
     1:
       _?:
-        type: method
         default_method: josakubi_kan_1?(target.tenkan) && josakubi_shi_1?(target.chishi)
     kan_1:
       type: method
@@ -196,7 +187,6 @@ josakubi:
             - mizu
     2:
       _?:
-        type: method
         default_method: josakubi_kan_2?(target.tenkan) && josakubi_shi_2?(target.chishi)
     kan_2:
       type: method
@@ -223,7 +213,6 @@ josakubi:
             - mizu
     3:
       _?:
-        type: method
         default_method: josakubi_kan_3?(target.tenkan) && josakubi_shi_3?(target.chishi)
     kan_3:
       type: method
@@ -242,10 +231,11 @@ josakubi:
 
 kaigou:
   name: 魁ゴウ
+  _?:
+    default_method: kaigou_1?(target) || kaigou_2?(target) || kaigou_3?(target)
   parts:
     1:
       _?:
-        type: method
         default_method: kaigou_kan_1?(target.tenkan) && kaigou_shi_1?(target.chishi)
     kan_1:
       type: method
@@ -267,7 +257,6 @@ kaigou:
             - mizu
     2:
       _?:
-        type: method
         default_method: kaigou_kan_2?(target.tenkan) && kaigou_shi_2?(target.chishi)
     kan_2:
       type: method
@@ -286,7 +275,6 @@ kaigou:
             - hi
     3:
       _?:
-        type: method
         default_method: kaigou_kan_3?(target.tenkan) && kaigou_shi_1?(target.chishi)
     kan_3:
       type: method
@@ -297,10 +285,11 @@ kaigou:
             - hi
 taihai:
   name: 大敗
+  _?:
+    default_method: taihai_1?(target) || taihai_2?(target) || taihai_3?(target) || taihai_4?(target) || taihai_5?(target)
   parts:
     1:
       _?:
-        type: method
         default_method: taihai_kan_1?(target.tenkan) && taihai_shi_1?(target.chishi)
     kan_1:
       type: method
@@ -318,10 +307,8 @@ taihai:
           type: method
           target:
             - kane
-
     2:
       _?:
-        type: method
         default_method: taihai_kan_2?(target.tenkan) && taihai_shi_2?(target.chishi)
     kan_2:
       type: method
@@ -342,7 +329,6 @@ taihai:
             - tsuchi
     3:
       _?:
-        type: method
         default_method: taihai_kan_3?(target.tenkan) && taihai_shi_3?(target.chishi)
     kan_3:
       type: method
@@ -363,7 +349,6 @@ taihai:
             - tsuchi
     4:
       _?:
-        type: method
         default_method: taihai_kan_4?(target.tenkan) && taihai_shi_4?(target.chishi)
     kan_4:
       type: method
@@ -384,7 +369,6 @@ taihai:
             - tsuchi
     5:
       _?:
-        type: method
         default_method: taihai_kan_5?(target.tenkan) && taihai_shi_5?(target.chishi)
     kan_5:
       type: method

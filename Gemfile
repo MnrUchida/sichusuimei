@@ -34,7 +34,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'rb-readline'
+  gem 'rb-readline', '~> 0.4.2'
 end
 group :test do
   gem "simplecov", :require => false
@@ -52,4 +52,4 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
