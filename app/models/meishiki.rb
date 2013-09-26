@@ -23,7 +23,11 @@ class Meishiki < ActiveRecord::Base
   end
 
   def day_from_sekki()
-    (self.birthday.to_date - self.sekki.date.to_date).to_i
+    (self.birthday.to_date - self.sekki.to_date).to_i
+  end
+
+  def day_for_next_sekki()
+    (self.sekki.next.to_date - self.birthday.to_date).to_i
   end
 
   def sekki_defined?()
@@ -85,6 +89,20 @@ class Meishiki < ActiveRecord::Base
 
   def pillar(pillar_name)
     meishiki_plr.where(:type => pillar_name).first
+  end
+
+  def taiun(count)
+    (0..count).map do |i|
+      self.month_pillar.taiun(i * self.year_pillar.tenkan.inyou)
+    end
+  end
+
+  def ritsuun
+    if self.year_pillar.tenkan.inyou * self.sex.to_i == 1
+      day_for_next_sekki / 3.0
+    else
+      day_from_sekki / 3.0
+    end
   end
 
   protected

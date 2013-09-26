@@ -136,7 +136,7 @@ bougaibi:
           - hi
 yousakubi:
   _?:
-    default_method: yousakubi_kan(target.tenkan) && yousakubi_shi?(target.chishi)
+    default_method: yousakubi_kan?(target.tenkan) && yousakubi_shi?(target.chishi)
   parts:
     shi:
       _?:

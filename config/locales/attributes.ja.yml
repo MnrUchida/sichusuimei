@@ -111,3 +111,5 @@ ja:
         cur_sekki_date: 入日
         bef_sekki_date: 前入日
         aft_sekki_date: 後入日
+      taiun:
+        age: 年齢

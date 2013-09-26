@@ -1,0 +1,22 @@
+<h1>大運</h1>
+
+<table border=1>
+  <tr>
+    <th><%= I18n.t("activerecord.attributes.taiun.age") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki_pillar.tenkan") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki_pillar.chishi") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki_pillar.hentsusei") %></th>
+    <th><%= I18n.t("activerecord.attributes.meishiki_pillar.houn") %></th>
+  </tr>
+
+<% @taiuns.each do |taiun| %>
+  <tr>
+    <td class="mr10"><%=taiun.age %></td>
+    <td class="mr10"><%=taiun.tenkan.name%></td>
+    <td class="mr10"><%=taiun.chishi.name%></td>
+    <td class="mr10"><%=taiun.tenkan_hentsusei.name%></td>
+    <td class="mr10"><%=taiun.houn.name%></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to t('activerecord.models.meishiki'), @meishiki, :class => 'btn'  %></td>

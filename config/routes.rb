@@ -5,12 +5,10 @@ Sichusuimei::Application.routes.draw do
     end
 
     member do
+      get 'taiun'
       get 'image'
     end
   end
-  resources :relations
-  resources :junishi_relations, :only => [:index, :destroy]
-  resources :pillar_relations
 
   match "ext_meishikis", :to => 'meishikis#create_sekki', :via => :post
 
