@@ -7,6 +7,9 @@ class Meishiki < ActiveRecord::Base
   after_create :create_piller
 
   attr_accessible :id, :name, :sex, :birthday, :meikyu
+
+  belongs_to :person
+
   has_many  :meishiki_plr, :foreign_key => "meishiki_id"
   has_one  :year_pillar, :foreign_key => "meishiki_id", :class_name => "YearPillar"
   has_one  :month_pillar, :foreign_key => "meishiki_id", :class_name => "MonthPillar"
@@ -17,22 +20,26 @@ class Meishiki < ActiveRecord::Base
   def_delegator :day_pillar, :kubou
   def_delegator :month_pillar, :zoukan, :teikou
 
+  def set_person
+    self.person_id = Person.find_by_name(self.name).id
+    self.save
+  end
   def sekki()
-    @sekki = Sekki.include_day(self.birthday) if @sekki == nil
+    @sekki = Sekki.include_day(self.person.birthday) if @sekki == nil
     @sekki
   end
 
   def day_from_sekki()
-    (self.birthday.to_date - self.sekki.to_date).to_i
+    (self.person.birthday.to_date - self.sekki.to_date).to_i
   end
 
   def day_for_next_sekki()
-    (self.sekki.next.to_date - self.birthday.to_date).to_i
+    (self.sekki.next.to_date - self.person.birthday.to_date).to_i
   end
 
   def sekki_defined?()
-    Sekki.is_defined_in_day?(self.birthday) &&
-      Sekki.is_defined_in_day?(self.birthday - 1.month)
+    Sekki.is_defined_in_day?(self.person.birthday) &&
+      Sekki.is_defined_in_day?(self.person.birthday - 1.month)
   end
 
   def tentoku
@@ -110,7 +117,7 @@ class Meishiki < ActiveRecord::Base
   def update_birth_day_by_meikyu
     return unless self.meikyu
 
-    self.birthday = self.birthday.beginning_of_day + time_of_birth_by_meikyu.hour
+    self.person.birthday = self.person.birthday.beginning_of_day + time_of_birth_by_meikyu.hour
     self.save
   end
 
@@ -119,7 +126,7 @@ class Meishiki < ActiveRecord::Base
   end
 
   def shi_of_time_by_meikyu
-    self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.birthday.day + 1)
+    self.month_pillar.chishi + ((Junishi::SHI_COUNT / 2) - self.person.birthday.day + 1)
   end
 
 end

@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe MeishikiPlr, "四柱" do
  let(:current_day){Time.new(1982,03,29,15,00,00)}
- let(:meishiki){Meishiki.create(:birthday=>current_day)}
+ let(:meishiki){Person.create(:birthday=>current_day).meishiki}
  
  before do
    Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
@@ -71,7 +71,7 @@ end
 
 describe MeishikiPlr, "9" do
   let(:current_day){Time.new(1982,03,16,15,00,00)}
-  let(:meishiki){Meishiki.create(:birthday=>current_day)}
+  let(:meishiki){Person.create(:birthday=>current_day).meishiki}
 
   before do
     Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
@@ -132,7 +132,7 @@ end
 
 describe MeishikiPlr, "10" do
   let(:current_day){Time.new(1982,03,17,15,00,00)}
-  let(:meishiki){Meishiki.create(:birthday=>current_day)}
+  let(:meishiki){Person.create(:birthday=>current_day).meishiki}
 
   before do
     Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
@@ -194,7 +194,7 @@ end
 
 describe MeishikiPlr, "12" do
   let(:current_day){Time.new(1982,03,19,15,00,00)}
-  let(:meishiki){Meishiki.create(:birthday=>current_day)}
+  let(:meishiki){Person.create(:birthday=>current_day).meishiki}
 
   before do
     Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)
@@ -255,7 +255,7 @@ end
 
 describe MeishikiPlr, "13" do
   let(:current_day){Time.new(1982,03,20,15,00,00)}
-  let(:meishiki){Meishiki.create(:birthday=>current_day)}
+  let(:meishiki){Person.create(:birthday=>current_day).meishiki}
 
   before do
     Sekki.create(:year => 1982, :month=>3, :day=>7, :hour=>7)

@@ -3,9 +3,9 @@ require 'forwardable'
 class ExtMeishiki < SimpleModel
   extend Forwardable
 
-  def_delegators :meishiki, :name, :name= , :sex, :sex=, :birthday, :birthday=, :meikyu, :meikyu=
+  def_delegators :person, :name, :name= , :sex, :sex=, :birthday, :birthday=, :meikyu, :meikyu=
 
-  attr_writer :meishiki
+  attr_writer :person
 
   def cur_sekki_date=(value)
     @cur_sekki = Sekki.new() if @cur_sekki.nil?
@@ -41,20 +41,20 @@ class ExtMeishiki < SimpleModel
     Sekki.exists?(sekki_where(1.month))
   end
 
-  def meishiki()
-    @meishiki = Meishiki.new() if @meishiki.nil?
-    @meishiki
+  def person()
+    @person ||= Person.new()
+    @person
   end
 
   def ext_meishikis_path
-    meishiki.meishikis_path
+    person
   end
 
   def save
     @cur_sekki.save
     @bef_sekki.save
     @aft_sekki.save
-    meishiki.save
+    person.save
   end
 
   protected

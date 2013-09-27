@@ -8,7 +8,7 @@ class MeishikisControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:meishikis)
+    assert_not_nil assigns(:people)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class MeishikisControllerTest < ActionController::TestCase
       delete :destroy, id: @meishiki
     end
 
-    assert_redirected_to meishikis_path
+    assert_redirected_to people_path
   end
 end

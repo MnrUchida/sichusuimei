@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528025051) do
+ActiveRecord::Schema.define(:version => 20130926095051) do
 
   create_table "gogyos", :force => true do |t|
     t.integer  "code"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20130528025051) do
     t.float    "point_day"
     t.integer  "gogyo_id"
     t.integer  "shi_teiou"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -103,6 +109,25 @@ ActiveRecord::Schema.define(:version => 20130528025051) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "meikyu",     :default => false
+    t.integer  "person_id"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "sex"
+    t.datetime "birthday"
+    t.boolean  "meikyu"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "person_jobs", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "job_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pillar_relation_pillars", :force => true do |t|

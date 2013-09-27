@@ -73,19 +73,11 @@ class MeishikiPlr < ActiveRecord::Base
   end
 
   def day_for_tenkan()
-    days_of_current_day - 6
+    self.meishiki.person.days_of_current_day - 6
   end
 
   def day_for_chishi()
-    days_of_current_day - 10
-  end
-
-  def days_of_current_day
-    days_of_current_year(self.meishiki.birthday.year - 1) + self.meishiki.birthday.strftime("%j").to_i
-  end
-
-  def days_of_current_year(year)
-    year*365 + (year/4).truncate - (year/100).truncate + (year/ 400).truncate
+    self.meishiki.person.days_of_current_day - 10
   end
 
   def gogyo_by_chishi()

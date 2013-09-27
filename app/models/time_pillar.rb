@@ -15,15 +15,11 @@ class TimePillar < MeishikiPlr
   end
 
   def time_for_tenkan
-    day_for_tenkan * 24 + hours_of_current_hour
+    day_for_tenkan * 24 + self.meishiki.person.hours_of_current_hour
   end
 
   def time_for_chishi
-    days_of_current_day * 24 + hours_of_current_hour
-  end
-
-  def hours_of_current_hour
-    (self.meishiki.birthday.to_time.getlocal.hour + 1) % 24
+    self.meishiki.person.days_of_current_day * 24 + self.meishiki.person.hours_of_current_hour
   end
 
 end
