@@ -9,6 +9,7 @@ Sichusuimei::Application.routes.draw do
       get 'image'
     end
   end
+  resources :jobs
 
   match "ext_meishikis", :to => 'people#create_sekki', :via => :post
 

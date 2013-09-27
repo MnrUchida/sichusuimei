@@ -11,85 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926095051) do
-
-  create_table "gogyos", :force => true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "angle"
-  end
-
-  create_table "hentsuseis", :force => true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.integer  "category"
-    t.integer  "inyou"
-    t.integer  "point"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "houns", :force => true do |t|
-    t.string   "name"
-    t.integer  "code"
-    t.integer  "point"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "angle"
-  end
-
-  create_table "jikkans", :force => true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.integer  "inyou"
-    t.float    "point"
-    t.float    "point_day"
-    t.integer  "gogyo_id"
-    t.integer  "shi_teiou"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130927025258) do
 
   create_table "jobs", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "junishi_gogyos", :force => true do |t|
-    t.integer  "gogyo_id"
-    t.float    "point"
-    t.float    "point_month"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "junishi_code"
-    t.integer  "doseishi"
-  end
-
-  create_table "junishi_relations", :force => true do |t|
-    t.integer  "junishi_code"
-    t.integer  "relation_code"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "junishi_terms", :force => true do |t|
-    t.integer  "shi_id"
-    t.integer  "term_start"
-    t.integer  "term_end"
-    t.integer  "zoukan_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "junishis", :force => true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "angle"
   end
 
   create_table "meishiki_plrs", :force => true do |t|
@@ -103,12 +30,8 @@ ActiveRecord::Schema.define(:version => 20130926095051) do
   end
 
   create_table "meishikis", :force => true do |t|
-    t.string   "name"
-    t.string   "sex"
-    t.datetime "birthday"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "meikyu",     :default => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "person_id"
   end
 
@@ -130,34 +53,6 @@ ActiveRecord::Schema.define(:version => 20130926095051) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pillar_relation_pillars", :force => true do |t|
-    t.integer  "pillar_relation_id"
-    t.string   "base_pillar"
-    t.string   "target_pillar"
-    t.string   "target2_pillar"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
-  create_table "pillar_relations", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "method_define"
-  end
-
-  create_table "relations", :force => true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.string   "function"
-    t.string   "except"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "description"
-    t.string   "type"
-    t.string   "relation_type"
-  end
-
   create_table "sekkis", :force => true do |t|
     t.integer  "year"
     t.integer  "month"
@@ -165,22 +60,6 @@ ActiveRecord::Schema.define(:version => 20130926095051) do
     t.integer  "hour"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "tentokus", :force => true do |t|
-    t.integer  "shi_id"
-    t.string   "type"
-    t.integer  "tentoku"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "zoukans", :force => true do |t|
-    t.integer  "jikkan_code"
-    t.integer  "start_angle"
-    t.integer  "span_angle"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
 end

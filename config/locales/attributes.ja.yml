@@ -113,3 +113,5 @@ ja:
         aft_sekki_date: 後入日
       taiun:
         age: 年齢
+      job:
+        name: 名前
