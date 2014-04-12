@@ -8,6 +8,7 @@ Sichusuimei::Application.routes.draw do
       get 'taiun'
       get 'image'
     end
+    resources :person_job
   end
   resources :jobs
 

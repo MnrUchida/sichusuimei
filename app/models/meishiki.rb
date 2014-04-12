@@ -37,11 +37,6 @@ class Meishiki < ActiveRecord::Base
     (self.sekki.next.to_date - self.person.birthday.to_date).to_i
   end
 
-  def sekki_defined?()
-    Sekki.is_defined_in_day?(self.person.birthday) &&
-      Sekki.is_defined_in_day?(self.person.birthday - 1.month)
-  end
-
   def tentoku
     return self.month_pillar.chishi.tentoku_kijin,
         self.month_pillar.chishi.tentoku_gou
@@ -100,12 +95,12 @@ class Meishiki < ActiveRecord::Base
 
   def taiun(count)
     (0..count).map do |i|
-      self.month_pillar.taiun(i * self.year_pillar.tenkan.inyou)
+      self.month_pillar.taiun(i * self.year_pillar.tenkan.inyou * self.person.sex.to_i)
     end
   end
 
   def ritsuun
-    if self.year_pillar.tenkan.inyou * self.sex.to_i == 1
+    if self.year_pillar.tenkan.inyou * self.person.sex.to_i == 1
       day_for_next_sekki / 3.0
     else
       day_from_sekki / 3.0
@@ -115,10 +110,10 @@ class Meishiki < ActiveRecord::Base
   protected
 
   def update_birth_day_by_meikyu
-    return unless self.meikyu
+    return unless self.person.meikyu
 
     self.person.birthday = self.person.birthday.beginning_of_day + time_of_birth_by_meikyu.hour
-    self.save
+    self.person.save
   end
 
   def time_of_birth_by_meikyu

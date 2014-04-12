@@ -1,0 +1,6 @@
+<h1><%= @person.name %></h1>
+
+<%= render :partial => 'form', :locals => {action:'update'} %>
+
+<%= link_to 'Show', person_person_job_path(@person_job.keys) %> %> |
+<%= link_to 'Back', person_person_job_index_path(@person_job.keys) %>

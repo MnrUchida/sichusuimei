@@ -54,7 +54,7 @@ zaikobi:
 seitoukajitsu:
   name: 正桃華日
   _?:
-    default_method: seitoukajitsu_kan?(target.tenkan) && seitoukajitsu_shi?(target.chishi)
+    default_method: seitoukajitsu_kan?(target.tenkan) || seitoukajitsu_shi?(target.chishi)
   parts:
     shi:
       _?:
@@ -74,7 +74,7 @@ seitoukajitsu:
            - tsuchi
            - kane
       _?:
-        default_method: true
+        default_method: false
         method:
           - define: target == seitoukajitsu_kan
             target:

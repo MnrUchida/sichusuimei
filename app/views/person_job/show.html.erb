@@ -1,0 +1,22 @@
+<%- model_class = PersonJob -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<h1><%= @person.name %></h1>
+
+<dl class="dl-horizontal">
+  <dt><%= model_class.human_attribute_name(:name) %>:</dt>
+  <dd><%= @person_job.job.name %></dd>
+  <dt><%= model_class.human_attribute_name(:start_date) %>:</dt>
+  <dd><%= @person_job.start_date %></dd>
+  <dt><%= model_class.human_attribute_name(:end_date) %>:</dt>
+  <dd><%= @person_job.end_date %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_person_person_job_path(@person_job.keys), :class => 'btn' %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              person_person_job_index_path, :class => 'btn' %>
+</div>

@@ -48,6 +48,7 @@
 
 <div class="form-actions">
   <%= link_to '大運', taiun_person_path(@person.meishiki), :class => 'btn' %>
+  <%= link_to '職業', person_person_job_index_path(@person.id), :class => 'btn' %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_person_path(@person.meishiki), :class => 'btn' %>
   <%= link_to t('.back', :default => t("helpers.links.back")),

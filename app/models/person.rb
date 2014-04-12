@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
   attr_accessible :name, :sex, :birthday, :meikyu
 
   has_one :meishiki
+  has_many :person_jobs
 
   after_create {self.create_meishiki}
 
@@ -15,6 +16,11 @@ class Person < ActiveRecord::Base
 
   def hours_of_current_hour
     (self.birthday.to_time.getlocal.hour + 1) % 24
+  end
+
+  def sekki_defined?()
+    Sekki.is_defined_in_day?(self.birthday) &&
+        Sekki.is_defined_in_day?(self.birthday - 1.month)
   end
 
 end

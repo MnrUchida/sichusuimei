@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
 
-    unless @person.meishiki.sekki_defined?
+    unless @person.sekki_defined?
       @ext_meishiki = ExtMeishiki.new(:person => @person)
 
       render action: :sekki
@@ -66,11 +66,12 @@ class PeopleController < ApplicationController
   def destroy
     @person.destroy
 
-    redirect_to meishikis_url
+    redirect_to persons_url
   end
 
   def create_sekki
-    @ext_meishiki = ExtMeishiki.new(params[:ext_meishiki])
+    @ext_meishiki = ExtMeishiki.new()
+    @ext_meishiki.set_data(params[:ext_meishiki])
 
     unless @ext_meishiki.save
       render action: "new"

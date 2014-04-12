@@ -1,0 +1,34 @@
+<h1><%= @person.name %></h1>
+
+<table border=1>
+  <tr>
+    <th><%= I18n.t("activerecord.attributes.job.name") %></th>
+    <th><%= I18n.t("activerecord.attributes.person_job.start_date") %></th>
+    <th><%= I18n.t("activerecord.attributes.person_job.end_date") %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @person.person_jobs.each do |person_job| %>
+  <tr>
+    <td class="mr10"><%= link_to person_job.job.name, person_person_job_path(person_job.keys) %></td>
+    <td class="mr10">
+      <% if person_job.start_date.present? %>
+        <%= l person_job.start_date  %>
+      <% end %>
+    </td>
+    <td class="mr10">
+      <% if person_job.end_date.present? %>
+          <%= l person_job.end_date  %>
+      <% end %>
+    </td>
+    <td class="mr10"><%= link_to 'Edit', edit_person_person_job_path(person_job.keys) %></td>
+    <td class="mr10"><%= link_to 'Destroy', person_person_job_path(person_job.keys), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job', new_person_person_job_path %>
+<%= link_to 'back', person_path(@person) %>
