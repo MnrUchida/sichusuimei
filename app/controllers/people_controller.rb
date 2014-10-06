@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   end
 
   def index
-    @people = Person.all
+    @people = Person.scoped.order(:id).reverse_order
   end
 
   def show

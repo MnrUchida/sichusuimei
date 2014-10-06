@@ -17,7 +17,7 @@ class Gruff::Spider
               center_x + x_offset,
               center_y + y_offset)
 
-      draw_label(center_x, center_y, current_angle, radius, data_row[DATA_LABEL_INDEX].to_s) unless hide_text
+      draw_label(center_x, center_y, current_angle, radius - 40, data_row[DATA_LABEL_INDEX].to_s) unless hide_text
 
       current_angle += additive_angle
     end
